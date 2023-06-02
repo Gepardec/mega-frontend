@@ -4,6 +4,8 @@ import {InformationTopBarComponent} from './information-top-bar.component';
 import {MonthlyReportService} from '../../services/monthly-report.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '../../../shared/shared.module';
+import {MatCardModule} from '@angular/material/card';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 const moment = _moment;
 
@@ -18,7 +20,9 @@ describe('InformationTopBarComponent', () => {
       declarations: [InformationTopBarComponent],
       imports: [
         TranslateModule.forRoot(),
-        SharedModule
+        SharedModule,
+        MatCardModule,
+        NgxSkeletonLoaderModule
       ]
     })
       .compileComponents().then(() => {
