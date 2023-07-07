@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ErrorService} from '../../services/error/error.service';
+import {configuration} from '../../constants/configuration';
 
 @Component({
   selector: 'app-error',
@@ -25,6 +26,10 @@ export class ErrorComponent implements OnInit {
   }
 
   navigatePreviousPage() {
-    this.router.navigate([this.redirectUrl]);
+    if (!this.redirectUrl) {
+      this.router.navigate([configuration.PAGE_URLS.MONTHLY_REPORT]);
+    } else {
+      this.router.navigate([this.redirectUrl]);
+    }
   }
 }
