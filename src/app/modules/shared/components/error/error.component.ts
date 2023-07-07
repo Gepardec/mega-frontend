@@ -26,7 +26,7 @@ export class ErrorComponent implements OnInit {
   }
 
   navigatePreviousPage() {
-    if (this.redirectUrl === undefined) {
+    if (!this.redirectUrl) {
       this.router.navigate([configuration.PAGE_URLS.MONTHLY_REPORT]);
     } else {
       this.router.navigate([this.redirectUrl]);
