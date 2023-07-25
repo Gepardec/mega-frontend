@@ -104,6 +104,11 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
         description: 'monthly-report.generalInfo.paidSickLeave',
         unit: 'monthly-report.generalInfo.day',
         value: this.monthlyReport.paidSickLeave
+      },
+      {
+        description: 'monthly-report.generalInfo.vacationDayBalance',
+        unit: 'monthly-report.generalInfo.day',
+        value: this.monthlyReport.vacationDayBalance
       }
     ];
   }

@@ -23,4 +23,5 @@ export class MonthlyReport {
   billableTime: string;
   totalWorkingTime: string;
   paidSickLeave: number;
+  vacationDayBalance: number;
 }
