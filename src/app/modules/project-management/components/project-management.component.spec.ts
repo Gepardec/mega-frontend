@@ -21,7 +21,7 @@ import {Comment} from '../../shared/models/Comment';
 import {MatDialog} from '@angular/material/dialog';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
-import {StepentriesService} from '../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../shared/services/stepentries/step-entries.service';
 import {MatSelectChange} from '@angular/material/select';
 import {ProjectEntriesService} from '../../shared/services/projectentries/project-entries.service';
 import {SnackbarService} from '../../shared/services/snackbar/snackbar.service';
@@ -47,7 +47,7 @@ describe('ProjectManagementComponent', () => {
   let configService: ConfigService;
   let pmService: ProjectManagementService;
   let commentService: CommentService;
-  let stepentryService: StepentriesService;
+  let stepentryService: StepEntriesService;
   let projectEntryService: ProjectEntriesService;
   let snackbarService: SnackbarService;
   let projectCommentService: ProjectCommentService;
@@ -76,7 +76,7 @@ describe('ProjectManagementComponent', () => {
       configService = TestBed.inject(ConfigService);
       pmService = TestBed.inject(ProjectManagementService);
       commentService = TestBed.inject(CommentService);
-      stepentryService = TestBed.inject(StepentriesService);
+      stepentryService = TestBed.inject(StepEntriesService);
       projectEntryService = TestBed.inject(ProjectEntriesService);
       snackbarService = TestBed.inject(SnackbarService);
       projectCommentService = TestBed.inject(ProjectCommentService);

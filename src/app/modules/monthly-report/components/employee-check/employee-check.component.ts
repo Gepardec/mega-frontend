@@ -3,7 +3,7 @@ import {MonthlyReport} from '../../models/MonthlyReport';
 import {CommentService} from '../../../shared/services/comment/comment.service';
 import {State} from '../../../shared/models/State';
 import {MatSelectionListChange} from '@angular/material/list';
-import {StepentriesService} from '../../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {Step} from '../../../shared/models/Step';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent} from '../../../shared/components/pm-progress/pm-progress.component';
@@ -44,7 +44,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     public commentService: CommentService,
     private monthlyReportService: MonthlyReportService,
-    public stepentriesService: StepentriesService,
+    public stepEntriesService: StepEntriesService,
     private bottomSheet: MatBottomSheet,
     @Inject(LOCALE_ID) private locale: string,
     private dialog: MatDialog) {
@@ -134,7 +134,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   setOpenAndUnassignedStepEntriesDone(): void {
     const closeDate = this.getSelectedDate();
 
-    this.stepentriesService
+    this.stepEntriesService
       .close(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(closeDate))
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
@@ -204,8 +204,9 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
         const date = this.getSelectedDate();
 
-        this.stepentriesService
-          .updateEmployeeStateForOffice(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
+        this.stepEntriesService
+          .updateEmployeeStateForOffice(
+            this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
           .subscribe(() => {
             this.emitRefreshMonthlyReport();
           });
@@ -216,7 +217,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   resetState() {
     const date = this.getSelectedDate();
 
-    this.stepentriesService
+    this.stepEntriesService
       .updateEmployeeStateForOffice(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.OPEN, null)
       .subscribe(() => {
         this.emitRefreshMonthlyReport();

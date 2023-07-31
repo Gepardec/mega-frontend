@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MonthlyReport} from '../../models/MonthlyReport';
-import {TranslateService} from "@ngx-translate/core";
-import {Moment} from "moment/moment";
-import {MonthlyReportService} from "../../services/monthly-report.service";
+import {TranslateService} from '@ngx-translate/core';
+import {Moment} from 'moment/moment';
+import {MonthlyReportService} from '../../services/monthly-report.service';
 import * as _moment from 'moment';
-import {Subscription, zip} from "rxjs";
-import {tap} from "rxjs/operators";
+import {Subscription, zip} from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 const moment = _moment;
 

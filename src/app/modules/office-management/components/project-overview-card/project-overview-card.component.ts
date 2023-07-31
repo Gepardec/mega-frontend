@@ -7,7 +7,7 @@ import {OfficeManagementService} from '../../services/office-management.service'
 import {NotificationService} from '../../../shared/services/notification/notification.service';
 import {TranslateService} from '@ngx-translate/core';
 import {CommentService} from '../../../shared/services/comment/comment.service';
-import {StepentriesService} from '../../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {State} from '../../../shared/models/State';
 import {ProjectManagementEntry} from '../../../project-management/models/ProjectManagementEntry';
 import {ProjectManagementService} from '../../../project-management/services/project-management.service';
@@ -44,7 +44,7 @@ export class ProjectOverviewCardComponent implements OnInit, OnDestroy {
 
   constructor(private omService: OfficeManagementService, private pmService: ProjectManagementService,
               private notificationService: NotificationService, private translate: TranslateService, private commentService: CommentService,
-              private stepEntryService: StepentriesService, private _bottomSheet: MatBottomSheet, private projectCommentService: ProjectCommentService,
+              private stepEntryService: StepEntriesService, private _bottomSheet: MatBottomSheet, private projectCommentService: ProjectCommentService,
               private snackbarService: SnackbarService) {
   }
 

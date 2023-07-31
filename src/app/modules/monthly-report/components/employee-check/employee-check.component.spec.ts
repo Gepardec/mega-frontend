@@ -13,7 +13,7 @@ import {configuration} from '../../../shared/constants/configuration';
 import {CommentService} from '../../../shared/services/comment/comment.service';
 import {of} from 'rxjs';
 import {MonthlyReport} from '../../models/MonthlyReport';
-import {StepentriesService} from '../../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {Employee} from '../../../shared/models/Employee';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
@@ -27,7 +27,7 @@ describe('EmployeeCheckComponent', () => {
   let fixture: ComponentFixture<EmployeeCheckComponent>;
 
   let commentService: CommentService;
-  let stepentriesService: StepentriesService;
+  let stepentriesService: StepEntriesService;
   let bottomSheet: MatBottomSheet;
 
   beforeEach(waitForAsync(() => {
@@ -48,7 +48,7 @@ describe('EmployeeCheckComponent', () => {
       component = fixture.componentInstance;
 
       commentService = TestBed.inject(CommentService);
-      stepentriesService = TestBed.inject(StepentriesService);
+      stepentriesService = TestBed.inject(StepEntriesService);
       bottomSheet = TestBed.inject(MatBottomSheet);
     });
   }));
