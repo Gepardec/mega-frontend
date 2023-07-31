@@ -12,7 +12,7 @@ import {UpdateEmployeeStep} from '../../models/UpdateEmployeeStep';
 @Injectable({
   providedIn: 'root'
 })
-export class StepentriesService {
+export class StepEntriesService {
 
   constructor(
     private httpClient: HttpClient,

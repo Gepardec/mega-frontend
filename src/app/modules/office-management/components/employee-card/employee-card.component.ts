@@ -12,7 +12,7 @@ import {CommentService} from '../../../shared/services/comment/comment.service';
 import {
   CommentsForEmployeeComponent
 } from '../../../shared/components/comments-for-employee/comments-for-employee.component';
-import {StepentriesService} from '../../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {Step} from '../../../shared/models/Step';
 
 import * as _moment from 'moment';
@@ -65,7 +65,7 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
     private notificationService: NotificationService,
     private translateService: TranslateService,
     private commentService: CommentService,
-    private stepEntryService: StepentriesService,
+    private stepEntryService: StepEntriesService,
     private _bottomSheet: MatBottomSheet,
     private configService: ConfigService) {
   }

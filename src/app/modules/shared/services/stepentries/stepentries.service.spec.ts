@@ -1,6 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
-import {StepentriesService} from './stepentries.service';
+import {StepEntriesService} from './step-entries.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '../config/config.service';
 import {Employee} from '../../models/Employee';
@@ -10,7 +10,7 @@ import {State} from '../../models/State';
 
 describe('StepentriesService', () => {
 
-  let stepentriesService: StepentriesService;
+  let stepentriesService: StepEntriesService;
   let httpTestingController: HttpTestingController;
   let configService: ConfigService;
 
@@ -19,7 +19,7 @@ describe('StepentriesService', () => {
       imports: [HttpClientTestingModule]
     });
 
-    stepentriesService = TestBed.inject(StepentriesService);
+    stepentriesService = TestBed.inject(StepEntriesService);
     httpTestingController = TestBed.inject(HttpTestingController);
     configService = TestBed.inject(ConfigService);
   });

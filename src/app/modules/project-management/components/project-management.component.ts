@@ -6,7 +6,7 @@ import {SelectionModel} from '@angular/cdk/collections';
 import {State} from '../../shared/models/State';
 import {ProjectManagementService} from '../services/project-management.service';
 import {ManagementEntry} from '../../shared/models/ManagementEntry';
-import {StepentriesService} from '../../shared/services/stepentries/stepentries.service';
+import {StepEntriesService} from '../../shared/services/stepentries/step-entries.service';
 import {environment} from '../../../../environments/environment';
 import {CommentService} from '../../shared/services/comment/comment.service';
 import {Comment} from '../../shared/models/Comment';
@@ -67,7 +67,7 @@ export class ProjectManagementComponent implements OnInit, OnDestroy {
 
   constructor(private dialog: MatDialog,
               private pmService: ProjectManagementService,
-              private stepEntryService: StepentriesService,
+              private stepEntryService: StepEntriesService,
               private commentService: CommentService,
               private configService: ConfigService,
               private projectEntryService: ProjectEntriesService,
