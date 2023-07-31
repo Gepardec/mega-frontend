@@ -60,7 +60,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.monthlyReport) {
+    if (changes.monthlyReport) {
       this.setGuiElements();
     }
   }
@@ -71,7 +71,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private setGuiElements() {
-    if(!this.monthlyReport) {
+    if (!this.monthlyReport) {
       this.employeeCheckIcon = undefined;
       this.employeeCheckText = '';
 
@@ -83,14 +83,14 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     let noTimesCurrentMonth = false;
 
     // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
-    if(this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
+    if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
 
-      if(this.monthlyReport.assigned) {
+      if (this.monthlyReport.assigned) {
         // Texte
-        if(this.monthlyReport.employeeCheckState === State.OPEN) {
+        if (this.monthlyReport.employeeCheckState === State.OPEN) {
           stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
         }
-        else if(this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
+        else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
           stateIndicatorText = 'monthly-report.inProgressDescription';
         }
       }
@@ -101,8 +101,8 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         noTimesCurrentMonth = true;
       }
     }
-    else if(this.monthlyReport.employeeCheckState === State.DONE) {
-      if(this.monthlyReport.otherChecksDone) {
+    else if (this.monthlyReport.employeeCheckState === State.DONE) {
+      if (this.monthlyReport.otherChecksDone) {
         // Show default State Indicator
         stateIndicatorText = 'monthly-report.checkSuccess';
       }
@@ -199,7 +199,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     );
 
     dialogRef.afterClosed().subscribe((result: EmployeeCheckConfirmDialogAction) => {
-      if(result?.type === EmployeeCheckConfirmDialogActionType.SAVE) {
+      if (result?.type === EmployeeCheckConfirmDialogActionType.SAVE) {
         const input = result.payload as string;
 
         const date = this.getSelectedDate();
