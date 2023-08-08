@@ -1,13 +1,10 @@
 import {Component, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {MonthlyReport} from '../../models/MonthlyReport';
 import {MonthlyReportService} from '../../services/monthly-report.service';
-import * as _moment from 'moment';
 import {GeneralInfoData} from '../../models/GeneralInfoData';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {toMonthYearString} from '../../../shared/utils/dateUtils';
-
-const moment = _moment;
 
 @Component({
   selector: 'app-general-info',
