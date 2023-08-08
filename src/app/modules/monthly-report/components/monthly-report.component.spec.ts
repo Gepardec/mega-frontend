@@ -10,7 +10,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {AngularMaterialModule} from '../../material/material-module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
-import {DisplayMonthlyReportComponent} from './display-monthly-report/display-monthly-report.component';
 import {JourneyCheckComponent} from './journey-check/journey-check.component';
 import {StateIndicatorComponent} from '../../shared/components/state-indicator/state-indicator.component';
 import {EmployeeCheckComponent} from './employee-check/employee-check.component';
@@ -21,7 +20,7 @@ import {
 } from '../../shared/components/datepicker-month-year/datepicker-month-year.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {State} from "../../shared/models/State";
+import {State} from '../../shared/models/State';
 
 describe('MonthlyReportComponent', () => {
 
@@ -34,7 +33,6 @@ describe('MonthlyReportComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         MonthlyReportComponent,
-        DisplayMonthlyReportComponent,
         JourneyCheckComponent,
         StateIndicatorComponent,
         EmployeeCheckComponent,

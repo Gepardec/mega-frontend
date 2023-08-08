@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MonthlyReport} from '../models/MonthlyReport';
 import {Subscription} from 'rxjs';
-import {MonthlyReportService} from '../services/monthly-report.service';
 import * as moment from 'moment';
+import {MonthlyReportService} from '../services/monthly-report.service';
 
 @Component({
   selector: 'app-monthly-report',
@@ -15,6 +15,10 @@ export class MonthlyReportComponent implements OnInit {
   private monthlyReportSubscription: Subscription;
 
   constructor(private monthlyReportService: MonthlyReportService) {
+  }
+
+  emitRefreshMonthlyReport() {
+    this.refreshMonthlyReport();
   }
 
   ngOnInit(): void {
