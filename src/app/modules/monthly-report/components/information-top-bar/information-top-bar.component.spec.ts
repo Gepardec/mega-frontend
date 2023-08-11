@@ -2,8 +2,8 @@ import {ComponentFixture, fakeAsync, flush, TestBed} from '@angular/core/testing
 import * as _moment from 'moment';
 import {InformationTopBarComponent} from './information-top-bar.component';
 import {MonthlyReportService} from '../../services/monthly-report.service';
-import {TranslateModule} from "@ngx-translate/core";
-import {SharedModule} from "../../../shared/shared.module";
+import {TranslateModule} from '@ngx-translate/core';
+import {SharedModule} from '../../../shared/shared.module';
 
 const moment = _moment;
 

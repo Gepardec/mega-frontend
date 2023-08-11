@@ -14,8 +14,8 @@ export class MonthlyReportService {
 
   monthlyReport: MonthlyReport;
 
-  selectedYear = new BehaviorSubject<number>(moment().subtract(1, 'month').year());
-  selectedMonth = new BehaviorSubject<number>(moment().subtract(1, 'month').month() + 1);
+  selectedYear = new BehaviorSubject<number>(moment().year());
+  selectedMonth = new BehaviorSubject<number>(moment().month());
 
   billablePercentage: number;
   totalWorkingTimeHours: number;
@@ -31,6 +31,6 @@ export class MonthlyReportService {
   }
 
   getAllByDate(year: number, month: number): Observable<MonthlyReport> {
-    return this.httpClient.get<MonthlyReport>(this.config.getBackendUrlWithContext(`/worker/monthendreports/${year}/${month + 1}`));
+    return this.httpClient.get<MonthlyReport>(this.config.getBackendUrlWithContext(`/worker/monthendreports/${year}/${month}`));
   }
 }
