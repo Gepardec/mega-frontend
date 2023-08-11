@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MonthlyReport} from '../models/MonthlyReport';
 import {Subscription} from 'rxjs';
-import * as moment from 'moment';
 import {MonthlyReportService} from '../services/monthly-report.service';
 
 @Component({
@@ -26,27 +25,22 @@ export class MonthlyReportComponent implements OnInit {
   }
 
   getAllTimeEntriesByDate(year: number, month: number): void {
-    this.monthlyReportSubscription = this.monthlyReportService.getAllByDate(year, month).subscribe((monthlyReport: MonthlyReport) => {
-      this.monthlyReport = monthlyReport;
+    this.monthlyReportSubscription = this.monthlyReportService.getAllByDate(year, month)
+      .subscribe((monthlyReport: MonthlyReport) => {
+          this.monthlyReport = monthlyReport;
     });
   }
 
   getAllTimeEntries(): void {
-    this.monthlyReportSubscription = this.monthlyReportService.getAll().subscribe((monthlyReport: MonthlyReport) => {
-      if (monthlyReport) {
+    this.monthlyReportSubscription = this.monthlyReportService.getAll()
+      .subscribe((monthlyReport: MonthlyReport) => {
         this.monthlyReport = monthlyReport;
-
-        // moment().add berücksichtigt jahreswechsel (z.B. Dec 2022 + 1 Monat = Jan 2023)
-        const dateOfNextMonth = moment(this.monthlyReport.employee.releaseDate).add(1, 'month');
-        this.monthlyReportService.selectedYear.next(dateOfNextMonth.year());
-        this.monthlyReportService.selectedMonth.next(dateOfNextMonth.month());
-      }
     });
   }
 
   refreshMonthlyReport(): void {
     // trigger skeleton loaders
     this.monthlyReport = null;
-    this.getAllTimeEntriesByDate(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
+    this.getAllTimeEntriesByDate(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue() + 1);
   }
 }

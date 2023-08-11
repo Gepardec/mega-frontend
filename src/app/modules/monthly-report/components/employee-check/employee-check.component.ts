@@ -54,7 +54,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     this.dateSelectionSub = zip(this.monthlyReportService.selectedYear, this.monthlyReportService.selectedMonth)
       .pipe(
         tap(value => {
-          this.selectedDateStr = toMonthYearString(value[0], value[1], this.locale);
+          this.selectedDateStr = toMonthYearString(value[0], value[1] - 1, this.locale);
         })
       ).subscribe();
   }
@@ -132,10 +132,8 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   setOpenAndUnassignedStepEntriesDone(): void {
-    const closeDate = this.getSelectedDate();
-
     this.stepEntriesService
-      .close(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(closeDate))
+      .close(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(moment()))
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
       });

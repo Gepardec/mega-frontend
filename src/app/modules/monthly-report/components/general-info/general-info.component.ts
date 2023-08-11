@@ -26,7 +26,7 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
     this.dateSelectionSub = zip(this.monthlyReportService.selectedYear, this.monthlyReportService.selectedMonth)
       .pipe(
         tap(value => {
-          this.selectedDateStr = toMonthYearString(value[0], value[1], this.locale);
+          this.selectedDateStr = toMonthYearString(value[0], value[1] - 1, this.locale);
         })
       ).subscribe();
   }

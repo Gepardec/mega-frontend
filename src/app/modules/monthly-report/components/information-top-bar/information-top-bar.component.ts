@@ -37,14 +37,14 @@ export class InformationTopBarComponent implements OnInit {
       .pipe(
         tap(value => {
           this.selectedYear = value[0];
-          this.selectedMonth = value[1] + 1;
+          this.selectedMonth = value[1];
         })
       ).subscribe();
   }
 
   dateChanged(date: Moment) {
-    this.monthlyReportService.selectedYear.next(moment(date).year());
-    this.monthlyReportService.selectedMonth.next(moment(date).month());
+    this.monthlyReportService.selectedYear.next(date.year());
+    this.monthlyReportService.selectedMonth.next(date.month() + 1);
     this.emitRefreshMonthlyReport();
   }
 
@@ -59,5 +59,4 @@ export class InformationTopBarComponent implements OnInit {
   emitRefreshMonthlyReport() {
     this.refreshMonthlyReport.emit();
   }
-
 }
