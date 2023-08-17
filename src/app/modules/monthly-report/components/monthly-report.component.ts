@@ -46,8 +46,13 @@ export class MonthlyReportComponent implements OnInit {
   }
 
   refreshMonthlyReport(): void {
-    // trigger skeleton loaders
-    this.monthlyReport = null;
-    this.getAllTimeEntriesByDate(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue() + 1);
+    if (this.monthlyReport.initialDate == null) {
+      // trigger skeleton loaders
+      this.monthlyReport = null;
+      this.getAllTimeEntriesByDate(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
+    } else {
+      // on initial load don't call both
+      this.monthlyReport.initialDate = null;
+    }
   }
 }
