@@ -15,6 +15,7 @@ export class MonthlyReport {
   otherChecksDone: boolean;
   assigned: boolean;
   employee: Employee;
+  initialDate: string;
   employeeProgresses: Array<PmProgress>;
   vacationDays: number;
   homeofficeDays: number;
