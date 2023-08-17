@@ -132,8 +132,10 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   setOpenAndUnassignedStepEntriesDone(): void {
+    const closeDate = this.getSelectedDate();
+
     this.stepEntriesService
-      .close(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(moment()))
+      .close(this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(closeDate))
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
       });
