@@ -34,7 +34,14 @@ export class MonthlyReportComponent implements OnInit {
   getAllTimeEntries(): void {
     this.monthlyReportSubscription = this.monthlyReportService.getAll()
       .subscribe((monthlyReport: MonthlyReport) => {
-        this.monthlyReport = monthlyReport;
+        if (monthlyReport) {
+          this.monthlyReport = monthlyReport;
+
+          const date = new Date(monthlyReport.initialDate);
+          this.monthlyReportService.selectedMonth.next(date.getMonth());
+          this.monthlyReportService.selectedYear.next(date.getFullYear());
+          this.emitRefreshMonthlyReport();
+        }
     });
   }
 
