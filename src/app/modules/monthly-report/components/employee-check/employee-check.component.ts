@@ -144,7 +144,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   private getSelectedDate() {
     return moment()
       .year(this.monthlyReportService.selectedYear.value)
-      .month(this.monthlyReportService.selectedMonth.value)
+      .month(this.monthlyReportService.selectedMonth.value - 1)
       .date(1)
       .startOf('day');
   }
