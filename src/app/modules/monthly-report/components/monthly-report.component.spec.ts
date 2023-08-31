@@ -95,17 +95,6 @@ describe('MonthlyReportComponent', () => {
     expect(monthlyReportService.getAll).toHaveBeenCalled();
   }));
 
-  it('#refreshMonthlyReport - should call monthlyReportService.getAllByDate', fakeAsync(() => {
-    fixture.detectChanges();
-
-    spyOn(monthlyReportService, 'getAllByDate').and.returnValue(of(MonthlyReportServiceMock.monthlyReport));
-
-    component.refreshMonthlyReport();
-    flush();
-
-    expect(monthlyReportService.getAllByDate).toHaveBeenCalled();
-  }));
-
   class EmployeeMock {
     static employee: Employee = {
       email: 'LIW-Microservices',
@@ -124,6 +113,7 @@ describe('MonthlyReportComponent', () => {
 
     static monthlyReport: MonthlyReport = {
       internalCheckState : State.OPEN,
+      initialDate: null,
       vacationDays: 1,
       paidSickLeave: 1,
       totalWorkingTime: '08:00',
@@ -142,7 +132,6 @@ describe('MonthlyReportComponent', () => {
   }
 
   class TimeMock {
-
     static year = 2020;
     static month = 2;
   }

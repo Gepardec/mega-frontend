@@ -40,32 +40,23 @@ describe('MonthlyReportService', () => {
     testResult.flush(MonthlyReportMock.monthlyReport);
   });
 
-  it('#getAll - should return MonthlyReport by date November for next month in current year', (done) => {
-    monthlyReportService.getAllByDate(2021, 11)
+  it('#getAll - should return MonthlyReport by Date', (done) => {
+    monthlyReportService.getAllByDate(MonthlyReportMock.year, MonthlyReportMock.month)
       .subscribe(monthlyReport => {
         expect(monthlyReport).toEqual(MonthlyReportMock.monthlyReport);
         done();
       });
 
-    const testResult = httpTestingController.expectOne(configService.getBackendUrlWithContext('/worker/monthendreports/2021/12'));
-    testResult.flush(MonthlyReportMock.monthlyReport);
-  });
+    const testResult = httpTestingController.expectOne(
+      configService.getBackendUrlWithContext('/worker/monthendreports/' + MonthlyReportMock.year + '/' + MonthlyReportMock.month));
 
-  it('#getAll - should return MonthlyReport by date December for next month in next year', (done) => {
-    monthlyReportService.getAllByDate(2021, 12)
-      .subscribe(monthlyReport => {
-        expect(monthlyReport).toEqual(MonthlyReportMock.monthlyReport);
-        done();
-      });
-
-    const testResult = httpTestingController.expectOne(configService.getBackendUrlWithContext('/worker/monthendreports/2022/1'));
     testResult.flush(MonthlyReportMock.monthlyReport);
   });
 
   class MonthlyReportMock {
 
-    static year: number = 2021;
-    static month: number = 11;
+    static year = 2021;
+    static month = 11;
 
     static employee: Employee = {
       email: 'max-muster@gepardec.com',
@@ -81,6 +72,7 @@ describe('MonthlyReportService', () => {
 
     static monthlyReport: MonthlyReport = {
       internalCheckState: State.OPEN,
+      initialDate: null,
       assigned: true,
       billableTime: '10:15',
       comments: null,

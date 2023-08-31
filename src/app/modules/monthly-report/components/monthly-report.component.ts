@@ -51,7 +51,7 @@ export class MonthlyReportComponent implements OnInit {
       this.monthlyReport = null;
       this.getAllTimeEntriesByDate(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
     } else {
-      // on initial load don't call both
+      // prevent calling both service methods on initializing
       this.monthlyReport.initialDate = null;
     }
   }

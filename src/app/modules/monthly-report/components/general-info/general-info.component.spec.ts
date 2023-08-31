@@ -49,8 +49,8 @@ describe('GeneralInfoComponent', () => {
 
     fixture.detectChanges();
 
-    assertMonthlyReportRow(4, 'Urlaub', '3', 'Tage');
-    assertMonthlyReportRow(5, 'Zeitausgleich', '2', 'Tage');
+    assertMonthlyReportRow(4, 'Konsumierter Urlaub', '3', 'Tage');
+    assertMonthlyReportRow(5, 'Konsumierter Zeitausgleich', '2', 'Tage');
     assertMonthlyReportRow(6, 'Homeoffice', '10', 'Tage');
 
   });
@@ -68,8 +68,8 @@ describe('GeneralInfoComponent', () => {
 
     fixture.detectChanges();
 
-    assertMonthlyReportRow(4, 'Urlaub', '1', 'Tag');
-    assertMonthlyReportRow(5, 'Zeitausgleich', '1', 'Tag');
+    assertMonthlyReportRow(4, 'Konsumierter Urlaub', '1', 'Tag');
+    assertMonthlyReportRow(5, 'Konsumierter Zeitausgleich', '1', 'Tag');
     assertMonthlyReportRow(6, 'Homeoffice', '1', 'Tag');
   });
 
