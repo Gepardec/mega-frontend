@@ -105,11 +105,12 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
         unit: 'monthly-report.generalInfo.day',
         value: this.monthlyReport.paidSickLeave
       },
-      {
-        description: 'monthly-report.generalInfo.vacationDayBalance',
-        unit: 'monthly-report.generalInfo.day',
-        value: this.monthlyReport.vacationDayBalance
-      }
+      //TODO: disabled until Personio API sends the correct data
+      // {
+      //   description: 'monthly-report.generalInfo.vacationDayBalance',
+      //   unit: 'monthly-report.generalInfo.day',
+      //   value: this.monthlyReport.vacationDayBalance
+      // }
     ];
   }
 }
