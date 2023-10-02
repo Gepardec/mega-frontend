@@ -29,7 +29,7 @@ describe('StepentriesService', () => {
   });
 
   it('#close - should return true', (done) => {
-    stepentriesService.close(StepentriesMock.employee, Step.ACCEPT_TIMES, StepentriesMock.monthYear)
+    stepentriesService.close(StepentriesMock.employee, Step.CONTROL_INTERNAL_TIMES, StepentriesMock.monthYear)
       .subscribe(success => {
         expect(success).toEqual(true);
         done();
@@ -40,7 +40,7 @@ describe('StepentriesService', () => {
   });
 
   it('#updateEmployeeStateForOffice - should return true', (done) => {
-    stepentriesService.updateEmployeeStateForOffice(StepentriesMock.employee, Step.ACCEPT_TIMES, StepentriesMock.monthYear, State.DONE)
+    stepentriesService.updateEmployeeStateForOffice(StepentriesMock.employee, Step.CONTROL_INTERNAL_TIMES, StepentriesMock.monthYear, State.DONE)
       .subscribe(success => {
         expect(success).toEqual(true);
         done();
