@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {configuration} from './modules/shared/constants/configuration';
-import {LoginComponent} from './modules/shared/components/login/login.component';
-import {LoginGuard} from './modules/shared/guards/login.guard';
-import {RolesGuard} from './modules/shared/guards/roles.guard';
-import {ErrorComponent} from './modules/shared/components/error/error.component';
-import {MonthlyReportComponent} from './modules/monthly-report/components/monthly-report.component';
-import {OfficeManagementComponent} from './modules/office-management/components/office-management/office-management.component';
-import {ProjectManagementComponent} from './modules/project-management/components/project-management.component';
-import {Role} from './modules/shared/models/Role';
+import {configuration} from './domains/shared/constants/configuration';
+import {LoginComponent} from './domains/shared/components/login/login.component';
+import {LoginGuard} from './domains/shared/guards/login.guard';
+import {RolesGuard} from './domains/shared/guards/roles.guard';
+import {ErrorComponent} from './domains/shared/components/error/error.component';
+import {MonthlyReportComponent} from './domains/monthly-report/components/monthly-report.component';
+import {OfficeManagementComponent} from './domains/office-management/components/office-management/office-management.component';
+import {ProjectManagementComponent} from './domains/project-management/components/project-management.component';
+import {Role} from './domains/shared/models/Role';
 
 export const routes: Routes = [
   {
