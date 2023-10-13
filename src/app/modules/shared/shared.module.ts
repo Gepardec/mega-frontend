@@ -22,7 +22,14 @@ import {ProjectStateSelectComponent} from './components/project-state-select/pro
 import {InlineTextEditorComponent} from './components/inline-text-editor/inline-text-editor.component';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    RouterModule,
+    AngularMaterialModule,
+    TranslateModule.forRoot(),
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     DatepickerComponent,
     HeaderComponent,
     UserActionsComponent,
@@ -39,15 +46,6 @@ import {InlineTextEditorComponent} from './components/inline-text-editor/inline-
     ConfirmDialogComponent,
     ProjectStateSelectComponent,
     InlineTextEditorComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    AngularMaterialModule,
-    TranslateModule.forRoot(),
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   exports: [
     DatepickerComponent,

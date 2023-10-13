@@ -5,7 +5,7 @@ import {configuration} from '../../../shared/constants/configuration';
 import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '../../services/office-management.service';
 import {NotificationService} from '../../../shared/services/notification/notification.service';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CommentService} from '../../../shared/services/comment/comment.service';
 import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {State} from '../../../shared/models/State';
@@ -16,7 +16,16 @@ import {tap} from 'rxjs/operators';
 import {ProjectState} from '../../../shared/models/ProjectState';
 import {ProjectCommentService} from '../../../shared/services/project-comment/project-comment.service';
 import {SnackbarService} from '../../../shared/services/snackbar/snackbar.service';
-import {TooltipPosition} from '@angular/material/tooltip';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import {InlineTextEditorComponent} from '../../../shared/components/inline-text-editor/inline-text-editor.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {StateIndicatorComponent} from '../../../shared/components/state-indicator/state-indicator.component';
+import {ProjektNameWithZepLinkComponent} from '../projekt-name-with-zep-link/projekt-name-with-zep-link.component';
+import {MatTableModule} from '@angular/material/table';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {NgIf} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 const moment = _moment;
 
@@ -24,7 +33,21 @@ const moment = _moment;
 @Component({
   selector: 'app-project-overview-card',
   templateUrl: './project-overview-card.component.html',
-  styleUrls: ['./project-overview-card.component.scss']
+  styleUrls: ['./project-overview-card.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    NgxSkeletonLoaderModule,
+    MatTableModule,
+    ProjektNameWithZepLinkComponent,
+    StateIndicatorComponent,
+    MatTooltipModule,
+    MatButtonModule,
+    MatIconModule,
+    InlineTextEditorComponent,
+    TranslateModule
+  ]
 })
 export class ProjectOverviewCardComponent implements OnInit, OnDestroy {
   State = State;
@@ -133,7 +156,7 @@ export class ProjectOverviewCardComponent implements OnInit, OnDestroy {
   }
 
   private sortPmEntries(pmEntries: Array<ProjectManagementEntry>) {
-    if(!pmEntries) {
+    if (!pmEntries) {
       return pmEntries;
     }
 

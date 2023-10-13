@@ -16,8 +16,11 @@ describe('InfoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, AngularMaterialModule],
-      declarations: [InfoComponent]
+      imports: [
+        HttpClientTestingModule,
+        AngularMaterialModule,
+        InfoComponent
+      ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(InfoComponent);
       component = fixture.componentInstance;

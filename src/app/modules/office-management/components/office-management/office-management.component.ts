@@ -4,13 +4,32 @@ import {Moment} from 'moment';
 import {OfficeManagementService} from '../../services/office-management.service';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
+import {TranslateModule} from '@ngx-translate/core';
+import {EmployeeCardComponent} from '../employee-card/employee-card.component';
+import {ProjectOverviewCardComponent} from '../project-overview-card/project-overview-card.component';
+import {ProjectsWithoutLeadsCardComponent} from '../projects-without-leads-card/projects-without-leads-card.component';
+import {EnterpriseCardComponent} from '../enterprise-card/enterprise-card.component';
+import {
+  DatepickerMonthYearComponent
+} from '../../../shared/components/datepicker-month-year/datepicker-month-year.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 const moment = _moment;
 
 @Component({
   selector: 'app-office-management',
   templateUrl: './office-management.component.html',
-  styleUrls: ['./office-management.component.scss']
+  styleUrls: ['./office-management.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    DatepickerMonthYearComponent,
+    EnterpriseCardComponent,
+    ProjectsWithoutLeadsCardComponent,
+    ProjectOverviewCardComponent,
+    EmployeeCardComponent,
+    TranslateModule
+  ]
 })
 export class OfficeManagementComponent implements OnInit, OnDestroy {
 

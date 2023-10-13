@@ -1,15 +1,23 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {MatDatepicker, MatDatepickerInputEvent} from '@angular/material/datepicker';
+import {MatDatepicker, MatDatepickerInputEvent, MatDatepickerModule} from '@angular/material/datepicker';
 import {configuration} from '../../constants/configuration';
 
 import * as _moment from 'moment';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const moment = _moment;
 
 @Component({
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
-  styleUrls: ['./datepicker.component.scss']
+  styleUrls: ['./datepicker.component.scss'],
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule
+  ]
 })
 export class DatepickerComponent {
 

@@ -16,12 +16,10 @@ describe('DatepickerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        DatepickerComponent
-      ],
       imports: [
         AngularMaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        DatepickerComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(DatepickerComponent);

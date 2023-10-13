@@ -18,14 +18,12 @@ describe('ErrorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ErrorComponent
-      ],
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
         TranslateModule.forRoot(),
-        AngularMaterialModule
+        AngularMaterialModule,
+        ErrorComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ErrorComponent);

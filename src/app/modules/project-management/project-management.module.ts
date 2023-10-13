@@ -10,14 +10,14 @@ import {BillableTimesFractionComponent} from './components/billable-times-fracti
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 @NgModule({
-  declarations: [ProjectManagementComponent, BillableTimesComponent, BillableTimesFractionComponent],
   imports: [
     CommonModule,
     AngularMaterialModule,
     SharedModule,
     TranslateModule.forRoot(),
     FormsModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    ProjectManagementComponent, BillableTimesComponent, BillableTimesFractionComponent
   ]
 })
 export class ProjectManagementModule {

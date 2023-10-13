@@ -15,15 +15,13 @@ describe('ConfirmDialogComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ConfirmDialogComponent
-      ],
       imports: [
         AngularMaterialModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule,
-        OAuthModule.forRoot()
+        OAuthModule.forRoot(),
+        ConfirmDialogComponent
       ],
       providers: [
         {provide: MatDialogRef, useClass: MatDialogRefMock},

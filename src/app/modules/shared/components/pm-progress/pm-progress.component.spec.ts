@@ -19,16 +19,14 @@ describe('PmProgressComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        PmProgressComponent
-      ],
       imports: [
         BrowserAnimationsModule,
         SharedModule,
         AngularMaterialModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
-        RouterTestingModule
+        RouterTestingModule,
+        PmProgressComponent
       ],
       providers: [
         {provide: MAT_BOTTOM_SHEET_DATA, useValue: {}},

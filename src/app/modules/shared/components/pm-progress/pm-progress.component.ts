@@ -2,7 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {PmProgress} from '../../../monthly-report/models/PmProgress';
 import {State} from '../../models/State';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material/bottom-sheet';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {StateIndicatorComponent} from '../state-indicator/state-indicator.component';
+import {MatTableModule} from '@angular/material/table';
 
 class DisplayedEmployees {
   name: string;
@@ -17,7 +19,13 @@ class DisplayedEmployees {
 @Component({
   selector: 'app-employee-progress',
   templateUrl: './pm-progress.component.html',
-  styleUrls: ['./pm-progress.component.scss']
+  styleUrls: ['./pm-progress.component.scss'],
+  standalone: true,
+  imports: [
+    MatTableModule,
+    StateIndicatorComponent,
+    TranslateModule
+  ]
 })
 export class PmProgressComponent implements OnInit {
 
@@ -35,7 +43,7 @@ export class PmProgressComponent implements OnInit {
     this.buildDisplayedEmployees();
   }
 
-  private buildDisplayedEmployees(){
+  private buildDisplayedEmployees() {
     this.displayedEmployees = new Array<DisplayedEmployees>();
 
     this.translateService.get('monthly-report.pm-progress-bottom-sheet.office-management').subscribe(translation => {

@@ -1,8 +1,19 @@
-import {Component, EventEmitter, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  LOCALE_ID,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import {MonthlyReport} from '../../models/MonthlyReport';
 import {CommentService} from '../../../shared/services/comment/comment.service';
 import {State} from '../../../shared/models/State';
-import {MatSelectionListChange} from '@angular/material/list';
+import {MatListModule, MatSelectionListChange} from '@angular/material/list';
 import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {Step} from '../../../shared/models/Step';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
@@ -20,11 +31,30 @@ import {
   EmployeeCheckConfirmDialogAction,
   EmployeeCheckConfirmDialogActionType
 } from '../employee-check-confirm-comment-dialog/model/EmployeeCheckConfirmDialogAction';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatButtonModule} from '@angular/material/button';
+import {StateIndicatorComponent} from '../../../shared/components/state-indicator/state-indicator.component';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-employee-check',
   templateUrl: './employee-check.component.html',
-  styleUrls: ['./employee-check.component.scss']
+  styleUrls: ['./employee-check.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    NgxSkeletonLoaderModule,
+    StateIndicatorComponent,
+    MatButtonModule,
+    MatListModule,
+    NgFor,
+    NgClass,
+    DatePipe,
+    TranslateModule
+  ]
 })
 export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
@@ -89,24 +119,20 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         // Texte
         if (this.monthlyReport.employeeCheckState === State.OPEN) {
           stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
-        }
-        else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
+        } else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
           stateIndicatorText = 'monthly-report.inProgressDescription';
         }
-      }
-      else {
+      } else {
         // Show default State Indicator
         stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
         stateIndicatorState = undefined;
         noTimesCurrentMonth = true;
       }
-    }
-    else if (this.monthlyReport.employeeCheckState === State.DONE) {
+    } else if (this.monthlyReport.employeeCheckState === State.DONE) {
       if (this.monthlyReport.otherChecksDone) {
         // Show default State Indicator
         stateIndicatorText = 'monthly-report.checkSuccess';
-      }
-      else {
+      } else {
         stateIndicatorState = undefined;
         stateIndicatorText = 'monthly-report.checkWip';
       }

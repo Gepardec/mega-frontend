@@ -12,11 +12,9 @@ describe('StateIndicatorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        StateIndicatorComponent
-      ],
       imports: [
-        AngularMaterialModule
+        AngularMaterialModule,
+        StateIndicatorComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(StateIndicatorComponent);

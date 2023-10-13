@@ -1,13 +1,15 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 
-import {FormControl} from '@angular/forms';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-import {MatDatepicker} from '@angular/material/datepicker';
+import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
 import {configuration} from '../../constants/configuration';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 const moment = _moment;
 
@@ -33,9 +35,16 @@ export const MY_FORMATS = {
       useClass: MomentDateAdapter,
       deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
     },
-
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
     {provide: MAT_DATE_LOCALE, useValue: 'de-AT'}
+  ],
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatDatepickerModule,
+    ReactiveFormsModule
   ]
 })
 export class DatepickerMonthYearComponent implements OnChanges, OnInit {

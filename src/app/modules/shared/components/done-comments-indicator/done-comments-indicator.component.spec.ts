@@ -10,11 +10,9 @@ describe('DoneCommentsIndicatorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        DoneCommentsIndicatorComponent
-      ],
       imports: [
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        DoneCommentsIndicatorComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(DoneCommentsIndicatorComponent);

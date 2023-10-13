@@ -17,7 +17,13 @@ import {
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [
+  imports: [
+    CommonModule,
+    AngularMaterialModule,
+    TranslateModule.forRoot(),
+    SharedModule,
+    NgxSkeletonLoaderModule,
+    FormsModule,
     MonthlyReportComponent,
     TimeCheckComponent,
     JourneyCheckComponent,
@@ -26,14 +32,6 @@ import {FormsModule} from '@angular/forms';
     GeneralInfoComponent,
     InformationTopBarComponent,
     EmployeeCheckConfirmCommentDialogComponent
-  ],
-  imports: [
-    CommonModule,
-    AngularMaterialModule,
-    TranslateModule.forRoot(),
-    SharedModule,
-    NgxSkeletonLoaderModule,
-    FormsModule
   ],
   exports: [
     TranslateModule

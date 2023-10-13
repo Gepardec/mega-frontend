@@ -18,13 +18,11 @@ describe('TimeCheckComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        TimeCheckComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
         AngularMaterialModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        TimeCheckComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(TimeCheckComponent);

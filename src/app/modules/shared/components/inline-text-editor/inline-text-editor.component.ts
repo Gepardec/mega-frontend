@@ -9,13 +9,25 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {CdkTextareaAutosize, TextFieldModule} from '@angular/cdk/text-field';
 import {take} from 'rxjs/operators';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-inline-text-editor',
   templateUrl: './inline-text-editor.component.html',
-  styleUrls: ['./inline-text-editor.component.scss']
+  styleUrls: ['./inline-text-editor.component.scss'],
+  standalone: true,
+  imports: [
+    MatFormFieldModule,
+    TextFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
+  ]
 })
 export class InlineTextEditorComponent implements AfterViewInit {
 

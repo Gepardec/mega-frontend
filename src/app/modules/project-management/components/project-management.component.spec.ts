@@ -30,7 +30,9 @@ import {MatCheckboxChange} from '@angular/material/checkbox';
 import {ProjectCommentService} from '../../shared/services/project-comment/project-comment.service';
 import {ProjectComment} from '../../shared/models/ProjectComment';
 import {configuration} from '../../shared/constants/configuration';
-import {DatepickerMonthYearComponent} from '../../shared/components/datepicker-month-year/datepicker-month-year.component';
+import {
+  DatepickerMonthYearComponent
+} from '../../shared/components/datepicker-month-year/datepicker-month-year.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {ProjectManagementEntryViewModel} from '../models/ProjectManagementEntryViewModel';
@@ -54,10 +56,6 @@ describe('ProjectManagementComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ProjectManagementComponent,
-        DatepickerMonthYearComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
         AngularMaterialModule,
@@ -66,7 +64,9 @@ describe('ProjectManagementComponent', () => {
         RouterTestingModule,
         OAuthModule.forRoot(),
         ReactiveFormsModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        ProjectManagementComponent,
+        DatepickerMonthYearComponent
       ],
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ProjectManagementComponent);
@@ -224,7 +224,10 @@ describe('ProjectManagementComponent', () => {
 
     const managementEntry: ManagementEntry = ProjectManagementMock.projectManagementEntries[0].entries[0];
 
-    component.updateProjectCheck({value: State.DONE, source: undefined}, managementEntry, ProjectManagementMock.projectManagementEntries[0]);
+    component.updateProjectCheck({
+      value: State.DONE,
+      source: undefined
+    }, managementEntry, ProjectManagementMock.projectManagementEntries[0]);
     flush();
 
     expect(stepentryService.updateEmployeeStateForProject).toHaveBeenCalled();

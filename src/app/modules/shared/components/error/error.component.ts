@@ -2,11 +2,20 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ErrorService} from '../../services/error/error.service';
 import {configuration} from '../../constants/configuration';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss']
+  styleUrls: ['./error.component.scss'],
+  standalone: true,
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    TranslateModule
+  ]
 })
 export class ErrorComponent implements OnInit {
 

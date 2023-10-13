@@ -21,15 +21,13 @@ describe('OfficeManagementComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        OfficeManagementComponent
-      ],
       imports: [
         OfficeManagementModule,
         HttpClientTestingModule,
         TranslateModule.forRoot(),
         AngularMaterialModule,
-        RouterTestingModule
+        RouterTestingModule,
+        OfficeManagementComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(OfficeManagementComponent);

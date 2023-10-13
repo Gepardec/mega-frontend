@@ -2,11 +2,26 @@ import {Component, OnInit} from '@angular/core';
 import {MonthlyReport} from '../models/MonthlyReport';
 import {Subscription} from 'rxjs';
 import {MonthlyReportService} from '../services/monthly-report.service';
+import {JourneyCheckComponent} from './journey-check/journey-check.component';
+import {GeneralInfoComponent} from './general-info/general-info.component';
+import {EmployeeCheckComponent} from './employee-check/employee-check.component';
+import {TimeCheckComponent} from './time-check/time-check.component';
+import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
+import {NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-monthly-report',
   templateUrl: './monthly-report.component.html',
-  styleUrls: ['./monthly-report.component.scss']
+  styleUrls: ['./monthly-report.component.scss'],
+  standalone: true,
+  imports: [
+    NgClass,
+    InformationTopBarComponent,
+    TimeCheckComponent,
+    EmployeeCheckComponent,
+    GeneralInfoComponent,
+    JourneyCheckComponent
+  ]
 })
 export class MonthlyReportComponent implements OnInit {
 
@@ -27,8 +42,8 @@ export class MonthlyReportComponent implements OnInit {
   getAllTimeEntriesByDate(year: number, month: number): void {
     this.monthlyReportSubscription = this.monthlyReportService.getAllByDate(year, month)
       .subscribe((monthlyReport: MonthlyReport) => {
-          this.monthlyReport = monthlyReport;
-    });
+        this.monthlyReport = monthlyReport;
+      });
   }
 
   getAllTimeEntries(): void {
@@ -42,7 +57,7 @@ export class MonthlyReportComponent implements OnInit {
           this.monthlyReportService.selectedYear.next(date.getFullYear());
           this.emitRefreshMonthlyReport();
         }
-    });
+      });
   }
 
   refreshMonthlyReport(): void {

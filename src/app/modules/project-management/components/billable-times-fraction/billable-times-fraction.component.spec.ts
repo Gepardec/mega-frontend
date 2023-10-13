@@ -11,11 +11,9 @@ describe('BillableTimesFractionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        BillableTimesFractionComponent
-      ],
       imports: [
-        AngularMaterialModule
+        AngularMaterialModule,
+        BillableTimesFractionComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(BillableTimesFractionComponent);

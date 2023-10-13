@@ -16,7 +16,6 @@ describe('OfficeManagementComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [EmployeeCardComponent],
       imports: [
         BrowserAnimationsModule,
         SharedModule,
@@ -24,7 +23,8 @@ describe('OfficeManagementComponent', () => {
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        EmployeeCardComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EmployeeCardComponent);

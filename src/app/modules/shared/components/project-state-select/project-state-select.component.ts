@@ -1,11 +1,19 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {MatSelect, MatSelectChange} from '@angular/material/select';
+import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {ProjectState} from '../../models/ProjectState';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatOptionModule} from '@angular/material/core';
 
 @Component({
   selector: 'app-project-state-select',
   templateUrl: './project-state-select.component.html',
-  styleUrls: ['./project-state-select.component.scss']
+  styleUrls: ['./project-state-select.component.scss'],
+  standalone: true,
+  imports: [
+    MatSelectModule,
+    MatOptionModule,
+    TranslateModule
+  ]
 })
 export class ProjectStateSelectComponent implements AfterViewChecked {
 

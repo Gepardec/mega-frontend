@@ -21,12 +21,10 @@ describe('UserActionsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        UserActionsComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule
+        AngularMaterialModule,
+        UserActionsComponent
       ],
       providers: [
         {provide: OAuthService, useClass: OAuthServiceMock}

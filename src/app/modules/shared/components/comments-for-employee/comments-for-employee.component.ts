@@ -6,13 +6,37 @@ import {CommentService} from '../../services/comment/comment.service';
 import {User} from '../../models/User';
 import {UserService} from '../../services/user/user.service';
 import {Step} from '../../models/Step';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatIconModule} from '@angular/material/icon';
+import {StateIndicatorComponent} from '../state-indicator/state-indicator.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatInputModule} from '@angular/material/input';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {DatePipe, NgFor, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-comments-for-employee',
   templateUrl: './comments-for-employee.component.html',
-  styleUrls: ['./comments-for-employee.component.scss']
+  styleUrls: ['./comments-for-employee.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatDialogModule,
+    MatFormFieldModule,
+    TextFieldModule,
+    MatInputModule,
+    MatTooltipModule,
+    MatButtonModule,
+    NgFor,
+    StateIndicatorComponent,
+    MatIconModule,
+    DatePipe,
+    TranslateModule
+  ]
 })
 export class CommentsForEmployeeComponent implements OnInit {
 

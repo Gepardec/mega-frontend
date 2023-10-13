@@ -18,13 +18,11 @@ describe('DatepickerMonthYearComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        DatepickerMonthYearComponent
-      ],
       imports: [
         AngularMaterialModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        DatepickerMonthYearComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(DatepickerMonthYearComponent);

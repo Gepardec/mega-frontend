@@ -38,13 +38,11 @@ describe('EnterpriseCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        EnterpriseCardComponent
-      ],
       imports: [
         OfficeManagementModule,
         HttpClientTestingModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        EnterpriseCardComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EnterpriseCardComponent);

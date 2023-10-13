@@ -16,12 +16,10 @@ describe('LoginComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        LoginComponent
-      ],
       imports: [
         RouterTestingModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        LoginComponent
       ],
       providers: [
         {provide: OAuthService, useClass: OAuthServiceMock},

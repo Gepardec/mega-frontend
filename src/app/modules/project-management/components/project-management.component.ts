@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProjectManagementEntry} from '../models/ProjectManagementEntry';
 import {MatDialog} from '@angular/material/dialog';
-import {CommentsForEmployeeComponent} from '../../shared/components/comments-for-employee/comments-for-employee.component';
+import {
+  CommentsForEmployeeComponent
+} from '../../shared/components/comments-for-employee/comments-for-employee.component';
 import {SelectionModel} from '@angular/cdk/collections';
 import {State} from '../../shared/models/State';
 import {ProjectManagementService} from '../services/project-management.service';
@@ -21,22 +23,67 @@ import {configuration} from '../../shared/constants/configuration';
 import {ProjectState} from '../../shared/models/ProjectState';
 import {MatSelectChange} from '@angular/material/select';
 import {ProjectEntriesService} from '../../shared/services/projectentries/project-entries.service';
-import {MatCheckboxChange} from '@angular/material/checkbox';
-import {TranslateService} from '@ngx-translate/core';
+import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {ProjectStateSelectComponent} from '../../shared/components/project-state-select/project-state-select.component';
 import {ProjectCommentService} from '../../shared/services/project-comment/project-comment.service';
 import {SnackbarService} from '../../shared/services/snackbar/snackbar.service';
 import {finalize, forkJoin, mergeMap, Subscription, switchMap, tap, zip} from 'rxjs';
 import {ProjectManagementEntryViewModel} from '../models/ProjectManagementEntryViewModel';
 import * as ProjectManagementComparator from '../ts/project-management-comparator';
-import {TooltipPosition} from '@angular/material/tooltip';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import {BillableTimesFractionComponent} from './billable-times-fraction/billable-times-fraction.component';
+import {BillableTimesComponent} from './billable-times/billable-times.component';
+import {
+  DoneCommentsIndicatorComponent
+} from '../../shared/components/done-comments-indicator/done-comments-indicator.component';
+import {StateIndicatorComponent} from '../../shared/components/state-indicator/state-indicator.component';
+import {StateSelectComponent} from '../../shared/components/state-select/state-select.component';
+import {MatTableModule} from '@angular/material/table';
+import {InlineTextEditorComponent} from '../../shared/components/inline-text-editor/inline-text-editor.component';
+import {MatIconModule} from '@angular/material/icon';
+import {FormsModule} from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {NgClass, NgFor, NgIf} from '@angular/common';
+import {
+  DatepickerMonthYearComponent
+} from '../../shared/components/datepicker-month-year/datepicker-month-year.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 const moment = _moment;
 
 @Component({
   selector: 'app-project-management',
   templateUrl: './project-management.component.html',
-  styleUrls: ['./project-management.component.scss']
+  styleUrls: ['./project-management.component.scss'],
+  standalone: true,
+  imports: [
+    MatToolbarModule,
+    DatepickerMonthYearComponent,
+    NgIf,
+    MatButtonModule,
+    MatCardModule,
+    NgxSkeletonLoaderModule,
+    MatExpansionModule,
+    NgFor,
+    MatTooltipModule,
+    ProjectStateSelectComponent,
+    MatCheckboxModule,
+    FormsModule,
+    MatIconModule,
+    InlineTextEditorComponent,
+    NgClass,
+    MatTableModule,
+    StateSelectComponent,
+    StateIndicatorComponent,
+    DoneCommentsIndicatorComponent,
+    BillableTimesComponent,
+    BillableTimesFractionComponent,
+    TranslateModule
+  ]
 })
 export class ProjectManagementComponent implements OnInit, OnDestroy {
 
@@ -211,15 +258,15 @@ export class ProjectManagementComponent implements OnInit, OnDestroy {
             finalize(() => selectionModel.clear())
           )
           .subscribe(results => {
-          results.forEach((success, index) => {
-            if(success) {
-              selectionModel.selected[index].projectCheckState = closeState;
-            }
+            results.forEach((success, index) => {
+              if (success) {
+                selectionModel.selected[index].projectCheckState = closeState;
+              }
 
+            });
+
+            this.checkAllProjectCheckStatesDone(this.pmEntries.find(entry => entry.projectName === projectName));
           });
-
-          this.checkAllProjectCheckStatesDone(this.pmEntries.find(entry => entry.projectName === projectName));
-        });
 
       }
     }

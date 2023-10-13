@@ -32,7 +32,14 @@ describe('MonthlyReportComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
+      imports: [
+        HttpClientTestingModule,
+        TranslateModule.forRoot(),
+        AngularMaterialModule,
+        RouterTestingModule,
+        OAuthModule.forRoot(),
+        ReactiveFormsModule,
+        NgxSkeletonLoaderModule,
         MonthlyReportComponent,
         JourneyCheckComponent,
         StateIndicatorComponent,
@@ -42,15 +49,6 @@ describe('MonthlyReportComponent', () => {
         JourneyCheckComponent,
         DatepickerMonthYearComponent,
         InformationTopBarComponent
-      ],
-      imports: [
-        HttpClientTestingModule,
-        TranslateModule.forRoot(),
-        AngularMaterialModule,
-        RouterTestingModule,
-        OAuthModule.forRoot(),
-        ReactiveFormsModule,
-        NgxSkeletonLoaderModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(MonthlyReportComponent);
@@ -129,7 +127,8 @@ describe('MonthlyReportComponent', () => {
       billableTime: '',
       compensatoryDays: 5,
       comments: [],
-      assigned: true
+      assigned: true,
+      vacationDayBalance: 0
     };
   }
 

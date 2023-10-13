@@ -17,13 +17,11 @@ describe('InfoDialogComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        InfoDialogComponent
-      ],
       imports: [
         HttpClientTestingModule,
         AngularMaterialModule,
-        TranslateModule.forRoot()
+        TranslateModule.forRoot(),
+        InfoDialogComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(InfoDialogComponent);

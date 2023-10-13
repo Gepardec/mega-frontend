@@ -12,18 +12,30 @@ import {EnterpriseEntriesService} from '../../services/enterprise-entries/enterp
 import {EnterpriseEntry} from '../../models/EnterpriseEntry';
 import {EnterpriseStep} from '../../models/EnterpriseStep';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {
   ProjectStateSelectComponent
 } from '../../../shared/components/project-state-select/project-state-select.component';
-import {TooltipPosition} from '@angular/material/tooltip';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {NgIf} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 const moment = _moment;
 
 @Component({
   selector: 'app-enterprise-card',
   templateUrl: './enterprise-card.component.html',
-  styleUrls: ['./enterprise-card.component.scss']
+  styleUrls: ['./enterprise-card.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    NgxSkeletonLoaderModule,
+    MatTooltipModule,
+    ProjectStateSelectComponent,
+    TranslateModule
+  ]
 })
 export class EnterpriseCardComponent implements OnInit, OnDestroy {
 

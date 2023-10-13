@@ -17,12 +17,10 @@ describe('ProjectStateSelectComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ProjectStateSelectComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule
+        AngularMaterialModule,
+        ProjectStateSelectComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ProjectStateSelectComponent);

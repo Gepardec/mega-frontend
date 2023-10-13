@@ -12,14 +12,12 @@ describe('JourneyCheckComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        JourneyCheckComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
         AngularMaterialModule,
         HttpClientTestingModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        JourneyCheckComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(JourneyCheckComponent);

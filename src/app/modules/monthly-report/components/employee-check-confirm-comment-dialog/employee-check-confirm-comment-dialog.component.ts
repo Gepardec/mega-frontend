@@ -1,15 +1,33 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {
   EmployeeCheckConfirmDialogAction,
   EmployeeCheckConfirmDialogActionType
 } from './model/EmployeeCheckConfirmDialogAction';
 import {EmployeeCheckConfirmDialogData} from './model/EmployeeCheckConfirmDialogData';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatButtonModule} from '@angular/material/button';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-employee-check-confirm-comment-dialog',
   templateUrl: './employee-check-confirm-comment-dialog.component.html',
-  styleUrls: ['./employee-check-confirm-comment-dialog.component.scss']
+  styleUrls: ['./employee-check-confirm-comment-dialog.component.scss'],
+  standalone: true,
+  imports: [
+    MatDialogModule,
+    NgIf,
+    MatFormFieldModule,
+    TextFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    TranslateModule
+  ]
 })
 export class EmployeeCheckConfirmCommentDialogComponent implements OnInit {
   textAreaInp;

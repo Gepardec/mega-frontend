@@ -17,12 +17,12 @@ describe('InformationTopBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [InformationTopBarComponent],
       imports: [
         TranslateModule.forRoot(),
         SharedModule,
         MatCardModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        InformationTopBarComponent
       ]
     })
       .compileComponents().then(() => {

@@ -14,12 +14,10 @@ describe('InlineTextEditorComponent', () => {
 
   beforeEach(waitForAsync((() => {
     TestBed.configureTestingModule({
-      declarations: [
-        InlineTextEditorComponent
-      ],
       imports: [
         SharedModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        InlineTextEditorComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(InlineTextEditorComponent);

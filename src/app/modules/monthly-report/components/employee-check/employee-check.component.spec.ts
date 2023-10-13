@@ -32,16 +32,14 @@ describe('EmployeeCheckComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        EmployeeCheckComponent
-      ],
       imports: [
         TranslateModule.forRoot(),
         AngularMaterialModule,
         HttpClientTestingModule,
         RouterTestingModule,
         OAuthModule.forRoot(),
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        EmployeeCheckComponent
       ],
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EmployeeCheckComponent);

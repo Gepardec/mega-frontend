@@ -5,11 +5,25 @@ import {GeneralInfoData} from '../../models/GeneralInfoData';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {toMonthYearString} from '../../../shared/utils/dateUtils';
+import {TranslateModule} from '@ngx-translate/core';
+import {MatTableModule} from '@angular/material/table';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {DecimalPipe, NgIf} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-general-info',
   templateUrl: './general-info.component.html',
-  styleUrls: ['./general-info.component.scss']
+  styleUrls: ['./general-info.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    NgxSkeletonLoaderModule,
+    MatTableModule,
+    DecimalPipe,
+    TranslateModule
+  ]
 })
 export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
 

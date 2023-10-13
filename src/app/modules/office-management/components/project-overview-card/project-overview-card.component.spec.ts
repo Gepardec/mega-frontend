@@ -32,15 +32,13 @@ describe('ProjectOverviewCardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        ProjectOverviewCardComponent
-      ],
       imports: [
         HttpClientTestingModule,
         TranslateModule.forRoot(),
         OfficeManagementModule,
         RouterTestingModule,
-        NgxSkeletonLoaderModule
+        NgxSkeletonLoaderModule,
+        ProjectOverviewCardComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ProjectOverviewCardComponent);

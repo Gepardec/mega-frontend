@@ -25,12 +25,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        HeaderComponent
-      ],
       imports: [
         AppModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        HeaderComponent
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(HeaderComponent);

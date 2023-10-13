@@ -1,16 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProjectManagementService} from '../../../project-management/services/project-management.service';
-import {finalize, tap} from 'rxjs';
+import {finalize} from 'rxjs';
 import {CustomerProjectWithoutLeads} from '../../../shared/models/CustomerProjectWithoutLeads';
+import {TranslateModule} from '@ngx-translate/core';
+import {ProjektNameWithZepLinkComponent} from '../projekt-name-with-zep-link/projekt-name-with-zep-link.component';
+import {MatTableModule} from '@angular/material/table';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {StateIndicatorComponent} from '../../../shared/components/state-indicator/state-indicator.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-projects-without-leads-card',
   templateUrl: './projects-without-leads-card.component.html',
-  styleUrls: ['./projects-without-leads-card.component.scss']
+  styleUrls: ['./projects-without-leads-card.component.scss'],
+  standalone: true,
+  imports: [
+    NgIf,
+    MatCardModule,
+    MatTooltipModule,
+    StateIndicatorComponent,
+    NgxSkeletonLoaderModule,
+    MatTableModule,
+    ProjektNameWithZepLinkComponent,
+    TranslateModule
+  ]
 })
 export class ProjectsWithoutLeadsCardComponent implements OnInit {
 
-  constructor(private pmService: ProjectManagementService) { }
+  constructor(private pmService: ProjectManagementService) {
+  }
 
   public projectsWithoutLeads: CustomerProjectWithoutLeads[];
   public loaded = false;

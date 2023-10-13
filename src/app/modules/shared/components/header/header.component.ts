@@ -10,11 +10,35 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {ConfigService} from '../../services/config/config.service';
 import {Config} from '../../models/Config';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {UserActionsComponent} from '../user-actions/user-actions.component';
+import {MatListModule} from '@angular/material/list';
+import {NgFor, NgIf} from '@angular/common';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  standalone: true,
+  imports: [
+    MatSidenavModule,
+    NgIf,
+    MatListModule,
+    UserActionsComponent,
+    NgFor,
+    RouterLinkActive,
+    RouterLink,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatTabsModule,
+    RouterOutlet
+  ]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
 

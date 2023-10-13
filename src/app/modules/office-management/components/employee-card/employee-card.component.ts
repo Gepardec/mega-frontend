@@ -7,7 +7,7 @@ import {configuration} from '../../../shared/constants/configuration';
 import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '../../services/office-management.service';
 import {NotificationService} from '../../../shared/services/notification/notification.service';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CommentService} from '../../../shared/services/comment/comment.service';
 import {
   CommentsForEmployeeComponent
@@ -24,13 +24,51 @@ import {Config} from '../../../shared/models/Config';
 import {finalize, firstValueFrom, mergeMap, Subscription, switchMap, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
+import {
+  DoneCommentsIndicatorComponent
+} from '../../../shared/components/done-comments-indicator/done-comments-indicator.component';
+import {StateIndicatorComponent} from '../../../shared/components/state-indicator/state-indicator.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {StateSelectComponent} from '../../../shared/components/state-select/state-select.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTableModule} from '@angular/material/table';
+import {DatepickerComponent} from '../../../shared/components/datepicker/datepicker.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {DatePipe, NgClass, NgIf} from '@angular/common';
+import {MatCardModule} from '@angular/material/card';
 
 const moment = _moment;
 
 @Component({
   selector: 'app-employee-card',
   templateUrl: './employee-card.component.html',
-  styleUrls: ['./employee-card.component.scss']
+  styleUrls: ['./employee-card.component.scss'],
+  standalone: true,
+  imports: [
+    MatCardModule,
+    NgIf,
+    NgxSkeletonLoaderModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    DatepickerComponent,
+    MatTableModule,
+    MatCheckboxModule,
+    StateSelectComponent,
+    MatTooltipModule,
+    StateIndicatorComponent,
+    DoneCommentsIndicatorComponent,
+    NgClass,
+    DatePipe,
+    TranslateModule
+  ]
 })
 export class EmployeeCardComponent implements OnInit, OnDestroy {
   State = State;
@@ -232,7 +270,7 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
 
   getFilteredAndSortedOmEntries() {
     return this.omEntries
-      .filter(val =>  val.internalCheckState === State.OPEN)
+      .filter(val => val.internalCheckState === State.OPEN)
       .concat(this.omEntries.filter(val => val.internalCheckState === State.DONE))
       .sort((a, b) => a.employee.lastname.concat(a.employee.firstname)
         .localeCompare(b.employee.lastname.concat(b.employee.firstname)));

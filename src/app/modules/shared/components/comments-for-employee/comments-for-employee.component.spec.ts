@@ -32,15 +32,13 @@ describe('CommentsForEmployeeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        CommentsForEmployeeComponent
-      ],
       imports: [
         AngularMaterialModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule,
-        OAuthModule.forRoot()
+        OAuthModule.forRoot(),
+        CommentsForEmployeeComponent
       ],
       providers: [
         {provide: MatDialogRef, useClass: MatDialogRefMock},
