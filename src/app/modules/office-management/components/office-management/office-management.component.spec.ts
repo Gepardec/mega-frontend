@@ -2,8 +2,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 
 import {OfficeManagementComponent} from './office-management.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
-import {OfficeManagementModule} from '../../office-management.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OfficeManagementService} from '../../services/office-management.service';
@@ -22,10 +20,8 @@ describe('OfficeManagementComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        OfficeManagementModule,
         HttpClientTestingModule,
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         RouterTestingModule,
         OfficeManagementComponent
       ]

@@ -6,9 +6,6 @@ import {UserService} from '../user/user.service';
 import {configuration} from '../../constants/configuration';
 import {Role} from '../../models/Role';
 import {routes} from '../../../../app-routing.module';
-import {MonthlyReportModule} from '../../../monthly-report/monthly-report.module';
-import {OfficeManagementModule} from '../../../office-management/office-management.module';
-import {ProjectManagementModule} from '../../../project-management/project-management.module';
 import {Router} from '@angular/router';
 import {User} from '../../models/User';
 import {BehaviorSubject} from 'rxjs';
@@ -22,9 +19,6 @@ describe('RolesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        MonthlyReportModule,
-        OfficeManagementModule,
-        ProjectManagementModule,
         RouterTestingModule.withRoutes(routes)
       ],
       providers: [

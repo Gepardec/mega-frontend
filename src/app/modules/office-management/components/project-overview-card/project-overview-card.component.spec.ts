@@ -2,7 +2,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 
 import {ProjectOverviewCardComponent} from './project-overview-card.component';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {OfficeManagementModule} from '../../office-management.module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ProjectManagementService} from '../../../project-management/services/project-management.service';
@@ -35,7 +34,6 @@ describe('ProjectOverviewCardComponent', () => {
       imports: [
         HttpClientTestingModule,
         TranslateModule.forRoot(),
-        OfficeManagementModule,
         RouterTestingModule,
         NgxSkeletonLoaderModule,
         ProjectOverviewCardComponent

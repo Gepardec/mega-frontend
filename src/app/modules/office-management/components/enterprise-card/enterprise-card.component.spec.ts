@@ -1,7 +1,6 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {EnterpriseCardComponent} from './enterprise-card.component';
-import {OfficeManagementModule} from '../../office-management.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 import * as _moment from 'moment';
@@ -39,7 +38,6 @@ describe('EnterpriseCardComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        OfficeManagementModule,
         HttpClientTestingModule,
         NgxSkeletonLoaderModule,
         EnterpriseCardComponent

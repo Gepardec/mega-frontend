@@ -6,9 +6,6 @@ import {BehaviorSubject} from 'rxjs';
 import {User} from '../models/User';
 import {RouterTestingModule} from '@angular/router/testing';
 import {routes} from '../../../app-routing.module';
-import {MonthlyReportModule} from '../../monthly-report/monthly-report.module';
-import {OfficeManagementModule} from '../../office-management/office-management.module';
-import {ProjectManagementModule} from '../../project-management/project-management.module';
 
 describe('LoginGuard', () => {
 
@@ -20,9 +17,6 @@ describe('LoginGuard', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        MonthlyReportModule,
-        OfficeManagementModule,
-        ProjectManagementModule,
         RouterTestingModule.withRoutes(routes)
       ],
       providers: [
@@ -79,5 +73,5 @@ describe('LoginGuard', () => {
     return {
       state: {url: id}
     } as any;
-  }
+  };
 });

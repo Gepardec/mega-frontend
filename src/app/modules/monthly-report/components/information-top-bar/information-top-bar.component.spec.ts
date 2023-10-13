@@ -3,7 +3,6 @@ import * as _moment from 'moment';
 import {InformationTopBarComponent} from './information-top-bar.component';
 import {MonthlyReportService} from '../../services/monthly-report.service';
 import {TranslateModule} from '@ngx-translate/core';
-import {SharedModule} from '../../../shared/shared.module';
 import {MatCardModule} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
@@ -19,7 +18,6 @@ describe('InformationTopBarComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        SharedModule,
         MatCardModule,
         NgxSkeletonLoaderModule,
         InformationTopBarComponent

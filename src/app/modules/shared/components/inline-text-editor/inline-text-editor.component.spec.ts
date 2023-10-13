@@ -1,7 +1,6 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {InlineTextEditorComponent} from './inline-text-editor.component';
-import {SharedModule} from '../../shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgZone} from '@angular/core';
 
@@ -15,7 +14,6 @@ describe('InlineTextEditorComponent', () => {
   beforeEach(waitForAsync((() => {
     TestBed.configureTestingModule({
       imports: [
-        SharedModule,
         BrowserAnimationsModule,
         InlineTextEditorComponent
       ]
