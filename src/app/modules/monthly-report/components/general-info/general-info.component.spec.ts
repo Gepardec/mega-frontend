@@ -7,7 +7,6 @@ import {By} from '@angular/platform-browser';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 import {MatCardModule} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {AngularMaterialModule} from '../../../material/material-module';
 
 describe('GeneralInfoComponent', () => {
 
@@ -19,7 +18,6 @@ describe('GeneralInfoComponent', () => {
       imports: [
         TranslateTestingModule.withTranslations({de: require('src/assets/i18n/de.json')}),
         HttpClientTestingModule,
-        AngularMaterialModule,
         MatCardModule,
         NgxSkeletonLoaderModule,
         GeneralInfoComponent

@@ -6,19 +6,18 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {APP_BASE_HREF, registerLocaleData} from '@angular/common';
 import localeDeAt from '@angular/common/locales/de-AT';
-import {SharedModule} from './modules/shared/shared.module';
 import {OAuthModule, OAuthModuleConfig} from 'angular-oauth2-oidc';
 import {authConfigFactory} from './auth/auth.config.factory';
 import {ConfigService} from './modules/shared/services/config/config.service';
 import {ErrorHandlerService} from './modules/shared/services/error/error-handler.service';
-import {MonthlyReportModule} from './modules/monthly-report/monthly-report.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {OfficeManagementModule} from './modules/office-management/office-management.module';
-import {ProjectManagementModule} from './modules/project-management/project-management.module';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {HeaderComponent} from './modules/shared/components/header/header.component';
+import {InfoComponent} from './modules/shared/components/info/info.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 registerLocaleData(localeDeAt, 'de-AT');
 
@@ -33,10 +32,9 @@ registerLocaleData(localeDeAt, 'de-AT');
     OAuthModule.forRoot(),
     BrowserAnimationsModule,
     NgxSkeletonLoaderModule,
-    SharedModule,
-    OfficeManagementModule,
-    MonthlyReportModule,
-    ProjectManagementModule,
+    HeaderComponent,
+    InfoComponent,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

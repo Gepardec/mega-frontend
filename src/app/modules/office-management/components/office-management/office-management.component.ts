@@ -13,6 +13,7 @@ import {
   DatepickerMonthYearComponent
 } from '../../../shared/components/datepicker-month-year/datepicker-month-year.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 const moment = _moment;
 
@@ -28,7 +29,8 @@ const moment = _moment;
     ProjectsWithoutLeadsCardComponent,
     ProjectOverviewCardComponent,
     EmployeeCardComponent,
-    TranslateModule
+    TranslateModule,
+    MatBottomSheetModule,
   ]
 })
 export class OfficeManagementComponent implements OnInit, OnDestroy {

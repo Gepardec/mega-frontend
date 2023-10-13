@@ -7,7 +7,6 @@ import {of} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Employee} from '../../shared/models/Employee';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../material/material-module';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {JourneyCheckComponent} from './journey-check/journey-check.component';
@@ -35,7 +34,6 @@ describe('MonthlyReportComponent', () => {
       imports: [
         HttpClientTestingModule,
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         RouterTestingModule,
         OAuthModule.forRoot(),
         ReactiveFormsModule,

@@ -16,7 +16,7 @@ import {State} from '../../../shared/models/State';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
 import {StepEntriesService} from '../../../shared/services/stepentries/step-entries.service';
 import {Step} from '../../../shared/models/Step';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent} from '../../../shared/components/pm-progress/pm-progress.component';
 import {MonthlyReportService} from '../../services/monthly-report.service';
 import * as moment from 'moment';
@@ -53,7 +53,9 @@ import {MatCardModule} from '@angular/material/card';
     NgFor,
     NgClass,
     DatePipe,
-    TranslateModule
+    TranslateModule,
+    PmProgressComponent,
+    MatBottomSheetModule
   ]
 })
 export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
