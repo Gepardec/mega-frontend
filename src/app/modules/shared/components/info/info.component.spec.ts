@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {InfoComponent} from './info.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {of} from 'rxjs';
 import {Info} from '../../models/Info';
 import {InfoService} from '../../services/info/info.service';
@@ -18,7 +17,6 @@ describe('InfoComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        AngularMaterialModule,
         InfoComponent
       ]
     }).compileComponents().then(() => {

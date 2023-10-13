@@ -2,7 +2,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 
 import {EmployeeCheckComponent} from './employee-check.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
@@ -34,7 +33,6 @@ describe('EmployeeCheckComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         HttpClientTestingModule,
         RouterTestingModule,
         OAuthModule.forRoot(),

@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {TimeCheckComponent} from './time-check.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {TimeWarning} from '../../models/TimeWarning';
 import {configuration} from '../../../shared/constants/configuration';
 
@@ -20,7 +19,6 @@ describe('TimeCheckComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         NgxSkeletonLoaderModule,
         TimeCheckComponent
       ]

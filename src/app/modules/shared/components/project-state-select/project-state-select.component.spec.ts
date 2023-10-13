@@ -3,7 +3,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {ProjectStateSelectComponent} from './project-state-select.component';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {ProjectState} from '../../models/ProjectState';
-import {AngularMaterialModule} from '../../../material/material-module';
 
 const PROJECT_STATES_LENGTH = Object.keys(ProjectState).length;
 const STATE_PREFIX = 'STATE.';
@@ -19,7 +18,6 @@ describe('ProjectStateSelectComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         ProjectStateSelectComponent
       ]
     }).compileComponents().then(() => {

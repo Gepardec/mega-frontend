@@ -6,7 +6,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ErrorService} from '../../services/error/error.service';
 import {Router} from '@angular/router';
-import {AngularMaterialModule} from '../../../material/material-module';
 
 describe('ErrorComponent', () => {
 
@@ -22,7 +21,6 @@ describe('ErrorComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         ErrorComponent
       ]
     }).compileComponents().then(() => {

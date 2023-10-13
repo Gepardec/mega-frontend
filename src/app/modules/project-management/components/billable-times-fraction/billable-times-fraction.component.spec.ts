@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {BillableTimesFractionComponent} from './billable-times-fraction.component';
 import {By} from '@angular/platform-browser';
-import {AngularMaterialModule} from '../../../material/material-module';
 
 describe('BillableTimesFractionComponent', () => {
 
@@ -12,7 +11,6 @@ describe('BillableTimesFractionComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularMaterialModule,
         BillableTimesFractionComponent
       ]
     }).compileComponents().then(() => {

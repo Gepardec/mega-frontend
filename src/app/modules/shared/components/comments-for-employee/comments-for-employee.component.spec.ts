@@ -2,7 +2,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 
 import {CommentsForEmployeeComponent} from './comments-for-employee.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
@@ -33,7 +32,6 @@ describe('CommentsForEmployeeComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularMaterialModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule,

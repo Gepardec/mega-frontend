@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ProjectManagementComponent} from './components/project-management.component';
-import {AngularMaterialModule} from '../material/material-module';
 import {SharedModule} from '../shared/shared.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
@@ -12,7 +11,6 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 @NgModule({
   imports: [
     CommonModule,
-    AngularMaterialModule,
     SharedModule,
     TranslateModule.forRoot(),
     FormsModule,

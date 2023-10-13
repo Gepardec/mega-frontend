@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {StateSelectComponent} from './state-select.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {By} from '@angular/platform-browser';
 import {MatSelect} from '@angular/material/select';
 import {State} from '../../models/State';
@@ -16,7 +15,6 @@ describe('StateSelectComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         StateSelectComponent
       ]
     }).compileComponents().then(() => {

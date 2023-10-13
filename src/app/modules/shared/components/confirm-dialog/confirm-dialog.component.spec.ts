@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {ConfirmDialogComponent} from './confirm-dialog.component';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {MatDialogRef} from '@angular/material/dialog';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -16,7 +15,6 @@ describe('ConfirmDialogComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularMaterialModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         RouterTestingModule,

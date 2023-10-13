@@ -5,7 +5,6 @@ import {User} from '../../models/User';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {UserInfo} from 'angular-oauth2-oidc/types';
 import {MatDialog} from '@angular/material/dialog';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {MatButton} from '@angular/material/button';
@@ -23,7 +22,6 @@ describe('UserActionsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         UserActionsComponent
       ],
       providers: [

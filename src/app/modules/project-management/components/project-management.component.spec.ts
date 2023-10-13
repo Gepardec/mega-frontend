@@ -2,7 +2,6 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 
 import {ProjectManagementComponent} from './project-management.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../material/material-module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
@@ -58,7 +57,6 @@ describe('ProjectManagementComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         BrowserAnimationsModule,
         HttpClientTestingModule,
         RouterTestingModule,

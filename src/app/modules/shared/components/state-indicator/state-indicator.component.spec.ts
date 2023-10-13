@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {StateIndicatorComponent} from './state-indicator.component';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {State} from '../../models/State';
 import {By} from '@angular/platform-browser';
 
@@ -13,7 +12,6 @@ describe('StateIndicatorComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularMaterialModule,
         StateIndicatorComponent
       ]
     }).compileComponents().then(() => {

@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {EmployeeCardComponent} from './components/employee-card/employee-card.component';
-import {AngularMaterialModule} from '../material/material-module';
 import {TranslateModule} from '@ngx-translate/core';
 import {SharedModule} from '../shared/shared.module';
 import {FormsModule} from '@angular/forms';
@@ -24,7 +23,6 @@ import {
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    AngularMaterialModule,
     TranslateModule.forRoot(),
     SharedModule,
     FormsModule,

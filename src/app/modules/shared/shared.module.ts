@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AngularMaterialModule} from '../material/material-module';
 import {LoginComponent} from './components/login/login.component';
 import {DatepickerComponent} from './components/datepicker/datepicker.component';
 import {HeaderComponent} from './components/header/header.component';
@@ -25,7 +24,6 @@ import {InlineTextEditorComponent} from './components/inline-text-editor/inline-
   imports: [
     CommonModule,
     RouterModule,
-    AngularMaterialModule,
     TranslateModule.forRoot(),
     FormsModule,
     HttpClientModule,

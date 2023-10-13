@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {JourneyCheckComponent} from './journey-check.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
@@ -14,7 +13,6 @@ describe('JourneyCheckComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        AngularMaterialModule,
         HttpClientTestingModule,
         NgxSkeletonLoaderModule,
         JourneyCheckComponent

@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {DatepickerComponent} from './datepicker.component';
-import {AngularMaterialModule} from '../../../material/material-module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as _moment from 'moment';
 import {configuration} from '../../constants/configuration';
@@ -17,7 +16,6 @@ describe('DatepickerComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AngularMaterialModule,
         BrowserAnimationsModule,
         DatepickerComponent
       ]
