@@ -9,8 +9,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {ConfigService} from '@mega/shared/data-service';
 import {of, Subscription} from 'rxjs';
-import {Config} from '../../data-model/Config';
-import {Link} from '../../data-model/Link';
+import {Config} from '@mega/shared/data-model';
+import {Link} from '@mega/shared/data-model';
 
 describe('HeaderComponent', () => {
 

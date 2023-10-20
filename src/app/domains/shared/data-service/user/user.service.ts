@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {configuration} from '@mega/shared/util-constant';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';

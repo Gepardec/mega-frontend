@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {InfoDialogComponent} from '../info-dialog/info-dialog.component';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {UserInfo} from '@mega/shared/data-model';

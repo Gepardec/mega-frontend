@@ -7,7 +7,7 @@ import {configuration} from '@mega/shared/util-constant';
 import {Role} from '@mega/shared/data-model';
 import {routes} from '../../../../app-routing.module';
 import {Router} from '@angular/router';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {BehaviorSubject} from 'rxjs';
 
 describe('RolesService', () => {

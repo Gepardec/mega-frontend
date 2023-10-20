@@ -11,7 +11,7 @@ import {State} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
 import {UserService} from '@mega/shared/data-service';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {CommentService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
 import {Employee} from '@mega/shared/data-model';

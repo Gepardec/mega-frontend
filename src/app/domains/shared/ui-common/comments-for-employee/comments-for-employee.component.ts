@@ -3,7 +3,7 @@ import {Comment} from '@mega/shared/data-model';
 import {State} from '@mega/shared/data-model';
 import {Employee} from '@mega/shared/data-model';
 import {CommentService} from '@mega/shared/data-service';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {UserService} from '@mega/shared/data-service';
 import {Step} from '@mega/shared/data-model';
 import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';

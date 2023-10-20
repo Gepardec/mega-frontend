@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Route, Router} from '@angular/router';
 import {UserService} from '../user/user.service';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'

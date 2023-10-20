@@ -30,7 +30,7 @@ import {ProjectCommentService} from '@mega/shared/data-service';
 import {SnackbarService} from '@mega/shared/data-service';
 import {finalize, forkJoin, mergeMap, Subscription, switchMap, tap, zip} from 'rxjs';
 import {ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
-import * as ProjectManagementComparator from '../util/project-management-comparator';
+import * as ProjectManagementComparator from '@mega/project-management/util';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 import {BillableTimesFractionComponent} from '@mega/project-management/ui-common';
 import {BillableTimesComponent} from '@mega/project-management/ui-common';

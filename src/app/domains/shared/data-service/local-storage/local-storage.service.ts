@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Config} from '../../data-model/Config';
 
 @Injectable({
   providedIn: 'root'

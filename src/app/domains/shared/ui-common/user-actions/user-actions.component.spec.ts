@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {UserActionsComponent} from '@mega/shared/ui-common';
-import {User} from '../../data-model/User';
+import {User} from '@mega/shared/data-model';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {UserInfo} from 'angular-oauth2-oidc/types';
 import {MatDialog} from '@angular/material/dialog';

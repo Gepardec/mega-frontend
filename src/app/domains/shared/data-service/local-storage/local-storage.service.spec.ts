@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {LocalStorageService} from './local-storage.service';
-import {Config} from '../../data-model/Config';
+import {Config} from '@mega/shared/data-model';
 
 describe('LocalStorageService', () => {
 
