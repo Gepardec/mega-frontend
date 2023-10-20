@@ -11,7 +11,7 @@ import {ProjectsWithoutLeadsCardComponent} from './projects-without-leads-card/p
 import {EnterpriseCardComponent} from './enterprise-card/enterprise-card.component';
 import {
   DatepickerMonthYearComponent
-} from '../../shared/ui-common/datepicker-month-year/datepicker-month-year.component';
+} from '@mega/shared/ui-common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 

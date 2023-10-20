@@ -2,13 +2,13 @@ import {TestBed} from '@angular/core/testing';
 
 import {ProjectManagementService} from './project-management.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ConfigService} from '../../shared/data-service/config/config.service';
-import {Employee} from '../../shared/data-model/Employee';
+import {ConfigService} from '@mega/shared/data-service';
+import {Employee} from '@mega/shared/data-model';
 import {PmProgress} from '../../monthly-report/data-model/PmProgress';
-import {State} from '../../shared/data-model/State';
-import {ManagementEntry} from '../../shared/data-model/ManagementEntry';
+import {State} from '@mega/shared/data-model';
+import {ManagementEntry} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
-import {ProjectState} from '../../shared/data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 
 describe('ProjectManagementService', () => {
 

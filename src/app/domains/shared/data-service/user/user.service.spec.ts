@@ -8,7 +8,7 @@ import {ConfigService} from '../config/config.service';
 import {Role} from '../../data-model/Role';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {LocalStorageService} from '../local-storage/local-storage.service';
+import {LocalStorageService} from '@mega/shared/data-service';
 
 describe('UserService', () => {
 

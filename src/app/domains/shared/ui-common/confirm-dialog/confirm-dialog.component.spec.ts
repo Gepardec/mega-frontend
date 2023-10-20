@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ConfirmDialogComponent} from './confirm-dialog.component';
+import {ConfirmDialogComponent} from '@mega/shared/ui-common';
 import {MatDialogRef} from '@angular/material/dialog';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';

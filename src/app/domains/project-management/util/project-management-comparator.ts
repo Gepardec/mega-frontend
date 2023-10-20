@@ -1,6 +1,6 @@
-import {booleanCompare, stringCompare} from '../../shared/util-common/compareUtils';
+import {booleanCompare, stringCompare} from '@mega/shared/util-common';
 import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
-import {ProjectState} from '../../shared/data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 
 /**
  * Die Projekte sollen wie folgt sortiert werden:

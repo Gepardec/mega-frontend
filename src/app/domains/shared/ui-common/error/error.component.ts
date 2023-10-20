@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ErrorService} from '../../data-service/error/error.service';
-import {configuration} from '../../util-constant/configuration';
+import {ErrorService} from '@mega/shared/data-service';
+import {configuration} from '@mega/shared/util-constant';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {configuration} from '../../util-constant/configuration';
-import {LogEntry} from '../../data-model/LogEntry';
+import {configuration} from '@mega/shared/util-constant';
+import {LogEntry} from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'

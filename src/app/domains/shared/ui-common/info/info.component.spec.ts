@@ -4,7 +4,7 @@ import {InfoComponent} from './info.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
 import {Info} from '../../data-model/Info';
-import {InfoService} from '../../data-service/info/info.service';
+import {InfoService} from '@mega/shared/data-service';
 
 describe('InfoComponent', () => {
 

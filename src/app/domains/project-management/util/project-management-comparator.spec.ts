@@ -1,5 +1,5 @@
 import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
-import {ProjectState} from '../../shared/data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 import {comparePmEntriesFn} from './project-management-comparator';
 
 function createTestProjectManagementEntity(projectName: string): ProjectManagementEntryViewModel;

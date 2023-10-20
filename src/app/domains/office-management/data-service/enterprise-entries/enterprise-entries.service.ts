@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
+import {ConfigService} from '@mega/shared/data-service';
 import {Observable} from 'rxjs';
 import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
 

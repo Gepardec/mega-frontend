@@ -2,13 +2,13 @@ import {TestBed} from '@angular/core/testing';
 
 import {CommentService} from './comment.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {Comment} from '../../data-model/Comment';
+import {Comment} from '@mega/shared/data-model';
 import {State} from '../../data-model/State';
 import * as _moment from 'moment';
 import {ConfigService} from '../config/config.service';
-import {Employee} from '../../data-model/Employee';
+import {Employee} from '@mega/shared/data-model';
 import {Step} from '../../data-model/Step';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 const moment = _moment;
 

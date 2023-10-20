@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {configuration} from './domains/shared/util-constant/configuration';
-import {LoginComponent} from './domains/shared/ui-common/login/login.component';
-import {LoginGuard} from './domains/shared/util-guard/login/login.guard';
-import {RolesGuard} from './domains/shared/util-guard/roles/roles.guard';
-import {ErrorComponent} from './domains/shared/ui-common/error/error.component';
+import {configuration} from '@mega/shared/util-constant';
+import {LoginComponent} from '@mega/shared/ui-common';
+import {LoginGuard} from '@mega/shared/util-guard';
+import {RolesGuard} from '@mega/shared/util-guard';
+import {ErrorComponent} from '@mega/shared/ui-common';
 import {FeatureMonthlyReportComponent} from './domains/monthly-report/feature-monthly-report/feature-monthly-report.component';
 import {FeatureOfficeManagementComponent} from './domains/office-management/feature-office-management/feature-office-management.component';
 import {FeatureProjectManagementComponent} from './domains/project-management/feature-project-management/feature-project-management.component';
-import {Role} from './domains/shared/data-model/Role';
+import {Role} from '@mega/shared/data-model';
 
 export const routes: Routes = [
   {

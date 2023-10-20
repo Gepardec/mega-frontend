@@ -1,4 +1,4 @@
-import {configuration} from '../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 export class LogEntry {
   message = '';

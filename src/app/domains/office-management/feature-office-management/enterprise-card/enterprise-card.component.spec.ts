@@ -5,20 +5,20 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 import * as _moment from 'moment';
 import {of} from 'rxjs';
-import {Config} from '../../../shared/data-model/Config';
+import {Config} from '@mega/shared/data-model';
 import {OfficeManagementService} from '../../data-service/office-management.service';
 import {EnterpriseEntriesService} from '../../data-service/enterprise-entries/enterprise-entries.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
+import {ConfigService} from '@mega/shared/data-service';
 import {TranslateService} from '@ngx-translate/core';
 import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
-import {ProjectState} from '../../../shared/data-model/ProjectState';
-import {configuration} from '../../../shared/util-constant/configuration';
+import {ProjectState} from '@mega/shared/data-model';
+import {configuration} from '@mega/shared/util-constant';
 import {MatSelectChange} from '@angular/material/select';
 import {EnterpriseStep} from '../../data-model/EnterpriseStep';
 import {
   ProjectStateSelectComponent
-} from '../../../shared/ui-common/project-state-select/project-state-select.component';
+} from '@mega/shared/ui-common';
 import {ChangeDetectorRef} from '@angular/core';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 

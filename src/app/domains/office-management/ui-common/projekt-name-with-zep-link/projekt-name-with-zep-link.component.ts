@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Config} from '../../../shared/data-model/Config';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
-import {configuration} from '../../../shared/util-constant/configuration';
+import {Config} from '@mega/shared/data-model';
+import {ConfigService} from '@mega/shared/data-service';
+import {configuration} from '@mega/shared/util-constant';
 import {Subscription} from 'rxjs';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgIf} from '@angular/common';

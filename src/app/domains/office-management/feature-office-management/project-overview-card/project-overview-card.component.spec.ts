@@ -5,17 +5,17 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
-import {ProjectCommentService} from '../../../shared/data-service/project-comment/project-comment.service';
-import {Config} from '../../../shared/data-model/Config';
+import {ConfigService} from '@mega/shared/data-service';
+import {ProjectCommentService} from '@mega/shared/data-service';
+import {Config} from '@mega/shared/data-model';
 import {of} from 'rxjs';
-import {ManagementEntry} from '../../../shared/data-model/ManagementEntry';
-import {State} from '../../../shared/data-model/State';
-import {Employee} from '../../../shared/data-model/Employee';
+import {ManagementEntry} from '@mega/shared/data-model';
+import {State} from '@mega/shared/data-model';
+import {Employee} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '../../../project-management/data-model/ProjectManagementEntry';
-import {ProjectState} from '../../../shared/data-model/ProjectState';
-import {ProjectComment} from '../../../shared/data-model/ProjectComment';
-import {SnackbarService} from '../../../shared/data-service/snackbar/snackbar.service';
+import {ProjectState} from '@mega/shared/data-model';
+import {ProjectComment} from '@mega/shared/data-model';
+import {SnackbarService} from '@mega/shared/data-service';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 describe('ProjectOverviewCardComponent', () => {

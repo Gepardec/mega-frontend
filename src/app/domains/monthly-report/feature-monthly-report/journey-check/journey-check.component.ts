@@ -1,9 +1,9 @@
 import {Component, Input} from '@angular/core';
 import {MonthlyReport} from '../../data-model/MonthlyReport';
-import {State} from '../../../shared/data-model/State';
+import {State} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatTableModule} from '@angular/material/table';
-import {StateIndicatorComponent} from '../../../shared/ui-common/state-indicator/state-indicator.component';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';

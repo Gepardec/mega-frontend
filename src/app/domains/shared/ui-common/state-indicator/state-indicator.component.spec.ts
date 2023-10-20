@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {StateIndicatorComponent} from './state-indicator.component';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {State} from '../../data-model/State';
 import {By} from '@angular/platform-browser';
 

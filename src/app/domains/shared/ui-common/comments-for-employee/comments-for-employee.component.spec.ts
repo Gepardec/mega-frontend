@@ -1,22 +1,22 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {CommentsForEmployeeComponent} from './comments-for-employee.component';
+import {CommentsForEmployeeComponent} from '@mega/shared/ui-common';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {MatDialogRef} from '@angular/material/dialog';
-import {Comment} from '../../data-model/Comment';
+import {Comment} from '@mega/shared/data-model';
 import {State} from '../../data-model/State';
 
 import * as _moment from 'moment';
-import {UserService} from '../../data-service/user/user.service';
+import {UserService} from '@mega/shared/data-service';
 import {User} from '../../data-model/User';
-import {CommentService} from '../../data-service/comment/comment.service';
+import {CommentService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
-import {Employee} from '../../data-model/Employee';
+import {Employee} from '@mega/shared/data-model';
 import {ElementRef} from '@angular/core';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;

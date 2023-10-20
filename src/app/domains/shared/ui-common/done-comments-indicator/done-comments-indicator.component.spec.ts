@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {DoneCommentsIndicatorComponent} from './done-comments-indicator.component';
+import {DoneCommentsIndicatorComponent} from '@mega/shared/ui-common';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('DoneCommentsIndicatorComponent', () => {

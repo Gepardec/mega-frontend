@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {LoginComponent} from './login.component';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {RouterTestingModule} from '@angular/router/testing';
-import {UserService} from '../../data-service/user/user.service';
+import {UserService} from '@mega/shared/data-service';
 import {TranslateModule} from '@ngx-translate/core';
 
 describe('LoginComponent', () => {

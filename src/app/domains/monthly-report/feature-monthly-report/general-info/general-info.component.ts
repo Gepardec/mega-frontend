@@ -4,7 +4,7 @@ import {MonthlyReportService} from '../../data-service/monthly-report.service';
 import {GeneralInfoData} from '../../data-model/GeneralInfoData';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {toMonthYearString} from '../../../shared/util-common/dateUtils';
+import {toMonthYearString} from '@mega/shared/util-common';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {MatDatepicker, MatDatepickerInputEvent, MatDatepickerModule} from '@angular/material/datepicker';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 import * as _moment from 'moment';
 import {MatInputModule} from '@angular/material/input';

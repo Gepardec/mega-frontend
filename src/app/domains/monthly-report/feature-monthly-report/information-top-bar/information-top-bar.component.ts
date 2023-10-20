@@ -8,7 +8,7 @@ import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {
   DatepickerMonthYearComponent
-} from '../../../shared/ui-common/datepicker-month-year/datepicker-month-year.component';
+} from '@mega/shared/ui-common';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';

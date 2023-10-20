@@ -1,6 +1,6 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {InlineTextEditorComponent} from './inline-text-editor.component';
+import {InlineTextEditorComponent} from '@mega/shared/ui-common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgZone} from '@angular/core';
 

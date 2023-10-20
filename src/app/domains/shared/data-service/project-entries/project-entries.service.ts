@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {Observable} from 'rxjs';
 import {ProjectEntry, ProjectStepQualifier} from '../../../project-management/data-model/ProjectEntry';
-import {ProjectState} from '../../data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'

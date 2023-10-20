@@ -3,9 +3,9 @@ import {TestBed} from '@angular/core/testing';
 import {MonthlyReportService} from './monthly-report.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {MonthlyReport} from '../data-model/MonthlyReport';
-import {Employee} from '../../shared/data-model/Employee';
-import {ConfigService} from '../../shared/data-service/config/config.service';
-import {State} from '../../shared/data-model/State';
+import {Employee} from '@mega/shared/data-model';
+import {ConfigService} from '@mega/shared/data-service';
+import {State} from '@mega/shared/data-model';
 
 describe('MonthlyReportService', () => {
 

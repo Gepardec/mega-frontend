@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {ConfigService} from './config.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Config} from '../../data-model/Config';
-import {LocalStorageService} from '../local-storage/local-storage.service';
+import {LocalStorageService} from '@mega/shared/data-service';
 
 describe('ConfigService', () => {
 

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Comment} from '../../data-model/Comment';
+import {Comment} from '@mega/shared/data-model';
 import {State} from '../../data-model/State';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {Observable} from 'rxjs';
-import {Employee} from '../../data-model/Employee';
-import {NewCommentEntry} from '../../data-model/NewCommentEntry';
+import {Employee} from '@mega/shared/data-model';
+import {NewCommentEntry} from '@mega/shared/data-model';
 import {Step} from '../../data-model/Step';
 
 @Injectable({

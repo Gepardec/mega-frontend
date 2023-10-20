@@ -7,7 +7,7 @@ import {MatDatepicker, MatDatepickerModule} from '@angular/material/datepicker';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 

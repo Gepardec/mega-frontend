@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {InfoDialogComponent} from './info-dialog.component';
+import {InfoDialogComponent} from '@mega/shared/ui-common';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {TranslateModule} from '@ngx-translate/core';
-import {InfoService} from '../../data-service/info/info.service';
+import {InfoService} from '@mega/shared/data-service';
 import {Info} from '../../data-model/Info';
 import {of} from 'rxjs';
 

@@ -4,9 +4,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OAuthLogger, OAuthModule, OAuthService, UrlHelperService} from 'angular-oauth2-oidc';
 import {UserService} from '../user/user.service';
-import {LoggingService} from '../logging/logging.service';
+import {LoggingService} from '@mega/shared/data-service';
 import {ErrorService} from './error.service';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {Router} from '@angular/router';
 import {HttpStatusCode} from '@angular/common/http';
 

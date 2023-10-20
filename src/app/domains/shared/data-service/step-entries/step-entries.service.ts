@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Employee} from '../../data-model/Employee';
+import {Employee} from '@mega/shared/data-model';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
-import {EmployeeStep} from '../../data-model/EmployeeStep';
+import {EmployeeStep} from '@mega/shared/data-model';
 import {Step} from '../../data-model/Step';
 import {State} from '../../data-model/State';
-import {ProjectStep} from '../../data-model/ProjectStep';
-import {UpdateEmployeeStep} from '../../data-model/UpdateEmployeeStep';
+import {ProjectStep} from '@mega/shared/data-model';
+import {UpdateEmployeeStep} from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'

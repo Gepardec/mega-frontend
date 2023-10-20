@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';
 import {finalize} from 'rxjs';
-import {CustomerProjectWithoutLeads} from '../../../shared/data-model/CustomerProjectWithoutLeads';
+import {CustomerProjectWithoutLeads} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {ProjektNameWithZepLinkComponent} from '../../ui-common/projekt-name-with-zep-link/projekt-name-with-zep-link.component';
 import {MatTableModule} from '@angular/material/table';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {StateIndicatorComponent} from '../../../shared/ui-common/state-indicator/state-indicator.component';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {NgIf} from '@angular/common';

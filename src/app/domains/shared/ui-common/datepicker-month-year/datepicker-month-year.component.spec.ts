@@ -1,11 +1,11 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {DatepickerMonthYearComponent} from './datepicker-month-year.component';
+import {DatepickerMonthYearComponent} from '@mega/shared/ui-common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 
 import * as _moment from 'moment';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;

@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 
 import {LoggingService} from './logging.service';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 describe('LoggingService', () => {
 

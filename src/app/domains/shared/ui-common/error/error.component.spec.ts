@@ -4,7 +4,7 @@ import {ErrorComponent} from './error.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ErrorService} from '../../data-service/error/error.service';
+import {ErrorService} from '@mega/shared/data-service';
 import {Router} from '@angular/router';
 
 describe('ErrorComponent', () => {

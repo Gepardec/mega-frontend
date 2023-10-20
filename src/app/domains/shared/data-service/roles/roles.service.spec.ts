@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {RolesService} from './roles.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {UserService} from '../user/user.service';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {Role} from '../../data-model/Role';
 import {routes} from '../../../../app-routing.module';
 import {Router} from '@angular/router';

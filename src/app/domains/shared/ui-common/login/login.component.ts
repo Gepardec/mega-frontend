@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {UserService} from '../../data-service/user/user.service';
+import {UserService} from '@mega/shared/data-service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {InfoService} from '../../data-service/info/info.service';
+import {InfoService} from '@mega/shared/data-service';
 import {NgIf} from '@angular/common';
 
 @Component({

@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {StateSelectComponent} from './state-select.component';
+import {StateSelectComponent} from '@mega/shared/ui-common';
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {MatSelect} from '@angular/material/select';

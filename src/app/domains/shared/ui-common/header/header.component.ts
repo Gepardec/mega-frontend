@@ -1,14 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from '../../data-service/user/user.service';
+import {UserService} from '@mega/shared/data-service';
 import {Observable, Subscription} from 'rxjs';
 import {User} from '../../data-model/User';
 import {Link} from '../../data-model/Link';
-import {RolesService} from '../../data-service/roles/roles.service';
+import {RolesService} from '@mega/shared/data-service';
 import {TranslateService} from '@ngx-translate/core';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
-import {ConfigService} from '../../data-service/config/config.service';
+import {ConfigService} from '@mega/shared/data-service';
 import {Config} from '../../data-model/Config';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';

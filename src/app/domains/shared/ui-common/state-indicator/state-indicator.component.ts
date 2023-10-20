@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {State} from '../../data-model/State';
-import {ProjectState} from '../../data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 import {MatIconModule} from '@angular/material/icon';
 import {NgSwitch, NgSwitchCase, NgSwitchDefault} from '@angular/common';
 

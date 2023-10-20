@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {User} from '../../data-model/User';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 import {LocalStorageService} from '../local-storage/local-storage.service';

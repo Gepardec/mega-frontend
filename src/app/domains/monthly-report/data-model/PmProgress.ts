@@ -1,4 +1,4 @@
-import {State} from '../../shared/data-model/State';
+import {State} from '@mega/shared/data-model';
 
 export class PmProgress {
   firstname: string;

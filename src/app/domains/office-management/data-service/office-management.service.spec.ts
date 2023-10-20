@@ -2,10 +2,10 @@ import {TestBed} from '@angular/core/testing';
 
 import {OfficeManagementService} from './office-management.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ConfigService} from '../../shared/data-service/config/config.service';
-import {ManagementEntry} from '../../shared/data-model/ManagementEntry';
-import {State} from '../../shared/data-model/State';
-import {Employee} from '../../shared/data-model/Employee';
+import {ConfigService} from '@mega/shared/data-service';
+import {ManagementEntry} from '@mega/shared/data-model';
+import {State} from '@mega/shared/data-model';
+import {Employee} from '@mega/shared/data-model';
 import {PmProgress} from '../../monthly-report/data-model/PmProgress';
 import {HttpStatusCode} from '@angular/common/http';
 

@@ -1,4 +1,4 @@
-import {ProjectState} from '../../shared/data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 
 export type ProjectStepQualifier = 'CONTROL_PROJECT' | 'CONTROL_BILLING' | 'CREATE_COMPANY_CONTROLLING';
 

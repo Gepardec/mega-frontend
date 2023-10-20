@@ -1,38 +1,38 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ManagementEntry} from '../../../shared/data-model/ManagementEntry';
-import {State} from '../../../shared/data-model/State';
+import {ManagementEntry} from '@mega/shared/data-model';
+import {State} from '@mega/shared/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {SelectionModel} from '@angular/cdk/collections';
-import {configuration} from '../../../shared/util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '../../data-service/office-management.service';
-import {NotificationService} from '../../../shared/data-service/notification/notification.service';
+import {NotificationService} from '@mega/shared/data-service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {CommentService} from '../../../shared/data-service/comment/comment.service';
+import {CommentService} from '@mega/shared/data-service';
 import {
   CommentsForEmployeeComponent
-} from '../../../shared/ui-common/comments-for-employee/comments-for-employee.component';
-import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
-import {Step} from '../../../shared/data-model/Step';
+} from '@mega/shared/ui-common';
+import {StepEntriesService} from '@mega/shared/data-service';
+import {Step} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
-import {PmProgressComponent} from '../../../shared/ui-common/pm-progress/pm-progress.component';
+import {PmProgressComponent} from '@mega/shared/ui-common';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
-import {Config} from '../../../shared/data-model/Config';
+import {ConfigService} from '@mega/shared/data-service';
+import {Config} from '@mega/shared/data-model';
 import {finalize, firstValueFrom, mergeMap, Subscription, switchMap, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
 import {
   DoneCommentsIndicatorComponent
-} from '../../../shared/ui-common/done-comments-indicator/done-comments-indicator.component';
-import {StateIndicatorComponent} from '../../../shared/ui-common/state-indicator/state-indicator.component';
+} from '@mega/shared/ui-common';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {StateSelectComponent} from '../../../shared/ui-common/state-select/state-select.component';
+import {StateSelectComponent} from '@mega/shared/ui-common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
-import {DatepickerComponent} from '../../../shared/ui-common/datepicker/datepicker.component';
+import {DatepickerComponent} from '@mega/shared/ui-common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';

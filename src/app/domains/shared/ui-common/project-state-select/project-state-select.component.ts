@@ -1,6 +1,6 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
-import {ProjectState} from '../../data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatOptionModule} from '@angular/material/core';
 

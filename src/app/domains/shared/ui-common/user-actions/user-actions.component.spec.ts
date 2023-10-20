@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {UserActionsComponent} from './user-actions.component';
+import {UserActionsComponent} from '@mega/shared/ui-common';
 import {User} from '../../data-model/User';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {UserInfo} from 'angular-oauth2-oidc/types';
@@ -8,7 +8,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {MatButton} from '@angular/material/button';
-import {click} from '../../util-testing/click-simulator';
+import {click} from '@mega/shared/util-testing';
 import {MatMenuItem} from '@angular/material/menu';
 
 describe('UserActionsComponent', () => {

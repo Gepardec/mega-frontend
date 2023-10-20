@@ -1,8 +1,8 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {ProjectStateSelectComponent} from './project-state-select.component';
+import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {ProjectState} from '../../data-model/ProjectState';
+import {ProjectState} from '@mega/shared/data-model';
 
 const PROJECT_STATES_LENGTH = Object.keys(ProjectState).length;
 const STATE_PREFIX = 'STATE.';

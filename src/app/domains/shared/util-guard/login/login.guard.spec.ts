@@ -1,7 +1,7 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 
 import {LoginGuard} from './login.guard';
-import {UserService} from '../../data-service/user/user.service';
+import {UserService} from '@mega/shared/data-service';
 import {BehaviorSubject} from 'rxjs';
 import {User} from '../../data-model/User';
 import {RouterTestingModule} from '@angular/router/testing';

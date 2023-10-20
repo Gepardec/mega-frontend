@@ -5,9 +5,9 @@ import {Subscription, switchMap, zip} from 'rxjs';
 import {OfficeManagementService} from '../../data-service/office-management.service';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
-import {Config} from '../../../shared/data-model/Config';
-import {configuration} from '../../../shared/util-constant/configuration';
-import {ConfigService} from '../../../shared/data-service/config/config.service';
+import {Config} from '@mega/shared/data-model';
+import {configuration} from '@mega/shared/util-constant';
+import {ConfigService} from '@mega/shared/data-service';
 import {EnterpriseEntriesService} from '../../data-service/enterprise-entries/enterprise-entries.service';
 import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
 import {EnterpriseStep} from '../../data-model/EnterpriseStep';
@@ -15,7 +15,7 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {
   ProjectStateSelectComponent
-} from '../../../shared/ui-common/project-state-select/project-state-select.component';
+} from '@mega/shared/ui-common';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {NgIf} from '@angular/common';

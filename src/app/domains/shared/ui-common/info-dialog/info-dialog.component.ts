@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Info} from '../../data-model/Info';
-import {InfoService} from '../../data-service/info/info.service';
+import {InfoService} from '@mega/shared/data-service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';

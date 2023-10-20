@@ -11,16 +11,16 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {MonthlyReport} from '../../data-model/MonthlyReport';
-import {CommentService} from '../../../shared/data-service/comment/comment.service';
-import {State} from '../../../shared/data-model/State';
+import {CommentService} from '@mega/shared/data-service';
+import {State} from '@mega/shared/data-model';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
-import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
-import {Step} from '../../../shared/data-model/Step';
+import {StepEntriesService} from '@mega/shared/data-service';
+import {Step} from '@mega/shared/data-model';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {PmProgressComponent} from '../../../shared/ui-common/pm-progress/pm-progress.component';
+import {PmProgressComponent} from '@mega/shared/ui-common';
 import {MonthlyReportService} from '../../data-service/monthly-report.service';
 import * as moment from 'moment';
-import {convertMomentToString, toMonthYearString} from '../../../shared/util-common/dateUtils';
+import {convertMomentToString, toMonthYearString} from '@mega/shared/util-common';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
@@ -33,7 +33,7 @@ import {
 } from '../employee-check-confirm-comment-dialog/model/EmployeeCheckConfirmDialogAction';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
-import {StateIndicatorComponent} from '../../../shared/ui-common/state-indicator/state-indicator.component';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';

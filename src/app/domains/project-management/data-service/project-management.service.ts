@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {ConfigService} from '../../shared/data-service/config/config.service';
+import {ConfigService} from '@mega/shared/data-service';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
 import * as _moment from 'moment';
-import {CustomerProjectWithoutLeads} from '../../shared/data-model/CustomerProjectWithoutLeads';
+import {CustomerProjectWithoutLeads} from '@mega/shared/data-model';
 
 const moment = _moment;
 

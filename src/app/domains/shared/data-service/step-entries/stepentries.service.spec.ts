@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {StepEntriesService} from './step-entries.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '../config/config.service';
-import {Employee} from '../../data-model/Employee';
+import {Employee} from '@mega/shared/data-model';
 import {Step} from '../../data-model/Step';
 import {HttpResponse} from '@angular/common/http';
 import {State} from '../../data-model/State';

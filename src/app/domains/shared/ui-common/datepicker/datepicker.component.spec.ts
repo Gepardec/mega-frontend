@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {DatepickerComponent} from './datepicker.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as _moment from 'moment';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;

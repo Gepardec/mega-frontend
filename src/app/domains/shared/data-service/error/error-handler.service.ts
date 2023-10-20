@@ -1,7 +1,7 @@
 import {ErrorHandler, Injectable, NgZone} from '@angular/core';
-import {LoggingService} from '../logging/logging.service';
+import {LoggingService} from '@mega/shared/data-service';
 import {ErrorService} from './error.service';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 import {Router} from '@angular/router';
 import {UserService} from '../user/user.service';
 import {HttpStatusCode} from '@angular/common/http';

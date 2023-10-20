@@ -3,31 +3,31 @@ import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
 import {MatDialog} from '@angular/material/dialog';
 import {
   CommentsForEmployeeComponent
-} from '../../shared/ui-common/comments-for-employee/comments-for-employee.component';
+} from '@mega/shared/ui-common';
 import {SelectionModel} from '@angular/cdk/collections';
-import {State} from '../../shared/data-model/State';
+import {State} from '@mega/shared/data-model';
 import {ProjectManagementService} from '../data-service/project-management.service';
-import {ManagementEntry} from '../../shared/data-model/ManagementEntry';
-import {StepEntriesService} from '../../shared/data-service/step-entries/step-entries.service';
+import {ManagementEntry} from '@mega/shared/data-model';
+import {StepEntriesService} from '@mega/shared/data-service';
 import {environment} from '../../../../environments/environment';
-import {CommentService} from '../../shared/data-service/comment/comment.service';
-import {Comment} from '../../shared/data-model/Comment';
-import {Employee} from '../../shared/data-model/Employee';
-import {Step} from '../../shared/data-model/Step';
+import {CommentService} from '@mega/shared/data-service';
+import {Comment} from '@mega/shared/data-model';
+import {Employee} from '@mega/shared/data-model';
+import {Step} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
-import {ConfigService} from '../../shared/data-service/config/config.service';
-import {Config} from '../../shared/data-model/Config';
-import {configuration} from '../../shared/util-constant/configuration';
-import {ProjectState} from '../../shared/data-model/ProjectState';
+import {ConfigService} from '@mega/shared/data-service';
+import {Config} from '@mega/shared/data-model';
+import {configuration} from '@mega/shared/util-constant';
+import {ProjectState} from '@mega/shared/data-model';
 import {MatSelectChange} from '@angular/material/select';
-import {ProjectEntriesService} from '../../shared/data-service/project-entries/project-entries.service';
+import {ProjectEntriesService} from '@mega/shared/data-service';
 import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {ProjectStateSelectComponent} from '../../shared/ui-common/project-state-select/project-state-select.component';
-import {ProjectCommentService} from '../../shared/data-service/project-comment/project-comment.service';
-import {SnackbarService} from '../../shared/data-service/snackbar/snackbar.service';
+import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
+import {ProjectCommentService} from '@mega/shared/data-service';
+import {SnackbarService} from '@mega/shared/data-service';
 import {finalize, forkJoin, mergeMap, Subscription, switchMap, tap, zip} from 'rxjs';
 import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
 import * as ProjectManagementComparator from '../util/project-management-comparator';
@@ -36,11 +36,11 @@ import {BillableTimesFractionComponent} from '../ui-common/billable-times-fracti
 import {BillableTimesComponent} from '../ui-common/billable-times/billable-times.component';
 import {
   DoneCommentsIndicatorComponent
-} from '../../shared/ui-common/done-comments-indicator/done-comments-indicator.component';
-import {StateIndicatorComponent} from '../../shared/ui-common/state-indicator/state-indicator.component';
-import {StateSelectComponent} from '../../shared/ui-common/state-select/state-select.component';
+} from '@mega/shared/ui-common';
+import {StateIndicatorComponent} from '@mega/shared/ui-common';
+import {StateSelectComponent} from '@mega/shared/ui-common';
 import {MatTableModule} from '@angular/material/table';
-import {InlineTextEditorComponent} from '../../shared/ui-common/inline-text-editor/inline-text-editor.component';
+import {InlineTextEditorComponent} from '@mega/shared/ui-common';
 import {MatIconModule} from '@angular/material/icon';
 import {FormsModule} from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -50,7 +50,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgClass, NgFor, NgIf} from '@angular/common';
 import {
   DatepickerMonthYearComponent
-} from '../../shared/ui-common/datepicker-month-year/datepicker-month-year.component';
+} from '@mega/shared/ui-common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 const moment = _moment;

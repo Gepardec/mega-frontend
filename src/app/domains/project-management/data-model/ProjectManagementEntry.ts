@@ -1,6 +1,6 @@
-import {ManagementEntry} from '../../shared/data-model/ManagementEntry';
-import {ProjectState} from '../../shared/data-model/ProjectState';
-import {ProjectComment} from '../../shared/data-model/ProjectComment';
+import {ManagementEntry} from '@mega/shared/data-model';
+import {ProjectState} from '@mega/shared/data-model';
+import {ProjectComment} from '@mega/shared/data-model';
 
 
 export class ProjectManagementEntry {

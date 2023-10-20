@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import {TranslateService} from '@ngx-translate/core';
-import {configuration} from '../../util-constant/configuration';
+import {configuration} from '@mega/shared/util-constant';
 
 export type SnackbarConfig = {
   horizontalPosition: MatSnackBarHorizontalPosition,
