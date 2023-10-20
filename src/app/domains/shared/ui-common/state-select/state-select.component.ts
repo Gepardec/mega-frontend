@@ -1,5 +1,5 @@
 import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, Output} from '@angular/core';
-import {State} from '../../data-model/State';
+import {State} from '@mega/shared/data-model';
 import {MatSelectChange, MatSelectModule} from '@angular/material/select';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatOptionModule} from '@angular/material/core';

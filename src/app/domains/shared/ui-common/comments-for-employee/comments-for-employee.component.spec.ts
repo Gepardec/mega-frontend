@@ -7,7 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Comment} from '@mega/shared/data-model';
-import {State} from '../../data-model/State';
+import {State} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
 import {UserService} from '@mega/shared/data-service';

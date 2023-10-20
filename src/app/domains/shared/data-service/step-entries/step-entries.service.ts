@@ -4,8 +4,8 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {EmployeeStep} from '@mega/shared/data-model';
-import {Step} from '../../data-model/Step';
-import {State} from '../../data-model/State';
+import {Step} from '@mega/shared/data-model';
+import {State} from '@mega/shared/data-model';
 import {ProjectStep} from '@mega/shared/data-model';
 import {UpdateEmployeeStep} from '@mega/shared/data-model';
 

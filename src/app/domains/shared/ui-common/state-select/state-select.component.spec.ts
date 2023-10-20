@@ -4,7 +4,7 @@ import {StateSelectComponent} from '@mega/shared/ui-common';
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {MatSelect} from '@angular/material/select';
-import {State} from '../../data-model/State';
+import {State} from '@mega/shared/data-model';
 
 describe('StateSelectComponent', () => {
 

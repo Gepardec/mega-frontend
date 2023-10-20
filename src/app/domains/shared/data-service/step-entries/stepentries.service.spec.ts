@@ -4,9 +4,9 @@ import {StepEntriesService} from './step-entries.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '../config/config.service';
 import {Employee} from '@mega/shared/data-model';
-import {Step} from '../../data-model/Step';
+import {Step} from '@mega/shared/data-model';
 import {HttpResponse} from '@angular/common/http';
-import {State} from '../../data-model/State';
+import {State} from '@mega/shared/data-model';
 
 describe('StepentriesService', () => {
 

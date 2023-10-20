@@ -5,7 +5,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {ConfigService} from '../config/config.service';
-import {Role} from '../../data-model/Role';
+import {Role} from '@mega/shared/data-model';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {LocalStorageService} from '@mega/shared/data-service';

@@ -4,7 +4,7 @@ import {RolesService} from './roles.service';
 import {RouterTestingModule} from '@angular/router/testing';
 import {UserService} from '../user/user.service';
 import {configuration} from '@mega/shared/util-constant';
-import {Role} from '../../data-model/Role';
+import {Role} from '@mega/shared/data-model';
 import {routes} from '../../../../app-routing.module';
 import {Router} from '@angular/router';
 import {User} from '../../data-model/User';

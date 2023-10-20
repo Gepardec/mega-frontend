@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Comment} from '@mega/shared/data-model';
-import {State} from '../../data-model/State';
+import {State} from '@mega/shared/data-model';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {Observable} from 'rxjs';
 import {Employee} from '@mega/shared/data-model';
 import {NewCommentEntry} from '@mega/shared/data-model';
-import {Step} from '../../data-model/Step';
+import {Step} from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'
