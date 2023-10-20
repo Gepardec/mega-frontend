@@ -7,7 +7,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MatDialogRef} from '@angular/material/dialog';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material/bottom-sheet';
-import {PmProgress} from '../../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../../monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 
 describe('PmProgressComponent', () => {

@@ -1,6 +1,6 @@
 import {Employee} from './Employee';
 import {State} from './State';
-import {PmProgress} from '../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../monthly-report/data-model';
 
 export interface ManagementEntry {
 

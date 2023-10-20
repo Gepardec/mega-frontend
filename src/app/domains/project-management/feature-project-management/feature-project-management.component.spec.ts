@@ -9,7 +9,7 @@ import {ConfigService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
 import {ProjectManagementService} from '@mega/project-management/data-service';
 import {Employee} from '@mega/shared/data-model';
-import {PmProgress} from '../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 import {ManagementEntry} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '@mega/project-management/data-model';

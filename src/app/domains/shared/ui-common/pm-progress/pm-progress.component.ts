@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {PmProgress} from '../../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../../monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 import {MAT_BOTTOM_SHEET_DATA} from '@angular/material/bottom-sheet';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';

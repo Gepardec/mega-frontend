@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {TimeCheckComponent} from './time-check.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {TimeWarning} from '../../data-model/TimeWarning';
+import {TimeWarning} from '@mega/monthly-report/data-model';
 import {configuration} from '@mega/shared/util-constant';
 
 import * as _moment from 'moment';

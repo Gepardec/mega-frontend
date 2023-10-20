@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MonthlyReport} from '../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {Subscription} from 'rxjs';
-import {MonthlyReportService} from '../data-service/monthly-report/monthly-report.service';
+import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import {JourneyCheckComponent} from './journey-check/journey-check.component';
 import {GeneralInfoComponent} from './general-info/general-info.component';
 import {EmployeeCheckComponent} from './employee-check/employee-check.component';

@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {GeneralInfoComponent} from './general-info.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {By} from '@angular/platform-browser';
 import {TranslateTestingModule} from 'ngx-translate-testing';
 import {MatCardModule} from '@angular/material/card';

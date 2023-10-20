@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
-import {TimeWarning} from '../../data-model/TimeWarning';
+import {TimeWarning} from '@mega/monthly-report/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatTableModule} from '@angular/material/table';
 import {StateIndicatorComponent} from '@mega/shared/ui-common';

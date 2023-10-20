@@ -1,7 +1,7 @@
 import {Component, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
-import {MonthlyReportService} from '../../data-service/monthly-report/monthly-report.service';
-import {GeneralInfoData} from '../../data-model/GeneralInfoData';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
+import {MonthlyReportService} from '@mega/monthly-report/data-service';
+import {GeneralInfoData} from '@mega/monthly-report/data-model';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {toMonthYearString} from '@mega/shared/util-common';

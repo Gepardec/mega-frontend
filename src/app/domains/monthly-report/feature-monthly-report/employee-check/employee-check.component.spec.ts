@@ -11,7 +11,7 @@ import * as _moment from 'moment';
 import {configuration} from '@mega/shared/util-constant';
 import {CommentService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {StepEntriesService} from '@mega/shared/data-service';
 import {Employee} from '@mega/shared/data-model';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';

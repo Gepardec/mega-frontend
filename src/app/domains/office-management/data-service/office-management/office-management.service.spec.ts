@@ -6,7 +6,7 @@ import {ConfigService} from '@mega/shared/data-service';
 import {ManagementEntry} from '@mega/shared/data-model';
 import {State} from '@mega/shared/data-model';
 import {Employee} from '@mega/shared/data-model';
-import {PmProgress} from '../../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../../monthly-report/data-model';
 import {HttpStatusCode} from '@angular/common/http';
 
 describe('OfficeManagementService', () => {

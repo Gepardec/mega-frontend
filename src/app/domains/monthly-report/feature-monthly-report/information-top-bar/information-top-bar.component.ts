@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {Moment} from 'moment/moment';
-import {MonthlyReportService} from '../../data-service/monthly-report/monthly-report.service';
+import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import * as _moment from 'moment';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';

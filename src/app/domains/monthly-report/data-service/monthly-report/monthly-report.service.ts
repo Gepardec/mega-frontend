@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {ConfigService} from '@mega/shared/data-service';
 import * as _moment from 'moment';

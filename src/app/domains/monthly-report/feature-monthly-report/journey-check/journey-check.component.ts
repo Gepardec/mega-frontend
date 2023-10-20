@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {MonthlyReport} from '../../data-model/MonthlyReport';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatTableModule} from '@angular/material/table';

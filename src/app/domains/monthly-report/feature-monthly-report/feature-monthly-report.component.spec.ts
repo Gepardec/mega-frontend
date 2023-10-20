@@ -1,8 +1,8 @@
 import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {FeatureMonthlyReportComponent} from './feature-monthly-report.component';
-import {MonthlyReportService} from '../data-service/monthly-report/monthly-report.service';
-import {MonthlyReport} from '../data-model/MonthlyReport';
+import {MonthlyReportService} from '@mega/monthly-report/data-service';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {of} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Employee} from '@mega/shared/data-model';

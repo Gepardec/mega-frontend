@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {User} from '../../data-model/User';
 import {InfoDialogComponent} from '../info-dialog/info-dialog.component';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {UserInfo} from '../../../monthly-report/data-model/UserInfo';
+import {UserInfo} from '../../../monthly-report/data-model';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgIf} from '@angular/common';
