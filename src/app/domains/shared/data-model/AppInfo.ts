@@ -1,4 +1,4 @@
-export interface Info {
+export interface AppInfo {
   branch: string;
   buildDate: string;
   buildNumber: 0;

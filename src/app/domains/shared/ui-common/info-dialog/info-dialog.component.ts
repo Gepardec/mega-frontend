@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Info} from '../../data-model/Info';
+import {AppInfo} from '@mega/shared/data-model';
 import {InfoService} from '@mega/shared/data-service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
@@ -18,7 +18,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 })
 export class InfoDialogComponent implements OnInit {
 
-  info: Info;
+  info: AppInfo;
 
   constructor(private infoService: InfoService) {
   }

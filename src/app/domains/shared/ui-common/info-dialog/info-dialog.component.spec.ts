@@ -4,7 +4,7 @@ import {InfoDialogComponent} from '@mega/shared/ui-common';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {TranslateModule} from '@ngx-translate/core';
 import {InfoService} from '@mega/shared/data-service';
-import {Info} from '../../data-model/Info';
+import {AppInfo} from '@mega/shared/data-model';
 import {of} from 'rxjs';
 
 describe('InfoDialogComponent', () => {
@@ -45,7 +45,7 @@ describe('InfoDialogComponent', () => {
 
   class InfoMock {
 
-    static info: Info = {
+    static info: AppInfo = {
       version: '1.0.0',
       upTime: '3d 11h 25m 31s',
       startedAt: '04.02.2022 03:42',

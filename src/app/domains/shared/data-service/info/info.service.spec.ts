@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {InfoService} from './info.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '../config/config.service';
-import {Info} from '../../data-model/Info';
+import {AppInfo} from '@mega/shared/data-model';
 import * as _moment from 'moment';
 
 const moment = _moment;
@@ -57,7 +57,7 @@ describe('InfoService', () => {
 
   class InfoMock {
 
-    static info: Info = {
+    static info: AppInfo = {
       branch: 'develop',
       buildDate: moment().date().toString(),
       buildNumber: 0,

@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {User} from '../../data-model/User';
 import {InfoDialogComponent} from '../info-dialog/info-dialog.component';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {UserInfo} from '../../../monthly-report/data-model';
+import {UserInfo} from '@mega/shared/data-model';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgIf} from '@angular/common';
@@ -37,7 +37,7 @@ export class UserActionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.oAuthService.loadUserProfile().then((userInfo: UserInfo) => {
-      this.pictureUrl = userInfo?.info?.picture;
+      this.pictureUrl = userInfo?.picture;
     });
   }
 

@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {InfoComponent} from './info.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
-import {Info} from '../../data-model/Info';
+import {AppInfo} from '@mega/shared/data-model';
 import {InfoService} from '@mega/shared/data-service';
 
 describe('InfoComponent', () => {
@@ -43,7 +43,7 @@ describe('InfoComponent', () => {
 
   class InfoMock {
 
-    static info: Info = {
+    static info: AppInfo = {
       version: '1.0.0',
       upTime: '3d 11h 25m 31s',
       startedAt: '04.02.2022 03:42',
