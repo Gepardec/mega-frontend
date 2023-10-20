@@ -23,6 +23,15 @@
       "dom"
     ],
     "paths": {
+      "@mega/monthly-report/data-model": [
+        "src/app/domains/monthly-report/data-model/index.ts"
+      ],
+      "@mega/monthly-report/data-service": [
+        "src/app/domains/monthly-report/data-service/index.ts"
+      ],
+      "@mega/monthly-report/feature-monthly-report": [
+        "src/app/domains/monthly-report/feature-monthly-report/index.ts"
+      ],
       "@mega/office-management/data-model": [
         "src/app/domains/office-management/data-model/index.ts"
       ],

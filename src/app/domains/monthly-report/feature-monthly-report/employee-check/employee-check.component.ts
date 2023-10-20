@@ -18,7 +18,7 @@ import {StepEntriesService} from '@mega/shared/data-service';
 import {Step} from '@mega/shared/data-model';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent} from '@mega/shared/ui-common';
-import {MonthlyReportService} from '../../data-service/monthly-report.service';
+import {MonthlyReportService} from '../../data-service/monthly-report/monthly-report.service';
 import * as moment from 'moment';
 import {convertMomentToString, toMonthYearString} from '@mega/shared/util-common';
 import {Subscription, zip} from 'rxjs';

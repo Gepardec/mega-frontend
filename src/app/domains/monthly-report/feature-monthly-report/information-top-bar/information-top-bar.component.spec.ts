@@ -1,7 +1,7 @@
 import {ComponentFixture, fakeAsync, flush, TestBed} from '@angular/core/testing';
 import * as _moment from 'moment';
 import {InformationTopBarComponent} from './information-top-bar.component';
-import {MonthlyReportService} from '../../data-service/monthly-report.service';
+import {MonthlyReportService} from '../../data-service/monthly-report/monthly-report.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatCardModule} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
