@@ -1,4 +1,4 @@
-import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
+import {ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import {ProjectState} from '@mega/shared/data-model';
 import {comparePmEntriesFn} from './project-management-comparator';
 

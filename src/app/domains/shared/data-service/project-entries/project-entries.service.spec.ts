@@ -5,7 +5,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import {ConfigService} from '../config/config.service';
 import {HttpResponse} from '@angular/common/http';
 import {ProjectState} from '@mega/shared/data-model';
-import {ProjectStepQualifier} from '../../../project-management/data-model/ProjectEntry';
+import {ProjectStepQualifier} from '@mega/project-management/data-model';
 
 describe('ProjectEntriesService', () => {
 

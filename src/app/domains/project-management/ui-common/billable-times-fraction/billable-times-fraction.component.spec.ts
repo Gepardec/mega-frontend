@@ -1,6 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {BillableTimesFractionComponent} from './billable-times-fraction.component';
+import {BillableTimesFractionComponent} from '@mega/project-management/ui-common';
 import {By} from '@angular/platform-browser';
 
 describe('BillableTimesFractionComponent', () => {

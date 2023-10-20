@@ -7,12 +7,12 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
 import {ConfigService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
-import {ProjectManagementService} from '../data-service/project-management/project-management.service';
+import {ProjectManagementService} from '@mega/project-management/data-service';
 import {Employee} from '@mega/shared/data-model';
 import {PmProgress} from '../../monthly-report/data-model/PmProgress';
 import {State} from '@mega/shared/data-model';
 import {ManagementEntry} from '@mega/shared/data-model';
-import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
+import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import {ProjectState} from '@mega/shared/data-model';
 import {SelectionModel} from '@angular/cdk/collections';
 import {CommentService} from '@mega/shared/data-service';
@@ -34,7 +34,7 @@ import {
 } from '@mega/shared/ui-common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
+import {ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;

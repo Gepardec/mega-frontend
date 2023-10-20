@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '../config/config.service';
 import {Observable} from 'rxjs';
-import {ProjectEntry, ProjectStepQualifier} from '../../../project-management/data-model/ProjectEntry';
+import {ProjectEntry, ProjectStepQualifier} from '@mega/project-management/data-model';
 import {ProjectState} from '@mega/shared/data-model';
 
 @Injectable({

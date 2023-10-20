@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
+import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {
   CommentsForEmployeeComponent
 } from '@mega/shared/ui-common';
 import {SelectionModel} from '@angular/cdk/collections';
 import {State} from '@mega/shared/data-model';
-import {ProjectManagementService} from '../data-service/project-management/project-management.service';
+import {ProjectManagementService} from '@mega/project-management/data-service';
 import {ManagementEntry} from '@mega/shared/data-model';
 import {StepEntriesService} from '@mega/shared/data-service';
 import {environment} from '../../../../environments/environment';
@@ -29,11 +29,11 @@ import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {ProjectCommentService} from '@mega/shared/data-service';
 import {SnackbarService} from '@mega/shared/data-service';
 import {finalize, forkJoin, mergeMap, Subscription, switchMap, tap, zip} from 'rxjs';
-import {ProjectManagementEntryViewModel} from '../data-model/ProjectManagementEntryViewModel';
+import {ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import * as ProjectManagementComparator from '../util/project-management-comparator';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
-import {BillableTimesFractionComponent} from '../ui-common/billable-times-fraction/billable-times-fraction.component';
-import {BillableTimesComponent} from '../ui-common/billable-times/billable-times.component';
+import {BillableTimesFractionComponent} from '@mega/project-management/ui-common';
+import {BillableTimesComponent} from '@mega/project-management/ui-common';
 import {
   DoneCommentsIndicatorComponent
 } from '@mega/shared/ui-common';

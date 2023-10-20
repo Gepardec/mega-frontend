@@ -7,7 +7,7 @@ import {RolesGuard} from '@mega/shared/util-guard';
 import {ErrorComponent} from '@mega/shared/ui-common';
 import {FeatureMonthlyReportComponent} from './domains/monthly-report/feature-monthly-report/feature-monthly-report.component';
 import {FeatureOfficeManagementComponent} from './domains/office-management/feature-office-management/feature-office-management.component';
-import {FeatureProjectManagementComponent} from './domains/project-management/feature-project-management/feature-project-management.component';
+import {FeatureProjectManagementComponent} from '@mega/project-management/feature-project-management';
 import {Role} from '@mega/shared/data-model';
 
 export const routes: Routes = [
