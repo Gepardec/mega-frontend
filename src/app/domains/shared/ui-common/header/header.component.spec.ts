@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {HeaderComponent} from './header.component';
-import {AppModule} from '../../../../app.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RolesService} from '@mega/shared/data-service';
 import {UserService} from '@mega/shared/data-service';
@@ -26,7 +25,6 @@ describe('HeaderComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        AppModule,
         HttpClientTestingModule,
         HeaderComponent
       ]
