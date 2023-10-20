@@ -5,9 +5,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {UserService} from '../user/user.service';
 import {configuration} from '@mega/shared/util-constant';
 import {Role, User} from '@mega/shared/data-model';
-import {routes} from '../../../../app-routing.module';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
+import {routes} from '../../../../app.routes';
 
 describe('RolesService', () => {
 

@@ -1,12 +1,11 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {Routes} from '@angular/router';
 import {configuration} from '@mega/shared/util-constant';
-import {ErrorComponent, LoginComponent} from '@mega/shared/ui-common';
-import {LoginGuard, RolesGuard} from '@mega/shared/util-guard';
 import {FeatureMonthlyReportComponent} from '@mega/monthly-report/feature-monthly-report';
+import {Role} from '@mega/shared/data-model';
+import {LoginGuard, RolesGuard} from '@mega/shared/util-guard';
 import {FeatureOfficeManagementComponent} from '@mega/office-management/feature-office-management';
 import {FeatureProjectManagementComponent} from '@mega/project-management/feature-project-management';
-import {Role} from '@mega/shared/data-model';
+import {ErrorComponent, LoginComponent} from '@mega/shared/ui-common';
 
 export const routes: Routes = [
   {
@@ -55,10 +54,3 @@ export const routes: Routes = [
     redirectTo: configuration.PAGE_URLS.LOGIN
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {
-}

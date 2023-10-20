@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, LOCALE_ID, NgModule} from '@angular/core';
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,6 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {HeaderComponent, InfoComponent} from '@mega/shared/ui-common';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {RouterModule} from '@angular/router';
+import {routes} from './app.routes';
 
 registerLocaleData(localeDeAt, 'de-AT');
 
@@ -26,7 +27,6 @@ registerLocaleData(localeDeAt, 'de-AT');
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     OAuthModule.forRoot(),
     BrowserAnimationsModule,
@@ -42,7 +42,8 @@ registerLocaleData(localeDeAt, 'de-AT');
       }
     }),
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
