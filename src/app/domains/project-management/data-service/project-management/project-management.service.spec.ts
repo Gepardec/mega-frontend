@@ -4,10 +4,10 @@ import {ProjectManagementService} from './project-management.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '@mega/shared/data-service';
 import {Employee} from '@mega/shared/data-model';
-import {PmProgress} from '../../monthly-report/data-model/PmProgress';
+import {PmProgress} from '../../../monthly-report/data-model/PmProgress';
 import {State} from '@mega/shared/data-model';
 import {ManagementEntry} from '@mega/shared/data-model';
-import {ProjectManagementEntry} from '../data-model/ProjectManagementEntry';
+import {ProjectManagementEntry} from '../../data-model/ProjectManagementEntry';
 import {ProjectState} from '@mega/shared/data-model';
 
 describe('ProjectManagementService', () => {

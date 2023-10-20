@@ -6,7 +6,7 @@ import {
 } from '@mega/shared/ui-common';
 import {SelectionModel} from '@angular/cdk/collections';
 import {State} from '@mega/shared/data-model';
-import {ProjectManagementService} from '../data-service/project-management.service';
+import {ProjectManagementService} from '../data-service/project-management/project-management.service';
 import {ManagementEntry} from '@mega/shared/data-model';
 import {StepEntriesService} from '@mega/shared/data-service';
 import {environment} from '../../../../environments/environment';

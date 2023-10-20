@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';
+import {ProjectManagementService} from '../../../project-management/data-service/project-management/project-management.service';
 import {finalize} from 'rxjs';
 import {CustomerProjectWithoutLeads} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';

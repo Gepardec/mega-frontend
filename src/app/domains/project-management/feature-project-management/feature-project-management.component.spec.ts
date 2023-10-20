@@ -7,7 +7,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
 import {ConfigService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
-import {ProjectManagementService} from '../data-service/project-management.service';
+import {ProjectManagementService} from '../data-service/project-management/project-management.service';
 import {Employee} from '@mega/shared/data-model';
 import {PmProgress} from '../../monthly-report/data-model/PmProgress';
 import {State} from '@mega/shared/data-model';

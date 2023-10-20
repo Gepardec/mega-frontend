@@ -10,7 +10,7 @@ import {CommentService} from '@mega/shared/data-service';
 import {StepEntriesService} from '@mega/shared/data-service';
 import {State} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '../../../project-management/data-model/ProjectManagementEntry';
-import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';
+import {ProjectManagementService} from '../../../project-management/data-service/project-management/project-management.service';
 import {Subscription, switchMap, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {ProjectState} from '@mega/shared/data-model';

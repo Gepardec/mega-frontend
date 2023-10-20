@@ -4,7 +4,7 @@ import {ProjectOverviewCardComponent} from './project-overview-card.component';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';
+import {ProjectManagementService} from '../../../project-management/data-service/project-management/project-management.service';
 import {ConfigService} from '@mega/shared/data-service';
 import {ProjectCommentService} from '@mega/shared/data-service';
 import {Config} from '@mega/shared/data-model';

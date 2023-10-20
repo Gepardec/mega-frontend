@@ -23,6 +23,21 @@
       "dom"
     ],
     "paths": {
+      "@mega/project-management/data-model": [
+        "src/app/domains/project-management/data-model/index.ts"
+      ],
+      "@mega/project-management/data-service": [
+        "src/app/domains/project-management/data-service/index.ts"
+      ],
+      "@mega/project-management/feature-project-management": [
+        "src/app/domains/project-management/feature-project-management/index.ts"
+      ],
+      "@mega/project-management/ui-common": [
+        "src/app/domains/project-management/ui-common/index.ts"
+      ],
+      "@mega/project-management/util": [
+        "src/app/domains/project-management/util/index.ts"
+      ],
       "@mega/shared/data-model": [
         "src/app/domains/shared/data-model/index.ts"
       ],
