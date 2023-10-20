@@ -4,23 +4,23 @@ import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {configuration} from '@mega/shared/util-constant';
 import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '@mega/office-management/data-service';
-import {NotificationService} from '@mega/shared/data-service';
+import {
+  CommentService,
+  NotificationService,
+  ProjectCommentService,
+  SnackbarService,
+  StepEntriesService
+} from '@mega/shared/data-service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {CommentService} from '@mega/shared/data-service';
-import {StepEntriesService} from '@mega/shared/data-service';
-import {State} from '@mega/shared/data-model';
+import {ProjectState, State} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import {ProjectManagementService} from '@mega/project-management/data-service';
 import {Subscription, switchMap, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {ProjectState} from '@mega/shared/data-model';
-import {ProjectCommentService} from '@mega/shared/data-service';
-import {SnackbarService} from '@mega/shared/data-service';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
-import {InlineTextEditorComponent} from '@mega/shared/ui-common';
+import {InlineTextEditorComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {ProjektNameWithZepLinkComponent} from '@mega/office-management/ui-common';
 import {MatTableModule} from '@angular/material/table';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';

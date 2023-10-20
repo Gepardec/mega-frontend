@@ -2,20 +2,16 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as _moment from 'moment';
 import {Moment} from 'moment';
 import {Subscription, switchMap, zip} from 'rxjs';
-import {OfficeManagementService} from '@mega/office-management/data-service';
+import {EnterpriseEntriesService, OfficeManagementService} from '@mega/office-management/data-service';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
 import {Config} from '@mega/shared/data-model';
 import {configuration} from '@mega/shared/util-constant';
 import {ConfigService} from '@mega/shared/data-service';
-import {EnterpriseEntriesService} from '@mega/office-management/data-service';
-import {EnterpriseEntry} from '@mega/office-management/data-model';
-import {EnterpriseStep} from '@mega/office-management/data-model';
+import {EnterpriseEntry, EnterpriseStep} from '@mega/office-management/data-model';
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {
-  ProjectStateSelectComponent
-} from '@mega/shared/ui-common';
+import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {NgIf} from '@angular/common';

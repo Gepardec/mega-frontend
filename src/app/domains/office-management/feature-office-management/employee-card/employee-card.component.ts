@@ -1,38 +1,30 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ManagementEntry} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
+import {Config, ManagementEntry, State, Step} from '@mega/shared/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {SelectionModel} from '@angular/cdk/collections';
 import {configuration} from '@mega/shared/util-constant';
 import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '@mega/office-management/data-service';
-import {NotificationService} from '@mega/shared/data-service';
+import {CommentService, ConfigService, NotificationService, StepEntriesService} from '@mega/shared/data-service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {CommentService} from '@mega/shared/data-service';
 import {
-  CommentsForEmployeeComponent
+  CommentsForEmployeeComponent,
+  DatepickerComponent,
+  DoneCommentsIndicatorComponent,
+  PmProgressComponent,
+  StateIndicatorComponent,
+  StateSelectComponent
 } from '@mega/shared/ui-common';
-import {StepEntriesService} from '@mega/shared/data-service';
-import {Step} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
-import {PmProgressComponent} from '@mega/shared/ui-common';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {ConfigService} from '@mega/shared/data-service';
-import {Config} from '@mega/shared/data-model';
 import {finalize, firstValueFrom, mergeMap, Subscription, switchMap, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
-import {
-  DoneCommentsIndicatorComponent
-} from '@mega/shared/ui-common';
-import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {StateSelectComponent} from '@mega/shared/ui-common';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTableModule} from '@angular/material/table';
-import {DatepickerComponent} from '@mega/shared/ui-common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';

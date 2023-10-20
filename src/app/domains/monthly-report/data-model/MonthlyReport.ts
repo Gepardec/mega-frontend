@@ -1,9 +1,6 @@
 import {TimeWarning} from './TimeWarning';
 import {JourneyWarning} from './JourneyWarning';
-import {Comment} from '@mega/shared/data-model';
-import {Employee} from '@mega/shared/data-model';
-import {PmProgress} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
+import {Comment, Employee, PmProgress, State} from '@mega/shared/data-model';
 
 export class MonthlyReport {
   comments: Array<Comment>;

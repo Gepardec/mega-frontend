@@ -11,13 +11,11 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {CommentService} from '@mega/shared/data-service';
-import {State} from '@mega/shared/data-model';
+import {CommentService, StepEntriesService} from '@mega/shared/data-service';
+import {State, Step} from '@mega/shared/data-model';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
-import {StepEntriesService} from '@mega/shared/data-service';
-import {Step} from '@mega/shared/data-model';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {PmProgressComponent} from '@mega/shared/ui-common';
+import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import * as moment from 'moment';
 import {convertMomentToString, toMonthYearString} from '@mega/shared/util-common';
@@ -33,7 +31,6 @@ import {
 } from '../employee-check-confirm-comment-dialog/model/EmployeeCheckConfirmDialogAction';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
-import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';

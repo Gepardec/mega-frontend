@@ -1,11 +1,6 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {Comment} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
-import {Employee} from '@mega/shared/data-model';
-import {CommentService} from '@mega/shared/data-service';
-import {User} from '@mega/shared/data-model';
-import {UserService} from '@mega/shared/data-service';
-import {Step} from '@mega/shared/data-model';
+import {Comment, Employee, State, Step, User} from '@mega/shared/data-model';
+import {CommentService, UserService} from '@mega/shared/data-service';
 import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {ConfirmDialogComponent} from '../confirm-dialog/confirm-dialog.component';
 import {TranslateModule} from '@ngx-translate/core';

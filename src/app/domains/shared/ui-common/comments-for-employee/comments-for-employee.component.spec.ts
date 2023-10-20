@@ -6,15 +6,11 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {MatDialogRef} from '@angular/material/dialog';
-import {Comment} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
+import {Comment, Employee, State, User} from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
-import {UserService} from '@mega/shared/data-service';
-import {User} from '@mega/shared/data-model';
-import {CommentService} from '@mega/shared/data-service';
+import {CommentService, UserService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
-import {Employee} from '@mega/shared/data-model';
 import {ElementRef} from '@angular/core';
 import {configuration} from '@mega/shared/util-constant';
 

@@ -5,17 +5,10 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ProjectManagementService} from '@mega/project-management/data-service';
-import {ConfigService} from '@mega/shared/data-service';
-import {ProjectCommentService} from '@mega/shared/data-service';
-import {Config} from '@mega/shared/data-model';
+import {ConfigService, ProjectCommentService, SnackbarService} from '@mega/shared/data-service';
+import {Config, Employee, ManagementEntry, ProjectComment, ProjectState, State} from '@mega/shared/data-model';
 import {of} from 'rxjs';
-import {ManagementEntry} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
-import {Employee} from '@mega/shared/data-model';
 import {ProjectManagementEntry} from '@mega/project-management/data-model';
-import {ProjectState} from '@mega/shared/data-model';
-import {ProjectComment} from '@mega/shared/data-model';
-import {SnackbarService} from '@mega/shared/data-service';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 describe('ProjectOverviewCardComponent', () => {

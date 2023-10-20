@@ -9,9 +9,7 @@ import {EmployeeCardComponent} from './employee-card/employee-card.component';
 import {ProjectOverviewCardComponent} from './project-overview-card/project-overview-card.component';
 import {ProjectsWithoutLeadsCardComponent} from './projects-without-leads-card/projects-without-leads-card.component';
 import {EnterpriseCardComponent} from './enterprise-card/enterprise-card.component';
-import {
-  DatepickerMonthYearComponent
-} from '@mega/shared/ui-common';
+import {DatepickerMonthYearComponent} from '@mega/shared/ui-common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 

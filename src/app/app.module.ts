@@ -15,8 +15,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {HeaderComponent} from '@mega/shared/ui-common';
-import {InfoComponent} from '@mega/shared/ui-common';
+import {HeaderComponent, InfoComponent} from '@mega/shared/ui-common';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 registerLocaleData(localeDeAt, 'de-AT');

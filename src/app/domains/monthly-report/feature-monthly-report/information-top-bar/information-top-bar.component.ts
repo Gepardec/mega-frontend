@@ -6,9 +6,7 @@ import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import * as _moment from 'moment';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
-import {
-  DatepickerMonthYearComponent
-} from '@mega/shared/ui-common';
+import {DatepickerMonthYearComponent} from '@mega/shared/ui-common';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';

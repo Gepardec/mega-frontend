@@ -3,9 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {OfficeManagementService} from './office-management.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '@mega/shared/data-service';
-import {ManagementEntry, PmProgress} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
-import {Employee} from '@mega/shared/data-model';
+import {Employee, ManagementEntry, PmProgress, State} from '@mega/shared/data-model';
 import {HttpStatusCode} from '@angular/common/http';
 
 describe('OfficeManagementService', () => {

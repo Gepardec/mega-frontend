@@ -5,35 +5,36 @@ import {TranslateModule} from '@ngx-translate/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
-import {ConfigService} from '@mega/shared/data-service';
+import {
+  CommentService,
+  ConfigService,
+  ProjectCommentService,
+  ProjectEntriesService,
+  SnackbarService,
+  StepEntriesService
+} from '@mega/shared/data-service';
 import {of} from 'rxjs';
 import {ProjectManagementService} from '@mega/project-management/data-service';
-import {Employee, PmProgress} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
-import {ManagementEntry} from '@mega/shared/data-model';
-import {ProjectManagementEntry} from '@mega/project-management/data-model';
-import {ProjectState} from '@mega/shared/data-model';
+import {
+  Comment,
+  Employee,
+  ManagementEntry,
+  PmProgress,
+  ProjectComment,
+  ProjectState,
+  State
+} from '@mega/shared/data-model';
+import {ProjectManagementEntry, ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import {SelectionModel} from '@angular/cdk/collections';
-import {CommentService} from '@mega/shared/data-service';
-import {Comment} from '@mega/shared/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
-import {StepEntriesService} from '@mega/shared/data-service';
 import {MatSelectChange} from '@angular/material/select';
-import {ProjectEntriesService} from '@mega/shared/data-service';
-import {SnackbarService} from '@mega/shared/data-service';
-import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
+import {DatepickerMonthYearComponent, ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {MatCheckboxChange} from '@angular/material/checkbox';
-import {ProjectCommentService} from '@mega/shared/data-service';
-import {ProjectComment} from '@mega/shared/data-model';
 import {configuration} from '@mega/shared/util-constant';
-import {
-  DatepickerMonthYearComponent
-} from '@mega/shared/ui-common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;

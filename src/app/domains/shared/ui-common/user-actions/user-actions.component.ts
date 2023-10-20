@@ -1,9 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {User} from '@mega/shared/data-model';
+import {User, UserInfo} from '@mega/shared/data-model';
 import {InfoDialogComponent} from '../info-dialog/info-dialog.component';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {UserInfo} from '@mega/shared/data-model';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgIf} from '@angular/common';

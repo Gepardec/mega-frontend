@@ -1,15 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from '@mega/shared/data-service';
+import {ConfigService, RolesService, UserService} from '@mega/shared/data-service';
 import {Observable, Subscription} from 'rxjs';
-import {User} from '@mega/shared/data-model';
-import {Link} from '@mega/shared/data-model';
-import {RolesService} from '@mega/shared/data-service';
+import {Config, Link, User} from '@mega/shared/data-model';
 import {TranslateService} from '@ngx-translate/core';
 import {configuration} from '@mega/shared/util-constant';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
-import {ConfigService} from '@mega/shared/data-service';
-import {Config} from '@mega/shared/data-model';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';

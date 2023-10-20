@@ -1,10 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {configuration} from '@mega/shared/util-constant';
-import {LoginComponent} from '@mega/shared/ui-common';
-import {LoginGuard} from '@mega/shared/util-guard';
-import {RolesGuard} from '@mega/shared/util-guard';
-import {ErrorComponent} from '@mega/shared/ui-common';
+import {ErrorComponent, LoginComponent} from '@mega/shared/ui-common';
+import {LoginGuard, RolesGuard} from '@mega/shared/util-guard';
 import {FeatureMonthlyReportComponent} from '@mega/monthly-report/feature-monthly-report';
 import {FeatureOfficeManagementComponent} from '@mega/office-management/feature-office-management';
 import {FeatureProjectManagementComponent} from '@mega/project-management/feature-project-management';

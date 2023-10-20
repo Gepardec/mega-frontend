@@ -5,15 +5,12 @@ import {TranslateModule} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
-import {Comment} from '@mega/shared/data-model';
-import {State} from '@mega/shared/data-model';
+import {Comment, Employee, State} from '@mega/shared/data-model';
 import * as _moment from 'moment';
 import {configuration} from '@mega/shared/util-constant';
-import {CommentService} from '@mega/shared/data-service';
+import {CommentService, StepEntriesService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {StepEntriesService} from '@mega/shared/data-service';
-import {Employee} from '@mega/shared/data-model';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 

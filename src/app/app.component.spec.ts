@@ -2,8 +2,7 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {OAuthModule, OAuthService} from 'angular-oauth2-oidc';
-import {ConfigService} from '@mega/shared/data-service';
-import {UserService} from '@mega/shared/data-service';
+import {ConfigService, UserService} from '@mega/shared/data-service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Config} from '@mega/shared/data-model';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';

@@ -5,21 +5,17 @@ import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {of} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {Employee} from '@mega/shared/data-model';
+import {Employee, State} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {JourneyCheckComponent} from './journey-check/journey-check.component';
-import {StateIndicatorComponent} from '@mega/shared/ui-common';
+import {DatepickerMonthYearComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
 import {EmployeeCheckComponent} from './employee-check/employee-check.component';
 import {GeneralInfoComponent} from './general-info/general-info.component';
 import {TimeCheckComponent} from './time-check/time-check.component';
-import {
-  DatepickerMonthYearComponent
-} from '@mega/shared/ui-common';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {State} from '@mega/shared/data-model';
 import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
 
 describe('FeatureMonthlyReportComponent', () => {

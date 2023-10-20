@@ -2,14 +2,11 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {HeaderComponent} from './header.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RolesService} from '@mega/shared/data-service';
-import {UserService} from '@mega/shared/data-service';
+import {ConfigService, RolesService, UserService} from '@mega/shared/data-service';
 import {TranslateService} from '@ngx-translate/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
-import {ConfigService} from '@mega/shared/data-service';
 import {of, Subscription} from 'rxjs';
-import {Config} from '@mega/shared/data-model';
-import {Link} from '@mega/shared/data-model';
+import {Config, Link} from '@mega/shared/data-model';
 
 describe('HeaderComponent', () => {
 
