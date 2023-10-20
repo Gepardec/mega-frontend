@@ -12,7 +12,7 @@ import {configuration} from '../../../shared/util-constant/configuration';
 import {CommentService} from '../../../shared/data-service/comment/comment.service';
 import {of} from 'rxjs';
 import {MonthlyReport} from '../../data-model/MonthlyReport';
-import {StepEntriesService} from '../../../shared/data-service/stepentries/step-entries.service';
+import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
 import {Employee} from '../../../shared/data-model/Employee';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';

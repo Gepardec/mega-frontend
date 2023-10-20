@@ -12,7 +12,7 @@ import {CommentService} from '../../../shared/data-service/comment/comment.servi
 import {
   CommentsForEmployeeComponent
 } from '../../../shared/ui-common/comments-for-employee/comments-for-employee.component';
-import {StepEntriesService} from '../../../shared/data-service/stepentries/step-entries.service';
+import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
 import {Step} from '../../../shared/data-model/Step';
 
 import * as _moment from 'moment';

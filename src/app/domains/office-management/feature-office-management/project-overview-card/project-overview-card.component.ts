@@ -7,7 +7,7 @@ import {OfficeManagementService} from '../../data-service/office-management.serv
 import {NotificationService} from '../../../shared/data-service/notification/notification.service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CommentService} from '../../../shared/data-service/comment/comment.service';
-import {StepEntriesService} from '../../../shared/data-service/stepentries/step-entries.service';
+import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
 import {State} from '../../../shared/data-model/State';
 import {ProjectManagementEntry} from '../../../project-management/data-model/ProjectManagementEntry';
 import {ProjectManagementService} from '../../../project-management/data-service/project-management.service';

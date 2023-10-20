@@ -1,11 +1,11 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 
 import {LoginGuard} from './login.guard';
-import {UserService} from '../data-service/user/user.service';
+import {UserService} from '../../data-service/user/user.service';
 import {BehaviorSubject} from 'rxjs';
-import {User} from '../data-model/User';
+import {User} from '../../data-model/User';
 import {RouterTestingModule} from '@angular/router/testing';
-import {routes} from '../../../app-routing.module';
+import {routes} from '../../../../app-routing.module';
 
 describe('LoginGuard', () => {
 

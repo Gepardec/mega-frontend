@@ -22,6 +22,32 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+      "@mega/shared/data-model": [
+        "src/app/domains/shared/data-model/index.ts"
+      ],
+      "@mega/shared/data-service": [
+        "src/app/domains/shared/data-service/index.ts"
+      ],
+      "@mega/shared/ui-common": [
+        "src/app/domains/shared/ui-common/index.ts"
+      ],
+      "@mega/shared/util-auth": [
+        "src/app/domains/shared/util-auth/index.ts"
+      ],
+      "@mega/shared/util-common": [
+        "src/app/domains/shared/util-common/index.ts"
+      ],
+      "@mega/shared/util-constant": [
+        "src/app/domains/shared/util-constant/index.ts"
+      ],
+      "@mega/shared/util-guard": [
+        "src/app/domains/shared/util-guard/index.ts"
+      ],
+      "@mega/shared/util-testing": [
+        "src/app/domains/shared/util-testing/index.ts"
+      ]
+    },
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

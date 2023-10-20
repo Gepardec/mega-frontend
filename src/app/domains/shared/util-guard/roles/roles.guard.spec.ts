@@ -1,6 +1,6 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 import {RolesGuard} from './roles.guard';
-import {RolesService} from '../data-service/roles/roles.service';
+import {RolesService} from '../../data-service/roles/roles.service';
 
 describe('RolesGuard', () => {
 

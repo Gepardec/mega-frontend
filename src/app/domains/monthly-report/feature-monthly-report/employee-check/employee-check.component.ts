@@ -14,7 +14,7 @@ import {MonthlyReport} from '../../data-model/MonthlyReport';
 import {CommentService} from '../../../shared/data-service/comment/comment.service';
 import {State} from '../../../shared/data-model/State';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
-import {StepEntriesService} from '../../../shared/data-service/stepentries/step-entries.service';
+import {StepEntriesService} from '../../../shared/data-service/step-entries/step-entries.service';
 import {Step} from '../../../shared/data-model/Step';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent} from '../../../shared/ui-common/pm-progress/pm-progress.component';
