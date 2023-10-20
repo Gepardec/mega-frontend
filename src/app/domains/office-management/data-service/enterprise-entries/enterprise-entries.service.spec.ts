@@ -3,7 +3,7 @@ import {TestBed} from '@angular/core/testing';
 import {EnterpriseEntriesService} from './enterprise-entries.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {ConfigService} from '@mega/shared/data-service';
-import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
+import {EnterpriseEntry} from '@mega/office-management/data-model';
 import {ProjectState} from '@mega/shared/data-model';
 import {HttpResponse} from '@angular/common/http';
 

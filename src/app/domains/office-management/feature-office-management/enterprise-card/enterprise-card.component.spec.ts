@@ -6,16 +6,16 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
 import {of} from 'rxjs';
 import {Config} from '@mega/shared/data-model';
-import {OfficeManagementService} from '../../data-service/office-management/office-management.service';
-import {EnterpriseEntriesService} from '../../data-service/enterprise-entries/enterprise-entries.service';
+import {OfficeManagementService} from '@mega/office-management/data-service';
+import {EnterpriseEntriesService} from '@mega/office-management/data-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ConfigService} from '@mega/shared/data-service';
 import {TranslateService} from '@ngx-translate/core';
-import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
+import {EnterpriseEntry} from '@mega/office-management/data-model';
 import {ProjectState} from '@mega/shared/data-model';
 import {configuration} from '@mega/shared/util-constant';
 import {MatSelectChange} from '@angular/material/select';
-import {EnterpriseStep} from '../../data-model/EnterpriseStep';
+import {EnterpriseStep} from '@mega/office-management/data-model';
 import {
   ProjectStateSelectComponent
 } from '@mega/shared/ui-common';

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '@mega/shared/data-service';
 import {Observable} from 'rxjs';
-import {EnterpriseEntry} from '../../data-model/EnterpriseEntry';
+import {EnterpriseEntry} from '@mega/office-management/data-model';
 
 @Injectable({
   providedIn: 'root'

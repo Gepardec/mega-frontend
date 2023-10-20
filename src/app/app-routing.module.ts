@@ -6,7 +6,7 @@ import {LoginGuard} from '@mega/shared/util-guard';
 import {RolesGuard} from '@mega/shared/util-guard';
 import {ErrorComponent} from '@mega/shared/ui-common';
 import {FeatureMonthlyReportComponent} from './domains/monthly-report/feature-monthly-report/feature-monthly-report.component';
-import {FeatureOfficeManagementComponent} from './domains/office-management/feature-office-management/feature-office-management.component';
+import {FeatureOfficeManagementComponent} from '@mega/office-management/feature-office-management';
 import {FeatureProjectManagementComponent} from '@mega/project-management/feature-project-management';
 import {Role} from '@mega/shared/data-model';
 
