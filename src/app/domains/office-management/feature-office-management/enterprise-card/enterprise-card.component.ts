@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as _moment from 'moment';
 import {Moment} from 'moment';
 import {Subscription, switchMap, zip} from 'rxjs';
-import {OfficeManagementService} from '../../data-service/office-management.service';
+import {OfficeManagementService} from '../../data-service/office-management/office-management.service';
 import {tap} from 'rxjs/operators';
 import {MatSelectChange} from '@angular/material/select';
 import {Config} from '@mega/shared/data-model';

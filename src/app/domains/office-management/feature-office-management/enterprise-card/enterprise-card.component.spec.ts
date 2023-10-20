@@ -6,7 +6,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import * as _moment from 'moment';
 import {of} from 'rxjs';
 import {Config} from '@mega/shared/data-model';
-import {OfficeManagementService} from '../../data-service/office-management.service';
+import {OfficeManagementService} from '../../data-service/office-management/office-management.service';
 import {EnterpriseEntriesService} from '../../data-service/enterprise-entries/enterprise-entries.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ConfigService} from '@mega/shared/data-service';

@@ -4,7 +4,7 @@ import {FeatureOfficeManagementComponent} from './feature-office-management.comp
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {OfficeManagementService} from '../data-service/office-management.service';
+import {OfficeManagementService} from '../data-service/office-management/office-management.service';
 
 import * as _moment from 'moment';
 

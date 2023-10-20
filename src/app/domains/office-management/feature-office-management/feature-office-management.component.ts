@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as _moment from 'moment';
 import {Moment} from 'moment';
-import {OfficeManagementService} from '../data-service/office-management.service';
+import {OfficeManagementService} from '../data-service/office-management/office-management.service';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {TranslateModule} from '@ngx-translate/core';

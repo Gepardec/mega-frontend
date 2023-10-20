@@ -23,6 +23,18 @@
       "dom"
     ],
     "paths": {
+      "@mega/office-management/data-model": [
+        "src/app/domains/office-management/data-model/index.ts"
+      ],
+      "@mega/office-management/data-service": [
+        "src/app/domains/office-management/data-service/index.ts"
+      ],
+      "@mega/office-management/feature-office-management": [
+        "src/app/domains/office-management/feature-office-management/index.ts"
+      ],
+      "@mega/office-management/ui-common": [
+        "src/app/domains/office-management/ui-common/index.ts"
+      ],
       "@mega/project-management/data-model": [
         "src/app/domains/project-management/data-model/index.ts"
       ],

@@ -5,7 +5,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {SelectionModel} from '@angular/cdk/collections';
 import {configuration} from '@mega/shared/util-constant';
 import {environment} from '../../../../../environments/environment';
-import {OfficeManagementService} from '../../data-service/office-management.service';
+import {OfficeManagementService} from '../../data-service/office-management/office-management.service';
 import {NotificationService} from '@mega/shared/data-service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {CommentService} from '@mega/shared/data-service';
