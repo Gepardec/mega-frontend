@@ -1,19 +1,19 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {configuration} from './domains/shared/constants/configuration';
-import {LoginComponent} from './domains/shared/components/login/login.component';
-import {LoginGuard} from './domains/shared/guards/login.guard';
-import {RolesGuard} from './domains/shared/guards/roles.guard';
-import {ErrorComponent} from './domains/shared/components/error/error.component';
-import {MonthlyReportComponent} from './domains/monthly-report/components/monthly-report.component';
-import {OfficeManagementComponent} from './domains/office-management/components/office-management/office-management.component';
-import {ProjectManagementComponent} from './domains/project-management/components/project-management.component';
-import {Role} from './domains/shared/models/Role';
+import {configuration} from './domains/shared/util-constant/configuration';
+import {LoginComponent} from './domains/shared/ui-common/login/login.component';
+import {LoginGuard} from './domains/shared/util-guard/login.guard';
+import {RolesGuard} from './domains/shared/util-guard/roles.guard';
+import {ErrorComponent} from './domains/shared/ui-common/error/error.component';
+import {FeatureMonthlyReportComponent} from './domains/monthly-report/feature-monthly-report/feature-monthly-report.component';
+import {FeatureOfficeManagementComponent} from './domains/office-management/feature-office-management/feature-office-management.component';
+import {FeatureProjectManagementComponent} from './domains/project-management/feature-project-management/feature-project-management.component';
+import {Role} from './domains/shared/data-model/Role';
 
 export const routes: Routes = [
   {
     path: configuration.PAGE_URLS.MONTHLY_REPORT,
-    component: MonthlyReportComponent,
+    component: FeatureMonthlyReportComponent,
     data: {
       role: Role.EMPLOYEE
     },
@@ -21,7 +21,7 @@ export const routes: Routes = [
   },
   {
     path: configuration.PAGE_URLS.OFFICE_MANAGEMENT,
-    component: OfficeManagementComponent,
+    component: FeatureOfficeManagementComponent,
     data: {
       role: Role.OFFICE_MANAGEMENT
     },
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: configuration.PAGE_URLS.PROJECT_MANAGEMENT,
-    component: ProjectManagementComponent,
+    component: FeatureProjectManagementComponent,
     data: {
       role: Role.PROJECT_LEAD
     },

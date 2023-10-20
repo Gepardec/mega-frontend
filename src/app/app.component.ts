@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {authConfig, cypressAuthConfig} from './auth/auth.config';
+import {authConfig, cypressAuthConfig} from './domains/shared/util-auth/auth.config';
 import {Router} from '@angular/router';
-import {UserService} from './domains/shared/services/user/user.service';
-import {ConfigService} from './domains/shared/services/config/config.service';
+import {UserService} from './domains/shared/data-service/user/user.service';
+import {ConfigService} from './domains/shared/data-service/config/config.service';
 import {firstValueFrom, Subscription} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
 

@@ -2,10 +2,10 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {OAuthModule, OAuthService} from 'angular-oauth2-oidc';
-import {ConfigService} from './domains/shared/services/config/config.service';
-import {UserService} from './domains/shared/services/user/user.service';
+import {ConfigService} from './domains/shared/data-service/config/config.service';
+import {UserService} from './domains/shared/data-service/user/user.service';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Config} from './domains/shared/models/Config';
+import {Config} from './domains/shared/data-model/Config';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
