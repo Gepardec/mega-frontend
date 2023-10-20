@@ -22,21 +22,21 @@ describe('AppComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
-      imports: [
+    imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         NoopAnimationsModule,
         RouterTestingModule,
-        OAuthModule.forRoot()
-      ],
-      providers: [
-        {provide: ConfigService, useClass: ConfigServiceMock},
-        {provide: UserService, useClass: UserServiceMock}
-      ],
-      schemas: [NO_ERRORS_SCHEMA]
-    }).compileComponents().then(() => {
+        OAuthModule.forRoot(),
+        AppComponent
+    ],
+    providers: [
+        { provide: ConfigService, useClass: ConfigServiceMock },
+        { provide: UserService, useClass: UserServiceMock }
+    ],
+    schemas: [NO_ERRORS_SCHEMA]
+}).compileComponents().then(() => {
       fixture = TestBed.createComponent(AppComponent);
       component = fixture.componentInstance;
       translateService = TestBed.inject(TranslateService);
