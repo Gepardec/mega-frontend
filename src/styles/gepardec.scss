@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
-@import '../../node_modules/@angular/material/theming';
-@import 'src/styles/colors';
+@import '@angular/material/theming';
+@import 'styles/colors';
 
 @include mat.all-component-typographies();
 @include mat.core();
@@ -84,7 +84,6 @@ $mega-theme: mat.define-light-theme((
 ));
 
 
-
 @include mat.all-component-themes($mega-theme);
 
 
@@ -98,7 +97,6 @@ app-office-management {
       $line-height: normal,
       $letter-spacing: normal,
     ),
-
     $subtitle-2: mat.define-typography-level(
       $font-size: 12px,
       $font-weight: 500,

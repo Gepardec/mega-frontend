@@ -40,7 +40,12 @@
             "buildOptimizer": false,
             "sourceMap": false,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -112,7 +117,12 @@
               "src/assets",
               "src/httpd-cfg",
               "src/robots.txt"
-            ]
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            }
           }
         },
         "e2e": {
