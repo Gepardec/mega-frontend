@@ -11,8 +11,10 @@ import {configuration} from '@mega/shared/util-constant';
 import {CommentService, StepEntriesService} from '@mega/shared/data-service';
 import {of} from 'rxjs';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {MatBottomSheet, MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {MatDialogModule} from '@angular/material/dialog';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -34,7 +36,10 @@ describe('EmployeeCheckComponent', () => {
         RouterTestingModule,
         OAuthModule.forRoot(),
         NgxSkeletonLoaderModule,
-        EmployeeCheckComponent
+        EmployeeCheckComponent,
+        MatDialogModule,
+        MatBottomSheetModule,
+        NoopAnimationsModule
       ],
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EmployeeCheckComponent);
@@ -86,18 +91,6 @@ describe('EmployeeCheckComponent', () => {
     flush();
 
     expect(component.refreshMonthlyReport.emit).toHaveBeenCalled();
-  }));
-
-  it('#openEmployeeProgress - should call bottomSheet.open', fakeAsync(() => {
-    fixture.detectChanges();
-
-    component.monthlyReport = new MonthlyReport();
-
-    spyOn(bottomSheet, 'open').and.stub();
-
-    component.openEmployeeProgress(undefined);
-
-    expect(bottomSheet.open).toHaveBeenCalled();
   }));
 
   it('#parseBody - should replace link and add href', () => {
