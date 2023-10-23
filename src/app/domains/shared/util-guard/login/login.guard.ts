@@ -1,28 +1,17 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
+import {inject} from '@angular/core';
+import {CanActivateFn, Router} from '@angular/router';
 import {UserService} from '@mega/shared/data-service';
 import {configuration} from '@mega/shared/util-constant';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class LoginGuard {
+export const loginGuard: CanActivateFn = (route, state): boolean => {
+  const router = inject(Router);
+  const userService = inject(UserService);
 
-  constructor(private router: Router,
-              private userService: UserService) {
+  if (userService.loggedInWithGoogle() && userService.user.value) {
+    return true;
+  } else {
+    userService.setStartpageOverride(state.url);
+    router.navigate([configuration.PAGE_URLS.LOGIN]);
+    return false;
   }
-
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.userService.loggedInWithGoogle() && this.userService.user.value) {
-      return true;
-    } else {
-      this.userService.setStartpageOverride(state.url);
-      this.router.navigate([configuration.PAGE_URLS.LOGIN]);
-      return false;
-    }
-  }
-
-}
+};

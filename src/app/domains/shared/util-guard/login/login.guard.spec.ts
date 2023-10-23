@@ -1,15 +1,18 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
 
-import {LoginGuard} from './login.guard';
+import {loginGuard} from './login.guard';
 import {UserService} from '@mega/shared/data-service';
 import {BehaviorSubject} from 'rxjs';
 import {User} from '@mega/shared/data-model';
 import {RouterTestingModule} from '@angular/router/testing';
 import {routes} from '../../../../app.routes';
+import {CanActivateFn} from '@angular/router';
 
 describe('LoginGuard', () => {
 
-  let guard: LoginGuard;
+  const executeGuard: CanActivateFn = (...guardParameters) =>
+    TestBed.runInInjectionContext(() => loginGuard(...guardParameters));
+
   let userService: UserService;
 
   const userSubject: BehaviorSubject<User> = new BehaviorSubject<User>(undefined);
@@ -23,13 +26,12 @@ describe('LoginGuard', () => {
         {provide: UserService, useClass: UserServiceMock}
       ]
     }).compileComponents().then(() => {
-      guard = TestBed.inject(LoginGuard);
       userService = TestBed.inject(UserService);
     });
   }));
 
   it('#should create', () => {
-    expect(guard).toBeTruthy();
+    expect(executeGuard).toBeTruthy();
   });
 
   it('#canActivate - should be logged in', () => {
@@ -42,7 +44,7 @@ describe('LoginGuard', () => {
       roles: []
     });
 
-    const canActivate = guard.canActivate(null, null);
+    const canActivate = executeGuard(null, null);
 
     expect(userService.loggedInWithGoogle).toHaveBeenCalled();
     expect(canActivate).toBeTrue();
@@ -52,7 +54,7 @@ describe('LoginGuard', () => {
     spyOn(userService, 'loggedInWithGoogle').and.returnValue(false);
     spyOn(userService, 'setStartpageOverride').and.stub();
 
-    const canActivate = guard.canActivate(null, createMockStartPage('localhost:4020'));
+    const canActivate = executeGuard(null, createMockStartPage('localhost:4020'));
 
     expect(userService.loggedInWithGoogle).toHaveBeenCalled();
     expect(canActivate).toBeFalse();

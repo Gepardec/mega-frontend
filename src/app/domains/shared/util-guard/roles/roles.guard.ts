@@ -1,19 +1,7 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
-import {Observable} from 'rxjs';
+import {inject} from '@angular/core';
+import {CanActivateFn} from '@angular/router';
 import {RolesService} from '@mega/shared/data-service';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class RolesGuard {
-
-  constructor(private rolesService: RolesService) {
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-    Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
-    return this.rolesService.isAllowed(route.routeConfig.path);
-  }
-}
+export const rolesGuard: CanActivateFn = (route): boolean => {
+  return inject(RolesService).isAllowed(route.routeConfig.path);
+};

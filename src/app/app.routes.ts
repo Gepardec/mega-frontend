@@ -2,7 +2,7 @@ import {Routes} from '@angular/router';
 import {configuration} from '@mega/shared/util-constant';
 import {FeatureMonthlyReportComponent} from '@mega/monthly-report/feature-monthly-report';
 import {Role} from '@mega/shared/data-model';
-import {LoginGuard, RolesGuard} from '@mega/shared/util-guard';
+import {loginGuard, rolesGuard} from '@mega/shared/util-guard';
 import {FeatureOfficeManagementComponent} from '@mega/office-management/feature-office-management';
 import {FeatureProjectManagementComponent} from '@mega/project-management/feature-project-management';
 import {ErrorComponent, LoginComponent} from '@mega/shared/ui-common';
@@ -14,7 +14,7 @@ export const routes: Routes = [
     data: {
       role: Role.EMPLOYEE
     },
-    canActivate: [LoginGuard, RolesGuard]
+    canActivate: [loginGuard, rolesGuard]
   },
   {
     path: configuration.PAGE_URLS.OFFICE_MANAGEMENT,
@@ -22,7 +22,7 @@ export const routes: Routes = [
     data: {
       role: Role.OFFICE_MANAGEMENT
     },
-    canActivate: [LoginGuard, RolesGuard]
+    canActivate: [loginGuard, rolesGuard]
   },
   {
     path: configuration.PAGE_URLS.PROJECT_MANAGEMENT,
@@ -30,7 +30,7 @@ export const routes: Routes = [
     data: {
       role: Role.PROJECT_LEAD
     },
-    canActivate: [LoginGuard, RolesGuard]
+    canActivate: [loginGuard, rolesGuard]
   },
   {
     path: configuration.PAGE_URLS.LOGIN,

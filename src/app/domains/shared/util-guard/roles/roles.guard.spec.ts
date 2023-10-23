@@ -1,10 +1,13 @@
 import {TestBed, waitForAsync} from '@angular/core/testing';
-import {RolesGuard} from './roles.guard';
+import {rolesGuard} from './roles.guard';
 import {RolesService} from '@mega/shared/data-service';
+import {CanActivateFn} from '@angular/router';
 
-describe('RolesGuard', () => {
+describe('rolesGuard', () => {
 
-  let guard: RolesGuard;
+  const executeGuard: CanActivateFn = (...guardParameters) =>
+    TestBed.runInInjectionContext(() => rolesGuard(...guardParameters));
+
   let rolesService: RolesService;
 
   beforeEach(waitForAsync(() => {
@@ -13,19 +16,18 @@ describe('RolesGuard', () => {
         {provide: RolesService, useClass: RolesServiceMock}
       ]
     }).compileComponents().then(() => {
-      guard = TestBed.inject(RolesGuard);
       rolesService = TestBed.inject(RolesService);
     });
   }));
 
   it('#should create', () => {
-    expect(guard).toBeTruthy();
+    expect(executeGuard).toBeTruthy();
   });
 
   it('#canActivate - should return true', () => {
     spyOn(rolesService, 'isAllowed').and.returnValue(true);
 
-    const canActivate = guard.canActivate(createMockRoute('localhost:4020'), null);
+    const canActivate = executeGuard(createMockRoute('localhost:4020'), null);
 
     expect(rolesService.isAllowed).toHaveBeenCalled();
     expect(canActivate).toBeTrue();
@@ -40,5 +42,5 @@ describe('RolesGuard', () => {
     return {
       routeConfig: {path: id}
     } as any;
-  }
+  };
 });
