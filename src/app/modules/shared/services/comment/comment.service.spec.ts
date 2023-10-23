@@ -74,7 +74,7 @@ describe('CommentService', () => {
   it('#createNewComment - should return new comment', (done) => {
     const newComment = CommentsMock.createNew();
 
-    commentService.createNewComment(new Employee(), newComment.message, newComment.authorEmail, Step.ACCEPT_TIMES, 'LIW-Microservices', moment().format(CommentsMock.dateFormat))
+    commentService.createNewComment(new Employee(), newComment.message, newComment.authorEmail, Step.CONTROL_INTERNAL_TIMES, 'LIW-Microservices', moment().format(CommentsMock.dateFormat))
       .subscribe((comment: Comment) => {
         expect(comment).not.toBeNull();
         expect(comment.id).toEqual(4);
