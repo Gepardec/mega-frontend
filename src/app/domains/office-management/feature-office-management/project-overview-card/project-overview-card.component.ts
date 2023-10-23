@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import * as _moment from 'moment';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
 import {configuration} from '@mega/shared/util-constant';
-import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '@mega/office-management/data-service';
 import {
   CommentService,
@@ -56,7 +55,6 @@ export class ProjectOverviewCardComponent implements OnInit, OnDestroy {
 
   pmEntries: Array<ProjectManagementEntry>;
   configuration = configuration;
-  environment = environment;
   selectedYear: number;
   selectedMonth: number;
   dateSelectionSub: Subscription;

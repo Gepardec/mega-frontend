@@ -21,7 +21,6 @@ import {
   SnackbarService,
   StepEntriesService
 } from '@mega/shared/data-service';
-import {environment} from '../../../../environments/environment';
 
 import * as _moment from 'moment';
 import {Moment} from 'moment';
@@ -92,7 +91,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
 
   officeManagementUrl: string;
   pmSelectionModels: Map<string, SelectionModel<ManagementEntry>>;
-  environment = environment;
   selectedYear: number;
   selectedMonth: number;
   showCommentEditor = false;

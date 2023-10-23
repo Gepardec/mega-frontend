@@ -3,7 +3,6 @@ import {Config, ManagementEntry, State, Step} from '@mega/shared/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {SelectionModel} from '@angular/cdk/collections';
 import {configuration} from '@mega/shared/util-constant';
-import {environment} from '../../../../../environments/environment';
 import {OfficeManagementService} from '@mega/office-management/data-service';
 import {CommentService, ConfigService, NotificationService, StepEntriesService} from '@mega/shared/data-service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
@@ -84,7 +83,6 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
   selectedDate: string;
   dayOfMonthForWarning = 5;
   configuration = configuration;
-  environment = environment;
   selectedYear: number;
   selectedMonth: number;
   dateSelectionSub: Subscription;
