@@ -4,6 +4,7 @@ import {DatepickerComponent} from './datepicker.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import * as _moment from 'moment';
 import {configuration} from '@mega/shared/util-constant';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -17,7 +18,8 @@ describe('DatepickerComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
-        DatepickerComponent
+        DatepickerComponent,
+        MatMomentDateModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(DatepickerComponent);

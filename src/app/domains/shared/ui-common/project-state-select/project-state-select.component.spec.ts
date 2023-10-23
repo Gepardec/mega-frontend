@@ -3,6 +3,7 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {ProjectState} from '@mega/shared/data-model';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 const PROJECT_STATES_LENGTH = Object.keys(ProjectState).length;
 const STATE_PREFIX = 'STATE.';
@@ -18,7 +19,8 @@ describe('ProjectStateSelectComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        ProjectStateSelectComponent
+        ProjectStateSelectComponent,
+        NoopAnimationsModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ProjectStateSelectComponent);

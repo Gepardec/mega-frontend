@@ -10,6 +10,8 @@ import {Config, Employee, ManagementEntry, ProjectComment, ProjectState, State} 
 import {of} from 'rxjs';
 import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 describe('ProjectOverviewCardComponent', () => {
 
@@ -29,7 +31,9 @@ describe('ProjectOverviewCardComponent', () => {
         TranslateModule.forRoot(),
         RouterTestingModule,
         NgxSkeletonLoaderModule,
-        ProjectOverviewCardComponent
+        ProjectOverviewCardComponent,
+        MatSnackBarModule,
+        MatBottomSheetModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(ProjectOverviewCardComponent);

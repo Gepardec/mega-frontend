@@ -85,7 +85,8 @@ describe('MonthlyReportService', () => {
       timeWarnings: null,
       totalWorkingTime: '10:15',
       vacationDays: 3,
-      paidSickLeave: 2
+      paidSickLeave: 2,
+      vacationDayBalance: 10
     };
   }
 });

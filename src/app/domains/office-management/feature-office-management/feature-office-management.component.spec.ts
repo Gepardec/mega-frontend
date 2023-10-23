@@ -7,6 +7,9 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {OfficeManagementService} from '@mega/office-management/data-service';
 
 import * as _moment from 'moment';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 const moment = _moment;
 
@@ -23,7 +26,10 @@ describe('FeatureOfficeManagementComponent', () => {
         HttpClientTestingModule,
         TranslateModule.forRoot(),
         RouterTestingModule,
-        FeatureOfficeManagementComponent
+        FeatureOfficeManagementComponent,
+        MatSnackBarModule,
+        MatDialogModule,
+        NoopAnimationsModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(FeatureOfficeManagementComponent);

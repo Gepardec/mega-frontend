@@ -7,15 +7,16 @@ import * as _moment from 'moment';
 import {of} from 'rxjs';
 import {Config, ProjectState} from '@mega/shared/data-model';
 import {EnterpriseEntriesService, OfficeManagementService} from '@mega/office-management/data-service';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {ConfigService} from '@mega/shared/data-service';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {EnterpriseEntry, EnterpriseStep} from '@mega/office-management/data-model';
 import {configuration} from '@mega/shared/util-constant';
 import {MatSelectChange} from '@angular/material/select';
 import {ProjectStateSelectComponent} from '@mega/shared/ui-common';
 import {ChangeDetectorRef} from '@angular/core';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 const moment = _moment;
 
@@ -35,7 +36,10 @@ describe('EnterpriseCardComponent', () => {
       imports: [
         HttpClientTestingModule,
         NgxSkeletonLoaderModule,
-        EnterpriseCardComponent
+        EnterpriseCardComponent,
+        MatSnackBarModule,
+        TranslateModule.forRoot(),
+        NoopAnimationsModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EnterpriseCardComponent);

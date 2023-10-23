@@ -6,6 +6,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 describe('OfficeManagementComponent', () => {
 
@@ -20,7 +23,10 @@ describe('OfficeManagementComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule,
         NgxSkeletonLoaderModule,
-        EmployeeCardComponent
+        EmployeeCardComponent,
+        MatDialogModule,
+        MatSnackBarModule,
+        MatBottomSheetModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(EmployeeCardComponent);

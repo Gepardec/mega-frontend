@@ -2,7 +2,7 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {OAuthModule, OAuthService} from 'angular-oauth2-oidc';
-import {ConfigService, UserService} from '@mega/shared/data-service';
+import {ConfigService} from '@mega/shared/data-service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Config} from '@mega/shared/data-model';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
@@ -19,28 +19,26 @@ describe('AppComponent', () => {
 
   let translateService: TranslateService;
   let authService: OAuthService;
+  let configService: ConfigService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-    imports: [
+      imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         NoopAnimationsModule,
         RouterTestingModule,
         OAuthModule.forRoot(),
-        AppComponent
-    ],
-    providers: [
-        { provide: ConfigService, useClass: ConfigServiceMock },
-        { provide: UserService, useClass: UserServiceMock }
-    ],
-    schemas: [NO_ERRORS_SCHEMA]
-}).compileComponents().then(() => {
+        AppComponent,
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
+    }).compileComponents().then(() => {
       fixture = TestBed.createComponent(AppComponent);
       component = fixture.componentInstance;
       translateService = TestBed.inject(TranslateService);
       authService = TestBed.inject(OAuthService);
+      configService = TestBed.inject(ConfigService);
     });
   }));
 
@@ -55,6 +53,7 @@ describe('AppComponent', () => {
   });
 
   it('#afterInit - should call authService.configure and should call oAuthService.loadDiscoveryDocumentAndTryLogin', fakeAsync(() => {
+    spyOn(configService, 'getConfig').and.returnValue(ConfigServiceMock.getConfig());
     spyOn(authService, 'configure').and.stub();
     spyOn(authService, 'loadDiscoveryDocumentAndTryLogin').and.returnValue(new Promise(() => Promise.resolve()));
 
@@ -80,7 +79,7 @@ describe('AppComponent', () => {
   });
 
   class ConfigServiceMock {
-    getConfig(): Observable<Config> {
+    static getConfig(): Observable<Config> {
       return new BehaviorSubject<Config>({
         clientId: 'DUMMY',
         scope: 'email',

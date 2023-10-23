@@ -26,7 +26,7 @@ import {
 } from '@mega/shared/data-model';
 import {ProjectManagementEntry, ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import {SelectionModel} from '@angular/cdk/collections';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {RouterTestingModule} from '@angular/router/testing';
 import {OAuthModule} from 'angular-oauth2-oidc';
 import {MatSelectChange} from '@angular/material/select';
@@ -35,6 +35,7 @@ import {MatCheckboxChange} from '@angular/material/checkbox';
 import {configuration} from '@mega/shared/util-constant';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -64,7 +65,9 @@ describe('FeatureProjectManagementComponent', () => {
         ReactiveFormsModule,
         NgxSkeletonLoaderModule,
         FeatureProjectManagementComponent,
-        DatepickerMonthYearComponent
+        DatepickerMonthYearComponent,
+        MatDialogModule,
+        MatSnackBarModule
       ],
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(FeatureProjectManagementComponent);

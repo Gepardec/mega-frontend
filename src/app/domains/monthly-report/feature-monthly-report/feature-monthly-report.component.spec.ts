@@ -17,6 +17,7 @@ import {TimeCheckComponent} from './time-check/time-check.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 describe('FeatureMonthlyReportComponent', () => {
 
@@ -42,7 +43,8 @@ describe('FeatureMonthlyReportComponent', () => {
         TimeCheckComponent,
         JourneyCheckComponent,
         DatepickerMonthYearComponent,
-        InformationTopBarComponent
+        InformationTopBarComponent,
+        MatDialogModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(FeatureMonthlyReportComponent);

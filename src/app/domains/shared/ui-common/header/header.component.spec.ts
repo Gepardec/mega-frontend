@@ -3,10 +3,12 @@ import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {HeaderComponent} from './header.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {ConfigService, RolesService, UserService} from '@mega/shared/data-service';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {of, Subscription} from 'rxjs';
 import {Config, Link} from '@mega/shared/data-model';
+import {OAuthModule} from 'angular-oauth2-oidc';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('HeaderComponent', () => {
 
@@ -23,7 +25,10 @@ describe('HeaderComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
-        HeaderComponent
+        HeaderComponent,
+        OAuthModule.forRoot(),
+        TranslateModule.forRoot(),
+        NoopAnimationsModule
       ]
     }).compileComponents().then(() => {
       fixture = TestBed.createComponent(HeaderComponent);

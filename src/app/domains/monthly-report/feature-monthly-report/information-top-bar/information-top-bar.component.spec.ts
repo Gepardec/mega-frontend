@@ -5,6 +5,7 @@ import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MatCardModule} from '@angular/material/card';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 const moment = _moment;
 
@@ -20,7 +21,8 @@ describe('InformationTopBarComponent', () => {
         TranslateModule.forRoot(),
         MatCardModule,
         NgxSkeletonLoaderModule,
-        InformationTopBarComponent
+        InformationTopBarComponent,
+        HttpClientTestingModule
       ]
     })
       .compileComponents().then(() => {

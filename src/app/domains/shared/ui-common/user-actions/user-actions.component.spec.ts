@@ -4,12 +4,13 @@ import {UserActionsComponent} from '@mega/shared/ui-common';
 import {User} from '@mega/shared/data-model';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {UserInfo} from 'angular-oauth2-oidc/types';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import {TranslateModule} from '@ngx-translate/core';
 import {By} from '@angular/platform-browser';
 import {MatButton} from '@angular/material/button';
 import {click} from '@mega/shared/util-testing';
 import {MatMenuItem} from '@angular/material/menu';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('UserActionsComponent', () => {
 
@@ -22,7 +23,9 @@ describe('UserActionsComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
-        UserActionsComponent
+        UserActionsComponent,
+        MatDialogModule,
+        NoopAnimationsModule
       ],
       providers: [
         {provide: OAuthService, useClass: OAuthServiceMock}
