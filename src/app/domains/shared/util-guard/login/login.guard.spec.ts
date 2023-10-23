@@ -5,7 +5,7 @@ import {UserService} from '@mega/shared/data-service';
 import {BehaviorSubject} from 'rxjs';
 import {User} from '@mega/shared/data-model';
 import {RouterTestingModule} from '@angular/router/testing';
-import {routes} from '../../../../app.routes';
+import {routes} from 'src/app/app.routes';
 import {CanActivateFn} from '@angular/router';
 
 describe('LoginGuard', () => {

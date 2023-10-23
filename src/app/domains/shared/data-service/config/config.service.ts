@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../../../../environments/environment';
+import {environment} from 'src/environments/environment';
 import {Config} from '@mega/shared/data-model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
