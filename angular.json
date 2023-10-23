@@ -45,7 +45,10 @@
               "includePaths": [
                 "src"
               ]
-            }
+            },
+            "allowedCommonJsDependencies": [
+              "moment"
+            ]
           },
           "configurations": {
             "production": {
