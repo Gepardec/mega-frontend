@@ -2,10 +2,9 @@ import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angula
 import {RouterTestingModule} from '@angular/router/testing';
 import {AppComponent} from './app.component';
 import {OAuthModule, OAuthService} from 'angular-oauth2-oidc';
-import {ConfigService} from './modules/shared/services/config/config.service';
-import {UserService} from './modules/shared/services/user/user.service';
+import {ConfigService} from '@mega/shared/data-service';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {Config} from './modules/shared/models/Config';
+import {Config} from '@mega/shared/data-model';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
@@ -20,21 +19,18 @@ describe('AppComponent', () => {
 
   let translateService: TranslateService;
   let authService: OAuthService;
+  let configService: ConfigService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent],
       imports: [
         RouterTestingModule,
         TranslateModule.forRoot(),
         HttpClientTestingModule,
         NoopAnimationsModule,
         RouterTestingModule,
-        OAuthModule.forRoot()
-      ],
-      providers: [
-        {provide: ConfigService, useClass: ConfigServiceMock},
-        {provide: UserService, useClass: UserServiceMock}
+        OAuthModule.forRoot(),
+        AppComponent,
       ],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents().then(() => {
@@ -42,6 +38,7 @@ describe('AppComponent', () => {
       component = fixture.componentInstance;
       translateService = TestBed.inject(TranslateService);
       authService = TestBed.inject(OAuthService);
+      configService = TestBed.inject(ConfigService);
     });
   }));
 
@@ -56,6 +53,7 @@ describe('AppComponent', () => {
   });
 
   it('#afterInit - should call authService.configure and should call oAuthService.loadDiscoveryDocumentAndTryLogin', fakeAsync(() => {
+    spyOn(configService, 'getConfig').and.returnValue(ConfigServiceMock.getConfig());
     spyOn(authService, 'configure').and.stub();
     spyOn(authService, 'loadDiscoveryDocumentAndTryLogin').and.returnValue(new Promise(() => Promise.resolve()));
 
@@ -81,7 +79,7 @@ describe('AppComponent', () => {
   });
 
   class ConfigServiceMock {
-    getConfig(): Observable<Config> {
+    static getConfig(): Observable<Config> {
       return new BehaviorSubject<Config>({
         clientId: 'DUMMY',
         scope: 'email',

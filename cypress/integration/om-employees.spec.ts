@@ -1,6 +1,6 @@
 // @ts-ignore
 import employee from '../fixtures/officemanagement/officemanagemententries.json';
-import {State} from '../../src/app/modules/shared/models/State';
+import {State} from '@mega/shared/data-model';
 
 describe('Office Management (Mitarbeiter)', () => {
 

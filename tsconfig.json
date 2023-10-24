@@ -22,6 +22,68 @@
       "es2018",
       "dom"
     ],
+    "paths": {
+      "@mega/monthly-report/data-model": [
+        "src/app/domains/monthly-report/data-model/index.ts"
+      ],
+      "@mega/monthly-report/data-service": [
+        "src/app/domains/monthly-report/data-service/index.ts"
+      ],
+      "@mega/monthly-report/feature-monthly-report": [
+        "src/app/domains/monthly-report/feature-monthly-report/index.ts"
+      ],
+      "@mega/office-management/data-model": [
+        "src/app/domains/office-management/data-model/index.ts"
+      ],
+      "@mega/office-management/data-service": [
+        "src/app/domains/office-management/data-service/index.ts"
+      ],
+      "@mega/office-management/feature-office-management": [
+        "src/app/domains/office-management/feature-office-management/index.ts"
+      ],
+      "@mega/office-management/ui-common": [
+        "src/app/domains/office-management/ui-common/index.ts"
+      ],
+      "@mega/project-management/data-model": [
+        "src/app/domains/project-management/data-model/index.ts"
+      ],
+      "@mega/project-management/data-service": [
+        "src/app/domains/project-management/data-service/index.ts"
+      ],
+      "@mega/project-management/feature-project-management": [
+        "src/app/domains/project-management/feature-project-management/index.ts"
+      ],
+      "@mega/project-management/ui-common": [
+        "src/app/domains/project-management/ui-common/index.ts"
+      ],
+      "@mega/project-management/util": [
+        "src/app/domains/project-management/util/index.ts"
+      ],
+      "@mega/shared/data-model": [
+        "src/app/domains/shared/data-model/index.ts"
+      ],
+      "@mega/shared/data-service": [
+        "src/app/domains/shared/data-service/index.ts"
+      ],
+      "@mega/shared/ui-common": [
+        "src/app/domains/shared/ui-common/index.ts"
+      ],
+      "@mega/shared/util-auth": [
+        "src/app/domains/shared/util-auth/index.ts"
+      ],
+      "@mega/shared/util-common": [
+        "src/app/domains/shared/util-common/index.ts"
+      ],
+      "@mega/shared/util-constant": [
+        "src/app/domains/shared/util-constant/index.ts"
+      ],
+      "@mega/shared/util-guard": [
+        "src/app/domains/shared/util-guard/index.ts"
+      ],
+      "@mega/shared/util-testing": [
+        "src/app/domains/shared/util-testing/index.ts"
+      ]
+    },
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

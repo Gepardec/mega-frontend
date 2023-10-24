@@ -1,0 +1,63 @@
+@import 'styles/colors';
+
+.employee-card__card_content {
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  width: 100%;
+  align-self: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+}
+
+.employee_actions_container {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  place-content: center space-between;
+  align-items: center;
+  min-height: 80px;
+}
+
+div.employee_actions_container {
+  gap: 10px;
+}
+
+.release {
+  color: black !important;
+  border-radius: 5px;
+  padding: 5px;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.done {
+  background-color: $mega-success-green-transparent;
+}
+
+.open {
+  background-color: $mega-danger-red-transparent;
+}
+
+.wip {
+  background-color: $mega-warning-yellow-transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $mega-success-green;
+}
+
+th, td {
+  font-size: 17px;
+}
+
+table {
+  margin-bottom: 30px;
+}
