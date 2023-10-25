@@ -10,8 +10,4 @@ export default meta;
 type Story = StoryObj<ErrorComponent>;
 
 
-
-
-export const Error: Story = {
-
-};
+export const Error: Story = {};

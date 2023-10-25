@@ -10,15 +10,12 @@ const meta: Meta<InfoComponent> = {
       providers: [provideHttpClient()]
     })
   ],
-  argTypes: {
-  },
+  argTypes: {},
 };
 
 export default meta;
 
 type Story = StoryObj<InfoComponent>;
-
-
 
 
 export const Info: Story = {

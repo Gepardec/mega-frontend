@@ -1,7 +1,5 @@
-import {StorybookMinimalSetupModule} from '../modules/storybook-minimalsetup.module';
 import {provideHttpClient} from '@angular/common/http';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {applicationConfig, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
 import {ProjektNameWithZepLinkComponent} from '@mega/office-management/ui-common';
 
 const meta: Meta<ProjektNameWithZepLinkComponent> = {
@@ -16,7 +14,6 @@ const meta: Meta<ProjektNameWithZepLinkComponent> = {
 export default meta;
 
 type Story = StoryObj<ProjektNameWithZepLinkComponent>;
-
 
 
 export const DemoStory: Story = {

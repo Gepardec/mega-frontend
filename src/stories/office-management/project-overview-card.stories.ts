@@ -1,7 +1,5 @@
-import {StorybookMinimalSetupModule} from '../modules/storybook-minimalsetup.module';
 import {provideHttpClient} from '@angular/common/http';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {applicationConfig, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
 import {ProjectOverviewCardComponent} from '@mega/office-management/feature-office-management';
 import {ProjectState, State} from '@mega/shared/data-model';
 import {importProvidersFrom} from '@angular/core';

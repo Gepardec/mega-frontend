@@ -16,8 +16,6 @@ export default meta;
 type Story = StoryObj<InlineTextEditorComponent>;
 
 
-
-
 export const Comment: Story = {
   args: {
     comment: 'I am a comment :)'

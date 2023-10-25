@@ -1,23 +1,7 @@
-import type {Meta, StoryObj} from '@storybook/angular';
-import {TimeCheckComponent} from '@mega/monthly-report/feature-monthly-report';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 
-
-const meta: Meta<TimeCheckComponent> = {
-  component: TimeCheckComponent,
-  argTypes: {
-    monthlyReport: {
-      control: 'object'
-    }
-  },
-};
-
-export default meta;
-
-type Story = StoryObj<TimeCheckComponent>;
-
-const monthlyReportArgs: MonthlyReport = {
+export const monthlyReport: MonthlyReport = {
   employee: {
     userId: '066-mleitner',
     email: 'michael.leitner@gepardec.com',
@@ -68,21 +52,3 @@ const monthlyReportArgs: MonthlyReport = {
   paidSickLeave: 0,
   assigned: false
 };
-
-export const timeError: Story = {
-  args: {
-    monthlyReport: {
-      ...monthlyReportArgs,
-    }
-  }
-};
-
-export const timeSucess: Story = {
-  args: {
-    monthlyReport: {
-      ...monthlyReportArgs,
-      timeWarnings: []
-    }
-  }
-};
-

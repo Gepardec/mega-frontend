@@ -4,7 +4,7 @@ import {State} from '@mega/shared/data-model';
 
 
 const meta: Meta<StateSelectComponent> = {
-    component: StateSelectComponent,
+  component: StateSelectComponent,
 };
 
 export default meta;
@@ -12,10 +12,8 @@ export default meta;
 type Story = StoryObj<StateSelectComponent>;
 
 
-
-
 export const Done: Story = {
-    args: {
-        value: State.DONE
-    }
+  args: {
+    value: State.DONE
+  }
 };

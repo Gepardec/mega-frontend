@@ -14,8 +14,6 @@ export default meta;
 type Story = StoryObj<DatepickerMonthYearComponent>;
 
 
-
-
 export const DemoStory: Story = {
   args: {
     maxDate: '2022-06-05',

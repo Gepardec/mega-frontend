@@ -1,7 +1,5 @@
-import {StorybookMinimalSetupModule} from '../modules/storybook-minimalsetup.module';
 import {provideHttpClient} from '@angular/common/http';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {applicationConfig, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
 import {ProjectsWithoutLeadsCardComponent} from '@mega/office-management/feature-office-management';
 
 const meta: Meta<ProjectsWithoutLeadsCardComponent> = {
@@ -16,7 +14,6 @@ const meta: Meta<ProjectsWithoutLeadsCardComponent> = {
 export default meta;
 
 type Story = StoryObj<ProjectsWithoutLeadsCardComponent>;
-
 
 
 export const DemoStory: Story = {

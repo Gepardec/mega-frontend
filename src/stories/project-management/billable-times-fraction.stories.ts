@@ -1,7 +1,4 @@
-import {StorybookMinimalSetupModule} from '../modules/storybook-minimalsetup.module';
-import {provideHttpClient} from '@angular/common/http';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {applicationConfig, Meta, moduleMetadata, StoryObj} from '@storybook/angular';
+import {Meta, StoryObj} from '@storybook/angular';
 import {BillableTimesFractionComponent} from '@mega/project-management/ui-common';
 
 

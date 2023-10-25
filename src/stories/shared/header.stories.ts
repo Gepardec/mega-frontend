@@ -19,8 +19,4 @@ export default meta;
 type Story = StoryObj<HeaderComponent>;
 
 
-
-
-export const Header: Story = {
-
-};
+export const Header: Story = {};
