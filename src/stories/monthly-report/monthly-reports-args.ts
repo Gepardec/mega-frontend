@@ -1,6 +1,7 @@
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {State} from '@mega/shared/data-model';
 
+
 export const monthlyReport: MonthlyReport = {
   employee: {
     userId: '066-mleitner',

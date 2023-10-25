@@ -14087,7 +14087,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n\n  }\n}"
+                "defaultValue": "{\n  args: {\n    projectsWithoutLeads\n  }\n}"
             },
             {
                 "name": "DemoStory",
@@ -14277,7 +14277,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    version: '120.0 Final Test Version'\n  }\n}"
+                "defaultValue": "{}"
             },
             {
                 "name": "InfoDialo",
@@ -14527,7 +14527,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), importProvidersFrom(OAuthModule.forRoot())]\n    })\n  ],\n}"
+                "defaultValue": "{\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), importProvidersFrom(OAuthModule.forRoot())]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/config', (req, res, context) => {\n        return res(\n          context.json({\n            clientId: 'test-client-id',\n            issuer: 'test-issuer',\n            scope: 'test-scope',\n            version: '12.0.0.1.1',\n            budgetCalculationExcelUrl: 'https://google.com',\n            zepOrigin: 'https://google.com',\n          })\n        );\n      })\n    ]\n  }\n}"
             },
             {
                 "name": "meta",
@@ -14537,7 +14537,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InfoDialogComponent>",
-                "defaultValue": "{\n  component: InfoDialogComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n}"
+                "defaultValue": "{\n  component: InfoDialogComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/info', (req, res, context) => {\n        return res(\n          context.json({\n            branch: 'storybook-branch',\n            buildDate: '2022-01-01',\n            buildNumber: 12,\n            commit: 'axa123dasdf',\n            startedAt: '2022-01-01',\n            upTime: '25',\n            version: '12.0.01',\n          })\n        );\n      })\n    ]\n  }\n}"
             },
             {
                 "name": "meta",
@@ -14547,7 +14547,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InfoComponent>",
-                "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {},\n}"
+                "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/info', (req, res, context) => {\n        return res(\n          context.json({\n            branch: 'storybook-branch',\n            buildDate: '2022-01-01',\n            buildNumber: 12,\n            commit: 'axa123dasdf',\n            startedAt: '2022-01-01',\n            upTime: '25',\n            version: '12.0.01',\n          })\n        );\n      })\n    ]\n  }\n}"
             },
             {
                 "name": "meta",
@@ -14837,7 +14837,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookMinimalSetupModule],\n    }),\n  ]\n}"
+                "defaultValue": "{\n  parameters: {\n    actions: {argTypesRegex: '^on[A-Z].*'},\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookMinimalSetupModule],\n    }),\n  ],\n  loaders: [mswLoader]\n}"
             },
             {
                 "name": "projectsWithoutLeads",
@@ -16088,7 +16088,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n\n  }\n}"
+                    "defaultValue": "{\n  args: {\n    projectsWithoutLeads\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16490,7 +16490,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), importProvidersFrom(OAuthModule.forRoot())]\n    })\n  ],\n}"
+                    "defaultValue": "{\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), importProvidersFrom(OAuthModule.forRoot())]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/config', (req, res, context) => {\n        return res(\n          context.json({\n            clientId: 'test-client-id',\n            issuer: 'test-issuer',\n            scope: 'test-scope',\n            version: '12.0.0.1.1',\n            budgetCalculationExcelUrl: 'https://google.com',\n            zepOrigin: 'https://google.com',\n          })\n        );\n      })\n    ]\n  }\n}"
                 }
             ],
             "src/stories/shared/info.stories.ts": [
@@ -16502,7 +16502,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    version: '120.0 Final Test Version'\n  }\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
@@ -16512,7 +16512,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InfoComponent>",
-                    "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {},\n}"
+                    "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/info', (req, res, context) => {\n        return res(\n          context.json({\n            branch: 'storybook-branch',\n            buildDate: '2022-01-01',\n            buildNumber: 12,\n            commit: 'axa123dasdf',\n            startedAt: '2022-01-01',\n            upTime: '25',\n            version: '12.0.01',\n          })\n        );\n      })\n    ]\n  }\n}"
                 }
             ],
             "src/stories/shared/info-dialog.stories.ts": [
@@ -16534,7 +16534,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InfoDialogComponent>",
-                    "defaultValue": "{\n  component: InfoDialogComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n}"
+                    "defaultValue": "{\n  component: InfoDialogComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  parameters: {\n    msw: [\n      rest.get('http://localhost:6006/info', (req, res, context) => {\n        return res(\n          context.json({\n            branch: 'storybook-branch',\n            buildDate: '2022-01-01',\n            buildNumber: 12,\n            commit: 'axa123dasdf',\n            startedAt: '2022-01-01',\n            upTime: '25',\n            version: '12.0.01',\n          })\n        );\n      })\n    ]\n  }\n}"
                 }
             ],
             "src/stories/monthly-report/journey-check.stories.ts": [
@@ -16874,7 +16874,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookMinimalSetupModule],\n    }),\n  ]\n}"
+                    "defaultValue": "{\n  parameters: {\n    actions: {argTypesRegex: '^on[A-Z].*'},\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookMinimalSetupModule],\n    }),\n  ],\n  loaders: [mswLoader]\n}"
                 }
             ],
             "src/app/domains/shared/util-guard/roles/roles.guard.ts": [

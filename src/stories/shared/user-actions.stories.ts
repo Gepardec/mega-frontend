@@ -4,6 +4,7 @@ import {provideHttpClient} from '@angular/common/http';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {UserActionsComponent} from '@mega/shared/ui-common';
 import {Role, User} from '@mega/shared/data-model';
+import { user } from './shared-args';
 
 
 const meta: Meta<UserActionsComponent> = {
@@ -24,16 +25,10 @@ export default meta;
 
 type Story = StoryObj<UserActionsComponent>;
 
-const user: User = {
-  email: 'max@mustermann', firstname: 'max', lastname: 'mustermann', roles: [Role.EMPLOYEE], userId: '10'
-
-};
 
 
 export const UserActions: Story = {
   args: {
-    user: {
-      ...user,
-    }
+    user
   }
 };

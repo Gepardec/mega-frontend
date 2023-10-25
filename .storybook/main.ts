@@ -15,6 +15,6 @@ const config: StorybookConfig = {
     autodocs: true,
     defaultName: 'Documentation'
   },
-  staticDirs: [{from: '../src/assets/', to: '/assets'}]
+  staticDirs: [{from: '../src/assets/', to: '/assets'}, {from: '../src/stories/mockServiceWorker.js', to: '/mockServiceWorker.js'}]
 };
 export default config;
