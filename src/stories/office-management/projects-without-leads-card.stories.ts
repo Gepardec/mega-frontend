@@ -1,6 +1,7 @@
 import {provideHttpClient} from '@angular/common/http';
 import {applicationConfig, Meta, StoryObj} from '@storybook/angular';
 import {ProjectsWithoutLeadsCardComponent} from '@mega/office-management/feature-office-management';
+import {projectsWithoutLeads} from './office-management-args';
 
 const meta: Meta<ProjectsWithoutLeadsCardComponent> = {
   component: ProjectsWithoutLeadsCardComponent,
@@ -18,6 +19,6 @@ type Story = StoryObj<ProjectsWithoutLeadsCardComponent>;
 
 export const DemoStory: Story = {
   args: {
-    projectsWithoutLeads: [{comment: 'this is a comment', fetchDate: '2023-05-03', projectName: 'sampleProject', zepId: 2}]
+    projectsWithoutLeads
   }
 };

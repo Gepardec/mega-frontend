@@ -13947,7 +13947,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            employeeCheckState: 'DONE',\n            internalCheckState: State.DONE\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      employeeCheckState: 'DONE',\n      internalCheckState: State.DONE\n    }\n  }\n}"
             },
             {
                 "name": "AllError",
@@ -13957,7 +13957,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            assigned: true,\n            employeeCheckState: 'OPEN'\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      assigned: true,\n      employeeCheckState: 'OPEN'\n    }\n  }\n}"
             },
             {
                 "name": "appConfig",
@@ -14067,7 +14067,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n      enterpriseEntry: {\n        chargeabilityExternalEmployeesRecorded: ProjectState.WORK_IN_PROGRESS,\n        currentMonthYear: '10',\n        payrollAccountingSent: ProjectState.WORK_IN_PROGRESS,\n        zepTimesReleased: ProjectState.WORK_IN_PROGRESS\n      }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    enterpriseEntry\n  }\n}"
             },
             {
                 "name": "DemoStory",
@@ -14077,7 +14077,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    pmEntries: [\n      {\n        aggregatedBillableWorkTimeInSeconds: 7200,\n        aggregatedNonBillableWorkTimeInSeconds: 3600,\n        controlBillingState: ProjectState.WORK_IN_PROGRESS,\n        controlProjectState: ProjectState.WORK_IN_PROGRESS,\n        entries: [\n          {\n            billableTime: '10',\n            employee: {\n              active: true,\n              email: 'max@mustermann',\n              firstname: 'Max',\n              lastname: 'Mustermann',\n              releaseDate: '2022-01-10',\n              salutation: 'salutationstring',\n              title: 'Mr.',\n              userId: '10',\n              workDescription: 'Supermax'\n            },\n            employeeCheckState: State.IN_PROGRESS,\n            employeeCheckStateReason: 'this is a reason for employee',\n            employeeProgresses: [{\n              assigneeEmail: 'max@muster',\n              firstname: 'Max',\n              lastname: 'Muster',\n              project: 'sampleProject',\n              state: State.IN_PROGRESS,\n              stepId: 3\n            }],\n            entryDate: '2022-01-03',\n            finishedComments: 6,\n            internalCheckState: State.IN_PROGRESS,\n            nonBillableTime: '24',\n            projectCheckState: State.IN_PROGRESS,\n            totalComments: 10\n          }\n        ],\n        presetControlBillingState: true,\n        presetControlProjectState: true,\n        projectComment: {comment: 'thisIsAComment', date: '2022-01-01', id: 1, projectName: 'sampleProject'},\n        projectName: 'sampleProject',\n        zepId: 2\n      }\n    ]\n  }\n}"
+                "defaultValue": "{\n  args: {\n    pmEntries\n  }\n}"
             },
             {
                 "name": "DemoStory",
@@ -14087,7 +14087,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    projectsWithoutLeads: [{comment: 'this is a comment', fetchDate: '2023-05-03', projectName: 'sampleProject', zepId: 2}]\n  }\n}"
+                "defaultValue": "{\n  args: {\n\n  }\n}"
             },
             {
                 "name": "DemoStory",
@@ -14167,7 +14167,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        value: ProjectState.DONE\n    }\n}"
+                "defaultValue": "{\n  args: {\n    value: ProjectState.DONE\n  }\n}"
             },
             {
                 "name": "Done",
@@ -14177,7 +14177,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        value: State.DONE\n    }\n}"
+                "defaultValue": "{\n  args: {\n    value: State.DONE\n  }\n}"
             },
             {
                 "name": "DONE",
@@ -14188,6 +14188,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    state: State.DONE,\n    size: 'large'\n  }\n}"
+            },
+            {
+                "name": "enterpriseEntry",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/office-management/office-management-args.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "EnterpriseEntry",
+                "defaultValue": "{\n  chargeabilityExternalEmployeesRecorded: ProjectState.WORK_IN_PROGRESS,\n  currentMonthYear: '10',\n  payrollAccountingSent: ProjectState.WORK_IN_PROGRESS,\n  zepTimesReleased: ProjectState.WORK_IN_PROGRESS\n}"
             },
             {
                 "name": "environment",
@@ -14217,7 +14227,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            assigned: true\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      assigned: true\n    }\n  }\n}"
             },
             {
                 "name": "Error",
@@ -14227,7 +14237,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n\n}"
+                "defaultValue": "{}"
             },
             {
                 "name": "GeneralInfo",
@@ -14237,7 +14247,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport\n  }\n}"
             },
             {
                 "name": "Header",
@@ -14247,7 +14257,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n\n}"
+                "defaultValue": "{}"
             },
             {
                 "name": "IN_PROGRESS",
@@ -14287,7 +14297,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: monthlyReportArgs\n    },\n    parameters: {\n        design: {\n            type: 'figma',\n            url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n        },\n    },\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport\n  },\n  parameters: {\n    design: {\n      type: 'figma',\n      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n    },\n  },\n}"
             },
             {
                 "name": "journeyError",
@@ -14297,7 +14307,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            journeyWarnings: [{warnings: ['Error'], date: '2023-09-08'}]\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      journeyWarnings: [{warnings: ['Error'], date: '2023-09-08'}]\n    }\n  }\n}"
             },
             {
                 "name": "Login",
@@ -14327,7 +14337,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<EmployeeCheckConfirmCommentDialogComponent>",
-                "defaultValue": "{\n  component: EmployeeCheckConfirmCommentDialogComponent,\n  // decorators: [\n  //   applicationConfig({\n  //     providers: [provideHttpClient()]\n  //   })\n  // ],\n}"
+                "defaultValue": "{\n  component: EmployeeCheckConfirmCommentDialogComponent\n}"
             },
             {
                 "name": "meta",
@@ -14337,7 +14347,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<EmployeeCheckComponent>",
-                "defaultValue": "{\n    component: EmployeeCheckComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    }\n}"
+                "defaultValue": "{\n  component: EmployeeCheckComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -14347,7 +14357,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<GeneralInfoComponent>",
-                "defaultValue": "{\n    component: GeneralInfoComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    }\n}"
+                "defaultValue": "{\n  component: GeneralInfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  }\n}"
             },
             {
                 "name": "meta",
@@ -14357,7 +14367,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InformationTopBarComponent>",
-                "defaultValue": "{\n    component: InformationTopBarComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
+                "defaultValue": "{\n  component: InformationTopBarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
             },
             {
                 "name": "meta",
@@ -14367,7 +14377,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<JourneyCheckComponent>",
-                "defaultValue": "{\n    component: JourneyCheckComponent,\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
+                "defaultValue": "{\n  component: JourneyCheckComponent,\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
             },
             {
                 "name": "meta",
@@ -14377,7 +14387,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<TimeCheckComponent>",
-                "defaultValue": "{\n    component: TimeCheckComponent,\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
+                "defaultValue": "{\n  component: TimeCheckComponent,\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
             },
             {
                 "name": "meta",
@@ -14537,7 +14547,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<InfoComponent>",
-                "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n  },\n}"
+                "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {},\n}"
             },
             {
                 "name": "meta",
@@ -14577,7 +14587,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ProjectStateSelectComponent>",
-                "defaultValue": "{\n    component: ProjectStateSelectComponent,\n}"
+                "defaultValue": "{\n  component: ProjectStateSelectComponent,\n}"
             },
             {
                 "name": "meta",
@@ -14597,7 +14607,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<StateSelectComponent>",
-                "defaultValue": "{\n    component: StateSelectComponent,\n}"
+                "defaultValue": "{\n  component: StateSelectComponent,\n}"
             },
             {
                 "name": "meta",
@@ -14607,7 +14617,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<UserActionsComponent>",
-                "defaultValue": "{\n    component: UserActionsComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient(), provideAnimations()]\n        })\n    ],\n    argTypes: {\n        user: {\n            control: 'object'\n        }\n    }\n}"
+                "defaultValue": "{\n  component: UserActionsComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideAnimations()]\n    })\n  ],\n  argTypes: {\n    user: {\n      control: 'object'\n    }\n  }\n}"
             },
             {
                 "name": "moment",
@@ -14743,41 +14753,11 @@
                 "name": "monthlyReportArgs",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/monthly-report/employee-check.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "MonthlyReport",
-                "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 0,\n    assigned: false\n}"
-            },
-            {
-                "name": "monthlyReportArgs",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/monthly-report/general-info.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "MonthlyReport",
-                "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 1,\n    homeofficeDays: 2,\n    compensatoryDays: 3,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 4,\n    assigned: false\n}"
-            },
-            {
-                "name": "monthlyReportArgs",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/monthly-report/journey-check.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "MonthlyReport",
-                "defaultValue": "{\n    internalCheckState: State.DONE, paidSickLeave: 0,\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-08', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-27',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    // internalCheckState: 'OPEN',\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    // paidSickLeave: '0',\n    assigned: false\n}"
-            },
-            {
-                "name": "monthlyReportArgs",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/monthly-report/time-check.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "MonthlyReport",
-                "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 0,\n    assigned: false\n}"
+                "defaultValue": "{\n  employee: {\n    userId: '066-mleitner',\n    email: 'michael.leitner@gepardec.com',\n    title: null,\n    firstname: 'Michael',\n    lastname: 'Leitner',\n    salutation: null,\n    releaseDate: '2022-06-30',\n    workDescription: '07',\n    // language: 'de',\n    // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n    active: true,\n    // exitDate: null\n  },\n  initialDate: null,\n  timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-20',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-08',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-13',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n  journeyWarnings: [],\n  comments: [],\n  employeeCheckState: 'OPEN',\n  employeeCheckStateReason: null,\n  internalCheckState: State.OPEN,\n  // isAssigned: false,\n  employeeProgresses: [],\n  otherChecksDone: true,\n  vacationDays: 0,\n  homeofficeDays: 0,\n  compensatoryDays: 0,\n  // nursingDays: 0,\n  // maternityLeaveDays: 0,\n  // externalTrainingDays: 0,\n  // conferenceDays: 0,\n  // maternityProtectionDays: 0,\n  // fatherMonthDays: 0,\n  // paidSpecialLeaveDays: 0,\n  // nonPaidVacationDays: 0,\n  vacationDayBalance: 6,\n  billableTime: '08:15',\n  totalWorkingTime: '08:15',\n  paidSickLeave: 0,\n  assigned: false\n}"
             },
             {
                 "name": "MY_FORMATS",
@@ -14797,16 +14777,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    parameters: {\n        design: {\n            type: 'figma',\n            url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n        },\n    },\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                "defaultValue": "{\n  parameters: {\n    design: {\n      type: 'figma',\n      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n    },\n  },\n  args: {\n    monthlyReport\n  }\n}"
             },
             {
                 "name": "omEntries",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/office-management/employee-card.stories.ts",
+                "file": "src/stories/office-management/office-management-args.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "[]",
+                "type": "Array<ManagementEntry>",
                 "defaultValue": "[\n  {\n    billableTime: '10',\n    employee: {\n      userId: '1',\n      firstname: 'Max',\n      lastname: 'Muster',\n      email: 'max@muster',\n      title: 'Supermax',\n      releaseDate: '2022-04-01',\n      workDescription: 'Super max',\n      salutation: 'salutation',\n      active: true\n    },\n    employeeCheckState: State.IN_PROGRESS,\n    employeeCheckStateReason: 'Some Reason',\n    employeeProgresses: [{\n      assigneeEmail: 'max@mustermann',\n      firstname: 'Max',\n      lastname: 'Mustermann',\n      project: 'Testproject',\n      state: State.IN_PROGRESS,\n      stepId: 0\n    }],\n    entryDate: '2023-05-05',\n    finishedComments: 2,\n    internalCheckState: State.IN_PROGRESS,\n    nonBillableTime: '10',\n    projectCheckState: State.IN_PROGRESS,\n    totalComments: 5\n  }\n]"
             },
             {
@@ -14830,6 +14810,16 @@
                 "defaultValue": "{\n  args: {\n    state: State.OPEN,\n    size: 'small'\n  }\n}"
             },
             {
+                "name": "pmEntries",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/office-management/office-management-args.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Array<ProjectManagementEntry>",
+                "defaultValue": "[\n  {\n    aggregatedBillableWorkTimeInSeconds: 7200,\n    aggregatedNonBillableWorkTimeInSeconds: 3600,\n    controlBillingState: ProjectState.WORK_IN_PROGRESS,\n    controlProjectState: ProjectState.WORK_IN_PROGRESS,\n    entries: omEntries,\n    presetControlBillingState: true,\n    presetControlProjectState: true,\n    projectComment: {comment: 'thisIsAComment', date: '2022-01-01', id: 1, projectName: 'sampleProject'},\n    projectName: 'sampleProject',\n    zepId: 2\n  }\n]"
+            },
+            {
                 "name": "pmProgress",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -14850,6 +14840,16 @@
                 "defaultValue": "{\n  parameters: {\n    actions: { argTypesRegex: '^on[A-Z].*' },\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    moduleMetadata({\n      imports: [StorybookMinimalSetupModule],\n    }),\n  ]\n}"
             },
             {
+                "name": "projectsWithoutLeads",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/office-management/office-management-args.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Array<CustomerProjectWithoutLeads>",
+                "defaultValue": "[{\n  comment: 'this is a comment',\n  fetchDate: '2023-05-03',\n  projectName: 'sampleProject',\n  zepId: 2\n}]"
+            },
+            {
                 "name": "rolesGuard",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -14867,7 +14867,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReportArgs,\n    }\n  }\n}"
             },
             {
                 "name": "timeSucess",
@@ -14877,7 +14877,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            timeWarnings: []\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReportArgs,\n      timeWarnings: []\n    }\n  }\n}"
             },
             {
                 "name": "todoProjectStates",
@@ -14897,7 +14897,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        monthlyReport\n    }\n}"
+                "defaultValue": "{\n  args: {\n    monthlyReport\n  }\n}"
             },
             {
                 "name": "user",
@@ -14907,7 +14907,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "User",
-                "defaultValue": "{\n    email: 'max@mustermann', firstname: 'max', lastname: 'mustermann', roles: [Role.EMPLOYEE], userId: '10'\n\n}"
+                "defaultValue": "{\n  email: 'max@mustermann', firstname: 'max', lastname: 'mustermann', roles: [Role.EMPLOYEE], userId: '10'\n\n}"
             },
             {
                 "name": "UserActions",
@@ -14917,7 +14917,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n    args: {\n        user: {\n            ...user,\n        }\n    }\n}"
+                "defaultValue": "{\n  args: {\n    user: {\n      ...user,\n    }\n  }\n}"
             }
         ],
         "functions": [
@@ -15824,7 +15824,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            employeeCheckState: 'DONE',\n            internalCheckState: State.DONE\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      employeeCheckState: 'DONE',\n      internalCheckState: State.DONE\n    }\n  }\n}"
                 },
                 {
                     "name": "AllError",
@@ -15834,7 +15834,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            assigned: true,\n            employeeCheckState: 'OPEN'\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      assigned: true,\n      employeeCheckState: 'OPEN'\n    }\n  }\n}"
                 },
                 {
                     "name": "Error",
@@ -15844,7 +15844,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            assigned: true\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      assigned: true\n    }\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -15854,17 +15854,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<EmployeeCheckComponent>",
-                    "defaultValue": "{\n    component: EmployeeCheckComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    }\n}"
-                },
-                {
-                    "name": "monthlyReportArgs",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/monthly-report/employee-check.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "MonthlyReport",
-                    "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 0,\n    assigned: false\n}"
+                    "defaultValue": "{\n  component: EmployeeCheckComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  }\n}"
                 },
                 {
                     "name": "NotAvailable",
@@ -15874,7 +15864,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    parameters: {\n        design: {\n            type: 'figma',\n            url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n        },\n    },\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                    "defaultValue": "{\n  parameters: {\n    design: {\n      type: 'figma',\n      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n    },\n  },\n  args: {\n    monthlyReport\n  }\n}"
                 }
             ],
             "src/app/app.config.ts": [
@@ -15998,7 +15988,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<EmployeeCheckConfirmCommentDialogComponent>",
-                    "defaultValue": "{\n  component: EmployeeCheckConfirmCommentDialogComponent,\n  // decorators: [\n  //   applicationConfig({\n  //     providers: [provideHttpClient()]\n  //   })\n  // ],\n}"
+                    "defaultValue": "{\n  component: EmployeeCheckConfirmCommentDialogComponent\n}"
                 }
             ],
             "src/stories/shared/confirm-dialog.stories.ts": [
@@ -16043,16 +16033,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<EmployeeCardComponent>",
                     "defaultValue": "{\n  component: EmployeeCardComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), importProvidersFrom(MatSnackBarModule)]\n    })\n  ],\n}"
-                },
-                {
-                    "name": "omEntries",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/office-management/employee-card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "[]",
-                    "defaultValue": "[\n  {\n    billableTime: '10',\n    employee: {\n      userId: '1',\n      firstname: 'Max',\n      lastname: 'Muster',\n      email: 'max@muster',\n      title: 'Supermax',\n      releaseDate: '2022-04-01',\n      workDescription: 'Super max',\n      salutation: 'salutation',\n      active: true\n    },\n    employeeCheckState: State.IN_PROGRESS,\n    employeeCheckStateReason: 'Some Reason',\n    employeeProgresses: [{\n      assigneeEmail: 'max@mustermann',\n      firstname: 'Max',\n      lastname: 'Mustermann',\n      project: 'Testproject',\n      state: State.IN_PROGRESS,\n      stepId: 0\n    }],\n    entryDate: '2023-05-05',\n    finishedComments: 2,\n    internalCheckState: State.IN_PROGRESS,\n    nonBillableTime: '10',\n    projectCheckState: State.IN_PROGRESS,\n    totalComments: 5\n  }\n]"
                 }
             ],
             "src/stories/office-management/enterprise-card.stories.ts": [
@@ -16064,7 +16044,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n      enterpriseEntry: {\n        chargeabilityExternalEmployeesRecorded: ProjectState.WORK_IN_PROGRESS,\n        currentMonthYear: '10',\n        payrollAccountingSent: ProjectState.WORK_IN_PROGRESS,\n        zepTimesReleased: ProjectState.WORK_IN_PROGRESS\n      }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    enterpriseEntry\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16086,7 +16066,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    pmEntries: [\n      {\n        aggregatedBillableWorkTimeInSeconds: 7200,\n        aggregatedNonBillableWorkTimeInSeconds: 3600,\n        controlBillingState: ProjectState.WORK_IN_PROGRESS,\n        controlProjectState: ProjectState.WORK_IN_PROGRESS,\n        entries: [\n          {\n            billableTime: '10',\n            employee: {\n              active: true,\n              email: 'max@mustermann',\n              firstname: 'Max',\n              lastname: 'Mustermann',\n              releaseDate: '2022-01-10',\n              salutation: 'salutationstring',\n              title: 'Mr.',\n              userId: '10',\n              workDescription: 'Supermax'\n            },\n            employeeCheckState: State.IN_PROGRESS,\n            employeeCheckStateReason: 'this is a reason for employee',\n            employeeProgresses: [{\n              assigneeEmail: 'max@muster',\n              firstname: 'Max',\n              lastname: 'Muster',\n              project: 'sampleProject',\n              state: State.IN_PROGRESS,\n              stepId: 3\n            }],\n            entryDate: '2022-01-03',\n            finishedComments: 6,\n            internalCheckState: State.IN_PROGRESS,\n            nonBillableTime: '24',\n            projectCheckState: State.IN_PROGRESS,\n            totalComments: 10\n          }\n        ],\n        presetControlBillingState: true,\n        presetControlProjectState: true,\n        projectComment: {comment: 'thisIsAComment', date: '2022-01-01', id: 1, projectName: 'sampleProject'},\n        projectName: 'sampleProject',\n        zepId: 2\n      }\n    ]\n  }\n}"
+                    "defaultValue": "{\n  args: {\n    pmEntries\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16108,7 +16088,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    projectsWithoutLeads: [{comment: 'this is a comment', fetchDate: '2023-05-03', projectName: 'sampleProject', zepId: 2}]\n  }\n}"
+                    "defaultValue": "{\n  args: {\n\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16304,7 +16284,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        value: ProjectState.DONE\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    value: ProjectState.DONE\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16314,7 +16294,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ProjectStateSelectComponent>",
-                    "defaultValue": "{\n    component: ProjectStateSelectComponent,\n}"
+                    "defaultValue": "{\n  component: ProjectStateSelectComponent,\n}"
                 }
             ],
             "src/stories/shared/state-select.stories.ts": [
@@ -16326,7 +16306,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        value: State.DONE\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    value: State.DONE\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16336,7 +16316,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<StateSelectComponent>",
-                    "defaultValue": "{\n    component: StateSelectComponent,\n}"
+                    "defaultValue": "{\n  component: StateSelectComponent,\n}"
                 }
             ],
             "src/stories/shared/state-indicator.stories.ts": [
@@ -16381,6 +16361,48 @@
                     "defaultValue": "{\n  args: {\n    state: State.OPEN,\n    size: 'small'\n  }\n}"
                 }
             ],
+            "src/stories/office-management/office-management-args.ts": [
+                {
+                    "name": "enterpriseEntry",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/office-management/office-management-args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "EnterpriseEntry",
+                    "defaultValue": "{\n  chargeabilityExternalEmployeesRecorded: ProjectState.WORK_IN_PROGRESS,\n  currentMonthYear: '10',\n  payrollAccountingSent: ProjectState.WORK_IN_PROGRESS,\n  zepTimesReleased: ProjectState.WORK_IN_PROGRESS\n}"
+                },
+                {
+                    "name": "omEntries",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/office-management/office-management-args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<ManagementEntry>",
+                    "defaultValue": "[\n  {\n    billableTime: '10',\n    employee: {\n      userId: '1',\n      firstname: 'Max',\n      lastname: 'Muster',\n      email: 'max@muster',\n      title: 'Supermax',\n      releaseDate: '2022-04-01',\n      workDescription: 'Super max',\n      salutation: 'salutation',\n      active: true\n    },\n    employeeCheckState: State.IN_PROGRESS,\n    employeeCheckStateReason: 'Some Reason',\n    employeeProgresses: [{\n      assigneeEmail: 'max@mustermann',\n      firstname: 'Max',\n      lastname: 'Mustermann',\n      project: 'Testproject',\n      state: State.IN_PROGRESS,\n      stepId: 0\n    }],\n    entryDate: '2023-05-05',\n    finishedComments: 2,\n    internalCheckState: State.IN_PROGRESS,\n    nonBillableTime: '10',\n    projectCheckState: State.IN_PROGRESS,\n    totalComments: 5\n  }\n]"
+                },
+                {
+                    "name": "pmEntries",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/office-management/office-management-args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<ProjectManagementEntry>",
+                    "defaultValue": "[\n  {\n    aggregatedBillableWorkTimeInSeconds: 7200,\n    aggregatedNonBillableWorkTimeInSeconds: 3600,\n    controlBillingState: ProjectState.WORK_IN_PROGRESS,\n    controlProjectState: ProjectState.WORK_IN_PROGRESS,\n    entries: omEntries,\n    presetControlBillingState: true,\n    presetControlProjectState: true,\n    projectComment: {comment: 'thisIsAComment', date: '2022-01-01', id: 1, projectName: 'sampleProject'},\n    projectName: 'sampleProject',\n    zepId: 2\n  }\n]"
+                },
+                {
+                    "name": "projectsWithoutLeads",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/office-management/office-management-args.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Array<CustomerProjectWithoutLeads>",
+                    "defaultValue": "[{\n  comment: 'this is a comment',\n  fetchDate: '2023-05-03',\n  projectName: 'sampleProject',\n  zepId: 2\n}]"
+                }
+            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -16414,7 +16436,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
@@ -16436,7 +16458,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16446,17 +16468,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<GeneralInfoComponent>",
-                    "defaultValue": "{\n    component: GeneralInfoComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    }\n}"
-                },
-                {
-                    "name": "monthlyReportArgs",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/monthly-report/general-info.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "MonthlyReport",
-                    "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 1,\n    homeofficeDays: 2,\n    compensatoryDays: 3,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 4,\n    assigned: false\n}"
+                    "defaultValue": "{\n  component: GeneralInfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  }\n}"
                 }
             ],
             "src/stories/shared/header.stories.ts": [
@@ -16468,7 +16480,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
@@ -16500,7 +16512,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InfoComponent>",
-                    "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n  },\n}"
+                    "defaultValue": "{\n  component: InfoComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {},\n}"
                 }
             ],
             "src/stories/shared/info-dialog.stories.ts": [
@@ -16534,7 +16546,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: monthlyReportArgs\n    },\n    parameters: {\n        design: {\n            type: 'figma',\n            url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n        },\n    },\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport\n  },\n  parameters: {\n    design: {\n      type: 'figma',\n      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',\n    },\n  },\n}"
                 },
                 {
                     "name": "journeyError",
@@ -16544,7 +16556,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            journeyWarnings: [{warnings: ['Error'], date: '2023-09-08'}]\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReport,\n      journeyWarnings: [{warnings: ['Error'], date: '2023-09-08'}]\n    }\n  }\n}"
                 },
                 {
                     "name": "meta",
@@ -16554,17 +16566,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<JourneyCheckComponent>",
-                    "defaultValue": "{\n    component: JourneyCheckComponent,\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
-                },
-                {
-                    "name": "monthlyReportArgs",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/monthly-report/journey-check.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "MonthlyReport",
-                    "defaultValue": "{\n    internalCheckState: State.DONE, paidSickLeave: 0,\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-08', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-27',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    // internalCheckState: 'OPEN',\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    // paidSickLeave: '0',\n    assigned: false\n}"
+                    "defaultValue": "{\n  component: JourneyCheckComponent,\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
                 }
             ],
             "src/stories/shared/login.stories.ts": [
@@ -16610,7 +16612,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<InformationTopBarComponent>",
-                    "defaultValue": "{\n    component: InformationTopBarComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient()]\n        })\n    ],\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
+                    "defaultValue": "{\n  component: InformationTopBarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
                 },
                 {
                     "name": "TopBar",
@@ -16620,7 +16622,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport\n  }\n}"
                 }
             ],
             "src/stories/monthly-report/time-check.stories.ts": [
@@ -16632,7 +16634,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<TimeCheckComponent>",
-                    "defaultValue": "{\n    component: TimeCheckComponent,\n    argTypes: {\n        monthlyReport: {\n            control: 'object'\n        }\n    },\n}"
+                    "defaultValue": "{\n  component: TimeCheckComponent,\n  argTypes: {\n    monthlyReport: {\n      control: 'object'\n    }\n  },\n}"
                 },
                 {
                     "name": "monthlyReportArgs",
@@ -16642,7 +16644,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "MonthlyReport",
-                    "defaultValue": "{\n    employee: {\n        userId: '066-mleitner',\n        email: 'michael.leitner@gepardec.com',\n        title: null,\n        firstname: 'Michael',\n        lastname: 'Leitner',\n        salutation: null,\n        releaseDate: '2022-06-30',\n        workDescription: '07',\n        // language: 'de',\n        // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n        active: true,\n        // exitDate: null\n    },\n    initialDate: null,\n    timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-20',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-08',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n        date: '2023-09-13',\n        description: ['Du hast keine Zeit-Buchung vorgenommen!']\n    }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n    journeyWarnings: [],\n    comments: [],\n    employeeCheckState: 'OPEN',\n    employeeCheckStateReason: null,\n    internalCheckState: State.OPEN,\n    // isAssigned: false,\n    employeeProgresses: [],\n    otherChecksDone: true,\n    vacationDays: 0,\n    homeofficeDays: 0,\n    compensatoryDays: 0,\n    // nursingDays: 0,\n    // maternityLeaveDays: 0,\n    // externalTrainingDays: 0,\n    // conferenceDays: 0,\n    // maternityProtectionDays: 0,\n    // fatherMonthDays: 0,\n    // paidSpecialLeaveDays: 0,\n    // nonPaidVacationDays: 0,\n    vacationDayBalance: 6,\n    billableTime: '08:15',\n    totalWorkingTime: '08:15',\n    paidSickLeave: 0,\n    assigned: false\n}"
+                    "defaultValue": "{\n  employee: {\n    userId: '066-mleitner',\n    email: 'michael.leitner@gepardec.com',\n    title: null,\n    firstname: 'Michael',\n    lastname: 'Leitner',\n    salutation: null,\n    releaseDate: '2022-06-30',\n    workDescription: '07',\n    // language: 'de',\n    // regularWorkingHours: {WEDNESDAY: 8, TUESDAY: 8, THURSDAY: 8, MONDAY: 0, FRIDAY: 6.5},\n    active: true,\n    // exitDate: null\n  },\n  initialDate: null,\n  timeWarnings: [{date: '2023-09-14', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-20',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-01', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-08',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {\n    date: '2023-09-13',\n    description: ['Du hast keine Zeit-Buchung vorgenommen!']\n  }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],\n  journeyWarnings: [],\n  comments: [],\n  employeeCheckState: 'OPEN',\n  employeeCheckStateReason: null,\n  internalCheckState: State.OPEN,\n  // isAssigned: false,\n  employeeProgresses: [],\n  otherChecksDone: true,\n  vacationDays: 0,\n  homeofficeDays: 0,\n  compensatoryDays: 0,\n  // nursingDays: 0,\n  // maternityLeaveDays: 0,\n  // externalTrainingDays: 0,\n  // conferenceDays: 0,\n  // maternityProtectionDays: 0,\n  // fatherMonthDays: 0,\n  // paidSpecialLeaveDays: 0,\n  // nonPaidVacationDays: 0,\n  vacationDayBalance: 6,\n  billableTime: '08:15',\n  totalWorkingTime: '08:15',\n  paidSickLeave: 0,\n  assigned: false\n}"
                 },
                 {
                     "name": "timeError",
@@ -16652,7 +16654,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReportArgs,\n    }\n  }\n}"
                 },
                 {
                     "name": "timeSucess",
@@ -16662,7 +16664,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        monthlyReport: {\n            ...monthlyReportArgs,\n            timeWarnings: []\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    monthlyReport: {\n      ...monthlyReportArgs,\n      timeWarnings: []\n    }\n  }\n}"
                 }
             ],
             "src/stories/shared/user-actions.stories.ts": [
@@ -16674,7 +16676,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<UserActionsComponent>",
-                    "defaultValue": "{\n    component: UserActionsComponent,\n    decorators: [\n        applicationConfig({\n            providers: [provideHttpClient(), provideAnimations()]\n        })\n    ],\n    argTypes: {\n        user: {\n            control: 'object'\n        }\n    }\n}"
+                    "defaultValue": "{\n  component: UserActionsComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideAnimations()]\n    })\n  ],\n  argTypes: {\n    user: {\n      control: 'object'\n    }\n  }\n}"
                 },
                 {
                     "name": "user",
@@ -16684,7 +16686,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "User",
-                    "defaultValue": "{\n    email: 'max@mustermann', firstname: 'max', lastname: 'mustermann', roles: [Role.EMPLOYEE], userId: '10'\n\n}"
+                    "defaultValue": "{\n  email: 'max@mustermann', firstname: 'max', lastname: 'mustermann', roles: [Role.EMPLOYEE], userId: '10'\n\n}"
                 },
                 {
                     "name": "UserActions",
@@ -16694,7 +16696,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n    args: {\n        user: {\n            ...user,\n        }\n    }\n}"
+                    "defaultValue": "{\n  args: {\n    user: {\n      ...user,\n    }\n  }\n}"
                 }
             ],
             "src/app/domains/office-management/feature-office-management/feature-office-management.component.ts": [
@@ -18991,16 +18993,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "monthlyReportArgs",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/monthly-report/employee-check.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "NotAvailable",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -19022,16 +19014,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/monthly-report/general-info.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "monthlyReportArgs",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -19082,16 +19064,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/monthly-report/journey-check.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "monthlyReportArgs",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -19167,16 +19139,6 @@
                 "status": "low"
             },
             {
-                "filePath": "src/stories/office-management/employee-card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "omEntries",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
                 "filePath": "src/stories/office-management/enterprise-card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -19192,6 +19154,46 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/office-management/office-management-args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "enterpriseEntry",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/office-management/office-management-args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "omEntries",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/office-management/office-management-args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "pmEntries",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/office-management/office-management-args.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "projectsWithoutLeads",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
