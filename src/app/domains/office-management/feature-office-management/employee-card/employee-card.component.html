@@ -114,7 +114,7 @@
               {{'office-management.table.projectCheckState' | translate}}</mat-header-cell>
             <mat-cell *matCellDef="let omEntry" class="text-center">
               <span class="mobile-label">{{'office-management.table.projectCheckState' | translate}}</span>
-              <app-state-indicator (mouseenter)="openEmployeeProgress(omEntry)"
+              <app-state-indicator (mouseenter)="openEmployeeProgress(omEntry, $event)"
                                    (mouseleave)="closeEmployeeProgress()"
                                    [state]="omEntry.projectCheckState"
                                    data-cy="project-check"></app-state-indicator>

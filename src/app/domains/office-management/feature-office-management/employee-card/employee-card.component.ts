@@ -32,6 +32,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
+import {isElementOverlyingCursor} from '@mega/shared/util-common';
 
 const moment = _moment;
 
@@ -86,6 +87,7 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
   selectedYear: number;
   selectedMonth: number;
   dateSelectionSub: Subscription;
+  overlaysButton: boolean;
 
   constructor(
     private dialog: MatDialog,
@@ -227,16 +229,26 @@ export class EmployeeCardComponent implements OnInit, OnDestroy {
       });
   }
 
-  openEmployeeProgress(omEntry: ManagementEntry) {
+  openEmployeeProgress(omEntry: ManagementEntry, $event: MouseEvent) {
     this.employeeProgressRef = this._bottomSheet.open(PmProgressComponent, {
       data: {employeeProgresses: omEntry.employeeProgresses},
       autoFocus: false,
       hasBackdrop: false
     });
+    const bottomSheetContainer = document.querySelector('mat-bottom-sheet-container');
+
+    this.overlaysButton = isElementOverlyingCursor(bottomSheetContainer, $event);
+
+    bottomSheetContainer?.addEventListener('mouseleave', () => {
+      this.employeeProgressRef.dismiss();
+      this.overlaysButton = false;
+    });
   }
 
   closeEmployeeProgress() {
-    this.employeeProgressRef.dismiss();
+    if (!this.overlaysButton) {
+      this.employeeProgressRef.dismiss();
+    }
   }
 
   private getFormattedDate() {

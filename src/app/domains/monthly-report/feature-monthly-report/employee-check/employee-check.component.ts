@@ -18,7 +18,7 @@ import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/
 import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import * as moment from 'moment';
-import {convertMomentToString, toMonthYearString} from '@mega/shared/util-common';
+import {convertMomentToString, isElementOverlyingCursor, toMonthYearString} from '@mega/shared/util-common';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
@@ -188,11 +188,8 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       hasBackdrop: false
     });
     const bottomSheetContainer = document.querySelector('mat-bottom-sheet-container');
-    const bottomSheetY = window.innerHeight - bottomSheetContainer?.getBoundingClientRect()?.height || 0;
 
-    const eventY = $event?.y || 0;
-
-    this.overlaysButton = bottomSheetY < (eventY + 10); // inaccuracy correction
+    this.overlaysButton = isElementOverlyingCursor(bottomSheetContainer, $event);
 
     bottomSheetContainer?.addEventListener('mouseleave', () => {
       this.employeeProgressRef.dismiss();
