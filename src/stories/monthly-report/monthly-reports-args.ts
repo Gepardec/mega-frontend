@@ -27,7 +27,10 @@ export const monthlyReport: MonthlyReport = {
   }, {date: '2023-09-29', description: ['Du hast keine Zeit-Buchung vorgenommen!']}, {
     date: '2023-09-13',
     description: ['Du hast keine Zeit-Buchung vorgenommen!']
-  }, {date: '2023-09-05', description: ['Du hast keine Zeit-Buchung vorgenommen!']}],
+  }, {
+    date: '2023-09-05',
+    description: ['Dies ist eine wirklich sehr, sehr, extrem lange Errornachricht, welche auf keinen Fall dazu da ist, irgendwelche Overflow-Fehler in unserer Applikation zu testen.']
+  }],
   journeyWarnings: [],
   comments: [],
   employeeCheckState: 'OPEN',

@@ -11,6 +11,7 @@
     "NOT_RELEVANT": "Nicht relevant"
   },
   "EMPLOYEE_FUNCTIONS": {
+    "00": "Nicht angegeben",
     "01": "Technische/r PL",
     "02": "SoftwareentwicklerIn",
     "03": "Verwaltung",

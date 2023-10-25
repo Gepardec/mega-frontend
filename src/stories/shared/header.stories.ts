@@ -12,23 +12,7 @@ const meta: Meta<HeaderComponent> = {
     applicationConfig({
       providers: [provideHttpClient(), importProvidersFrom(OAuthModule.forRoot())]
     })
-  ],
-  parameters: {
-    msw: [
-      rest.get('http://localhost:6006/config', (req, res, context) => {
-        return res(
-          context.json({
-            clientId: 'test-client-id',
-            issuer: 'test-issuer',
-            scope: 'test-scope',
-            version: '12.0.0.1.1',
-            budgetCalculationExcelUrl: 'https://google.com',
-            zepOrigin: 'https://google.com',
-          })
-        );
-      })
-    ]
-  }
+  ]
 };
 
 export default meta;

@@ -31,7 +31,7 @@ export class InformationTopBarComponent implements OnInit {
   @Input() monthlyReport: MonthlyReport;
   @Output() refreshMonthlyReport: EventEmitter<void> = new EventEmitter<void>();
 
-  employeeFunctions: string;
+  employeeFunctions = '00';
 
   maxMonthDate = 0;
   selectedYear: number;
