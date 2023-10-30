@@ -11,7 +11,7 @@ setCompodocJson(docJson);
 
 initialize({
   onUnhandledRequest: ({method, url}) => {
-    const ignoredPathnames = ['/assets', '/node_modules', '/stories-', '/runtime', '/s/materialicons', '/vendors-'];
+    const ignoredPathnames = ['/assets', '/node_modules', '/stories-', '/runtime', '/s/materialicons', '/vendors-', '/sb-common-assets'];
     if (ignoredPathnames.some((ignored) => {
       return url.pathname.startsWith(ignored);
     })) {

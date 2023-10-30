@@ -20,6 +20,11 @@
   text-align: center !important;
 }
 
+/**
+* @tokens Spacings
+* @presenter Spacing
+*/
+
 .mt-10 {
   margin-top: 10px;
 }
@@ -39,6 +44,10 @@
 .mr-10 {
   margin-right: 10px;
 }
+
+/**
+  * @tokens-end
+  */
 
 .full-width {
   width: 100%;

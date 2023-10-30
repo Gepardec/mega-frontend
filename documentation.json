@@ -14064,26 +14064,6 @@
                 "name": "DemoStory",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    billableTimes: 10,\n    nonBillableTimes: 20\n  }\n}"
-            },
-            {
-                "name": "DemoStory",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/project-management/billable-times.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    billableTimes: '10',\n    nonBillableTimes: '20'\n  }\n}"
-            },
-            {
-                "name": "DemoStory",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/office-management/employee-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -14129,6 +14109,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    projectManagementUrl: 'https://sample.com',\n    projectName: 'sampleName'\n  }\n}"
+            },
+            {
+                "name": "DemoStory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    billableTimes: 10,\n    nonBillableTimes: 20\n  }\n}"
+            },
+            {
+                "name": "DemoStory",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/project-management/billable-times.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    billableTimes: '10',\n    nonBillableTimes: '20'\n  }\n}"
             },
             {
                 "name": "DemoStory",
@@ -14434,26 +14434,6 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BillableTimesFractionComponent>",
-                "defaultValue": "{\n  component: BillableTimesFractionComponent,\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/project-management/billable-times.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<BillableTimesComponent>",
-                "defaultValue": "{\n  component: BillableTimesComponent,\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/stories/office-management/employee-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -14499,6 +14479,26 @@
                 "deprecationMessage": "",
                 "type": "Meta<ProjektNameWithZepLinkComponent>",
                 "defaultValue": "{\n  component: ProjektNameWithZepLinkComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BillableTimesFractionComponent>",
+                "defaultValue": "{\n  component: BillableTimesFractionComponent,\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/project-management/billable-times.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<BillableTimesComponent>",
+                "defaultValue": "{\n  component: BillableTimesComponent,\n}"
             },
             {
                 "name": "meta",
@@ -15442,28 +15442,6 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<BillableTimesFractionComponent>",
-                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<BillableTimesComponent>",
-                "file": "src/stories/project-management/billable-times.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
                 "rawtype": "StoryObj<EmployeeCardComponent>",
                 "file": "src/stories/office-management/employee-card.stories.ts",
                 "deprecated": false,
@@ -15510,6 +15488,28 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ProjektNameWithZepLinkComponent>",
                 "file": "src/stories/office-management/projekt-name-with-zep-link.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BillableTimesFractionComponent>",
+                "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<BillableTimesComponent>",
+                "file": "src/stories/project-management/billable-times.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -16116,50 +16116,6 @@
                     "defaultValue": "{\n  component: ConfirmDialogComponent,\n}"
                 }
             ],
-            "src/stories/project-management/billable-times-fraction.stories.ts": [
-                {
-                    "name": "DemoStory",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    billableTimes: 10,\n    nonBillableTimes: 20\n  }\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BillableTimesFractionComponent>",
-                    "defaultValue": "{\n  component: BillableTimesFractionComponent,\n}"
-                }
-            ],
-            "src/stories/project-management/billable-times.stories.ts": [
-                {
-                    "name": "DemoStory",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/project-management/billable-times.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    billableTimes: '10',\n    nonBillableTimes: '20'\n  }\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/project-management/billable-times.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<BillableTimesComponent>",
-                    "defaultValue": "{\n  component: BillableTimesComponent,\n}"
-                }
-            ],
             "src/stories/office-management/employee-card.stories.ts": [
                 {
                     "name": "DemoStory",
@@ -16268,6 +16224,50 @@
                     "deprecationMessage": "",
                     "type": "Meta<ProjektNameWithZepLinkComponent>",
                     "defaultValue": "{\n  component: ProjektNameWithZepLinkComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()]\n    })\n  ],\n}"
+                }
+            ],
+            "src/stories/project-management/billable-times-fraction.stories.ts": [
+                {
+                    "name": "DemoStory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    billableTimes: 10,\n    nonBillableTimes: 20\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BillableTimesFractionComponent>",
+                    "defaultValue": "{\n  component: BillableTimesFractionComponent,\n}"
+                }
+            ],
+            "src/stories/project-management/billable-times.stories.ts": [
+                {
+                    "name": "DemoStory",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/project-management/billable-times.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    billableTimes: '10',\n    nonBillableTimes: '20'\n  }\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/project-management/billable-times.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<BillableTimesComponent>",
+                    "defaultValue": "{\n  component: BillableTimesComponent,\n}"
                 }
             ],
             "src/stories/shared/datepicker-month-year.stories.ts": [
@@ -17676,32 +17676,6 @@
                     "kind": 183
                 }
             ],
-            "src/stories/project-management/billable-times-fraction.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BillableTimesFractionComponent>",
-                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "src/stories/project-management/billable-times.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<BillableTimesComponent>",
-                    "file": "src/stories/project-management/billable-times.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "src/stories/office-management/employee-card.stories.ts": [
                 {
                     "name": "Story",
@@ -17761,6 +17735,32 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ProjektNameWithZepLinkComponent>",
                     "file": "src/stories/office-management/projekt-name-with-zep-link.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "src/stories/project-management/billable-times-fraction.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BillableTimesFractionComponent>",
+                    "file": "src/stories/project-management/billable-times-fraction.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "src/stories/project-management/billable-times.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<BillableTimesComponent>",
+                    "file": "src/stories/project-management/billable-times.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",

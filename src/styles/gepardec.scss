@@ -38,9 +38,9 @@ $gepardec-pal: (
   )
 );
 
+
 $mega-primary: mat.define-palette($gepardec-pal);
 $mega-accent: mat.define-palette($gepardec-pal, A100);
-
 
 $gepardec-headline-6: mat.define-typography-level(
   $font-family: inherit,
@@ -73,6 +73,7 @@ $gepardec-typography-config: mat.define-typography-config(
   $body-1: $gepardec-body-1,
   $button: $gepardec-button
 );
+
 
 $mega-theme: mat.define-light-theme((
   color: (

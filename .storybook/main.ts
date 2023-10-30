@@ -6,6 +6,11 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-designs',
+    '@storybook/addon-console',
+    '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
+    'storybook-design-token'
   ],
   framework: {
     name: '@storybook/angular',
