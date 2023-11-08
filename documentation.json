@@ -14664,7 +14664,7 @@
                 "name": "moment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts",
+                "file": "src/app/domains/office-management/feature-office-management/feature-office-management.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -14674,7 +14674,7 @@
                 "name": "moment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/domains/office-management/feature-office-management/feature-office-management.component.ts",
+                "file": "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -14705,16 +14705,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/domains/monthly-report/feature-monthly-report/information-top-bar/information-top-bar.component.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "_moment"
-            },
-            {
-                "name": "moment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/app/domains/project-management/data-service/project-management/project-management.service.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -14755,6 +14745,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/domains/office-management/feature-office-management/project-overview-card/project-overview-card.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "_moment"
+            },
+            {
+                "name": "moment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/domains/project-management/data-service/project-management/project-management.service.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -16782,24 +16782,24 @@
                     "defaultValue": "{\n  args: {\n    user\n  }\n}"
                 }
             ],
-            "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts": [
-                {
-                    "name": "moment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "_moment"
-                }
-            ],
             "src/app/domains/office-management/feature-office-management/feature-office-management.component.ts": [
                 {
                     "name": "moment",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/domains/office-management/feature-office-management/feature-office-management.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "_moment"
+                }
+            ],
+            "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts": [
+                {
+                    "name": "moment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/domains/project-management/feature-project-management/feature-project-management.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -16836,18 +16836,6 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/domains/monthly-report/feature-monthly-report/information-top-bar/information-top-bar.component.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "_moment"
-                }
-            ],
-            "src/app/domains/project-management/data-service/project-management/project-management.service.ts": [
-                {
-                    "name": "moment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/domains/project-management/data-service/project-management/project-management.service.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -16896,6 +16884,18 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/domains/office-management/feature-office-management/project-overview-card/project-overview-card.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "_moment"
+                }
+            ],
+            "src/app/domains/project-management/data-service/project-management/project-management.service.ts": [
+                {
+                    "name": "moment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/domains/project-management/data-service/project-management/project-management.service.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
