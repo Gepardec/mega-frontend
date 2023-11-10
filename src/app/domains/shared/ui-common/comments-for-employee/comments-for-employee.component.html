@@ -38,6 +38,8 @@
         <th class="mat-mdc-header-cell mdc-data-table__header-cell text-center"
             scope="col">{{'comments-for-employee.table.done' | translate}}</th>
         <th class="mat-mdc-header-cell mdc-data-table__header-cell text-center"
+            scope="col">{{'comments-for-employee.table.sourceSystem' | translate}}</th>
+        <th class="mat-mdc-header-cell mdc-data-table__header-cell text-center"
             scope="col">{{'comments-for-employee.table.comment' | translate}}</th>
         <th class="mat-mdc-header-cell mdc-data-table__header-cell text-center"
             scope="col">{{'comments-for-employee.table.edit' | translate}}</th>
@@ -56,6 +58,10 @@
 
         <td class="mdc-data-table__cell text-center">
           <app-state-indicator [state]="comment.state"></app-state-indicator>
+        </td>
+
+        <td class="mdc-data-table__cell text-center">
+          <p>{{comment.sourceSystem}}</p>
         </td>
 
         <td class="mdc-data-table__cell text-center">

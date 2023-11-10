@@ -23,9 +23,9 @@ export class CommentService {
     return comments.filter(comment => comment.state === State.DONE);
   }
 
-  setStatusDone(comment: Comment): Observable<number> {
+  finish(comment: Comment): Observable<number> {
     this.deleteViewModelProps(comment);
-    return this.httpClient.put<number>(this.config.getBackendUrlWithContext('/comments/setdone'), comment);
+    return this.httpClient.put<number>(this.config.getBackendUrlWithContext('/comments/finish'), comment);
   }
 
   getCommentsForEmployee(employeeEmail: string, montYear: string): Observable<Array<Comment>> {
@@ -39,10 +39,10 @@ export class CommentService {
       });
   }
 
-  createNewComment(employee: Employee, message: string, assigneeEmail: string, step: Step, project: string, currentMonthYear: string): Observable<any> {
+  createNewComment(employeeEmail: string, message: string, assigneeEmail: string, step: Step, project: string, currentMonthYear: string): Observable<any> {
     return this.httpClient.post(
       this.config.getBackendUrlWithContext('/comments'),
-      new NewCommentEntry(step, employee, message, assigneeEmail, project, currentMonthYear)
+      new NewCommentEntry(step, employeeEmail, message, assigneeEmail, project, currentMonthYear)
     );
   }
 

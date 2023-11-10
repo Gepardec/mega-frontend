@@ -145,7 +145,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   selectionChange(change: MatSelectionListChange): void {
     const comment = change.options[0].value;
 
-    this.commentService.setStatusDone(comment).subscribe(() => {
+    this.commentService.finish(comment).subscribe(() => {
       const updatedComment = this.monthlyReport.comments.find(value => value.id === comment.id);
       updatedComment.state = State.DONE;
 
