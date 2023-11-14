@@ -124,7 +124,8 @@ describe('FeatureMonthlyReportComponent', () => {
       compensatoryDays: 5,
       comments: [],
       assigned: true,
-      vacationDayBalance: 0
+      vacationDayBalance: 0,
+      overtime: 3
     };
   }
 

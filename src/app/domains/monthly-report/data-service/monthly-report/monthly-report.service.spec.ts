@@ -86,7 +86,8 @@ describe('MonthlyReportService', () => {
       totalWorkingTime: '10:15',
       vacationDays: 3,
       paidSickLeave: 2,
-      vacationDayBalance: 10
+      vacationDayBalance: 10,
+      overtime: 4
     };
   }
 });

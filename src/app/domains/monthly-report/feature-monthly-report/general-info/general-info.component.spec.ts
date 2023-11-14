@@ -45,9 +45,9 @@ describe('GeneralInfoComponent', () => {
 
     fixture.detectChanges();
 
-    assertMonthlyReportRow(4, 'Konsumierter Urlaub', '3', 'Tage');
-    assertMonthlyReportRow(5, 'Konsumierter Zeitausgleich', '2', 'Tage');
-    assertMonthlyReportRow(6, 'Homeoffice', '10', 'Tage');
+    assertMonthlyReportRow(5, 'Konsumierter Urlaub', '3', 'Tage');
+    assertMonthlyReportRow(6, 'Konsumierter Zeitausgleich', '2', 'Tage');
+    assertMonthlyReportRow(7, 'Homeoffice', '10', 'Tage');
 
   });
 
@@ -64,15 +64,16 @@ describe('GeneralInfoComponent', () => {
 
     fixture.detectChanges();
 
-    assertMonthlyReportRow(4, 'Konsumierter Urlaub', '1', 'Tag');
-    assertMonthlyReportRow(5, 'Konsumierter Zeitausgleich', '1', 'Tag');
-    assertMonthlyReportRow(6, 'Homeoffice', '1', 'Tag');
+    assertMonthlyReportRow(5, 'Konsumierter Urlaub', '1', 'Tag');
+    assertMonthlyReportRow(6, 'Konsumierter Zeitausgleich', '1', 'Tag');
+    assertMonthlyReportRow(7, 'Homeoffice', '1', 'Tag');
   });
 
   it('#afterInit - should display working times and chargeability ', () => {
     const monthlyReport = new MonthlyReport();
 
     monthlyReport.totalWorkingTime = '80:00';
+    monthlyReport.overtime = 10;
     monthlyReport.billableTime = '60:00';
 
     component.monthlyReport = monthlyReport;
@@ -81,8 +82,9 @@ describe('GeneralInfoComponent', () => {
     fixture.detectChanges();
 
     assertMonthlyReportRow(1, 'Gesamte Arbeitszeit', '80,00', 'Stunden');
-    assertMonthlyReportRow(2, 'Fakturierbare Stunden', '60,00', 'Stunden');
-    assertMonthlyReportRow(3, 'Chargeability', '75,00', '%');
+    assertMonthlyReportRow(2, 'Überstunden in diesem Monat', '10,00', 'Stunden');
+    assertMonthlyReportRow(3, 'Fakturierbare Stunden', '60,00', 'Stunden');
+    assertMonthlyReportRow(4, 'Chargeability', '75,00', '%');
   });
 
   it('#calculateBillingPercentage - should return 0', () => {

@@ -89,6 +89,11 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
         value: this.monthlyReportService.totalWorkingTimeHours
       },
       {
+        description: 'monthly-report.generalInfo.overtime',
+        unit: 'monthly-report.generalInfo.hour',
+        value: this.monthlyReport.overtime
+      },
+      {
         description: 'monthly-report.generalInfo.chargeableHours',
         unit: 'monthly-report.generalInfo.hour',
         value: this.monthlyReportService.billableTimeHours
@@ -118,7 +123,7 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
         unit: 'monthly-report.generalInfo.day',
         value: this.monthlyReport.paidSickLeave
       },
-      //TODO: disabled until Personio API sends the correct data
+      // TODO: disabled until Personio API sends the correct data
       // {
       //   description: 'monthly-report.generalInfo.vacationDayBalance',
       //   unit: 'monthly-report.generalInfo.day',
