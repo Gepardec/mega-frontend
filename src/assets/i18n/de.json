@@ -64,6 +64,7 @@
     "reason": "Grund:",
     "setStateInProgressButtonText": "Bestätigen noch nicht möglich, weil...",
     "confirmBtnText": "Buchungen bestätigen",
+    "confirmBtnPrematurelyText": "Buchungen vorzeitig bestätigen",
     "title": {
       "emc": "Status zum Monatsabschluss",
       "journey": "MEGA Reisen Check",
