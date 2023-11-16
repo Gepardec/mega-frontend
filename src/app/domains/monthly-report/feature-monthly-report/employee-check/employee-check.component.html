@@ -39,7 +39,7 @@
           </div>
         </div>
 
-        <ng-container *ngIf="!noTimesCurrentMonth">
+        <ng-container *ngIf="!noTimesCurrentMonth; else prematureEmployeeCheck">
           <div class="state-reason-container" *ngIf="monthlyReport.employeeCheckState === State.IN_PROGRESS">
             <div class="mobile__font-size state-reason-header">
               <strong>{{'monthly-report.reason' | translate}}</strong>
@@ -72,6 +72,13 @@
             </button>
           </div>
         </ng-container>
+        <ng-template #prematureEmployeeCheck>
+          <button
+            data-cy="buchungen_vorzeitig_bestaetigen_btn"
+            (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()" class="employee-check__primary_button mt-10"
+            mat-raised-button
+            color="primary">{{'monthly-report.confirmBtnPrematurelyText' | translate}}</button>
+        </ng-template>
       </div>
 
       <!-- COMMENTS -->
