@@ -73,11 +73,17 @@
           </div>
         </ng-container>
         <ng-template #prematureEmployeeCheck>
-          <button
-            data-cy="buchungen_vorzeitig_bestaetigen_btn"
-            (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()" class="employee-check__primary_button mt-10"
-            mat-raised-button
-            color="primary">{{'monthly-report.confirmBtnPrematurelyText' | translate}}</button>
+          <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
+            <button
+              data-cy="buchungen_vorzeitig_bestaetigen_btn"
+              (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()" class="employee-check__primary_button mt-10"
+              mat-raised-button
+              color="primary">{{'monthly-report.confirmBtnPrematurelyText' | translate}}</button>
+          </ng-container>
+        </ng-template>
+
+        <ng-template #alreadyPrematurelyChecked>
+          <span>{{'monthly-report.prematureEmployeeCheckAlreadyDone' | translate}}</span>
         </ng-template>
       </div>
 

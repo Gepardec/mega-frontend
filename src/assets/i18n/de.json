@@ -65,6 +65,7 @@
     "setStateInProgressButtonText": "Bestätigen noch nicht möglich, weil...",
     "confirmBtnText": "Buchungen bestätigen",
     "confirmBtnPrematurelyText": "Buchungen vorzeitig bestätigen",
+    "prematureEmployeeCheckAlreadyDone": "Du hast schon einen Monat vorzeitig bestätigt!",
     "title": {
       "emc": "Status zum Monatsabschluss",
       "journey": "MEGA Reisen Check",

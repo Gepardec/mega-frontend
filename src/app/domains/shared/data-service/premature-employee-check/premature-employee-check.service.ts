@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ConfigService} from '@mega/shared/data-service';
-import {Employee, EmployeeStep, Step} from '@mega/shared/data-model';
+import {Employee, EmployeeStep, Step, User} from '@mega/shared/data-model';
 import {Observable} from 'rxjs';
+import {PrematureEmployeeCheck} from '../../data-model/PrematureEmployeeCheck';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,10 @@ export class PrematureEmployeeCheckService {
   }
 
 
-  prematurelyClose(employee: Employee, step: Step, currentMonthYear: string): Observable<boolean> {
-    return this.httpClient.put<boolean>(
+  prematurelyClose(user: User, forMonth: string): Observable<boolean> {
+    return this.httpClient.post<boolean>(
       this.config.getBackendUrlWithContext('/prematureemployeecheck/'),
-      new EmployeeStep(step, employee, currentMonthYear)
+      new PrematureEmployeeCheck(user, forMonth)
     );
   }
 }

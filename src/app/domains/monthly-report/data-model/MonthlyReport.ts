@@ -22,4 +22,5 @@ export class MonthlyReport {
   paidSickLeave: number;
   vacationDayBalance: number;
   overtime: number;
+  hasPrematureEmployeeCheck: boolean;
 }
