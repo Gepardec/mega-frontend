@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {CommentService, StepEntriesService} from '@mega/shared/data-service';
-import {State, Step} from '@mega/shared/data-model';
+import {State, Step, User} from '@mega/shared/data-model';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
@@ -23,6 +23,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
+import {PrematureEmployeeCheckService} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
 
 @Component({
   selector: 'app-employee-check',
@@ -62,7 +63,8 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     public commentService: CommentService,
     private monthlyReportService: MonthlyReportService,
-    public stepEntriesService: StepEntrstatussiesService,
+    public stepEntriesService: StepEntriesService,
+    private prematureEmployeeCheckService: PrematureEmployeeCheckService,
     private bottomSheet: MatBottomSheet,
     @Inject(LOCALE_ID) private locale: string,
     private dialog: MatDialog) {
@@ -113,7 +115,17 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   setOpenAndUnassignedStepEntriesPrematurelyDone(): void {
+    const closeDate = this.getSelectedDate();
 
+    const employee = this.monthlyReport.employee;
+    const user: User = {email: employee.email, firstname: employee.firstname, lastname: employee.lastname, roles: [], userId: ''};
+
+
+    this.prematureEmployeeCheckService
+      .prematurelyClose(user, convertMomentToString(closeDate))
+      .subscribe(() => {
+        this.emitRefreshMonthlyReport();
+      });
   }
 
   emitRefreshMonthlyReport(): void {
