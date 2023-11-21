@@ -61,10 +61,9 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   employeeCheckText: string;
   noTimesCurrentMonth: boolean;
   isPrematureEmployeeCheck = false;
-  private dateSelectionSub: Subscription;
-
   tooltipShowDelay = 500;
   tooltipPosition = 'right' as TooltipPosition;
+  private dateSelectionSub: Subscription;
 
   constructor(
     public commentService: CommentService,
@@ -217,50 +216,87 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     let stateIndicatorState = this.monthlyReport.employeeCheckState;
     let stateIndicatorText = '';
     let noTimesCurrentMonth = false;
-    let isPrematureEmployeeCheck = false;
+    let stateIsPrematureEmployeeCheck = false;
 
-    // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
-    if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-
-      if (this.monthlyReport.assigned) {
-        // Texte
-        if (this.monthlyReport.employeeCheckState === State.OPEN) {
-          stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
-        } else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-          stateIndicatorText = 'monthly-report.inProgressDescription';
-        }
-      } else {
-        if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))){
+    switch (this.monthlyReport.employeeCheckState) {
+      case State.PREMATURE_CHECK:
+        stateIsPrematureEmployeeCheck = true;
+        if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))) {
           stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
-          stateIndicatorState = 'OPEN';
-          isPrematureEmployeeCheck = true;
-          if (this.monthlyReport.hasPrematureEmployeeCheck){
-            isPrematureEmployeeCheck = true;
+          stateIndicatorState = State.OPEN;
+          if (this.monthlyReport.hasPrematureEmployeeCheck) {
             stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
             stateIndicatorState = State.IN_PROGRESS;
           }
-
         } else {
-          // Show default State Indicator
           stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-          stateIndicatorState = undefined;
+          stateIndicatorState = State.IN_PROGRESS;
           noTimesCurrentMonth = true;
         }
-      }
-    } else if (this.monthlyReport.employeeCheckState === State.DONE) {
-      if (this.monthlyReport.otherChecksDone) {
-        // Show default State Indicator
-        stateIndicatorText = 'monthly-report.checkSuccess';
-      } else {
-        stateIndicatorState = undefined;
-        stateIndicatorText = 'monthly-report.checkWip';
-      }
+        break;
+
+      case State.OPEN:
+        stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
+        break;
+
+      case State.IN_PROGRESS:
+        stateIndicatorText = 'monthly-report.inProgressDescription';
+        break;
+
+      case State.DONE:
+        if (this.monthlyReport.otherChecksDone) {
+          stateIndicatorText = 'monthly-report.checkSuccess';
+        } else {
+          stateIndicatorState = State.IN_PROGRESS;
+          stateIndicatorText = 'monthly-report.checkWip';
+        }
+        break;
     }
 
+
+    // // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
+    // if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
+    //
+    //   if (this.monthlyReport.assigned) {
+    //     // Texte
+    //     if (this.monthlyReport.employeeCheckState === State.OPEN) {
+    //       stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
+    //     } else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
+    //       stateIndicatorText = 'monthly-report.inProgressDescription';
+    //     }
+    //   } else {
+    //     if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))){
+    //       stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
+    //       stateIndicatorState = 'OPEN';
+    //       isPrematureEmployeeCheck = true;
+    //       if (this.monthlyReport.hasPrematureEmployeeCheck){
+    //         isPrematureEmployeeCheck = true;
+    //         stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
+    //         stateIndicatorState = State.IN_PROGRESS;
+    //       }
+    //
+    //     } else {
+    //       // Show default State Indicator
+    //       stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
+    //       stateIndicatorState = undefined;
+    //       noTimesCurrentMonth = true;
+    //     }
+    //   }
+    // } else if (this.monthlyReport.employeeCheckState === State.DONE) {
+    //   if (this.monthlyReport.otherChecksDone) {
+    //     // Show default State Indicator
+    //     stateIndicatorText = 'monthly-report.checkSuccess';
+    //   } else {
+    //     stateIndicatorState = undefined;
+    //     stateIndicatorText = 'monthly-report.checkWip';
+    //   }
+    // }
+
     this.employeeCheckIcon = stateIndicatorState;
+    this.monthlyReport.employeeCheckState = stateIndicatorState;
     this.employeeCheckText = stateIndicatorText;
     this.noTimesCurrentMonth = noTimesCurrentMonth;
-    this.isPrematureEmployeeCheck = isPrematureEmployeeCheck;
+    this.isPrematureEmployeeCheck = stateIsPrematureEmployeeCheck;
   }
 
   private getSelectedDate() {

@@ -72,7 +72,6 @@ describe('MonthlyReportService', () => {
     static monthlyReport: MonthlyReport = {
       internalCheckState: State.OPEN,
       initialDate: null,
-      assigned: true,
       billableTime: '10:15',
       comments: null,
       compensatoryDays: 2,

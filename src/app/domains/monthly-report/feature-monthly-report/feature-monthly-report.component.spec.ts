@@ -123,7 +123,6 @@ describe('FeatureMonthlyReportComponent', () => {
       billableTime: '',
       compensatoryDays: 5,
       comments: [],
-      assigned: true,
       vacationDayBalance: 0,
       overtime: 3,
       hasPrematureEmployeeCheck: false

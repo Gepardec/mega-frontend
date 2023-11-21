@@ -10,7 +10,6 @@ export class MonthlyReport {
   employeeCheckStateReason?: string;
   internalCheckState: State;
   otherChecksDone: boolean;
-  assigned: boolean;
   employee: Employee;
   initialDate: string;
   employeeProgresses: Array<PmProgress>;
