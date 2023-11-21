@@ -1,5 +1,6 @@
 export enum State {
   OPEN = 'OPEN',
   DONE = 'DONE',
-  IN_PROGRESS = 'IN_PROGRESS'
+  IN_PROGRESS = 'IN_PROGRESS',
+  PREMATURE_CHECK = 'PREMATURE_CHECK'
 }
