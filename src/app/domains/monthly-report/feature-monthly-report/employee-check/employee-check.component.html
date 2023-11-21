@@ -39,20 +39,21 @@
           </div>
         </div>
 
-        <ng-container *ngIf="!noTimesCurrentMonth; else prematureEmployeeCheck">
+        <ng-container *ngIf="!noTimesCurrentMonth">
           <div class="state-reason-container" *ngIf="monthlyReport.employeeCheckState === State.IN_PROGRESS">
             <div class="mobile__font-size state-reason-header">
               <strong>{{'monthly-report.reason' | translate}}</strong>
             </div>
 
             <div class="state-reason-text-and-actions-container">
-              <div class="mobile__font-size state-reason-text" >
+              <div class="mobile__font-size state-reason-text">
                 {{monthlyReport.employeeCheckStateReason}}
               </div>
 
               <div class="state-reason-actions">
                 <button mat-button color="warn" (click)="resetState()">{{'global.actions.delete' | translate}}</button>
-                <button mat-button (click)="openStateInProgressReasonDialog()">{{'global.actions.edit' | translate}}</button>
+                <button mat-button
+                        (click)="openStateInProgressReasonDialog()">{{'global.actions.edit' | translate}}</button>
               </div>
             </div>
           </div>
@@ -60,31 +61,42 @@
           <div class="employee-check__actionsContainer mb-10"
                *ngIf="monthlyReport.employeeCheckState === State.OPEN || monthlyReport.employeeCheckState === State.IN_PROGRESS">
 
-            <button
-              data-cy="buchungen_bestaetigen_btn"
-              (click)="setOpenAndUnassignedStepEntriesDone()" class="employee-check__primary_button mt-10"
-              mat-raised-button
-              color="primary">{{'monthly-report.confirmBtnText' | translate}}</button>
-            <button *ngIf="monthlyReport.employeeCheckState !== State.IN_PROGRESS"
-                    (click)="openStateInProgressReasonDialog()" class="setInProgressBtn"
-                    mat-button color="secondary">
-              {{'monthly-report.setStateInProgressButtonText' | translate}}
-            </button>
+            <ng-template *ngIf="!isPrematureEmployeeCheck; else prematureCheckButton">
+              <button
+                data-cy="buchungen_bestaetigen_btn"
+                (click)="setOpenAndUnassignedStepEntriesDone()" class="employee-check__primary_button mt-10"
+                mat-raised-button
+                color="primary">{{'monthly-report.confirmBtnText' | translate}}</button>
+
+              <button *ngIf="monthlyReport.employeeCheckState !== State.IN_PROGRESS"
+                      (click)="openStateInProgressReasonDialog()" class="setInProgressBtn"
+                      mat-button color="secondary">
+                {{'monthly-report.setStateInProgressButtonText' | translate}}
+              </button>
+            </ng-template>
+
+            <ng-template #prematureCheckButton>
+              <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
+                <button
+                  data-cy="buchungen_vorzeitig_bestaetigen_btn"
+                  (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()" class="employee-check__primary_button mt-10"
+                  mat-raised-button
+                  color="primary"
+                  matTooltip="{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckTooltip' | translate}}"
+                  [matTooltipPosition]="tooltipPosition"
+                  [matTooltipShowDelay]="tooltipShowDelay">{{'monthly-report.prematureEmployeeCheck.confirmBtnPrematurelyText' | translate}}</button>
+              </ng-container>
+            </ng-template>
+
+            <ng-template #alreadyPrematurelyChecked>
+              <span *ngIf="!this.isPrematureEmployeeCheck">{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckAlreadyDone' | translate}}</span>
+            </ng-template>
           </div>
         </ng-container>
-        <ng-template #prematureEmployeeCheck>
-          <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
-            <button
-              data-cy="buchungen_vorzeitig_bestaetigen_btn"
-              (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()" class="employee-check__primary_button mt-10"
-              mat-raised-button
-              color="primary">{{'monthly-report.confirmBtnPrematurelyText' | translate}}</button>
-          </ng-container>
-        </ng-template>
 
-        <ng-template #alreadyPrematurelyChecked>
-          <span>{{'monthly-report.prematureEmployeeCheckAlreadyDone' | translate}}</span>
-        </ng-template>
+
+
+
       </div>
 
       <!-- COMMENTS -->

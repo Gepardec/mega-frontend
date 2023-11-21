@@ -15,6 +15,7 @@ import {MatBottomSheet, MatBottomSheetModule} from '@angular/material/bottom-she
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {PrematureEmployeeCheckService} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -26,6 +27,7 @@ describe('EmployeeCheckComponent', () => {
 
   let commentService: CommentService;
   let stepentriesService: StepEntriesService;
+  let prematureEmployeeCheckService: PrematureEmployeeCheckService;
   let bottomSheet: MatBottomSheet;
 
   beforeEach(waitForAsync(() => {
@@ -47,6 +49,7 @@ describe('EmployeeCheckComponent', () => {
 
       commentService = TestBed.inject(CommentService);
       stepentriesService = TestBed.inject(StepEntriesService);
+      prematureEmployeeCheckService = TestBed.inject(PrematureEmployeeCheckService);
       bottomSheet = TestBed.inject(MatBottomSheet);
     });
   }));
@@ -88,6 +91,21 @@ describe('EmployeeCheckComponent', () => {
     spyOn(stepentriesService, 'close').and.returnValue(of(null));
 
     component.setOpenAndUnassignedStepEntriesDone();
+    flush();
+
+    expect(component.refreshMonthlyReport.emit).toHaveBeenCalled();
+  }));
+
+  it('#doPrematureEmployeeCheck - should call refreshMonthlyReport.emit', fakeAsync(() => {
+    fixture.detectChanges();
+
+    component.monthlyReport = new MonthlyReport();
+    component.monthlyReport.employee = EmployeeMock.employee;
+
+    spyOn(component.refreshMonthlyReport, 'emit').and.stub();
+    spyOn(prematureEmployeeCheckService, 'prematurelyClose').and.returnValue(of(true));
+
+    component.setOpenAndUnassignedStepEntriesPrematurelyDone();
     flush();
 
     expect(component.refreshMonthlyReport.emit).toHaveBeenCalled();

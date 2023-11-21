@@ -24,6 +24,7 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {PrematureEmployeeCheckService} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-employee-check',
@@ -42,7 +43,8 @@ import {PrematureEmployeeCheckService} from '../../../shared/data-service/premat
     DatePipe,
     TranslateModule,
     PmProgressComponent,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatTooltipModule
   ]
 })
 export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
@@ -58,7 +60,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   employeeCheckIcon: string;
   employeeCheckText: string;
   noTimesCurrentMonth: boolean;
+  isPrematureEmployeeCheck = false;
   private dateSelectionSub: Subscription;
+
+  tooltipShowDelay = 500;
+  tooltipPosition = 'right' as TooltipPosition;
 
   constructor(
     public commentService: CommentService,
@@ -211,6 +217,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     let stateIndicatorState = this.monthlyReport.employeeCheckState;
     let stateIndicatorText = '';
     let noTimesCurrentMonth = false;
+    let isPrematureEmployeeCheck = false;
 
     // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
     if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
@@ -223,10 +230,22 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
           stateIndicatorText = 'monthly-report.inProgressDescription';
         }
       } else {
-        // Show default State Indicator
-        stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-        stateIndicatorState = undefined;
-        noTimesCurrentMonth = true;
+        if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))){
+          stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
+          stateIndicatorState = 'OPEN';
+          isPrematureEmployeeCheck = true;
+          if (this.monthlyReport.hasPrematureEmployeeCheck){
+            isPrematureEmployeeCheck = true;
+            stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
+            stateIndicatorState = State.IN_PROGRESS;
+          }
+
+        } else {
+          // Show default State Indicator
+          stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
+          stateIndicatorState = undefined;
+          noTimesCurrentMonth = true;
+        }
       }
     } else if (this.monthlyReport.employeeCheckState === State.DONE) {
       if (this.monthlyReport.otherChecksDone) {
@@ -241,6 +260,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     this.employeeCheckIcon = stateIndicatorState;
     this.employeeCheckText = stateIndicatorText;
     this.noTimesCurrentMonth = noTimesCurrentMonth;
+    this.isPrematureEmployeeCheck = isPrematureEmployeeCheck;
   }
 
   private getSelectedDate() {
