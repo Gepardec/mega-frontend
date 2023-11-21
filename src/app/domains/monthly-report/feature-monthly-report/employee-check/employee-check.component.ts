@@ -253,45 +253,6 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         break;
     }
 
-
-    // // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
-    // if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-    //
-    //   if (this.monthlyReport.assigned) {
-    //     // Texte
-    //     if (this.monthlyReport.employeeCheckState === State.OPEN) {
-    //       stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
-    //     } else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-    //       stateIndicatorText = 'monthly-report.inProgressDescription';
-    //     }
-    //   } else {
-    //     if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))){
-    //       stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
-    //       stateIndicatorState = 'OPEN';
-    //       isPrematureEmployeeCheck = true;
-    //       if (this.monthlyReport.hasPrematureEmployeeCheck){
-    //         isPrematureEmployeeCheck = true;
-    //         stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
-    //         stateIndicatorState = State.IN_PROGRESS;
-    //       }
-    //
-    //     } else {
-    //       // Show default State Indicator
-    //       stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-    //       stateIndicatorState = undefined;
-    //       noTimesCurrentMonth = true;
-    //     }
-    //   }
-    // } else if (this.monthlyReport.employeeCheckState === State.DONE) {
-    //   if (this.monthlyReport.otherChecksDone) {
-    //     // Show default State Indicator
-    //     stateIndicatorText = 'monthly-report.checkSuccess';
-    //   } else {
-    //     stateIndicatorState = undefined;
-    //     stateIndicatorText = 'monthly-report.checkWip';
-    //   }
-    // }
-
     this.employeeCheckIcon = stateIndicatorState;
     this.monthlyReport.employeeCheckState = stateIndicatorState;
     this.employeeCheckText = stateIndicatorText;
