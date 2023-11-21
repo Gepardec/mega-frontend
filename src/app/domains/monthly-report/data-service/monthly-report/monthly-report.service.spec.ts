@@ -87,7 +87,8 @@ describe('MonthlyReportService', () => {
       vacationDays: 3,
       paidSickLeave: 2,
       vacationDayBalance: 10,
-      overtime: 4
+      overtime: 4,
+      hasPrematureEmployeeCheck: false
     };
   }
 });

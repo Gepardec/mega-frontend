@@ -125,7 +125,8 @@ describe('FeatureMonthlyReportComponent', () => {
       comments: [],
       assigned: true,
       vacationDayBalance: 0,
-      overtime: 3
+      overtime: 3,
+      hasPrematureEmployeeCheck: false
     };
   }
 
