@@ -41,7 +41,7 @@ describe('CommentService', () => {
   });
 
   it('#setStatusDone - should return right id', (done) => {
-    commentService.setStatusDone(CommentsMock.get().find(comment => comment.id === 1))
+    commentService.finish(CommentsMock.get().find(comment => comment.id === 1))
       .subscribe((id: number) => {
           expect(id).toEqual(1);
           done();
@@ -49,7 +49,7 @@ describe('CommentService', () => {
         done.fail
       );
 
-    const testRequest = httpTestingController.expectOne(configService.getBackendUrlWithContext('/comments/setdone'));
+    const testRequest = httpTestingController.expectOne(configService.getBackendUrlWithContext('/comments/finish'));
     testRequest.flush(1);
   });
 

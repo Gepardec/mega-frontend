@@ -177,6 +177,7 @@
     "table": {
       "lastChanged": "Zul. aktualisiert",
       "done": "Abgearbeitet",
+      "sourceSystem": "Quellsystem",
       "author": "Verfasser",
       "comment": "Anmerkung",
       "edit": "Bearbeiten",

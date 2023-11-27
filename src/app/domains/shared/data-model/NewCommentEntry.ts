@@ -2,15 +2,15 @@ import {Employee} from './Employee';
 
 export class NewCommentEntry {
   stepId: number;
-  employee: Employee;
+  employeeEmail: string;
   comment: string;
   assigneeEmail: string;
   project: string;
   currentMonthYear: string;
 
-  constructor(stepId: number, employee: Employee, comment: string, assigneEmail: string, project: string, currentMonthYear: string) {
+  constructor(stepId: number, employeeEmail: string, comment: string, assigneEmail: string, project: string, currentMonthYear: string) {
     this.stepId = stepId;
-    this.employee = employee;
+    this.employeeEmail = employeeEmail;
     this.comment = comment;
     this.assigneeEmail = assigneEmail;
     this.project = project;

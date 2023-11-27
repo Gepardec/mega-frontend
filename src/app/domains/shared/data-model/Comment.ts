@@ -5,5 +5,6 @@ export interface Comment {
   authorName: string;
   updateDate: string;
   state: string;
+  sourceSystem: string;
   isEditing?: boolean; // used for UI
 }
