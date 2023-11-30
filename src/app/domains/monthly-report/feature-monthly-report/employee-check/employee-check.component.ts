@@ -1,4 +1,15 @@
-import {Component, EventEmitter, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  LOCALE_ID,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {CommentService, StepEntriesService} from '@mega/shared/data-service';
 import {State, Step, User} from '@mega/shared/data-model';
@@ -23,8 +34,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
-import {PrematureEmployeeCheckService} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
+import {
+  PrematureEmployeeCheckService
+} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import {PrematureEmployeeCheck} from "../../../shared/data-model/PrematureEmployeeCheck";
 
 @Component({
   selector: 'app-employee-check',
@@ -119,15 +133,25 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       });
   }
 
-  setOpenAndUnassignedStepEntriesPrematurelyDone(): void {
+  addPrematureEmployeeCheck(reason?: string): void {
     const closeDate = this.getSelectedDate();
 
     const employee = this.monthlyReport.employee;
-    const user: User = {email: employee.email, firstname: employee.firstname, lastname: employee.lastname, roles: [], userId: ''};
+    const user: User = {
+      email: employee.email,
+      firstname: employee.firstname,
+      lastname: employee.lastname,
+      roles: [],
+      userId: ''
+    };
 
+    const prematureEmployeeCheck: PrematureEmployeeCheck = {
+      forMonth: convertMomentToString(closeDate), user: user, reason: reason
+
+    }
 
     this.prematureEmployeeCheckService
-      .prematurelyClose(user, convertMomentToString(closeDate))
+      .add(prematureEmployeeCheck)
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
       });
@@ -167,7 +191,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     return body.replace(urlPattern, '<a href=\$& target="_blank"\>$&</a>');
   }
 
-  openStateInProgressReasonDialog() {
+  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean) {
     const dialogRef = this.dialog.open(EmployeeCheckConfirmCommentDialogComponent,
       {
         data: {
@@ -185,12 +209,16 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
         const date = this.getSelectedDate();
 
-        this.stepEntriesService
-          .updateEmployeeStateForOffice(
-            this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
-          .subscribe(() => {
-            this.emitRefreshMonthlyReport();
-          });
+        if (isPrematureEmployeeCheck) {
+          this.addPrematureEmployeeCheck(input)
+        } else {
+          this.stepEntriesService
+            .updateEmployeeStateForOffice(
+              this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
+            .subscribe(() => {
+              this.emitRefreshMonthlyReport();
+            });
+        }
       }
     });
   }
