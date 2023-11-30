@@ -241,7 +241,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       return;
     }
 
-    let stateIndicatorState = this.monthlyReport.employeeCheckState;
+    let employeeCheckState = this.monthlyReport.employeeCheckState;
     let stateIndicatorText = '';
     let noTimesCurrentMonth = false;
     let stateIsPrematureEmployeeCheck = false;
@@ -251,14 +251,14 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         stateIsPrematureEmployeeCheck = true;
         if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))) {
           stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
-          stateIndicatorState = State.OPEN;
+          employeeCheckState = State.OPEN;
           if (this.monthlyReport.hasPrematureEmployeeCheck) {
             stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
-            stateIndicatorState = State.IN_PROGRESS;
+            employeeCheckState = State.IN_PROGRESS;
           }
         } else {
           stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-          stateIndicatorState = State.IN_PROGRESS;
+          employeeCheckState = State.IN_PROGRESS;
           noTimesCurrentMonth = true;
         }
         break;
@@ -275,14 +275,14 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         if (this.monthlyReport.otherChecksDone) {
           stateIndicatorText = 'monthly-report.checkSuccess';
         } else {
-          stateIndicatorState = State.IN_PROGRESS;
+          employeeCheckState = State.IN_PROGRESS;
           stateIndicatorText = 'monthly-report.checkWip';
         }
         break;
     }
 
-    this.employeeCheckIcon = stateIndicatorState;
-    this.monthlyReport.employeeCheckState = stateIndicatorState;
+    this.employeeCheckIcon = employeeCheckState;
+    this.monthlyReport.employeeCheckState = employeeCheckState;
     this.employeeCheckText = stateIndicatorText;
     this.noTimesCurrentMonth = noTimesCurrentMonth;
     this.isPrematureEmployeeCheck = stateIsPrematureEmployeeCheck;
