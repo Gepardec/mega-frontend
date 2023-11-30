@@ -103,9 +103,9 @@ describe('EmployeeCheckComponent', () => {
     component.monthlyReport.employee = EmployeeMock.employee;
 
     spyOn(component.refreshMonthlyReport, 'emit').and.stub();
-    spyOn(prematureEmployeeCheckService, 'prematurelyClose').and.returnValue(of(true));
+    spyOn(prematureEmployeeCheckService, 'add').and.returnValue(of(true));
 
-    component.setOpenAndUnassignedStepEntriesPrematurelyDone();
+    component.addPrematureEmployeeCheck();
     flush();
 
     expect(component.refreshMonthlyReport.emit).toHaveBeenCalled();

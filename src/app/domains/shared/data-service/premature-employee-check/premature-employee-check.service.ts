@@ -16,10 +16,10 @@ export class PrematureEmployeeCheckService {
   ) {
   }
 
-  prematurelyClose(user: User, forMonth: string): Observable<boolean> {
+  add(prematureEmployeeCheck: PrematureEmployeeCheck): Observable<boolean> {
     return this.httpClient.post<boolean>(
       this.config.getBackendUrlWithContext('/prematureemployeecheck/'),
-      new PrematureEmployeeCheck(user, forMonth)
+      prematureEmployeeCheck
     );
   }
 }

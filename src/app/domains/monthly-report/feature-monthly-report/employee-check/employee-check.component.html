@@ -55,7 +55,7 @@
               <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
                 <button
                   data-cy="buchungen_vorzeitig_bestaetigen_btn"
-                  (click)="setOpenAndUnassignedStepEntriesPrematurelyDone()"
+                  (click)="addPrematureEmployeeCheck()"
                   class="employee-check__primary_button mt-10"
                   mat-raised-button
                   color="primary"
@@ -71,10 +71,20 @@
             </ng-template>
 
             <button
-              (click)="openStateInProgressReasonDialog()" class="setInProgressBtn"
+              *ngIf="!isPrematureEmployeeCheck; else addPrematureReason"
+              (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
               mat-button color="secondary">
               {{'monthly-report.setStateInProgressButtonText' | translate}}
             </button>
+
+            <ng-template #addPrematureReason>
+              <button
+                (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
+                mat-button color="secondary">
+                {{'monthly-report.prematureEmployeeCheck.addPrematureEmployeeCheckWithReason' | translate}}
+              </button>
+            </ng-template>
+
           </div>
         </ng-container>
 
@@ -92,7 +102,7 @@
               <div class="state-reason-actions">
                 <button mat-button color="warn" (click)="resetState()">{{'global.actions.delete' | translate}}</button>
                 <button mat-button
-                        (click)="openStateInProgressReasonDialog()">{{'global.actions.edit' | translate}}</button>
+                        (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)">{{'global.actions.edit' | translate}}</button>
               </div>
             </div>
           </div>
