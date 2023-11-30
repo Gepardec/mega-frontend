@@ -19,3 +19,4 @@ export * from './Step';
 export * from './UpdateEmployeeStep';
 export * from './User';
 export * from './UserInfo';
+export * from './PrematureEmployeeCheck';
