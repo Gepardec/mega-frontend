@@ -11,8 +11,8 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {CommentService, StepEntriesService} from '@mega/shared/data-service';
-import {State, Step, User} from '@mega/shared/data-model';
+import {CommentService, PrematureEmployeeCheckService, StepEntriesService} from '@mega/shared/data-service';
+import {PrematureEmployeeCheck, State, Step, User} from '@mega/shared/data-model';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
@@ -34,11 +34,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
-import {
-  PrematureEmployeeCheckService
-} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
-import {PrematureEmployeeCheck} from "../../../shared/data-model/PrematureEmployeeCheck";
 
 @Component({
   selector: 'app-employee-check',
