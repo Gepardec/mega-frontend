@@ -11,8 +11,8 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {CommentService, StepEntriesService} from '@mega/shared/data-service';
-import {State, Step} from '@mega/shared/data-model';
+import {CommentService, PrematureEmployeeCheckService, StepEntriesService} from '@mega/shared/data-service';
+import {PrematureEmployeeCheck, State, Step, User} from '@mega/shared/data-model';
 import {MatListModule, MatSelectionListChange} from '@angular/material/list';
 import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
@@ -34,6 +34,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-employee-check',
@@ -52,7 +53,8 @@ import {MatCardModule} from '@angular/material/card';
     DatePipe,
     TranslateModule,
     PmProgressComponent,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatTooltipModule
   ]
 })
 export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
@@ -65,15 +67,19 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   employeeProgressRef: MatBottomSheetRef;
   overlaysButton: boolean;
   selectedDateStr;
-  private dateSelectionSub: Subscription;
   employeeCheckIcon: string;
   employeeCheckText: string;
   noTimesCurrentMonth: boolean;
+  isPrematureEmployeeCheck = false;
+  tooltipShowDelay = 500;
+  tooltipPosition = 'right' as TooltipPosition;
+  private dateSelectionSub: Subscription;
 
   constructor(
     public commentService: CommentService,
     private monthlyReportService: MonthlyReportService,
     public stepEntriesService: StepEntriesService,
+    private prematureEmployeeCheckService: PrematureEmployeeCheckService,
     private bottomSheet: MatBottomSheet,
     @Inject(LOCALE_ID) private locale: string,
     private dialog: MatDialog) {
@@ -97,49 +103,6 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.dateSelectionSub?.unsubscribe();
     this.employeeProgressRef?.dismiss();
-  }
-
-  private setGuiElements() {
-    if (!this.monthlyReport) {
-      this.employeeCheckIcon = undefined;
-      this.employeeCheckText = '';
-
-      return;
-    }
-
-    let stateIndicatorState = this.monthlyReport.employeeCheckState;
-    let stateIndicatorText = '';
-    let noTimesCurrentMonth = false;
-
-    // In besonderen Fällen will man ein anderes Icon als das, was der employeeCheckState eigentlich ist, anzeigen:
-    if (this.monthlyReport.employeeCheckState === State.OPEN || this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-
-      if (this.monthlyReport.assigned) {
-        // Texte
-        if (this.monthlyReport.employeeCheckState === State.OPEN) {
-          stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
-        } else if (this.monthlyReport.employeeCheckState === State.IN_PROGRESS) {
-          stateIndicatorText = 'monthly-report.inProgressDescription';
-        }
-      } else {
-        // Show default State Indicator
-        stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-        stateIndicatorState = undefined;
-        noTimesCurrentMonth = true;
-      }
-    } else if (this.monthlyReport.employeeCheckState === State.DONE) {
-      if (this.monthlyReport.otherChecksDone) {
-        // Show default State Indicator
-        stateIndicatorText = 'monthly-report.checkSuccess';
-      } else {
-        stateIndicatorState = undefined;
-        stateIndicatorText = 'monthly-report.checkWip';
-      }
-    }
-
-    this.employeeCheckIcon = stateIndicatorState;
-    this.employeeCheckText = stateIndicatorText;
-    this.noTimesCurrentMonth = noTimesCurrentMonth;
   }
 
   selectionChange(change: MatSelectionListChange): void {
@@ -166,12 +129,28 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       });
   }
 
-  private getSelectedDate() {
-    return moment()
-      .year(this.monthlyReportService.selectedYear.value)
-      .month(this.monthlyReportService.selectedMonth.value - 1)
-      .date(1)
-      .startOf('day');
+  addPrematureEmployeeCheck(reason?: string): void {
+    const closeDate = this.getSelectedDate();
+
+    const employee = this.monthlyReport.employee;
+    const user: User = {
+      email: employee.email,
+      firstname: employee.firstname,
+      lastname: employee.lastname,
+      roles: [],
+      userId: ''
+    };
+
+    const prematureEmployeeCheck: PrematureEmployeeCheck = {
+      forMonth: convertMomentToString(closeDate), user: user, reason: reason
+
+    }
+
+    this.prematureEmployeeCheckService
+      .add(prematureEmployeeCheck)
+      .subscribe(() => {
+        this.emitRefreshMonthlyReport();
+      });
   }
 
   emitRefreshMonthlyReport(): void {
@@ -208,7 +187,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     return body.replace(urlPattern, '<a href=\$& target="_blank"\>$&</a>');
   }
 
-  openStateInProgressReasonDialog() {
+  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean) {
     const dialogRef = this.dialog.open(EmployeeCheckConfirmCommentDialogComponent,
       {
         data: {
@@ -226,12 +205,16 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
         const date = this.getSelectedDate();
 
-        this.stepEntriesService
-          .updateEmployeeStateForOffice(
-            this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
-          .subscribe(() => {
-            this.emitRefreshMonthlyReport();
-          });
+        if (isPrematureEmployeeCheck) {
+          this.addPrematureEmployeeCheck(input)
+        } else {
+          this.stepEntriesService
+            .updateEmployeeStateForOffice(
+              this.monthlyReport.employee, Step.CONTROL_TIMES, convertMomentToString(date), State.IN_PROGRESS, input)
+            .subscribe(() => {
+              this.emitRefreshMonthlyReport();
+            });
+        }
       }
     });
   }
@@ -244,5 +227,68 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
       });
+  }
+
+  private setGuiElements() {
+    if (!this.monthlyReport) {
+      this.employeeCheckIcon = undefined;
+      this.employeeCheckText = '';
+
+      return;
+    }
+
+    let employeeCheckState = this.monthlyReport.employeeCheckState;
+    let stateIndicatorText = '';
+    let noTimesCurrentMonth = false;
+    let stateIsPrematureEmployeeCheck = false;
+
+    switch (this.monthlyReport.employeeCheckState) {
+      case State.PREMATURE_CHECK:
+        stateIsPrematureEmployeeCheck = true;
+        if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))) {
+          stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
+          employeeCheckState = State.OPEN;
+          if (this.monthlyReport.hasPrematureEmployeeCheck) {
+            stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
+            employeeCheckState = State.IN_PROGRESS;
+          }
+        } else {
+          stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
+          employeeCheckState = State.IN_PROGRESS;
+          noTimesCurrentMonth = true;
+        }
+        break;
+
+      case State.OPEN:
+        stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
+        break;
+
+      case State.IN_PROGRESS:
+        stateIndicatorText = 'monthly-report.inProgressDescription';
+        break;
+
+      case State.DONE:
+        if (this.monthlyReport.otherChecksDone) {
+          stateIndicatorText = 'monthly-report.checkSuccess';
+        } else {
+          employeeCheckState = State.IN_PROGRESS;
+          stateIndicatorText = 'monthly-report.checkWip';
+        }
+        break;
+    }
+
+    this.employeeCheckIcon = employeeCheckState;
+    this.monthlyReport.employeeCheckState = employeeCheckState;
+    this.employeeCheckText = stateIndicatorText;
+    this.noTimesCurrentMonth = noTimesCurrentMonth;
+    this.isPrematureEmployeeCheck = stateIsPrematureEmployeeCheck;
+  }
+
+  private getSelectedDate() {
+    return moment()
+      .year(this.monthlyReportService.selectedYear.value)
+      .month(this.monthlyReportService.selectedMonth.value - 1)
+      .date(1)
+      .startOf('day');
   }
 }
