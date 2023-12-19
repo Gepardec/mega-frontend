@@ -39,10 +39,32 @@
           </div>
         </div>
 
-        <ng-container *ngIf="!noTimesCurrentMonth; else reasonDialog">
+        <ng-container *ngIf="!noTimesCurrentMonth">
           <div class="employee-check__actionsContainer mb-10"
-               *ngIf="monthlyReport.employeeCheckState === State.OPEN">
+               *ngIf="monthlyReport.employeeCheckState === State.OPEN  || monthlyReport.employeeCheckState === State.IN_PROGRESS">
 
+<!--            Reason Dialog -->
+            <ng-container *ngIf="monthlyReport.employeeCheckState === State.IN_PROGRESS">
+              <div class="state-reason-container">
+                <div class="mobile__font-size state-reason-header">
+                  <strong>{{'monthly-report.reason' | translate}}</strong>
+                </div>
+
+                <div class="state-reason-text-and-actions-container">
+                  <div class="mobile__font-size state-reason-text">
+                    {{monthlyReport.employeeCheckStateReason}}
+                  </div>
+
+                  <div class="state-reason-actions">
+                    <button mat-button color="warn" (click)="resetState()">{{'global.actions.delete' | translate}}</button>
+                    <button mat-button
+                            (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)">{{'global.actions.edit' | translate}}</button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+<!--            Normal check button-->
             <ng-container *ngIf="!isPrematureEmployeeCheck; else prematureCheckButton">
               <button
                 data-cy="buchungen_bestaetigen_btn"
@@ -51,6 +73,7 @@
                 color="primary">{{'monthly-report.confirmBtnText' | translate}}</button>
             </ng-container>
 
+<!--            Premature check button-->
             <ng-template #prematureCheckButton>
               <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
                 <button
@@ -65,18 +88,21 @@
               </ng-container>
             </ng-template>
 
+<!--            This month has already been prematurely checked (useful if you want to allow multiple premature checks)-->
             <ng-template #alreadyPrematurelyChecked>
               <span
                 *ngIf="!this.isPrematureEmployeeCheck">{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckAlreadyDone' | translate}}</span>
             </ng-template>
 
-            <button
-              *ngIf="!isPrematureEmployeeCheck; else addPrematureReason"
-              (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
-              mat-button color="secondary">
-              {{'monthly-report.setStateInProgressButtonText' | translate}}
-            </button>
 
+<!--            Add reason why you can't check (premature and normal) -->
+            <ng-container *ngIf="!isPrematureEmployeeCheck; else addPrematureReason">
+              <button
+                (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
+                mat-button color="secondary">
+                {{'monthly-report.setStateInProgressButtonText' | translate}}
+              </button>
+            </ng-container>
             <ng-template #addPrematureReason>
               <button
                 (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
@@ -88,25 +114,7 @@
           </div>
         </ng-container>
 
-        <ng-template #reasonDialog>
-          <div class="state-reason-container" *ngIf="monthlyReport.employeeCheckState === State.IN_PROGRESS && !isPrematureEmployeeCheck">
-            <div class="mobile__font-size state-reason-header">
-              <strong>{{'monthly-report.reason' | translate}}</strong>
-            </div>
 
-            <div class="state-reason-text-and-actions-container">
-              <div class="mobile__font-size state-reason-text">
-                {{monthlyReport.employeeCheckStateReason}}
-              </div>
-
-              <div class="state-reason-actions">
-                <button mat-button color="warn" (click)="resetState()">{{'global.actions.delete' | translate}}</button>
-                <button mat-button
-                        (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)">{{'global.actions.edit' | translate}}</button>
-              </div>
-            </div>
-          </div>
-        </ng-template>
 
 
       </div>

@@ -71,6 +71,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   employeeCheckText: string;
   noTimesCurrentMonth: boolean;
   isPrematureEmployeeCheck = false;
+
   tooltipShowDelay = 500;
   tooltipPosition = 'right' as TooltipPosition;
   private dateSelectionSub: Subscription;
@@ -250,11 +251,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
           employeeCheckState = State.OPEN;
           if (this.monthlyReport.hasPrematureEmployeeCheck) {
             stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
-            employeeCheckState = State.IN_PROGRESS;
+            employeeCheckState = State.EMPLOYEE_IS_DONE;
           }
         } else {
           stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-          employeeCheckState = State.IN_PROGRESS;
+          employeeCheckState = State.EMPLOYEE_IS_DONE;
           noTimesCurrentMonth = true;
         }
         break;
@@ -271,7 +272,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         if (this.monthlyReport.otherChecksDone) {
           stateIndicatorText = 'monthly-report.checkSuccess';
         } else {
-          employeeCheckState = State.IN_PROGRESS;
+          employeeCheckState = State.EMPLOYEE_IS_DONE;
           stateIndicatorText = 'monthly-report.checkWip';
         }
         break;
