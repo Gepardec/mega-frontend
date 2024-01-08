@@ -35,6 +35,7 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import { PrematureEmployeeCheckState } from '../../../shared/data-model/PrematureEmployeeCheckState';
 
 @Component({
   selector: 'app-employee-check',
@@ -142,8 +143,15 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       userId: ''
     };
 
+    let state: PrematureEmployeeCheckState;
+    if (reason === undefined) {
+      state = PrematureEmployeeCheckState.IN_PROGRESS
+    } else {
+      state = PrematureEmployeeCheckState.DONE
+    }
+
     const prematureEmployeeCheck: PrematureEmployeeCheck = {
-      forMonth: convertMomentToString(closeDate), user: user, reason: reason
+      forMonth: convertMomentToString(closeDate), user: user, reason: reason, state: state
 
     }
 
