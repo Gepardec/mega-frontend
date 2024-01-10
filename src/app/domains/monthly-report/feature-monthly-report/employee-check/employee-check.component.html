@@ -26,12 +26,12 @@
           <!-- Mobile - Medium Icon -->
           <app-state-indicator
             (mouseenter)="openEmployeeProgress($event)" (mouseleave)="closeEmployeeProgress()"
-            class="app-state-indicator_mobile" [state]="employeeCheckIcon" size="medium"></app-state-indicator>
+            class="app-state-indicator_mobile" [state]="monthlyReport.employeeCheckState" size="medium"></app-state-indicator>
 
           <!-- Desktop - Large Icon -->
           <app-state-indicator
             (mouseenter)="openEmployeeProgress($event)" (mouseleave)="closeEmployeeProgress()"
-            class="app-state-indicator_default" [state]="employeeCheckIcon" size="large"></app-state-indicator>
+            class="app-state-indicator_default" [state]="monthlyReport.employeeCheckState" size="large"></app-state-indicator>
 
           <!-- Text -->
           <div class="employee-check-text">
@@ -75,7 +75,6 @@
 
 <!--            Premature check button-->
             <ng-template #prematureCheckButton>
-              <ng-container *ngIf="!monthlyReport.hasPrematureEmployeeCheck; else alreadyPrematurelyChecked">
                 <button
                   data-cy="buchungen_vorzeitig_bestaetigen_btn"
                   (click)="addPrematureEmployeeCheck()"
@@ -84,14 +83,13 @@
                   color="primary"
                   matTooltip="{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckTooltip' | translate}}"
                   [matTooltipPosition]="tooltipPosition"
-                  [matTooltipShowDelay]="tooltipShowDelay">{{'monthly-report.prematureEmployeeCheck.confirmBtnPrematurelyText' | translate}}</button>
-              </ng-container>
+                  [matTooltipShowDelay]="tooltipShowDelay">{{'monthly-report.prematureEmployeeCheck.confirmBtnText' | translate}}</button>
             </ng-template>
 
 <!--            This month has already been prematurely checked (useful if you want to allow multiple premature checks)-->
             <ng-template #alreadyPrematurelyChecked>
               <span
-                *ngIf="!this.isPrematureEmployeeCheck">{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckAlreadyDone' | translate}}</span>
+                *ngIf="!this.isPrematureEmployeeCheck">{{'monthly-report.prematureEmployeeCheck.checkAlreadyDone' | translate}}</span>
             </ng-template>
 
 

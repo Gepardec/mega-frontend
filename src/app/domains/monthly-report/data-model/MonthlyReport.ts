@@ -1,6 +1,7 @@
 import {TimeWarning} from './TimeWarning';
 import {JourneyWarning} from './JourneyWarning';
 import {Comment, Employee, PmProgress, State} from '@mega/shared/data-model';
+import { PrematureEmployeeCheckState } from '../../shared/data-model/PrematureEmployeeCheckState';
 
 export class MonthlyReport {
   comments: Array<Comment>;
@@ -21,5 +22,5 @@ export class MonthlyReport {
   paidSickLeave: number;
   vacationDayBalance: number;
   overtime: number;
-  hasPrematureEmployeeCheck: boolean;
+  prematureEmployeeCheckState: PrematureEmployeeCheckState;
 }

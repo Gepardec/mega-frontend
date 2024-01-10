@@ -65,10 +65,11 @@
     "setStateInProgressButtonText": "Bestätigen noch nicht möglich, weil...",
     "confirmBtnText": "Buchungen bestätigen",
     "prematureEmployeeCheck": {
-      "confirmBtnPrematurelyText": "Buchungen vorzeitig bestätigen",
-      "prematureEmployeeCheckStateIndicatorText": "Es ist möglich die Zeiten vorzeitig zu bestätigen. Überprüfe dafür deine Eingaben für das ganze Monat (Zeiten, Reisen, Belege, ...) in ZEP und beim Kunden und bestätige diese anschließend.",
-      "prematureEmployeeCheckAlreadyDone": "Du hast schon einen Monat vorzeitig bestätigt!",
-      "prematureEmployeeCheckedMonthState": "Dieser Monat wurde vorzeitig bestätigt. Die Kontrolle deiner Zeiten wird am Monatsende durchgeführt werden.",
+      "confirmBtnText": "Buchungen vorzeitig bestätigen",
+      "checkOpen": "Es ist möglich die Zeiten vorzeitig zu bestätigen. Überprüfe dafür deine Eingaben für das ganze Monat (Zeiten, Reisen, Belege, ...) in ZEP und beim Kunden und bestätige diese anschließend.",
+      "checkInProgress": "Bitte kontrollieren Sie Ihren Grund der vorzeitigen Bestätigung und schließen diese dann ab.",
+      "checkDone": "Dieser Monat wurde vorzeitig bestätigt. Die Kontrolle deiner Zeiten wird am Monatsende durchgeführt werden.",
+      "checkAlreadyDone": "Du hast schon einen Monat vorzeitig bestätigt!",
       "prematureEmployeeCheckTooltip": "Durch das vorzeitige Bestätigen von Buchungen, werden deine Buchungen am Ende des Monats als kontrolliert gegolten. Dabei ist es immer noch die Verantwortung des/der Mitarbeiters/erin, dass die Zeitbuchungen am Ende des Monats kontrolliert sind. Diese Funktion ist dafür vorgesehen, falls am Endes des Monats ein Urlaub, Krankenstand oder ein anderer Abwesenheitsgrund vorliegt.",
       "addPrematureEmployeeCheckWithReason": "Füge einen Grund zu deiner vorzeitigen Bestätigung hinzu"
     },
