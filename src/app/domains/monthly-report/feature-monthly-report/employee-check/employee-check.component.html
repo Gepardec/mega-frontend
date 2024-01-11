@@ -1,111 +1,125 @@
-<mat-card appearance="raised" class="fill-parent">
+<mat-card appearance='raised' class='fill-parent'>
   <mat-card-header>
     <mat-card-subtitle>
-      {{selectedDateStr}}
+      {{ selectedDateStr }}
     </mat-card-subtitle>
-    <mat-card-title>{{'monthly-report.title.emc' | translate}}</mat-card-title>
+    <mat-card-title>{{ 'monthly-report.title.emc' | translate }}</mat-card-title>
   </mat-card-header>
-  <mat-card-content class="card_content">
-    <ng-container *ngIf="!monthlyReport else employeeCheck">
+  <mat-card-content class='card_content'>
+    <ng-container *ngIf='!monthlyReport else employeeCheck'>
       <ngx-skeleton-loader [theme]="{ height: '80px', width: '80px' }"
-                           appearance="circle"></ngx-skeleton-loader>
+                           appearance='circle'></ngx-skeleton-loader>
       <ngx-skeleton-loader [theme]="{ width: '700px', 'margin-top': '20px' }"
-                           appearance="line"></ngx-skeleton-loader>
+                           appearance='line'></ngx-skeleton-loader>
       <ngx-skeleton-loader [theme]="{ width: '300px' }"
-                           appearance="line"></ngx-skeleton-loader>
+                           appearance='line'></ngx-skeleton-loader>
       <ngx-skeleton-loader [theme]="{ height: '40px', width: '200px', 'margin-top': '15px' }"
-                           appearance="line"></ngx-skeleton-loader>
+                           appearance='line'></ngx-skeleton-loader>
       <ngx-skeleton-loader [theme]="{ height: '20px', width: '160px', 'margin-top': '5px' }"
-                           appearance="line"></ngx-skeleton-loader>
+                           appearance='line'></ngx-skeleton-loader>
     </ng-container>
 
     <ng-template #employeeCheck>
-      <div class="state_container">
+      <div class='state_container'>
 
-        <div class="state-indicator_container mobile__font-size">
+        <div class='state-indicator_container mobile__font-size'>
           <!-- Mobile - Medium Icon -->
           <app-state-indicator
-            (mouseenter)="openEmployeeProgress($event)" (mouseleave)="closeEmployeeProgress()"
-            class="app-state-indicator_mobile" [state]="monthlyReport.employeeCheckState" size="medium"></app-state-indicator>
+            (mouseenter)='openEmployeeProgress($event)' (mouseleave)='closeEmployeeProgress()'
+            class='app-state-indicator_mobile' [state]='monthlyReport.employeeCheckState'
+            size='medium'></app-state-indicator>
 
           <!-- Desktop - Large Icon -->
           <app-state-indicator
-            (mouseenter)="openEmployeeProgress($event)" (mouseleave)="closeEmployeeProgress()"
-            class="app-state-indicator_default" [state]="monthlyReport.employeeCheckState" size="large"></app-state-indicator>
+            (mouseenter)='openEmployeeProgress($event)' (mouseleave)='closeEmployeeProgress()'
+            class='app-state-indicator_default' [state]='monthlyReport.employeeCheckState'
+            size='large'></app-state-indicator>
 
           <!-- Text -->
-          <div class="employee-check-text">
-            <p>{{employeeCheckText | translate}}</p>
+          <div class='employee-check-text'>
+            <p>{{ employeeCheckText | translate }}</p>
           </div>
         </div>
 
-        <ng-container *ngIf="!noTimesCurrentMonth">
-          <div class="employee-check__actionsContainer mb-10"
-               *ngIf="monthlyReport.employeeCheckState === State.OPEN  || monthlyReport.employeeCheckState === State.IN_PROGRESS">
+        <ng-container *ngIf='!noTimesCurrentMonth'>
+          <div class='employee-check__actionsContainer mb-10'
+               *ngIf='monthlyReport.employeeCheckState === State.OPEN  || monthlyReport.employeeCheckState === State.IN_PROGRESS'>
 
-<!--            Reason Dialog -->
-            <ng-container *ngIf="monthlyReport.employeeCheckState === State.IN_PROGRESS">
-              <div class="state-reason-container">
-                <div class="mobile__font-size state-reason-header">
-                  <strong>{{'monthly-report.reason' | translate}}</strong>
+            <!--            Reason Dialog -->
+            <ng-container *ngIf='monthlyReport.employeeCheckState === State.IN_PROGRESS'>
+              <div class='state-reason-container'>
+                <div class='mobile__font-size state-reason-header'>
+                  <strong>{{ 'monthly-report.reason' | translate }}</strong>
                 </div>
 
-                <div class="state-reason-text-and-actions-container">
-                  <div class="mobile__font-size state-reason-text">
-                    {{monthlyReport.employeeCheckStateReason}}
+                <div class='state-reason-text-and-actions-container'>
+                  <div class='mobile__font-size state-reason-text'>
+                    {{ monthlyReport.employeeCheckStateReason }}
                   </div>
-
-                  <div class="state-reason-actions">
-                    <button mat-button color="warn" (click)="resetState()">{{'global.actions.delete' | translate}}</button>
-                    <button mat-button
-                            (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)">{{'global.actions.edit' | translate}}</button>
-                  </div>
+                  <ng-container *ngIf='!isPrematureEmployeeCheck; else prematureCheckReason'>
+                    <div class='state-reason-actions'>
+                      <button mat-button color='warn' (click)='resetState()'>{{ 'global.actions.delete' | translate }}
+                      </button>
+                      <button mat-button
+                              (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, true)'>{{ 'global.actions.edit' | translate }}
+                      </button>
+                    </div>
+                  </ng-container>
+                  <ng-template #prematureCheckReason>
+                    <div class='state-reason-actions'>
+                      <button mat-button color='warn' (click)='deletePrematureEmployeeCheck()'>{{ 'global.actions.delete' | translate }}
+                      </button>
+                      <button mat-button
+                              (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, true)'>{{ 'global.actions.edit' | translate }}
+                      </button>
+                    </div>
+                  </ng-template>
                 </div>
               </div>
             </ng-container>
 
-<!--            Normal check button-->
-            <ng-container *ngIf="!isPrematureEmployeeCheck; else prematureCheckButton">
+            <!--            Normal check button-->
+            <ng-container *ngIf='!isPrematureEmployeeCheck; else prematureCheckButton'>
               <button
-                data-cy="buchungen_bestaetigen_btn"
-                (click)="setOpenAndUnassignedStepEntriesDone()" class="employee-check__primary_button mt-10"
+                data-cy='buchungen_bestaetigen_btn'
+                (click)='setOpenAndUnassignedStepEntriesDone()' class='employee-check__primary_button mt-10'
                 mat-raised-button
-                color="primary">{{'monthly-report.confirmBtnText' | translate}}</button>
+                color='primary'>{{ 'monthly-report.confirmBtnText' | translate }}
+              </button>
             </ng-container>
 
-<!--            Premature check button-->
+            <!--            Premature check button-->
             <ng-template #prematureCheckButton>
-                <button
-                  data-cy="buchungen_vorzeitig_bestaetigen_btn"
-                  (click)="addPrematureEmployeeCheck()"
-                  class="employee-check__primary_button mt-10"
-                  mat-raised-button
-                  color="primary"
-                  matTooltip="{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckTooltip' | translate}}"
-                  [matTooltipPosition]="tooltipPosition"
-                  [matTooltipShowDelay]="tooltipShowDelay">{{'monthly-report.prematureEmployeeCheck.confirmBtnText' | translate}}</button>
+              <button
+                data-cy='buchungen_vorzeitig_bestaetigen_btn'
+                (click)='addPrematureEmployeeCheck()'
+                class='employee-check__primary_button mt-10'
+                mat-raised-button
+                color='primary'
+                matTooltip="{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckTooltip' | translate}}"
+                [matTooltipPosition]='tooltipPosition'
+                [matTooltipShowDelay]='tooltipShowDelay'>{{ 'monthly-report.prematureEmployeeCheck.confirmBtnText' | translate }}
+              </button>
             </ng-template>
 
-<!--            Add reason why you can't check (premature and normal) -->
-            <ng-container *ngIf="!isPrematureEmployeeCheck; else addPrematureReason">
+            <!--            Add reason why you can't check (premature and normal) -->
+            <ng-container *ngIf='!isPrematureEmployeeCheck; else addPrematureReason'>
               <button
-                (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
-                mat-button color="secondary">
-                {{'monthly-report.setStateInProgressButtonText' | translate}}
+                (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
+                mat-button color='secondary'>
+                {{ 'monthly-report.setStateInProgressButtonText' | translate }}
               </button>
             </ng-container>
             <ng-template #addPrematureReason>
               <button
-                (click)="openStateInProgressReasonDialog(isPrematureEmployeeCheck)" class="setInProgressBtn"
-                mat-button color="secondary">
-                {{'monthly-report.prematureEmployeeCheck.addPrematureEmployeeCheckWithReason' | translate}}
+                (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
+                mat-button color='secondary'>
+                {{ 'monthly-report.prematureEmployeeCheck.addPrematureEmployeeCheckWithReason' | translate }}
               </button>
             </ng-template>
 
           </div>
         </ng-container>
-
-
 
 
       </div>
@@ -118,22 +132,22 @@
       Grund dafür ist irgendwie, dass sich der parent (display: flex) innerhalb einer grid row befindet, deren höhe
       prozentual beschränkt ist und flexbox probleme hat, die elemente & scrolling richtig zu kalkulieren.
       -->
-      <div class="comments_container mt-10 min-height-0" *ngIf="monthlyReport?.comments?.length > 0">
-        <p><strong>{{'monthly-report.commentsToDo' | translate}}</strong></p>
-        <mat-selection-list (selectionChange)="selectionChange($event)">
+      <div class='comments_container mt-10 min-height-0' *ngIf='monthlyReport?.comments?.length > 0'>
+        <p><strong>{{ 'monthly-report.commentsToDo' | translate }}</strong></p>
+        <mat-selection-list (selectionChange)='selectionChange($event)'>
           <mat-list-option
             #option
-            *ngFor="let comment of monthlyReport.comments"
-            [disabled]="option.selected"
+            *ngFor='let comment of monthlyReport.comments'
+            [disabled]='option.selected'
             [ngClass]="{'done': option.selected}"
-            [selected]="comment.state === State.DONE"
-            [value]="comment">
+            [selected]='comment.state === State.DONE'
+            [value]='comment'>
             <div>
-              {{comment.updateDate | date: 'dd.MM.yyyy'}}
-              {{comment?.authorName}}:
+              {{ comment.updateDate | date: 'dd.MM.yyyy' }}
+              {{ comment?.authorName }}:
             </div>
-            <div (click)="$event.stopPropagation()" [innerHTML]="parseBody(comment.message)"
-                 style="white-space: pre-line"></div>
+            <div (click)='$event.stopPropagation()' [innerHTML]='parseBody(comment.message)'
+                 style='white-space: pre-line'></div>
           </mat-list-option>
         </mat-selection-list>
       </div>

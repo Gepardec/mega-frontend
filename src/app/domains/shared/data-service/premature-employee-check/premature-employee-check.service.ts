@@ -22,4 +22,10 @@ export class PrematureEmployeeCheckService {
       prematureEmployeeCheck
     );
   }
+  update(prematureEmployeeCheck: PrematureEmployeeCheck): Observable<boolean> {
+    return this.httpClient.put<boolean>(
+      this.config.getBackendUrlWithContext('/prematureemployeecheck/'),
+      prematureEmployeeCheck
+    );
+  }
 }

@@ -99,9 +99,9 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     if (changes.monthlyReport) {
       this.setGuiElements();
     }
-    console.log("monthlyReport", this.monthlyReport)
-    console.log("noTimesCurrentMonth", this.noTimesCurrentMonth)
-    console.log("isPrematureEmployeeCheck", this.isPrematureEmployeeCheck)
+    console.log('monthlyReport', this.monthlyReport);
+    console.log('noTimesCurrentMonth', this.noTimesCurrentMonth);
+    console.log('isPrematureEmployeeCheck', this.isPrematureEmployeeCheck);
   }
 
   ngOnDestroy(): void {
@@ -134,17 +134,6 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   addPrematureEmployeeCheck(reason?: string): void {
-    const closeDate = this.getSelectedDate();
-
-    const employee = this.monthlyReport.employee;
-    const user: User = {
-      email: employee.email,
-      firstname: employee.firstname,
-      lastname: employee.lastname,
-      roles: [],
-      userId: ''
-    };
-
     let state: PrematureEmployeeCheckState;
     if (reason === undefined) {
       state = PrematureEmployeeCheckState.DONE;
@@ -152,12 +141,36 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       state = PrematureEmployeeCheckState.IN_PROGRESS;
     }
 
-    const prematureEmployeeCheck: PrematureEmployeeCheck = {
-      forMonth: convertMomentToString(closeDate), user: user, reason: reason, state: state
-    };
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.reason = reason;
+    prematureEmployeeCheck.state = state;
 
     this.prematureEmployeeCheckService
       .add(prematureEmployeeCheck)
+      .subscribe(() => {
+        this.emitRefreshMonthlyReport();
+      });
+  }
+
+  deletePrematureEmployeeCheck(): void {
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.state = PrematureEmployeeCheckState.CANCELLED;
+    this.prematureEmployeeCheckService
+      .update(prematureEmployeeCheck)
+      .subscribe(() => {
+        this.emitRefreshMonthlyReport();
+      });
+  }
+
+  updatePrematureEmployeeCheck(state: PrematureEmployeeCheckState, reason?: string) {
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.state = state;
+    if (reason !== undefined) {
+      prematureEmployeeCheck.reason = reason;
+    }
+
+    this.prematureEmployeeCheckService
+      .update(prematureEmployeeCheck)
       .subscribe(() => {
         this.emitRefreshMonthlyReport();
       });
@@ -197,7 +210,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     return body.replace(urlPattern, '<a href=\$& target="_blank"\>$&</a>');
   }
 
-  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean) {
+  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean, updatePrematureEmployeeCheck: boolean) {
     const dialogRef = this.dialog.open(EmployeeCheckConfirmCommentDialogComponent,
       {
         data: {
@@ -216,7 +229,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         const date = this.getSelectedDate();
 
         if (isPrematureEmployeeCheck) {
-          this.addPrematureEmployeeCheck(input);
+          if (updatePrematureEmployeeCheck) {
+            this.updatePrematureEmployeeCheck(PrematureEmployeeCheckState.IN_PROGRESS, input);
+          } else {
+            this.addPrematureEmployeeCheck(input);
+          }
         } else {
           this.stepEntriesService
             .updateEmployeeStateForOffice(
@@ -261,7 +278,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
       case State.IN_PROGRESS:
         this.employeeCheckText = 'monthly-report.inProgressDescription';
-        this.monthlyReport.employeeCheckState = State.IN_PROGRESS
+        this.monthlyReport.employeeCheckState = State.IN_PROGRESS;
         break;
 
       case State.DONE:
@@ -308,5 +325,22 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       .month(this.monthlyReportService.selectedMonth.value - 1)
       .date(1)
       .startOf('day');
+  }
+
+  private getPrematureEmployeeCheck(): PrematureEmployeeCheck {
+    const closeDate = this.getSelectedDate();
+
+    const employee = this.monthlyReport.employee;
+    const user: User = {
+      email: employee.email,
+      firstname: employee.firstname,
+      lastname: employee.lastname,
+      roles: [],
+      userId: ''
+    };
+
+    return {
+      forMonth: convertMomentToString(closeDate), user: user, reason: undefined, state: undefined
+    };
   }
 }
