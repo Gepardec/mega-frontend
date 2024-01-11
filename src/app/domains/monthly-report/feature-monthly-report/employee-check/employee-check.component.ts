@@ -134,6 +134,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   addPrematureEmployeeCheck(reason?: string): void {
+    if(this.monthlyReport.prematureEmployeeCheckState !== PrematureEmployeeCheckState.NO_PEC_MADE) {
+      this.updatePrematureEmployeeCheck(PrematureEmployeeCheckState.DONE, undefined);
+      return;
+    }
+
     let state: PrematureEmployeeCheckState;
     if (reason === undefined) {
       state = PrematureEmployeeCheckState.DONE;
@@ -165,7 +170,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   updatePrematureEmployeeCheck(state: PrematureEmployeeCheckState, reason?: string) {
     const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
     prematureEmployeeCheck.state = state;
-    if (reason !== undefined) {
+    if (reason != undefined) {
       prematureEmployeeCheck.reason = reason;
     }
 
@@ -305,6 +310,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
           this.noTimesCurrentMonth = true;
           this.monthlyReport.employeeCheckState = State.EMPLOYEE_IS_DONE;
         }
+        break;
+
+      case PrematureEmployeeCheckState.CANCELLED:
+        this.monthlyReport.employeeCheckState = State.IN_PROGRESS;
+        this.employeeCheckText = 'monthly-report.prematureEmployeeCheck.checkCancelled';
         break;
 
       case PrematureEmployeeCheckState.IN_PROGRESS:
