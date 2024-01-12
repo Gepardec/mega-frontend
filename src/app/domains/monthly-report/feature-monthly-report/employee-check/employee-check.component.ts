@@ -140,10 +140,10 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     let state: PrematureEmployeeCheckState;
-    if (reason === undefined) {
-      state = PrematureEmployeeCheckState.DONE;
-    } else {
+    if (reason) {
       state = PrematureEmployeeCheckState.IN_PROGRESS;
+    } else {
+      state = PrematureEmployeeCheckState.DONE;
     }
 
     const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
@@ -170,7 +170,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   updatePrematureEmployeeCheck(state: PrematureEmployeeCheckState, reason?: string) {
     const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
     prematureEmployeeCheck.state = state;
-    if (reason != undefined) {
+    if (reason) {
       prematureEmployeeCheck.reason = reason;
     }
 

@@ -46,7 +46,7 @@
                *ngIf='monthlyReport.employeeCheckState === State.OPEN  || monthlyReport.employeeCheckState === State.IN_PROGRESS'>
 
             <!--            Reason Dialog -->
-            <ng-container *ngIf='monthlyReport.employeeCheckState === State.IN_PROGRESS'>
+            <ng-container *ngIf='monthlyReport.employeeCheckState === State.IN_PROGRESS && monthlyReport.employeeCheckStateReason'>
               <div class='state-reason-container'>
                 <div class='mobile__font-size state-reason-header'>
                   <strong>{{ 'monthly-report.reason' | translate }}</strong>
@@ -78,7 +78,7 @@
               </div>
             </ng-container>
 
-            <!--            Normal check button-->
+            <!--            Check buttons-->
             <ng-container *ngIf='!isPrematureEmployeeCheck; else prematureCheckButton'>
               <button
                 data-cy='buchungen_bestaetigen_btn'
@@ -87,8 +87,6 @@
                 color='primary'>{{ 'monthly-report.confirmBtnText' | translate }}
               </button>
             </ng-container>
-
-            <!--            Premature check button-->
             <ng-template #prematureCheckButton>
               <button
                 data-cy='buchungen_vorzeitig_bestaetigen_btn'
@@ -103,20 +101,24 @@
             </ng-template>
 
             <!--            Add reason why you can't check (premature and normal) -->
-            <ng-container *ngIf='!isPrematureEmployeeCheck; else addPrematureReason'>
-              <button
-                (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
-                mat-button color='secondary'>
-                {{ 'monthly-report.setStateInProgressButtonText' | translate }}
-              </button>
+            <ng-container *ngIf='monthlyReport.employeeCheckState === State.OPEN'>
+              <ng-container *ngIf='!isPrematureEmployeeCheck; else addPrematureReason'>
+                <button
+                  (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
+                  mat-button color='secondary'>
+                  {{ 'monthly-report.setStateInProgressButtonText' | translate }}
+                </button>
+              </ng-container>
+              <ng-template #addPrematureReason>
+                <button
+                  (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
+                  mat-button color='secondary'>
+                  {{ 'monthly-report.prematureEmployeeCheck.addPrematureEmployeeCheckWithReason' | translate }}
+                </button>
+              </ng-template>
             </ng-container>
-            <ng-template #addPrematureReason>
-              <button
-                (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, false)' class='setInProgressBtn'
-                mat-button color='secondary'>
-                {{ 'monthly-report.prematureEmployeeCheck.addPrematureEmployeeCheckWithReason' | translate }}
-              </button>
-            </ng-template>
+
+
 
           </div>
         </ng-container>
