@@ -99,9 +99,6 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     if (changes.monthlyReport) {
       this.setGuiElements();
     }
-    console.log('monthlyReport', this.monthlyReport);
-    console.log('noTimesCurrentMonth', this.noTimesCurrentMonth);
-    console.log('isPrematureEmployeeCheck', this.isPrematureEmployeeCheck);
   }
 
   ngOnDestroy(): void {

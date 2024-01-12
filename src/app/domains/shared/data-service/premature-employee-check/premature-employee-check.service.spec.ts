@@ -1,11 +1,10 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {PrematureEmployeeCheckService} from './premature-employee-check.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ConfigService} from '../config/config.service';
-import {Employee, State, Step, User} from '@mega/shared/data-model';
-import {HttpResponse} from '@angular/common/http';
-import {PrematureEmployeeCheck} from "../../data-model/PrematureEmployeeCheck";
+import { PrematureEmployeeCheckService } from './premature-employee-check.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ConfigService } from '../config/config.service';
+import { User } from '@mega/shared/data-model';
+import { HttpResponse } from '@angular/common/http';
 
 describe('PrematureEmployeeCheckService', () => {
 
@@ -35,9 +34,8 @@ describe('PrematureEmployeeCheckService', () => {
       });
 
     const testRequest = httpTestingController.expectOne(configService.getBackendUrlWithContext('/prematureemployeecheck/'));
-    testRequest.event(new HttpResponse<boolean>({body: true}));
+    testRequest.event(new HttpResponse<boolean>({ body: true }));
   });
-
 
 
   class PrematureEmployeeCheckMock {
