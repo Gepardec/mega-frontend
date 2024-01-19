@@ -45,8 +45,9 @@
           <div class='employee-check__actionsContainer mb-10'
                *ngIf='monthlyReport.employeeCheckState === State.OPEN  || monthlyReport.employeeCheckState === State.IN_PROGRESS'>
 
-            <!--            Reason Dialog -->
-            <ng-container *ngIf='monthlyReport.employeeCheckState === State.IN_PROGRESS && monthlyReport.employeeCheckStateReason'>
+            <!-- Reason Dialog -->
+            <ng-container
+              *ngIf='monthlyReport.employeeCheckState === State.IN_PROGRESS && monthlyReport.employeeCheckStateReason'>
               <div class='state-reason-container'>
                 <div class='mobile__font-size state-reason-header'>
                   <strong>{{ 'monthly-report.reason' | translate }}</strong>
@@ -67,7 +68,8 @@
                   </ng-container>
                   <ng-template #prematureCheckReason>
                     <div class='state-reason-actions'>
-                      <button mat-button color='warn' (click)='deletePrematureEmployeeCheck()'>{{ 'global.actions.delete' | translate }}
+                      <button mat-button color='warn'
+                              (click)='deletePrematureEmployeeCheck()'>{{ 'global.actions.delete' | translate }}
                       </button>
                       <button mat-button
                               (click)='openStateInProgressReasonDialog(isPrematureEmployeeCheck, true)'>{{ 'global.actions.edit' | translate }}
@@ -78,7 +80,7 @@
               </div>
             </ng-container>
 
-            <!--            Check buttons-->
+            <!-- Check buttons-->
             <ng-container *ngIf='!isPrematureEmployeeCheck; else prematureCheckButton'>
               <button
                 data-cy='buchungen_bestaetigen_btn'
@@ -100,7 +102,7 @@
               </button>
             </ng-template>
 
-            <!--            Add reason why you can't check (premature and normal) -->
+            <!-- Add reason why you can't check (premature and normal) -->
             <ng-container *ngIf='monthlyReport.employeeCheckState === State.OPEN'>
               <ng-container *ngIf='!isPrematureEmployeeCheck; else addPrematureReason'>
                 <button
@@ -117,13 +119,8 @@
                 </button>
               </ng-template>
             </ng-container>
-
-
-
           </div>
         </ng-container>
-
-
       </div>
 
       <!-- COMMENTS -->
