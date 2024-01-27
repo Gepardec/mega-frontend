@@ -1,6 +1,7 @@
-import {Role} from './Role';
+import { Role } from './Role';
 
 export class User {
+  dbId: number;
   userId: string;
   email: string;
   firstname: string;

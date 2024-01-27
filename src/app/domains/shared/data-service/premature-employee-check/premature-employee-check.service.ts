@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from '@mega/shared/data-service';
 import { Observable } from 'rxjs';
-import { PrematureEmployeeCheck } from '../../data-model/PrematureEmployeeCheck';
+import { PrematureEmployeeCheck } from '@mega/shared/data-model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class PrematureEmployeeCheckService {
   ) {
   }
 
-  add(prematureEmployeeCheck: PrematureEmployeeCheck): Observable<boolean> {
+  create(prematureEmployeeCheck: PrematureEmployeeCheck): Observable<boolean> {
     return this.httpClient.post<boolean>(
       this.config.getBackendUrlWithContext('/prematureemployeecheck/'),
       prematureEmployeeCheck

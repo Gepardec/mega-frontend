@@ -1,10 +1,10 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {MonthlyReportService} from './monthly-report.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {Employee, State} from '@mega/shared/data-model';
-import {ConfigService} from '@mega/shared/data-service';
+import { MonthlyReportService } from './monthly-report.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { MonthlyReport } from '@mega/monthly-report/data-model';
+import { Employee, State } from '@mega/shared/data-model';
+import { ConfigService } from '@mega/shared/data-service';
 
 describe('MonthlyReportService', () => {
 
@@ -87,7 +87,7 @@ describe('MonthlyReportService', () => {
       paidSickLeave: 2,
       vacationDayBalance: 10,
       overtime: 4,
-      prematureEmployeeCheckState: false
+      prematureEmployeeCheck: undefined,
     };
   }
 });

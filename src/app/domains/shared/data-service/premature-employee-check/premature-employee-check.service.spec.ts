@@ -27,14 +27,14 @@ describe('PrematureEmployeeCheckService', () => {
   });
 
   it('#add - should return true', (done) => {
-    prematureEmployeeCheckService.add(PrematureEmployeeCheckMock)
+    prematureEmployeeCheckService.create(PrematureEmployeeCheckMock)
       .subscribe(success => {
         expect(success).toEqual(true);
         done();
       });
 
     const testRequest = httpTestingController.expectOne(configService.getBackendUrlWithContext('/prematureemployeecheck/'));
-    testRequest.event(new HttpResponse<boolean>({ body: true }));
+    testRequest.event(new HttpResponse<boolean>({body: true}));
   });
 
 
