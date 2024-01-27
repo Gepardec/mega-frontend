@@ -348,7 +348,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     return {
       forMonth: convertMomentToString(this.getSelectedDate()),
       user: this.user,
-      state: PrematureEmployeeCheckState.NO_PEC_MADE,
+      state: undefined,
       reason: null,
     };
   }
