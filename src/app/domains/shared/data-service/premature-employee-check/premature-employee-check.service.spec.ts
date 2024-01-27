@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {PrematureEmployeeCheckService} from './premature-employee-check.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {ConfigService} from '../config/config.service';
-import {Employee, State, Step, User} from '@mega/shared/data-model';
-import {HttpResponse} from '@angular/common/http';
-import {PrematureEmployeeCheck} from "../../data-model/PrematureEmployeeCheck";
+import { PrematureEmployeeCheckService } from './premature-employee-check.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ConfigService } from '../config/config.service';
+import { User } from '@mega/shared/data-model';
+import { HttpResponse } from '@angular/common/http';
+import { PrematureEmployeeCheckState } from '../../data-model/PrematureEmployeeCheckState';
 
 describe('PrematureEmployeeCheckService', () => {
 
@@ -28,7 +28,7 @@ describe('PrematureEmployeeCheckService', () => {
   });
 
   it('#add - should return true', (done) => {
-    prematureEmployeeCheckService.add(PrematureEmployeeCheckMock)
+    prematureEmployeeCheckService.create(PrematureEmployeeCheckMock)
       .subscribe(success => {
         expect(success).toEqual(true);
         done();
@@ -39,13 +39,14 @@ describe('PrematureEmployeeCheckService', () => {
   });
 
 
-
   class PrematureEmployeeCheckMock {
 
-    static reason: string = 'test-reason';
-    static forMonth: string = '2021-11-01';
+    static reason = 'test-reason';
+    static forMonth = '2021-11-01';
+    static state: PrematureEmployeeCheckState = undefined;
 
     static user: User = {
+      dbId: 1,
       roles: [],
       email: 'max-muster@gepardec.com',
       firstname: 'Max',

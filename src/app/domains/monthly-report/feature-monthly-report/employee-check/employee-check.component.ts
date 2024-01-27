@@ -10,18 +10,23 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {CommentService, PrematureEmployeeCheckService, StepEntriesService} from '@mega/shared/data-service';
-import {PrematureEmployeeCheck, State, Step, User} from '@mega/shared/data-model';
-import {MatListModule, MatSelectionListChange} from '@angular/material/list';
-import {MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {PmProgressComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
-import {MonthlyReportService} from '@mega/monthly-report/data-service';
+import { MonthlyReport } from '@mega/monthly-report/data-model';
+import {
+  CommentService,
+  PrematureEmployeeCheckService,
+  StepEntriesService,
+  UserService
+} from '@mega/shared/data-service';
+import { PrematureEmployeeCheck, State, Step, User } from '@mega/shared/data-model';
+import { MatListModule, MatSelectionListChange } from '@angular/material/list';
+import { MatBottomSheet, MatBottomSheetModule, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { PmProgressComponent, StateIndicatorComponent } from '@mega/shared/ui-common';
+import { MonthlyReportService } from '@mega/monthly-report/data-service';
 import * as moment from 'moment';
-import {convertMomentToString, isElementOverlyingCursor, toMonthYearString} from '@mega/shared/util-common';
-import {Subscription, zip} from 'rxjs';
-import {tap} from 'rxjs/operators';
-import {MatDialog} from '@angular/material/dialog';
+import { convertMomentToString, isElementOverlyingCursor, toMonthYearString } from '@mega/shared/util-common';
+import { Subscription, zip } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
 import {
   EmployeeCheckConfirmCommentDialogComponent
 } from '../employee-check-confirm-comment-dialog/employee-check-confirm-comment-dialog.component';
@@ -29,12 +34,13 @@ import {
   EmployeeCheckConfirmDialogAction,
   EmployeeCheckConfirmDialogActionType
 } from '../employee-check-confirm-comment-dialog/model/EmployeeCheckConfirmDialogAction';
-import {TranslateModule} from '@ngx-translate/core';
-import {MatButtonModule} from '@angular/material/button';
-import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {DatePipe, NgClass, NgFor, NgIf} from '@angular/common';
-import {MatCardModule} from '@angular/material/card';
-import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonModule } from '@angular/material/button';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { DatePipe, NgClass, NgFor, NgIf } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule, TooltipPosition } from '@angular/material/tooltip';
+import { PrematureEmployeeCheckState } from '../../../shared/data-model/PrematureEmployeeCheckState';
 
 @Component({
   selector: 'app-employee-check',
@@ -67,13 +73,15 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   employeeProgressRef: MatBottomSheetRef;
   overlaysButton: boolean;
   selectedDateStr;
-  employeeCheckIcon: string;
   employeeCheckText: string;
   noTimesCurrentMonth: boolean;
   isPrematureEmployeeCheck = false;
+  user: User;
+
   tooltipShowDelay = 500;
   tooltipPosition = 'right' as TooltipPosition;
   private dateSelectionSub: Subscription;
+  private userSub: Subscription;
 
   constructor(
     public commentService: CommentService,
@@ -82,7 +90,8 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     private prematureEmployeeCheckService: PrematureEmployeeCheckService,
     private bottomSheet: MatBottomSheet,
     @Inject(LOCALE_ID) private locale: string,
-    private dialog: MatDialog) {
+    private dialog: MatDialog,
+    private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -92,6 +101,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
           this.selectedDateStr = toMonthYearString(value[0], value[1] - 1, this.locale);
         })
       ).subscribe();
+    this.userSub = this.userService.user.subscribe(user => this.user = user);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -102,6 +112,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     this.dateSelectionSub?.unsubscribe();
+    this.userSub?.unsubscribe();
     this.employeeProgressRef?.dismiss();
   }
 
@@ -130,27 +141,47 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   addPrematureEmployeeCheck(reason?: string): void {
-    const closeDate = this.getSelectedDate();
-
-    const employee = this.monthlyReport.employee;
-    const user: User = {
-      email: employee.email,
-      firstname: employee.firstname,
-      lastname: employee.lastname,
-      roles: [],
-      userId: ''
-    };
-
-    const prematureEmployeeCheck: PrematureEmployeeCheck = {
-      forMonth: convertMomentToString(closeDate), user: user, reason: reason
-
+    if (this.monthlyReport.prematureEmployeeCheck) {
+      this.updatePrematureEmployeeCheck(PrematureEmployeeCheckState.DONE, undefined);
+      return;
     }
 
-    this.prematureEmployeeCheckService
-      .add(prematureEmployeeCheck)
-      .subscribe(() => {
-        this.emitRefreshMonthlyReport();
-      });
+    let state: PrematureEmployeeCheckState;
+    if (reason) {
+      state = PrematureEmployeeCheckState.IN_PROGRESS;
+    } else {
+      state = PrematureEmployeeCheckState.DONE;
+    }
+
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.reason = reason;
+    prematureEmployeeCheck.state = state;
+
+    this.prematureEmployeeCheckService.create(prematureEmployeeCheck).subscribe(() => {
+      this.emitRefreshMonthlyReport();
+    });
+  }
+
+  deletePrematureEmployeeCheck(): void {
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.state = PrematureEmployeeCheckState.CANCELLED;
+
+    this.prematureEmployeeCheckService.update(prematureEmployeeCheck).subscribe(() => {
+      this.emitRefreshMonthlyReport();
+    });
+  }
+
+  updatePrematureEmployeeCheck(state: PrematureEmployeeCheckState, reason?: string) {
+    const prematureEmployeeCheck = this.getPrematureEmployeeCheck();
+    prematureEmployeeCheck.state = state;
+
+    if (reason) {
+      prematureEmployeeCheck.reason = reason;
+    }
+
+    this.prematureEmployeeCheckService.update(prematureEmployeeCheck).subscribe(() => {
+      this.emitRefreshMonthlyReport();
+    });
   }
 
   emitRefreshMonthlyReport(): void {
@@ -187,7 +218,7 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
     return body.replace(urlPattern, '<a href=\$& target="_blank"\>$&</a>');
   }
 
-  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean) {
+  openStateInProgressReasonDialog(isPrematureEmployeeCheck: boolean, updatePrematureEmployeeCheck: boolean) {
     const dialogRef = this.dialog.open(EmployeeCheckConfirmCommentDialogComponent,
       {
         data: {
@@ -206,7 +237,11 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
         const date = this.getSelectedDate();
 
         if (isPrematureEmployeeCheck) {
-          this.addPrematureEmployeeCheck(input)
+          if (updatePrematureEmployeeCheck) {
+            this.updatePrematureEmployeeCheck(PrematureEmployeeCheckState.IN_PROGRESS, input);
+          } else {
+            this.addPrematureEmployeeCheck(input);
+          }
         } else {
           this.stepEntriesService
             .updateEmployeeStateForOffice(
@@ -231,57 +266,70 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
 
   private setGuiElements() {
     if (!this.monthlyReport) {
-      this.employeeCheckIcon = undefined;
       this.employeeCheckText = '';
 
       return;
     }
 
-    let employeeCheckState = this.monthlyReport.employeeCheckState;
-    let stateIndicatorText = '';
-    let noTimesCurrentMonth = false;
-    let stateIsPrematureEmployeeCheck = false;
+    this.noTimesCurrentMonth = false;
+    this.isPrematureEmployeeCheck = false;
 
     switch (this.monthlyReport.employeeCheckState) {
       case State.PREMATURE_CHECK:
-        stateIsPrematureEmployeeCheck = true;
-        if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))) {
-          stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckStateIndicatorText';
-          employeeCheckState = State.OPEN;
-          if (this.monthlyReport.hasPrematureEmployeeCheck) {
-            stateIndicatorText = 'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckedMonthState';
-            employeeCheckState = State.IN_PROGRESS;
-          }
-        } else {
-          stateIndicatorText = 'monthly-report.noTimesCurrentMonth';
-          employeeCheckState = State.IN_PROGRESS;
-          noTimesCurrentMonth = true;
-        }
+        this.setPrematureEmployeeCheckStateGuiElements();
         break;
 
       case State.OPEN:
-        stateIndicatorText = 'monthly-report.pleaseCheckPrompt';
+        this.employeeCheckText = 'monthly-report.pleaseCheckPrompt';
+        this.monthlyReport.employeeCheckState = State.OPEN;
         break;
 
       case State.IN_PROGRESS:
-        stateIndicatorText = 'monthly-report.inProgressDescription';
+        this.employeeCheckText = 'monthly-report.inProgressDescription';
+        this.monthlyReport.employeeCheckState = State.IN_PROGRESS;
         break;
 
       case State.DONE:
         if (this.monthlyReport.otherChecksDone) {
-          stateIndicatorText = 'monthly-report.checkSuccess';
+          this.employeeCheckText = 'monthly-report.checkSuccess';
+          this.monthlyReport.employeeCheckState = State.DONE;
         } else {
-          employeeCheckState = State.IN_PROGRESS;
-          stateIndicatorText = 'monthly-report.checkWip';
+          this.monthlyReport.employeeCheckState = State.EMPLOYEE_IS_DONE;
+          this.employeeCheckText = 'monthly-report.checkWip';
         }
         break;
     }
+  }
 
-    this.employeeCheckIcon = employeeCheckState;
-    this.monthlyReport.employeeCheckState = employeeCheckState;
-    this.employeeCheckText = stateIndicatorText;
-    this.noTimesCurrentMonth = noTimesCurrentMonth;
-    this.isPrematureEmployeeCheck = stateIsPrematureEmployeeCheck;
+  private setPrematureEmployeeCheckStateGuiElements() {
+    this.isPrematureEmployeeCheck = true;
+    if (!this.monthlyReport.prematureEmployeeCheck) {
+      if (this.getSelectedDate().isSame(moment().date(1).startOf('day'))) {
+        this.monthlyReport.employeeCheckState = State.OPEN;
+        this.employeeCheckText = 'monthly-report.prematureEmployeeCheck.checkOpen';
+      } else {
+        this.employeeCheckText = 'monthly-report.noTimesCurrentMonth';
+        this.noTimesCurrentMonth = true;
+        this.monthlyReport.employeeCheckState = State.EMPLOYEE_IS_DONE;
+      }
+    } else {
+      switch (this.monthlyReport.prematureEmployeeCheck.state) {
+        case PrematureEmployeeCheckState.CANCELLED:
+          this.monthlyReport.employeeCheckState = State.IN_PROGRESS;
+          this.employeeCheckText = 'monthly-report.prematureEmployeeCheck.checkCancelled';
+          break;
+
+        case PrematureEmployeeCheckState.IN_PROGRESS:
+          this.employeeCheckText = 'monthly-report.prematureEmployeeCheck.checkInProgress';
+          this.monthlyReport.employeeCheckState = State.IN_PROGRESS;
+          break;
+
+        case PrematureEmployeeCheckState.DONE:
+          this.employeeCheckText = 'monthly-report.prematureEmployeeCheck.checkDone';
+          this.monthlyReport.employeeCheckState = State.EMPLOYEE_IS_DONE;
+          break;
+      }
+    }
   }
 
   private getSelectedDate() {
@@ -290,5 +338,18 @@ export class EmployeeCheckComponent implements OnInit, OnChanges, OnDestroy {
       .month(this.monthlyReportService.selectedMonth.value - 1)
       .date(1)
       .startOf('day');
+  }
+
+  private getPrematureEmployeeCheck(): PrematureEmployeeCheck {
+    if (this.monthlyReport.prematureEmployeeCheck) {
+      return this.monthlyReport.prematureEmployeeCheck;
+    }
+
+    return {
+      forMonth: convertMomentToString(this.getSelectedDate()),
+      user: this.user,
+      state: undefined,
+      reason: null,
+    };
   }
 }

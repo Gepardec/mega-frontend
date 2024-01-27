@@ -1,23 +1,23 @@
-import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {FeatureMonthlyReportComponent} from './feature-monthly-report.component';
-import {MonthlyReportService} from '@mega/monthly-report/data-service';
-import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {of} from 'rxjs';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {Employee, State} from '@mega/shared/data-model';
-import {TranslateModule} from '@ngx-translate/core';
-import {RouterTestingModule} from '@angular/router/testing';
-import {OAuthModule} from 'angular-oauth2-oidc';
-import {JourneyCheckComponent} from './journey-check/journey-check.component';
-import {DatepickerMonthYearComponent, StateIndicatorComponent} from '@mega/shared/ui-common';
-import {EmployeeCheckComponent} from './employee-check/employee-check.component';
-import {GeneralInfoComponent} from './general-info/general-info.component';
-import {TimeCheckComponent} from './time-check/time-check.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { FeatureMonthlyReportComponent } from './feature-monthly-report.component';
+import { MonthlyReportService } from '@mega/monthly-report/data-service';
+import { MonthlyReport } from '@mega/monthly-report/data-model';
+import { of } from 'rxjs';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Employee, State } from '@mega/shared/data-model';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { JourneyCheckComponent } from './journey-check/journey-check.component';
+import { DatepickerMonthYearComponent, StateIndicatorComponent } from '@mega/shared/ui-common';
+import { EmployeeCheckComponent } from './employee-check/employee-check.component';
+import { GeneralInfoComponent } from './general-info/general-info.component';
+import { TimeCheckComponent } from './time-check/time-check.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { InformationTopBarComponent } from './information-top-bar/information-top-bar.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('FeatureMonthlyReportComponent', () => {
 
@@ -125,7 +125,7 @@ describe('FeatureMonthlyReportComponent', () => {
       comments: [],
       vacationDayBalance: 0,
       overtime: 3,
-      hasPrematureEmployeeCheck: false
+      prematureEmployeeCheck: undefined,
     };
   }
 

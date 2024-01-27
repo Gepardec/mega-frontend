@@ -1,9 +1,9 @@
-import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {FeatureProjectManagementComponent} from './feature-project-management.component';
-import {TranslateModule} from '@ngx-translate/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
+import { FeatureProjectManagementComponent } from './feature-project-management.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import * as _moment from 'moment';
 import {
   CommentService,
@@ -13,8 +13,8 @@ import {
   SnackbarService,
   StepEntriesService
 } from '@mega/shared/data-service';
-import {of} from 'rxjs';
-import {ProjectManagementService} from '@mega/project-management/data-service';
+import { of } from 'rxjs';
+import { ProjectManagementService } from '@mega/project-management/data-service';
 import {
   Comment,
   Employee,
@@ -24,18 +24,18 @@ import {
   ProjectState,
   State
 } from '@mega/shared/data-model';
-import {ProjectManagementEntry, ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
-import {SelectionModel} from '@angular/cdk/collections';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {RouterTestingModule} from '@angular/router/testing';
-import {OAuthModule} from 'angular-oauth2-oidc';
-import {MatSelectChange} from '@angular/material/select';
-import {DatepickerMonthYearComponent, ProjectStateSelectComponent} from '@mega/shared/ui-common';
-import {MatCheckboxChange} from '@angular/material/checkbox';
-import {configuration} from '@mega/shared/util-constant';
-import {ReactiveFormsModule} from '@angular/forms';
-import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ProjectManagementEntry, ProjectManagementEntryViewModel } from '@mega/project-management/data-model';
+import { SelectionModel } from '@angular/cdk/collections';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { MatSelectChange } from '@angular/material/select';
+import { DatepickerMonthYearComponent, ProjectStateSelectComponent } from '@mega/shared/ui-common';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { configuration } from '@mega/shared/util-constant';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -114,7 +114,7 @@ describe('FeatureProjectManagementComponent', () => {
     fixture.detectChanges();
 
     const pmEntry = ProjectManagementMock.projectManagementEntries[0];
-    pmEntry.entries = new Array<ManagementEntry>(ProjectManagementMock.projectManagementEntries[0].entries[0])
+    pmEntry.entries = new Array<ManagementEntry>(ProjectManagementMock.projectManagementEntries[0].entries[0]);
     component.pmEntries = new Array<ProjectManagementEntry>(pmEntry);
 
     const selectionModel = new SelectionModel<ManagementEntry>();
@@ -134,7 +134,7 @@ describe('FeatureProjectManagementComponent', () => {
     fixture.detectChanges();
 
     const pmEntry = ProjectManagementMock.projectManagementEntries[0];
-    pmEntry.entries = new Array<ManagementEntry>(ProjectManagementMock.projectManagementEntries[0].entries[0])
+    pmEntry.entries = new Array<ManagementEntry>(ProjectManagementMock.projectManagementEntries[0].entries[0]);
     component.pmEntries = new Array<ProjectManagementEntry>(pmEntry);
 
     component.pmSelectionModels = new Map<string, SelectionModel<ManagementEntry>>();
@@ -440,7 +440,8 @@ describe('FeatureProjectManagementComponent', () => {
           message: 'text',
           isEditing: false,
           state: State.DONE,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         },
         {
           authorEmail: 'susi@gepardec.com',
@@ -449,7 +450,8 @@ describe('FeatureProjectManagementComponent', () => {
           message: 'text',
           isEditing: false,
           state: State.DONE,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         },
         {
           authorEmail: 'franz@gepardec.com',
@@ -458,7 +460,8 @@ describe('FeatureProjectManagementComponent', () => {
           message: 'text',
           isEditing: false,
           state: State.OPEN,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         }
       ];
     }
@@ -466,14 +469,14 @@ describe('FeatureProjectManagementComponent', () => {
 
   class ProjectManagementMock {
 
-    static email: string = 'max.muster@gepardec.com';
-    static firstname: string = 'Max';
-    static lastname: string = 'Muster';
-    static project: string = 'LIW-Microservices';
-    static year: number = 2021;
-    static month: number = 10;
+    static email = 'max.muster@gepardec.com';
+    static firstname = 'Max';
+    static lastname = 'Muster';
+    static project = 'LIW-Microservices';
+    static year = 2021;
+    static month = 10;
 
-    static responseStatus: number = 200;
+    static responseStatus = 200;
 
     static employeeMuster: Employee = {
       email: ProjectManagementMock.email,

@@ -1,12 +1,12 @@
-import {TestBed, waitForAsync} from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 
-import {loginGuard} from './login.guard';
-import {UserService} from '@mega/shared/data-service';
-import {BehaviorSubject} from 'rxjs';
-import {User} from '@mega/shared/data-model';
-import {RouterTestingModule} from '@angular/router/testing';
-import {routes} from 'src/app/app.routes';
-import {CanActivateFn} from '@angular/router';
+import { loginGuard } from './login.guard';
+import { UserService } from '@mega/shared/data-service';
+import { BehaviorSubject } from 'rxjs';
+import { User } from '@mega/shared/data-model';
+import { RouterTestingModule } from '@angular/router/testing';
+import { routes } from 'src/app/app.routes';
+import { CanActivateFn } from '@angular/router';
 
 describe('LoginGuard', () => {
 
@@ -37,6 +37,7 @@ describe('LoginGuard', () => {
   it('#canActivate - should be logged in', () => {
     spyOn(userService, 'loggedInWithGoogle').and.returnValue(true);
     userService.user.next({
+      dbId: null,
       userId: 'test-id',
       email: 'test@gepardec.com',
       firstname: 'test',
