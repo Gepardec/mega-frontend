@@ -1,11 +1,11 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {CommentService} from './comment.service';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {Comment, Employee, State, Step} from '@mega/shared/data-model';
+import { CommentService } from './comment.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { Comment, State, Step } from '@mega/shared/data-model';
 import * as _moment from 'moment';
-import {ConfigService} from '../config/config.service';
-import {configuration} from '@mega/shared/util-constant';
+import { ConfigService } from '../config/config.service';
+import { configuration } from '@mega/shared/util-constant';
 
 const moment = _moment;
 
@@ -71,7 +71,7 @@ describe('CommentService', () => {
   it('#createNewComment - should return new comment', (done) => {
     const newComment = CommentsMock.createNew();
 
-    commentService.createNewComment(new Employee(), newComment.message, newComment.authorEmail, Step.CONTROL_INTERNAL_TIMES, 'LIW-Microservices', moment().format(CommentsMock.dateFormat))
+    commentService.createNewComment('max.mustermann@gepardec.com', newComment.message, newComment.authorEmail, Step.CONTROL_INTERNAL_TIMES, 'LIW-Microservices', moment().format(CommentsMock.dateFormat))
       .subscribe((comment: Comment) => {
         expect(comment).not.toBeNull();
         expect(comment.id).toEqual(4);
@@ -125,7 +125,8 @@ describe('CommentService', () => {
           message: 'text',
           isEditing: false,
           state: State.DONE,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         },
         {
           authorEmail: 'susi@gepardec.com',
@@ -134,7 +135,8 @@ describe('CommentService', () => {
           message: 'text',
           isEditing: false,
           state: State.DONE,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         },
         {
           authorEmail: 'franz@gepardec.com',
@@ -143,9 +145,10 @@ describe('CommentService', () => {
           message: 'text',
           isEditing: false,
           state: State.OPEN,
-          updateDate: moment.now().toString()
+          updateDate: moment.now().toString(),
+          sourceSystem: 'MEGA'
         }
-      ]
+      ];
     }
 
     static createNew(): Comment {
@@ -156,8 +159,9 @@ describe('CommentService', () => {
         message: 'text',
         isEditing: false,
         state: State.DONE,
-        updateDate: moment.now().toString()
-      }
+        updateDate: moment.now().toString(),
+        sourceSystem: 'MEGA'
+      };
     }
   }
 });

@@ -1,21 +1,23 @@
-import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {EmployeeCheckComponent} from './employee-check.component';
-import {TranslateModule} from '@ngx-translate/core';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {OAuthModule} from 'angular-oauth2-oidc';
-import {Comment, Employee, State} from '@mega/shared/data-model';
+import { EmployeeCheckComponent } from './employee-check.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { Comment, Employee, State } from '@mega/shared/data-model';
 import * as _moment from 'moment';
-import {configuration} from '@mega/shared/util-constant';
-import {CommentService, StepEntriesService} from '@mega/shared/data-service';
-import {of} from 'rxjs';
-import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {MatBottomSheet, MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {MatDialogModule} from '@angular/material/dialog';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {PrematureEmployeeCheckService} from '../../../shared/data-service/premature-employee-check/premature-employee-check.service';
+import { configuration } from '@mega/shared/util-constant';
+import { CommentService, StepEntriesService } from '@mega/shared/data-service';
+import { of } from 'rxjs';
+import { MonthlyReport } from '@mega/monthly-report/data-model';
+import { MatBottomSheet, MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  PrematureEmployeeCheckService
+} from '@mega/shared/data-service';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -62,7 +64,7 @@ describe('EmployeeCheckComponent', () => {
     fixture.detectChanges();
 
     spyOn(component.refreshMonthlyReport, 'emit').and.stub();
-    spyOn(commentService, 'setStatusDone').and.returnValue(of(null));
+    spyOn(commentService, 'finish').and.returnValue(of(null));
 
     component.monthlyReport = new MonthlyReport();
     component.monthlyReport.comments = CommentsMock.setupComments();
@@ -103,7 +105,7 @@ describe('EmployeeCheckComponent', () => {
     component.monthlyReport.employee = EmployeeMock.employee;
 
     spyOn(component.refreshMonthlyReport, 'emit').and.stub();
-    spyOn(prematureEmployeeCheckService, 'add').and.returnValue(of(true));
+    spyOn(prematureEmployeeCheckService, 'create').and.returnValue(of(true));
 
     component.addPrematureEmployeeCheck();
     flush();
@@ -130,7 +132,8 @@ describe('EmployeeCheckComponent', () => {
           authorEmail: 'max.mustermann@gepardec.com',
           updateDate: moment().format(DATE_FORMAT),
           isEditing: true,
-          authorName: 'Max Mustermann'
+          authorName: 'Max Mustermann',
+          sourceSystem: 'MEGA'
         },
         {
           id: 1,
@@ -139,7 +142,8 @@ describe('EmployeeCheckComponent', () => {
           authorEmail: 'max.mustermann@gepardec.com',
           updateDate: moment().format(DATE_FORMAT),
           isEditing: true,
-          authorName: 'Max Mustermann'
+          authorName: 'Max Mustermann',
+          sourceSystem: 'MEGA'
         }
       ];
     }

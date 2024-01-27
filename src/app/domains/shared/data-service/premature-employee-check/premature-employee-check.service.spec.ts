@@ -5,6 +5,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ConfigService } from '../config/config.service';
 import { User } from '@mega/shared/data-model';
 import { HttpResponse } from '@angular/common/http';
+import { PrematureEmployeeCheckState } from '../../data-model/PrematureEmployeeCheckState';
 
 describe('PrematureEmployeeCheckService', () => {
 
@@ -40,10 +41,12 @@ describe('PrematureEmployeeCheckService', () => {
 
   class PrematureEmployeeCheckMock {
 
-    static reason: string = 'test-reason';
-    static forMonth: string = '2021-11-01';
+    static reason = 'test-reason';
+    static forMonth = '2021-11-01';
+    static state: PrematureEmployeeCheckState = undefined;
 
     static user: User = {
+      dbId: 1,
       roles: [],
       email: 'max-muster@gepardec.com',
       firstname: 'Max',

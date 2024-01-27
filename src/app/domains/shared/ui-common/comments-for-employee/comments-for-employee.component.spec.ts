@@ -1,18 +1,18 @@
-import {ComponentFixture, fakeAsync, flush, TestBed, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {CommentsForEmployeeComponent} from '@mega/shared/ui-common';
-import {TranslateModule} from '@ngx-translate/core';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {OAuthModule} from 'angular-oauth2-oidc';
-import {MatDialogRef} from '@angular/material/dialog';
-import {Comment, Employee, State, User} from '@mega/shared/data-model';
+import { CommentsForEmployeeComponent } from '@mega/shared/ui-common';
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Comment, Employee, State, User } from '@mega/shared/data-model';
 
 import * as _moment from 'moment';
-import {CommentService, UserService} from '@mega/shared/data-service';
-import {of} from 'rxjs';
-import {ElementRef} from '@angular/core';
-import {configuration} from '@mega/shared/util-constant';
+import { CommentService, UserService } from '@mega/shared/data-service';
+import { of } from 'rxjs';
+import { ElementRef } from '@angular/core';
+import { configuration } from '@mega/shared/util-constant';
 
 const moment = _moment;
 const DATE_FORMAT: string = configuration.dateFormat;
@@ -62,7 +62,7 @@ describe('CommentsForEmployeeComponent', () => {
 
     component.comments.forEach(comment => {
       expect(comment.isEditing).toBeFalse();
-    })
+    });
 
     expect(userService.user.subscribe).toHaveBeenCalled();
   }));
@@ -104,7 +104,7 @@ describe('CommentsForEmployeeComponent', () => {
   it('#parseAnchorTags - should replace http with href', () => {
     fixture.detectChanges();
 
-    const url = 'http://localhost:8080'
+    const url = 'http://localhost:8080';
     const replacedText = component.parseAnchorTags(url);
 
     expect(replacedText).toContain('href=');
@@ -113,7 +113,7 @@ describe('CommentsForEmployeeComponent', () => {
   it('#parseAnchorTags - should replace www with href', () => {
     fixture.detectChanges();
 
-    const url = 'wwww.gepardec.com'
+    const url = 'wwww.gepardec.com';
     const replacedText = component.parseAnchorTags(url);
 
     expect(replacedText).toContain('href=');
@@ -172,7 +172,7 @@ describe('CommentsForEmployeeComponent', () => {
 
     expect(component.commentHasChanged.emit).toHaveBeenCalled();
     expect(component.comments.filter(comment => {
-      return comment.id === CommentsMock.setupComments()[0].id
+      return comment.id === CommentsMock.setupComments()[0].id;
     }).length).toBe(0);
   }));
 
@@ -183,7 +183,7 @@ describe('CommentsForEmployeeComponent', () => {
     component.newCommentTextarea = new ElementRef({value: ''});
 
     spyOn(component.dialogRef, 'close').and.stub();
-    //spyOn(component, 'newCommentTextarea').and.returnValue(textarea);
+    // spyOn(component, 'newCommentTextarea').and.returnValue(textarea);
 
     component.close();
 
@@ -234,7 +234,8 @@ describe('CommentsForEmployeeComponent', () => {
           authorEmail: 'max.mustermann@gepardec.com',
           updateDate: moment().format(DATE_FORMAT),
           isEditing: true,
-          authorName: 'Max Mustermann'
+          authorName: 'Max Mustermann',
+          sourceSystem: 'MEGA'
         },
         {
           id: 1,
@@ -243,17 +244,18 @@ describe('CommentsForEmployeeComponent', () => {
           authorEmail: 'max.mustermann@gepardec.com',
           updateDate: moment().format(DATE_FORMAT),
           isEditing: true,
-          authorName: 'Max Mustermann'
+          authorName: 'Max Mustermann',
+          sourceSystem: 'MEGA'
         }
-      ]
+      ];
     }
   }
 
   class UserMock {
 
-    static email: string = 'max.mustermann@gepardec.com';
-    static firstname: string = 'Max';
-    static lastname: string = 'Mustermann';
+    static email = 'max.mustermann@gepardec.com';
+    static firstname = 'Max';
+    static lastname = 'Mustermann';
 
     static setupUser(): User {
       const user: User = new User();

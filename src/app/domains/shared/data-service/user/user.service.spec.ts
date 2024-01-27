@@ -1,14 +1,14 @@
-import {fakeAsync, TestBed} from '@angular/core/testing';
+import { fakeAsync, TestBed } from '@angular/core/testing';
 
-import {UserService} from './user.service';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {OAuthService} from 'angular-oauth2-oidc';
-import {ConfigService} from '../config/config.service';
-import {Role} from '@mega/shared/data-model';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {LocalStorageService} from '@mega/shared/data-service';
+import { UserService } from './user.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { ConfigService } from '../config/config.service';
+import { Role, User } from '@mega/shared/data-model';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { LocalStorageService } from '@mega/shared/data-service';
 
 describe('UserService', () => {
 
@@ -117,16 +117,17 @@ describe('UserService', () => {
 
   class UserMock {
 
-    static startPage: string = 'home';
+    static startPage = 'home';
 
     static get() {
       return {
+        dbId: 1,
         userId: '011-max',
         email: 'maxm@gepardec.com',
         firstname: 'max',
         lastname: 'muster',
         roles: [Role.EMPLOYEE]
-      }
+      } as User;
     }
   }
 });
