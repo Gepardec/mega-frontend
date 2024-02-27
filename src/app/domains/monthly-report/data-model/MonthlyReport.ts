@@ -21,5 +21,7 @@ export class MonthlyReport {
   paidSickLeave: number;
   vacationDayBalance: number;
   overtime: number;
+  guildLead: string;
+  internalProjectLead: string;
   prematureEmployeeCheck?: PrematureEmployeeCheck;
 }

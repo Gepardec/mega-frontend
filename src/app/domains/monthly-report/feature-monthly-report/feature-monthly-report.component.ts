@@ -8,6 +8,7 @@ import {EmployeeCheckComponent} from './employee-check/employee-check.component'
 import {TimeCheckComponent} from './time-check/time-check.component';
 import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
 import {NgClass} from '@angular/common';
+import {LeadsComponent} from './leads/leads.component';
 
 @Component({
   selector: 'app-monthly-report',
@@ -20,7 +21,8 @@ import {NgClass} from '@angular/common';
     TimeCheckComponent,
     EmployeeCheckComponent,
     GeneralInfoComponent,
-    JourneyCheckComponent
+    JourneyCheckComponent,
+    LeadsComponent
   ]
 })
 export class FeatureMonthlyReportComponent implements OnInit {

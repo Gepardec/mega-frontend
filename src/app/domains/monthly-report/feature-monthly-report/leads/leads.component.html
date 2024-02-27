@@ -1,0 +1,37 @@
+<mat-card appearance="raised" class="fill-parent">
+  <mat-card-header>
+    <mat-card-title>
+      <ngx-skeleton-loader *ngIf="!monthlyReport else title"
+                           [theme]="{ height: '30px', width: '250px' }"
+                           appearance="line"></ngx-skeleton-loader>
+
+      <ng-template #title>
+        Leads
+      </ng-template>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <ngx-skeleton-loader *ngIf="!monthlyReport else table"
+                         appearance="line"
+                         count="6"></ngx-skeleton-loader>
+    <ng-template #table>
+      <mat-table [dataSource]="toLeadsData()" class="mat-elevation-z1 table-container">
+
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <mat-header-cell *matHeaderCellDef></mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.value}} </mat-cell>
+        </ng-container>
+
+        <mat-row class="fixed-columns" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
+
