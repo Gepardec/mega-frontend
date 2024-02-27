@@ -9,8 +9,9 @@
   --mega-grid-gap: 16px;
 
   //Calc-Info: ViewPort - (Information-Bar-Component + padding around grid + gap)
-  height: calc(100% - (130px + (3 * var(--padding-mega-grid)) + var(--mega-grid-gap)));
+  height: calc(100% - (130px + (19 * var(--padding-mega-grid)) + var(--mega-grid-gap)));
   padding: var(--padding-mega-grid) var(--padding-mega-grid) calc(2 * var(--padding-mega-grid));
+
 
   --grid-column-count: 4;
   --grid-item-min-width: 400px;
@@ -20,18 +21,29 @@
   grid-gap: var(--mega-grid-gap);
 
   grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min-width), var(--grid-item-infinite-width)));
-  grid-auto-rows: 50%;
+  grid-auto-rows: 10%;
 }
 
 // default layout
 @media screen and (min-width: 1664px) {
+  .time-check-grid {
+    grid-row: span 5;
+  }
+  .journey-check-grid {
+    grid-row: span 5;
+  }
   .employee-check-grid {
-    grid-row: span 2 / auto;
+    grid-row: span 10 / auto;
     grid-column: span 2 / auto;
   }
 
   .general-info-grid {
-    grid-row: span 2 / auto;
+    grid-row: span 7;
+  }
+
+  .leads-grid {
+    grid-row: span 3 / auto;
+    grid-column: 4;
   }
 }
 
@@ -42,30 +54,30 @@
   }
 
   .employee-check-grid {
-    grid-row: 1 / 3;
+    grid-row: 1 / 10;
     grid-column: 1 / 3;
   }
 
   .general-info-grid {
-    grid-row: 3 / 5;
+    grid-row: span 6;
     grid-column: 1 / 3;
-    padding-bottom: 8px;
   }
 
   .journey-check-grid {
-    grid-row: 3 / 5;
+    grid-row: 10 / 20;
     grid-column: 3 / 4;
     padding-bottom: 8px;
   }
 
   .time-check-grid {
-    grid-row: 1 / 3;
+    grid-row: 1 / 10;
     grid-column: 3 / 4;
   }
 
   .leads-grid {
-    grid-row: 2 / 3;
+    grid-row: span 4;
     grid-column: 1 / 3;
+    padding-bottom: 8px;
   }
 
 
@@ -95,7 +107,8 @@
   }
 
   .leads-grid {
-    grid-row: 4 / 5;
+    grid-row: 5/6;
+    padding-bottom: 8px;
   }
 }
 
