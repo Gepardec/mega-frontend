@@ -47,7 +47,7 @@ describe('LeadsComponent', () => {
 
   });
 
-  function assertMonthlyReportRow(rowNumber: number, expectedHeader: string, expectedVal: string,) {
+  function assertMonthlyReportRow(rowNumber: number, expectedHeader: string, expectedVal: string) {
     const tr = fixture.debugElement.query(By.css(`.mat-mdc-row:nth-child(${rowNumber})`));
 
     const header = tr.query(By.css('.mat-column-description')).nativeElement.innerText.trim();

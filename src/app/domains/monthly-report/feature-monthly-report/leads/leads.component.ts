@@ -1,13 +1,12 @@
 import {Component, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
-import {GeneralInfoData, MonthlyReport} from '@mega/monthly-report/data-model';
+import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import {Subscription, zip} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {toMonthYearString} from '@mega/shared/util-common';
-import {TranslateModule} from '@ngx-translate/core';
 import {MatTableModule} from '@angular/material/table';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
-import {DecimalPipe, NgIf} from '@angular/common';
+import {NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {LeadsData} from '../../data-model/LeadsData';
 
