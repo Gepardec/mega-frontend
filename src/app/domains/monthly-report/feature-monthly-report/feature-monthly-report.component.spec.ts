@@ -126,6 +126,8 @@ describe('FeatureMonthlyReportComponent', () => {
       vacationDayBalance: 0,
       overtime: 3,
       prematureEmployeeCheck: undefined,
+      guildLead: 'Guild Lead',
+      internalProjectLead: 'Internal Project Lead'
     };
   }
 
