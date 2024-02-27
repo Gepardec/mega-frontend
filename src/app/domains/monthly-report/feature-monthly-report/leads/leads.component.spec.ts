@@ -42,8 +42,8 @@ describe('LeadsComponent', () => {
 
     fixture.detectChanges();
 
-    assertMonthlyReportRow(1, 'Guild Lead', 'Guild Lead');
-    assertMonthlyReportRow(2, 'Internal Project Lead', 'Internal Project Lead');
+    assertMonthlyReportRow(1, 'Gilden-Lead', 'Guild Lead');
+    assertMonthlyReportRow(2, 'Interner Projektleiter', 'Internal Project Lead');
 
   });
 

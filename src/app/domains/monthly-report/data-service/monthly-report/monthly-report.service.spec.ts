@@ -88,6 +88,8 @@ describe('MonthlyReportService', () => {
       vacationDayBalance: 10,
       overtime: 4,
       prematureEmployeeCheck: undefined,
+      guildLead: 'Guild Lead',
+      internalProjectLead: 'Internal Project Lead'
     };
   }
 });
