@@ -15,7 +15,7 @@
 
     <ngx-skeleton-loader *ngIf="!monthlyReport else table"
                          appearance="line"
-                         count="6"></ngx-skeleton-loader>
+                         count="2"></ngx-skeleton-loader>
     <ng-template #table>
       <mat-table [dataSource]="toLeadsData()" class="mat-elevation-z1 table-container">
 
