@@ -33,7 +33,7 @@ jobs:
           image: mega-frontend
           registry: ghcr.io
           username: ${{ github.repository }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           dockerfile: Containerfile
           addLatest: true
           tags: ${{ steps.vars.outputs.sha_short }},latest
