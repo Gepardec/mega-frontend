@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   readonly links = new Array<Link>();
   readonly assetsPath = '../../../../../assets/';
-  readonly logoMega = 'logo-MEGA.png';
+  readonly logoMega = 'logo-MEGA-new.png';
   readonly zepLogo = 'zep-eye.png';
 
   user: User;
