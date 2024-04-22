@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from "@mega/shared/data-service";
-import {Employee, User} from "@mega/shared/data-model";
+import {Component, Input} from '@angular/core';
+import {Employee} from "@mega/shared/data-model";
 import {BillData} from "../../data-model/BillData";
 import {BillService} from "../../../shared/data-service/bill/bill.service";
 

@@ -24,5 +24,9 @@
     <app-leads
       [monthlyReport]="monthlyReport"
       [ngClass]="'leads-grid'" />
+
+    <app-bills
+      [employee]="monthlyReport.employee" /> <!-- TODO add [ngClass] -->
+
   </div>
 </div>
