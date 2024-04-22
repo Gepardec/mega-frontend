@@ -1,7 +1,7 @@
 import {PaymentMethodType} from "../../shared/data-model/PaymentMethodType";
 
 export interface BillData {
-  billDate: Date,
+  billDate: string,
   bruttoValue: number,
   billType: string,
   paymentMethodType: PaymentMethodType,
