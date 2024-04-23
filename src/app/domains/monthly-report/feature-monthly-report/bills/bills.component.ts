@@ -26,12 +26,13 @@ import {MatButtonModule} from "@angular/material/button";
   ],
   standalone: true
 })
-export class BillsComponent implements OnInit {
 
+export class BillsComponent implements OnInit {
   // to avoid calling REST before employeeId is present
   private _employee: Employee;
   bills: Array<BillData>;
   displayedColumns: string[];
+  protected readonly PaymentMethodType = PaymentMethodType;
 
   constructor(private billService: BillService) {
   }
@@ -60,11 +61,13 @@ export class BillsComponent implements OnInit {
       .subscribe(resultBillList => {
           this.bills = resultBillList;
           this.displayedColumns = ['billDate', 'bruttoValue', 'billType', 'paymentMethodType', 'projectName'];
+          // adds 'downloadButton' if at least one bill has an attachment
           this.updateDisplayedColumns();
         }
       )
   }
 
+  // only show the button column if there is at least one bill with attachment
   showDownloadButton(): boolean {
     return this.bills.some(bill => bill.attachmentBase64String !== null);
   }
@@ -72,6 +75,7 @@ export class BillsComponent implements OnInit {
   downloadPDF(attachmentBase64String: string) {
     let base64String = attachmentBase64String;
 
+    // check whether we need to prepend the data type or not for pdf
     if (attachmentBase64String.startsWith("JVB")) {
       base64String = "data:application/pdf;base64," + base64String;
       this.downloadFileObject(base64String);
@@ -86,6 +90,7 @@ export class BillsComponent implements OnInit {
   downloadFileObject(base64String: string) {
     const downloadLink = document.createElement("a");
     downloadLink.href = base64String;
+    // fileName
     downloadLink.download = "RechnungAlsPdf.pdf";
     downloadLink.click();
   }
@@ -104,5 +109,5 @@ export class BillsComponent implements OnInit {
     }
   }
 
-  protected readonly PaymentMethodType = PaymentMethodType;
+
 }
