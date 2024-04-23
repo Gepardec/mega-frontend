@@ -1,4 +1,4 @@
-<ng-container *ngIf="bills && bills.length > 0">
+<ng-container *ngIf="true">
   <mat-card appearance="raised" class="fill-parent">
     <mat-card-header>
       <mat-card-title>
@@ -12,6 +12,14 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      <ng-container *ngIf="!bills; else billData">
+        <ngx-skeleton-loader [theme]="{ height: '56px' }"
+                             appearance="line"></ngx-skeleton-loader>
+        <ngx-skeleton-loader [theme]="{ height: '75px' }"
+                             appearance="line"></ngx-skeleton-loader>
+      </ng-container>
+
+      <ng-template #billData>
         <mat-table [dataSource]="bills" class="mat-elevation-z1">
 
           <ng-container matColumnDef="billDate">
@@ -48,7 +56,7 @@
               <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billAsFile' | translate }}</mat-header-cell>
               <mat-cell *matCellDef="let bill">
                 <ng-container *ngIf="bill.attachmentBase64String">
-                  <button class="mt-10" color='primary' mat-raised-button (click)="downloadPDF(bill.attachmentBase64String)">
+                  <button class="mt-10 mb-10" color='primary' mat-raised-button (click)="downloadPDF(bill.attachmentBase64String)">
                     {{ 'monthly-report.bills.downloadBill' | translate }}
                   </button>
                 </ng-container>
@@ -59,10 +67,10 @@
             </ng-container>
           </ng-container>
 
-
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
+      </ng-template>
     </mat-card-content>
   </mat-card>
 </ng-container>

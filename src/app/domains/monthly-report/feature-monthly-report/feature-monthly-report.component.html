@@ -21,13 +21,13 @@
       [monthlyReport]="monthlyReport"
       [ngClass]="'journey-check-grid'" />
 
+    <app-bills
+      [employee]="monthlyReport?.employee"
+      [ngClass]="'bills-grid'"/>
+
     <app-leads
       [monthlyReport]="monthlyReport"
       [ngClass]="'leads-grid'" />
-
   </div>
-  <app-bills
-    [employee]="monthlyReport?.employee"
-    [ngClass]="'bills-grid'"/>
-
 </div>
+
