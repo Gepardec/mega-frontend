@@ -79,7 +79,8 @@
       "emc": "Status zum Monatsabschluss",
       "journey": "MEGA Reisen Check",
       "time": "MEGA Zeiten Check",
-      "general-info": "Info"
+      "general-info": "Info",
+      "bills": "Rechnungen"
     },
     "table": {
       "time": {
@@ -90,6 +91,16 @@
         "day": "Tag",
         "warning": "Warnung"
       }
+    },
+    "bills": {
+      "billDate": "Rechnungsdatum",
+      "bruttoValue": "Bruttobetrag",
+      "billType": "Rechnungsart",
+      "paymentMethodType": "Zahlungsart",
+      "projectName": "Projektname",
+      "billAsFile": "Rechnung",
+      "downloadBill": "Rechnung herunterladen",
+      "noBillAvailable": "Keine Rechnung vorhanden"
     },
     "generalInfo": {
       "workingTime": "Gesamte Arbeitszeit",

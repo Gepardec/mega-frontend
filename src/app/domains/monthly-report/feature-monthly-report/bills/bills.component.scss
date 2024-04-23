@@ -1,0 +1,15 @@
+.mat-card {
+  width: 100%; /* volle Breite für die Card */
+  border-radius: 0; /* optional: keine abgerundeten Ecken für die Card */
+
+  .mat-card-header {
+    background-color: #f0f0f0; /* Hintergrundfarbe des Headers anpassen */
+    width: 100%; /* volle Breite für den Header */
+    border-top-left-radius: 0; /* optional: keine abgerundeten Ecken für den Header */
+    border-top-right-radius: 0; /* optional: keine abgerundeten Ecken für den Header */
+  }
+
+  .mat-card-content {
+    padding: 16px; /* optional: Abstand für den Content */
+  }
+}
