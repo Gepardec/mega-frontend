@@ -28,7 +28,7 @@ export class OfficeManagementService {
 
     return this.httpClient.get<Array<ManagementEntry>>(
       this.configService.getBackendUrlWithContext('/management/officemanagemententries/' + year + '/' + month),
-      {params}
+      {params},
     );
   }
 

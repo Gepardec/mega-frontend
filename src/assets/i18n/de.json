@@ -80,7 +80,7 @@
       "journey": "MEGA Reisen Check",
       "time": "MEGA Zeiten Check",
       "general-info": "Info",
-      "bills": "Rechnungen"
+      "bills": "Belege"
     },
     "table": {
       "time": {
@@ -93,14 +93,15 @@
       }
     },
     "bills": {
-      "billDate": "Rechnungsdatum",
+      "billDate": "Belegdatum",
       "bruttoValue": "Bruttobetrag",
-      "billType": "Rechnungsart",
+      "billType": "Belegart",
       "paymentMethodType": "Zahlungsart",
       "projectName": "Projektname",
-      "billAsFile": "Rechnung",
-      "downloadBill": "Rechnung herunterladen",
-      "noBillAvailable": "Keine Rechnung vorhanden"
+      "billAsFile": "Beleg",
+      "downloadBill": "Herunterladen",
+      "noBillAvailable": "Kein Beleg vorhanden",
+      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege vorhanden."
     },
     "generalInfo": {
       "workingTime": "Gesamte Arbeitszeit",

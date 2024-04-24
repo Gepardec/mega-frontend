@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {ConfigService} from "@mega/shared/data-service";
 import {Observable} from "rxjs";
 import {BillData} from "../../../monthly-report/data-model/BillData";
@@ -15,9 +15,12 @@ export class BillService {
   ) {
   }
 
-  getBillsForEmployee(employeeId: string): Observable<Array<BillData>> {
+  getBillsForEmployee(employeeId: string, year: number, month: number): Observable<Array<BillData>> {
+    let dateString = `${year}-${month.toString().padStart(2, '0')}`;
+    let params = new HttpParams().set('from', dateString);
     return this.httpClient.get<Array<BillData>>(
-      this.config.getBackendUrlWithContext('/employees/' + employeeId + '/bills')
+      this.config.getBackendUrlWithContext('/employees/' + employeeId + '/bills'),
+      {params}
     );
   }
 }

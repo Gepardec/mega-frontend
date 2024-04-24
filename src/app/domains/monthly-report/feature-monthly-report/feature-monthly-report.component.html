@@ -21,8 +21,8 @@
       [monthlyReport]="monthlyReport"
       [ngClass]="'journey-check-grid'" />
 
-    <app-bills
-      [employee]="monthlyReport?.employee"
+    <app-bills *ngIf="monthlyReport?.employee"
+      [employee]="monthlyReport.employee"
       [ngClass]="'bills-grid'"/>
 
     <app-leads

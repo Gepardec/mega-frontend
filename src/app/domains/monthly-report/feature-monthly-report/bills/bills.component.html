@@ -1,4 +1,3 @@
-<ng-container *ngIf="true">
   <mat-card appearance="raised" class="fill-parent">
     <mat-card-header>
       <mat-card-title>
@@ -11,7 +10,7 @@
 
       </mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content [class.no-warnings]="bills?.length === 0">
       <ng-container *ngIf="!bills; else billData">
         <ngx-skeleton-loader [theme]="{ height: '56px' }"
                              appearance="line"></ngx-skeleton-loader>
@@ -20,60 +19,66 @@
       </ng-container>
 
       <ng-template #billData>
-        <mat-table [dataSource]="bills" class="mat-elevation-z1">
+        <ng-container *ngIf="bills?.length === 0; else billsTable">
+          <app-state-indicator [state]="State.DONE" size="large"></app-state-indicator>
+          <p>{{'monthly-report.bills.noBillsForThisMonthAvailable' | translate}}</p>
+        </ng-container>
 
-          <ng-container matColumnDef="billDate">
-            <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billDate' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ bill.billDate | date:'dd.MM.yyyy'}}</mat-cell>
-          </ng-container>
+        <ng-template #billsTable>
+          <mat-table [dataSource]="bills" class="mat-elevation-z1">
 
-
-          <ng-container matColumnDef="bruttoValue">
-            <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.bruttoValue' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ bill.bruttoValue | currency: 'EUR' }}</mat-cell>
-          </ng-container>
-
-
-          <ng-container matColumnDef="billType">
-            <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billType' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ bill.billType }}</mat-cell>
-          </ng-container>
-
-
-          <ng-container matColumnDef="paymentMethodType">
-            <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.paymentMethodType' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ PaymentMethodType[bill.paymentMethodType] }}</mat-cell>
-          </ng-container>
-
-
-          <ng-container matColumnDef="projectName">
-            <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.projectName' | translate}}</mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ bill.projectName }}</mat-cell>
-          </ng-container>
-
-          <ng-container *ngIf="showDownloadButton()">
-            <ng-container matColumnDef="downloadButton">
-              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billAsFile' | translate }}</mat-header-cell>
-              <mat-cell *matCellDef="let bill">
-                <ng-container *ngIf="bill.attachmentBase64String">
-                  <button class="mt-10 mb-10" color='primary' mat-raised-button (click)="downloadPDF(bill.attachmentBase64String)">
-                    {{ 'monthly-report.bills.downloadBill' | translate }}
-                  </button>
-                </ng-container>
-                <ng-container *ngIf="!bill.attachmentBase64String">
-                  {{'monthly-report.bills.noBillAvailable' | translate }}
-                </ng-container>
-              </mat-cell>
+            <ng-container matColumnDef="billDate">
+              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billDate' | translate}}</mat-header-cell>
+              <mat-cell *matCellDef="let bill">{{ bill.billDate | date:'dd.MM.yyyy'}}</mat-cell>
             </ng-container>
-          </ng-container>
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-        </mat-table>
+            <ng-container matColumnDef="bruttoValue">
+              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.bruttoValue' | translate}}</mat-header-cell>
+              <mat-cell *matCellDef="let bill">{{ bill.bruttoValue | currency: 'EUR' }}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="billType">
+              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billType' | translate}}</mat-header-cell>
+              <mat-cell *matCellDef="let bill">{{ bill.billType }}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="paymentMethodType">
+              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.paymentMethodType' | translate}}</mat-header-cell>
+              <mat-cell *matCellDef="let bill">{{ PaymentMethodType[bill.paymentMethodType] }}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="projectName">
+              <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.projectName' | translate}}</mat-header-cell>
+              <mat-cell *matCellDef="let bill">{{ bill.projectName }}</mat-cell>
+            </ng-container>
+
+            <ng-container *ngIf="showDownloadButton()">
+              <ng-container matColumnDef="downloadButton">
+                <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billAsFile' | translate }}</mat-header-cell>
+                <mat-cell *matCellDef="let bill">
+                  <ng-container *ngIf="bill.attachmentBase64String">
+                    <button class="mt-10 mb-10" color='primary' mat-raised-button (click)="downloadPDF(bill)">
+                      {{ 'monthly-report.bills.downloadBill' | translate }}
+                    </button>
+                  </ng-container>
+                  <ng-container *ngIf="!bill.attachmentBase64String">
+                    {{'monthly-report.bills.noBillAvailable' | translate }}
+                  </ng-container>
+                </mat-cell>
+              </ng-container>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+        </ng-template>
+
       </ng-template>
     </mat-card-content>
   </mat-card>
-</ng-container>
 
 

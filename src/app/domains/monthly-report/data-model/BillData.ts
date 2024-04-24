@@ -6,5 +6,6 @@ export interface BillData {
   billType: string,
   paymentMethodType: PaymentMethodType,
   projectName: string,
-  attachmentBase64String: string
+  attachmentBase64String: string,
+  attachmentFileName: string
 }
