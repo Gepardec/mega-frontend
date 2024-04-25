@@ -1,4 +1,4 @@
-import {Component, DestroyRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
+import {Component, DestroyRef, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Employee, State} from "@mega/shared/data-model";
 import {BillData} from "../../data-model/BillData";
 import {BillService} from "../../../shared/data-service/bill/bill.service";
@@ -10,10 +10,8 @@ import {MatTableModule} from "@angular/material/table";
 import {PaymentMethodType} from "../../../shared/data-model/PaymentMethodType";
 import {MatButtonModule} from "@angular/material/button";
 import {StateIndicatorComponent} from "@mega/shared/ui-common";
-import {BehaviorSubject, combineLatest, distinctUntilChanged, Subject} from "rxjs";
 import {MonthlyReportService} from "@mega/monthly-report/data-service";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
-import {map} from "rxjs/operators";
 import {MatIconModule} from "@angular/material/icon";
 
 @Component({
@@ -35,7 +33,7 @@ import {MatIconModule} from "@angular/material/icon";
   standalone: true
 })
 
-export class BillsComponent implements OnChanges{
+export class BillsComponent implements OnChanges {
   // to avoid calling REST before employeeId is present
   @Input({required: true})
   employee: Employee;
@@ -46,11 +44,11 @@ export class BillsComponent implements OnChanges{
   constructor(private billService: BillService, private destroyRef: DestroyRef, private monthlyReportService: MonthlyReportService) {
   }
 
-  ngOnChanges(changes:SimpleChanges) {
+  ngOnChanges(changes: SimpleChanges) {
     console.log(changes.employee.currentValue)
     this.bills = null;
     const currentEmployee = changes.employee.currentValue as Employee;
-    if(currentEmployee?.userId) {
+    if (currentEmployee?.userId) {
       this.getBillsForEmployee(currentEmployee.userId, this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
     }
   }
@@ -82,11 +80,9 @@ export class BillsComponent implements OnChanges{
     if (base64String.startsWith("JVB")) {
       base64String = "data:application/pdf;base64," + base64String;
       this.downloadFileObject(base64String, bill.attachmentFileName);
-    }
-    else if (base64String.startsWith("data:application/pdf;base64")) {
+    } else if (base64String.startsWith("data:application/pdf;base64")) {
       this.downloadFileObject(base64String, bill.attachmentFileName);
-    }
-    else {
+    } else {
       alert("Not a valid Base64 PDF string. Please check");
     }
   }
@@ -105,15 +101,13 @@ export class BillsComponent implements OnChanges{
         // Add downloadButton column to displayedColumns if it's not already present
         this.displayedColumns.push('downloadButton');
       }
-    }
-    else {
+    } else {
       if (this.displayedColumns.includes('downloadButton')) {
         // Remove downloadButton column from displayedColumns if it's present
         this.displayedColumns = this.displayedColumns.filter(column => column !== 'downloadButton');
       }
     }
   }
-
 
   protected readonly State = State;
 }

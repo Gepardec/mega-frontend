@@ -1,25 +1,25 @@
 <div [ngClass]="'fill-parent'">
   <app-information-top-bar
     [monthlyReport]="monthlyReport"
-    (refreshMonthlyReport)="emitRefreshMonthlyReport()" />
+    (refreshMonthlyReport)="emitRefreshMonthlyReport()"/>
 
   <div [ngClass]="'mega-dash-grid'">
     <app-time-check
       [monthlyReport]="monthlyReport"
-      [ngClass]="'time-check-grid'" />
+      [ngClass]="'time-check-grid'"/>
 
     <app-employee-check
       (refreshMonthlyReport)="emitRefreshMonthlyReport()"
       [monthlyReport]="monthlyReport"
-      [ngClass]="'employee-check-grid'" />
+      [ngClass]="'employee-check-grid'"/>
 
     <app-general-info
       [monthlyReport]="monthlyReport"
-      [ngClass]="'general-info-grid'" />
+      [ngClass]="'general-info-grid'"/>
 
     <app-journey-check
       [monthlyReport]="monthlyReport"
-      [ngClass]="'journey-check-grid'" />
+      [ngClass]="'journey-check-grid'"/>
 
     <app-bills
       [employee]="monthlyReport?.employee"
@@ -27,7 +27,7 @@
 
     <app-leads
       [monthlyReport]="monthlyReport"
-      [ngClass]="'leads-grid'" />
+      [ngClass]="'leads-grid'"/>
   </div>
 </div>
 
