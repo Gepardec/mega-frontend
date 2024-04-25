@@ -23,7 +23,10 @@
     "99": "Reisezeiten"
   },
   "notifications": {
-    "employeesUpdatedSuccess": "Mitarbeiter erfolgreich aktualisiert"
+    "employeesUpdatedSuccess": "Mitarbeiter erfolgreich aktualisiert",
+    "errors": {
+      "noValidBase64": "Kein valides PDF. Bitte überprüfen."
+    }
   },
   "login": {
     "cardTitle": "Login",

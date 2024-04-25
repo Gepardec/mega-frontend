@@ -5,7 +5,7 @@ import {BillService} from "../../../shared/data-service/bill/bill.service";
 import {MatCardModule} from "@angular/material/card";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 import {CurrencyPipe, DatePipe, NgIf} from "@angular/common";
-import {TranslateModule} from "@ngx-translate/core";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {MatTableModule} from "@angular/material/table";
 import {PaymentMethodType} from "../../../shared/data-model/PaymentMethodType";
 import {MatButtonModule} from "@angular/material/button";
@@ -41,7 +41,7 @@ export class BillsComponent implements OnChanges {
   displayedColumns: string[];
   protected readonly PaymentMethodType = PaymentMethodType;
 
-  constructor(private billService: BillService, private destroyRef: DestroyRef, private monthlyReportService: MonthlyReportService) {
+  constructor(private billService: BillService, private destroyRef: DestroyRef, private monthlyReportService: MonthlyReportService, private translateService: TranslateService) {
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -83,7 +83,9 @@ export class BillsComponent implements OnChanges {
     } else if (base64String.startsWith("data:application/pdf;base64")) {
       this.downloadFileObject(base64String, bill.attachmentFileName);
     } else {
-      alert("Not a valid Base64 PDF string. Please check");
+      this.translateService.get("notifications.errors.noValidBase64").subscribe(alertString =>
+        alert(alertString)
+      );
     }
   }
 
