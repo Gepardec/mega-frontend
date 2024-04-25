@@ -71,7 +71,7 @@ export class DatepickerMonthYearComponent implements OnChanges, OnInit {
     this.dateControl.setValue(ctrlValue);
   }
 
-  chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<any>) {
+   chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<any>) {
     const ctrlValue = this.dateControl.value;
     ctrlValue.year(normalizedMonth.year());
     ctrlValue.month(normalizedMonth.month());

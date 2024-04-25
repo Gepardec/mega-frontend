@@ -1,0 +1,31 @@
+@import 'styles/colors';
+
+.mat-card {
+  width: 100%;
+  border-radius: 0;
+
+  .mat-card-header {
+    background-color: #f0f0f0;
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+.no-warnings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.downloadBtn {
+  color: $gepardec-yellow;
+}
+
+.downloadBtn:hover {
+  cursor: pointer;
+}
+
+
+
