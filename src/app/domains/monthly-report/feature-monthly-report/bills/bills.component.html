@@ -56,9 +56,6 @@
               <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billAsFile' | translate }}</mat-header-cell>
               <mat-cell *matCellDef="let bill">
                 <ng-container *ngIf="bill.attachmentBase64String">
-                  <!--<button class="mt-10 mb-10" color='primary' mat-raised-button (click)="downloadPDF(bill)">
-                    {{ 'monthly-report.bills.downloadBill' | translate }}
-                  </button>-->
                   <mat-icon class="downloadBtn" (click)="downloadPDF(bill)">get_app</mat-icon>
                 </ng-container>
                 <ng-container *ngIf="!bill.attachmentBase64String">
