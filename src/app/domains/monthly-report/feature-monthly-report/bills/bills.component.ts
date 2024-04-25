@@ -14,6 +14,7 @@ import {BehaviorSubject, combineLatest, distinctUntilChanged, Subject} from "rxj
 import {MonthlyReportService} from "@mega/monthly-report/data-service";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {map} from "rxjs/operators";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-bills',
@@ -28,7 +29,8 @@ import {map} from "rxjs/operators";
     CurrencyPipe,
     DatePipe,
     MatButtonModule,
-    StateIndicatorComponent
+    StateIndicatorComponent,
+    MatIconModule
   ],
   standalone: true
 })

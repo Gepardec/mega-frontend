@@ -1,3 +1,5 @@
+@import 'styles/colors';
+
 .mat-card {
   width: 100%;
   border-radius: 0;
@@ -16,5 +18,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.downloadBtn {
+  color: $gepardec-yellow;
+}
+
+.downloadBtn:hover {
+  cursor: pointer;
+}
+
 
 
