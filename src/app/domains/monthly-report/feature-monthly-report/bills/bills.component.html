@@ -1,17 +1,11 @@
   <mat-card appearance="raised" class="fill-parent">
     <mat-card-header>
       <mat-card-title>
-        <ngx-skeleton-loader *ngIf="!bills else title"
-                             [theme]="{ height: '30px', width: '250px' }"
-                             appearance="line"></ngx-skeleton-loader>
-        <ng-template #title>
           {{ 'monthly-report.title.bills' | translate }}
-        </ng-template>
-
       </mat-card-title>
     </mat-card-header>
     <mat-card-content [class.no-warnings]="bills?.length === 0">
-      <ng-container *ngIf="!bills; else billData">
+      <ng-container *ngIf="!bills else billData">
         <ngx-skeleton-loader [theme]="{ height: '56px' }"
                              appearance="line"></ngx-skeleton-loader>
         <ngx-skeleton-loader [theme]="{ height: '75px' }"
@@ -19,7 +13,7 @@
       </ng-container>
 
       <ng-template #billData>
-        <ng-container *ngIf="bills?.length === 0; else billsTable">
+        <ng-container *ngIf="!bills || bills?.length === 0; else billsTable">
           <app-state-indicator [state]="State.DONE" size="large"></app-state-indicator>
           <p>{{'monthly-report.bills.noBillsForThisMonthAvailable' | translate}}</p>
         </ng-container>
