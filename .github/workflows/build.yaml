@@ -1,6 +1,9 @@
 name: Build and publish image
 
 on:
+  push:
+      branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -23,6 +26,7 @@ jobs:
             ${{ runner.os }}-
 
       - uses: nelonoel/branch-name@v1.0.1
+
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
@@ -33,9 +37,9 @@ jobs:
         with:
           image: mega-frontend
           registry: ghcr.io
+          dockerfile: Containerfile
+          buildArgs: BRANCH=${BRANCH_NAME},COMMIT=${{ steps.vars.outputs.sha_short }},VERSION=${{ steps.vars.outputs.sha_short }}
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          dockerfile: Containerfile
-          addLatest: true
-          tags: ${{ steps.vars.outputs.sha_short }},latest
-          buildArgs: BRANCH=${BRANCH_NAME},COMMIT=${{ steps.vars.outputs.sha_short }},VERSION=${{ steps.vars.outputs.sha_short }}
+#          addLatest: true
+#          tags: ${{ steps.vars.outputs.sha_short }},latest
