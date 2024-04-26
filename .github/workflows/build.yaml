@@ -26,7 +26,7 @@ jobs:
             ${{ runner.os }}-
 
       - uses: nelonoel/branch-name@v1.0.1
-
+      
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
