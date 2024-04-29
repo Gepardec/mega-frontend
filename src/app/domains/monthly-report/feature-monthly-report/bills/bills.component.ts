@@ -1,6 +1,5 @@
 import {Component, DestroyRef, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {Employee, State} from "@mega/shared/data-model";
-import {BillData} from "../../data-model/BillData";
 import {BillService} from "../../../shared/data-service/bill/bill.service";
 import {MatCardModule} from "@angular/material/card";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
@@ -13,6 +12,7 @@ import {StateIndicatorComponent} from "@mega/shared/ui-common";
 import {MonthlyReportService} from "@mega/monthly-report/data-service";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 import {MatIconModule} from "@angular/material/icon";
+import {BillData} from "../../data-model/BillData";
 
 @Component({
   selector: 'app-bills',
