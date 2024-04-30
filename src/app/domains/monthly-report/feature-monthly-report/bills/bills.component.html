@@ -51,7 +51,6 @@
             <mat-cell *matCellDef="let bill">{{ bill.projectName }}</mat-cell>
           </ng-container>
 
-          <!--<ng-container *ngIf="showDownloadButton()"> -->
             <ng-container matColumnDef="downloadButton">
               <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.billAsFile' | translate }}</mat-header-cell>
               <mat-cell *matCellDef="let bill">
@@ -63,7 +62,6 @@
                 </ng-container>
               </mat-cell>
             </ng-container>
-          <!--</ng-container> -->
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
