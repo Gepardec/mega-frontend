@@ -59,7 +59,7 @@
                   <mat-icon class="downloadBtn" (click)="downloadPDF(bill)">get_app</mat-icon>
                 </ng-container>
                 <ng-container *ngIf="!bill.attachmentBase64String">
-                  {{ 'monthly-report.bills.noBillAvailable' | translate }}
+                  <app-state-indicator size="small"></app-state-indicator>
                 </ng-container>
               </mat-cell>
             </ng-container>

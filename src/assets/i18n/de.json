@@ -103,7 +103,6 @@
       "projectName": "Projektname",
       "billAsFile": "Beleg",
       "downloadBill": "Herunterladen",
-      "noBillAvailable": "nicht vorhanden",
       "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege vorhanden."
     },
     "generalInfo": {
