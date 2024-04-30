@@ -61,17 +61,11 @@ export class BillsComponent implements OnChanges {
       )
       .subscribe(resultBillList => {
           this.bills = resultBillList;
-          this.displayedColumns = ['billDate', 'bruttoValue', 'billType', 'paymentMethodType', 'projectName'];
-          // adds 'downloadButton' if at least one bill has an attachment
-          this.updateDisplayedColumns();
+          this.displayedColumns = ['billDate', 'bruttoValue', 'billType', 'paymentMethodType', 'projectName', 'downloadButton'];
         }
       )
   }
 
-  // only show the button column if there is at least one bill with attachment
-  showDownloadButton(): boolean {
-    return this.bills.some(bill => bill.attachmentBase64String !== null);
-  }
 
   downloadPDF(bill: BillData) {
     let base64String = bill.attachmentBase64String;
@@ -95,20 +89,6 @@ export class BillsComponent implements OnChanges {
     // fileName for the pdf
     downloadLink.download = attachmentFilename;
     downloadLink.click();
-  }
-
-  updateDisplayedColumns() {
-    if (this.showDownloadButton()) {
-      if (!this.displayedColumns.includes('downloadButton')) {
-        // Add downloadButton column to displayedColumns if it's not already present
-        this.displayedColumns.push('downloadButton');
-      }
-    } else {
-      if (this.displayedColumns.includes('downloadButton')) {
-        // Remove downloadButton column from displayedColumns if it's present
-        this.displayedColumns = this.displayedColumns.filter(column => column !== 'downloadButton');
-      }
-    }
   }
 
   protected readonly State = State;
