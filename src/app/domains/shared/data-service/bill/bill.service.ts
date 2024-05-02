@@ -21,7 +21,7 @@ export class BillService {
     let params = new HttpParams().set('from', dateString);
 
     return this.httpClient.get<Array<BillData>>(
-      this.config.getBackendUrlWithContext('/employees/' + employeeId + '/bills'),
+      this.config.getBackendUrlWithContext('/worker/' + employeeId + '/bills'),
       {params}
     );
   }
