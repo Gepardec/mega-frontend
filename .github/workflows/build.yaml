@@ -2,7 +2,7 @@ name: Build and publish image
 
 on:
   push:
-      branches:
+    branches:
       - main
   workflow_dispatch:
 
@@ -26,12 +26,13 @@ jobs:
             ${{ runner.os }}-
 
       - uses: nelonoel/branch-name@v1.0.1
-      
+
       - name: Set outputs
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-#build the image and push it to the registry
+
+      #build the image and push it to the registry
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: push-container-image
         with:
@@ -41,4 +42,5 @@ jobs:
           buildArgs: BRANCH=${BRANCH_NAME},COMMIT=${{ steps.vars.outputs.sha_short }},VERSION=${{ steps.vars.outputs.sha_short }}
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          # if the branch is main, add the latest tag
           addLatest: ${{ github.ref == 'refs/heads/main' }}
