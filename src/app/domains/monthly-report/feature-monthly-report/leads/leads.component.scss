@@ -1,0 +1,20 @@
+.mat-column-description {
+  flex: 0 0 50%;
+}
+
+.mat-column-value {
+  flex: 0 0 50%;
+  justify-content: right;
+  padding-right: 8px;
+}
+
+.mat-mdc-table {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 8px;
+}
+
+.mat-mdc-header-cell {
+  height: 0;
+}
+

@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, combineLatest, distinctUntilChanged, Observable, shareReplay} from 'rxjs';
 import {ConfigService} from '@mega/shared/data-service';
 import * as _moment from 'moment';
+import {map} from "rxjs/operators";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 const moment = _moment;
 
@@ -16,6 +18,7 @@ export class MonthlyReportService {
 
   selectedYear = new BehaviorSubject<number>(moment().year());
   selectedMonth = new BehaviorSubject<number>(moment().month());
+
 
   billablePercentage: number;
   totalWorkingTimeHours: number;

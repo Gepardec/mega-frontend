@@ -31,6 +31,7 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+
       #build the image and push it to the registry
       - uses: mr-smithers-excellent/docker-build-push@v5
         name: push-container-image

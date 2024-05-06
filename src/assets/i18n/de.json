@@ -23,7 +23,10 @@
     "99": "Reisezeiten"
   },
   "notifications": {
-    "employeesUpdatedSuccess": "Mitarbeiter erfolgreich aktualisiert"
+    "employeesUpdatedSuccess": "Mitarbeiter erfolgreich aktualisiert",
+    "errors": {
+      "noValidBase64": "Kein valides PDF. Bitte überprüfen."
+    }
   },
   "login": {
     "cardTitle": "Login",
@@ -79,7 +82,8 @@
       "emc": "Status zum Monatsabschluss",
       "journey": "MEGA Reisen Check",
       "time": "MEGA Zeiten Check",
-      "general-info": "Info"
+      "general-info": "Info",
+      "bills": "ZEP-Belege"
     },
     "table": {
       "time": {
@@ -90,6 +94,16 @@
         "day": "Tag",
         "warning": "Warnung"
       }
+    },
+    "bills": {
+      "billDate": "Belegdatum",
+      "bruttoValue": "Bruttobetrag",
+      "billType": "Belegart",
+      "paymentMethodType": "Zahlungsart",
+      "projectName": "Projektname",
+      "billAsFile": "Beleg",
+      "downloadBill": "Herunterladen",
+      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege vorhanden."
     },
     "generalInfo": {
       "workingTime": "Gesamte Arbeitszeit",
