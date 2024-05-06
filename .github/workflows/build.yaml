@@ -41,4 +41,5 @@ jobs:
           buildArgs: BRANCH=${BRANCH_NAME},COMMIT=${{ steps.vars.outputs.sha_short }},VERSION=${{ steps.vars.outputs.sha_short }}
           username: ${{ github.repository }}
           password: ${{ secrets.GITHUB_TOKEN }}
+          # if the branch is main, add the latest tag
           addLatest: ${{ github.ref == 'refs/heads/main' }}
