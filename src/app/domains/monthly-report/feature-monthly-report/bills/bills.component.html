@@ -42,7 +42,7 @@
           <ng-container matColumnDef="paymentMethodType">
             <mat-header-cell *matHeaderCellDef>{{ 'monthly-report.bills.paymentMethodType' | translate }}
             </mat-header-cell>
-            <mat-cell *matCellDef="let bill">{{ PaymentMethodType[bill.paymentMethodType] }}</mat-cell>
+            <mat-cell *matCellDef="let bill">{{ bill.paymentMethodType }}</mat-cell>
           </ng-container>
 
 
