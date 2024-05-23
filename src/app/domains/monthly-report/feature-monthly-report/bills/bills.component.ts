@@ -45,7 +45,6 @@ export class BillsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes.employee.currentValue)
     this.bills = null;
     const currentEmployee = changes.employee.currentValue as Employee;
     if (currentEmployee?.userId) {
