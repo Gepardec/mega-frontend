@@ -19,13 +19,45 @@
   align-items: center;
 }
 
-.downloadBtn {
-  color: $gepardec-black;
+.summary-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.downloadBtn:hover {
-  cursor: pointer;
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-right: 16px;
+}
+
+.summary-value {
+  display: flex;
+  align-items: center;
+}
+
+.summary-value {
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
 }
 
 
+.mat-column-icon {
+  flex: 0 0 5%;
+  justify-content: right;
+}
 
+.mat-column-value {
+  flex: 0 0 10%;
+  justify-content: flex-start;
+}
+
+.credit-card-warning {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 18px;
+  margin-bottom: 8px;
+
+}
