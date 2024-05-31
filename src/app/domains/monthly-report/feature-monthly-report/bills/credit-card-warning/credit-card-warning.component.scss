@@ -1,0 +1,23 @@
+.credit-card-container {
+  background-color: rgba(251, 140, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  max-height: 50px;
+  margin-bottom: 8px;
+}
+
+.icon-container {
+  margin-right: 12px;
+}
+
+.credit-card-container .icon-container app-state-indicator::ng-deep mat-icon {
+  color: orange;
+}
+
+.text-container {
+  color: rgba(251, 140, 0, 1);
+  text-align: center;
+}
