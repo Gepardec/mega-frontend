@@ -44,7 +44,7 @@
       </div>
     </ng-template>
 
-    <div *ngIf=" billInfo && billInfo.employeeHasCreditCard === false" class="credit-card-warning">
+    <div *ngIf=" billInfo && billInfo.employeeHasCreditCard" class="credit-card-warning">
       <app-credit-card-warning></app-credit-card-warning>
     </div>
   </mat-card-content>
