@@ -1,4 +1,4 @@
-<mat-card appearance="raised" class="fill-parent">
+<mat-card appearance="raised" class="fill-parent bills-card">
   <mat-card-header>
     <mat-card-title>
       <ngx-skeleton-loader *ngIf="!billInfo else title"
@@ -52,7 +52,10 @@
       </div>
     </ng-container>
 
-    <div *ngIf=" billInfo && billInfo.employeeHasCreditCard" class="credit-card-warning">
+    <ng-container *ngIf="!billInfo && billInfo?.employeeHasCreditCard">
+      <ngx-skeleton-loader [theme]="{ height: '46px' }"></ngx-skeleton-loader>
+    </ng-container>
+    <div *ngIf=" billInfo && billInfo?.employeeHasCreditCard" class="credit-card-warning">
       <app-credit-card-warning></app-credit-card-warning>
     </div>
   </mat-card-content>
