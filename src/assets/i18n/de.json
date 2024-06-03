@@ -97,13 +97,7 @@
     },
     "bills": {
       "billDate": "Belegdatum",
-      "bruttoValue": "Bruttobetrag",
-      "billType": "Belegart",
-      "paymentMethodType": "Zahlungsart",
-      "projectName": "Projektname",
-      "billAsFile": "Beleg",
-      "downloadBill": "Herunterladen",
-      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege vorhanden."
+      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege in ZEP vorhanden."
     },
     "generalInfo": {
       "workingTime": "Gesamte Arbeitszeit",

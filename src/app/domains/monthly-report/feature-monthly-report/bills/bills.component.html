@@ -11,11 +11,18 @@
     </mat-card-title>
   </mat-card-header>
 
-  <mat-card-content>
-    <ngx-skeleton-loader *ngIf="!billInfo else table"
-                         appearance="line"
-                         count="2"></ngx-skeleton-loader>
-    <ng-template #table>
+  <mat-card-content [class.no-warnings]="!billInfo?.hasAttachmentWarnings && billInfo?.sumBills === 0" >
+    <ng-container *ngIf="!billInfo">
+      <ngx-skeleton-loader [theme]="{ width: '250px', 'margin-top': '20px' }" appearance="line"></ngx-skeleton-loader>
+    </ng-container>
+
+
+    <ng-container *ngIf="!billInfo?.employeeHasCreditCard && billInfo?.sumBills === 0">
+      <app-state-indicator [state]="State.DONE" size="large"></app-state-indicator>
+      <p>{{ 'monthly-report.bills.noBillsForThisMonthAvailable' | translate }}</p>
+    </ng-container>
+
+    <ng-container *ngIf="billInfo?.sumBills > 0 || billInfo?.employeeHasCreditCard">
       <div *ngIf="billInfo">
         <mat-table *ngIf="billInfo" [dataSource]="toBillsData(billInfo)" class="mat-elevation-z1">
 
@@ -38,11 +45,10 @@
             <mat-cell *matCellDef="let row">{{ row.value }}</mat-cell>
           </ng-container>
 
-
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
       </div>
-    </ng-template>
+    </ng-container>
 
     <div *ngIf=" billInfo && billInfo.employeeHasCreditCard" class="credit-card-warning">
       <app-credit-card-warning></app-credit-card-warning>
