@@ -97,6 +97,7 @@
     },
     "bills": {
       "billDate": "Belegdatum",
+      "hasCreditCard": "Du hast eine Firmenkreditkarte. Stimmen deine privaten Belege?",
       "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege in ZEP vorhanden."
     },
     "generalInfo": {
