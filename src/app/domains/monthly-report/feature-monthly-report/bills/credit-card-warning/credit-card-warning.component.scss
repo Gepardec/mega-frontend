@@ -1,12 +1,13 @@
+@import 'styles/colors';
+
 .credit-card-container {
-  background-color: rgba(251, 140, 0, 0.12);
+  background-color: $mega-warning-orange-transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px;
   border-radius: 4px;
   max-height: 50px;
-  margin-bottom: 8px;
 }
 
 .icon-container {
@@ -14,10 +15,10 @@
 }
 
 .credit-card-container .icon-container app-state-indicator::ng-deep mat-icon {
-  color: orange;
+  color: $mega-warning-orange;
 }
 
 .text-container {
-  color: rgba(251, 140, 0, 1);
+  color: $mega-warning-orange;
   text-align: center;
 }
