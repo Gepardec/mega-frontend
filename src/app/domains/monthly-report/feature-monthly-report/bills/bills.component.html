@@ -13,9 +13,11 @@
 
   <mat-card-content [class.no-warnings]="!billInfo?.hasAttachmentWarnings && billInfo?.sumBills === 0" >
     <ng-container *ngIf="!billInfo">
-      <ngx-skeleton-loader [theme]="{ width: '250px', 'margin-top': '20px' }" appearance="line"></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '46px' }"
+                           appearance="line"></ngx-skeleton-loader>
+      <ngx-skeleton-loader [theme]="{ height: '46px' }"
+                           appearance="line"></ngx-skeleton-loader>
     </ng-container>
-
 
     <ng-container *ngIf="!billInfo?.employeeHasCreditCard && billInfo?.sumBills === 0">
       <app-state-indicator [state]="State.DONE" size="large"></app-state-indicator>
