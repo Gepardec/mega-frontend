@@ -1,4 +1,3 @@
-
 export interface MonthlyBillInfoData {
   sumBills: number,
   sumPrivateBills: number,
