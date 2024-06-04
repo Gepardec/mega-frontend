@@ -42,6 +42,7 @@ export class BillsComponent implements OnChanges {
   employee: Employee;
   billInfo: MonthlyBillInfoData;
   displayedColumns = ['description', 'icon', 'value'];
+  billInfoData: BillInfoData[] = [];
 
   constructor(private billService: BillService, private destroyRef: DestroyRef, private monthlyReportService: MonthlyReportService, private translateService: TranslateService) {
     this.billInfo = null;
@@ -61,19 +62,20 @@ export class BillsComponent implements OnChanges {
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe(monthlyBillInfo => {
-          this.billInfo = monthlyBillInfo;
-          console.log(this.billInfo.employeeHasCreditCard)
-        }
+      .subscribe(monthlyBillInfo =>
+          this.billInfo = monthlyBillInfo
       )
   }
 
   toBillsData(billInfo: MonthlyBillInfoData): BillInfoData[] {
     const icon = billInfo.hasAttachmentWarnings ? 'warning' : null;
-    return [
-      { description: 'Zep Einträge mit Beleg', icon: icon, value: billInfo.sumBills.toString() },
-      { description: 'davon Privat / Firma',  icon: null, value: `${billInfo.sumPrivateBills} / ${billInfo.sumCompanyBills}`, }
-    ];
+    this.translateService.get("billInfo").subscribe(translation => {
+      this.billInfoData = [
+        { description: translation['zepEntriesWithBills'], icon: icon, value: billInfo.sumBills.toString() },
+        { description: translation['privateCompanyBills'],  icon: null, value: `${billInfo.sumPrivateBills} / ${billInfo.sumCompanyBills}` }
+      ];
+    });
+    return this.billInfoData;
   }
 
   protected readonly State = State;

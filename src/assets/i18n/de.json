@@ -33,6 +33,10 @@
     "promptText": "Über Gepardec SSO anmelden",
     "btnText": "Anmelden"
   },
+  "billInfo": {
+    "zepEntriesWithBills": "Zep Einträge mit Beleg",
+    "privateCompanyBills": "davon Privat / Firma"
+  },
   "user-actions": {
     "logout": "Abmelden",
     "info": "Info"
