@@ -1,0 +1,24 @@
+@import 'styles/colors';
+
+.credit-card-container {
+  background-color: $mega-warning-orange-transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 4px;
+  max-height: 50px;
+}
+
+.icon-container {
+  margin-right: 12px;
+}
+
+.credit-card-container .icon-container app-state-indicator::ng-deep mat-icon {
+  color: $mega-warning-orange;
+}
+
+.text-container {
+  color: $mega-warning-orange;
+  text-align: center;
+}

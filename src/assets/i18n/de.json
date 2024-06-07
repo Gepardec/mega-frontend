@@ -33,6 +33,10 @@
     "promptText": "Über Gepardec SSO anmelden",
     "btnText": "Anmelden"
   },
+  "billInfo": {
+    "zepEntriesWithBills": "Zep Einträge mit Beleg",
+    "privateCompanyBills": "davon Privat / Firma"
+  },
   "user-actions": {
     "logout": "Abmelden",
     "info": "Info"
@@ -97,13 +101,8 @@
     },
     "bills": {
       "billDate": "Belegdatum",
-      "bruttoValue": "Bruttobetrag",
-      "billType": "Belegart",
-      "paymentMethodType": "Zahlungsart",
-      "projectName": "Projektname",
-      "billAsFile": "Beleg",
-      "downloadBill": "Herunterladen",
-      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege vorhanden."
+      "hasCreditCard": "Du hast eine Firmenkreditkarte. Stimmen deine privaten Belege?",
+      "noBillsForThisMonthAvailable": "Für diesen Monat sind keine Belege in ZEP vorhanden."
     },
     "generalInfo": {
       "workingTime": "Gesamte Arbeitszeit",
