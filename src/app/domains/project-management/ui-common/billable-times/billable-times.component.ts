@@ -19,6 +19,7 @@ export class BillableTimesComponent {
 
   @Input() billableTimes: string;
   @Input() nonBillableTimes: string;
+  @Input() percentageOfHoursSpentInThisProject: number;
 
   transformTimeToFractionNumber(workingTime: string): number {
     if (!workingTime) {

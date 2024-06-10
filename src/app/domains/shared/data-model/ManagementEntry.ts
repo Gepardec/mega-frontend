@@ -15,4 +15,5 @@ export interface ManagementEntry {
   entryDate: string;
   billableTime: string;
   nonBillableTime: string;
+  percentageOfHoursSpentInThisProject: number;
 }

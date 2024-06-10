@@ -17,5 +17,14 @@
     <td *ngIf="nonBillableTimes === '00:00'" class="times-col-right">
       <mat-icon>horizontal_rule</mat-icon>
     </td>
+    <td class="times-col-center">&nbsp;/&nbsp;</td>
+    <td *ngIf="percentageOfHoursSpentInThisProject !== 0.0"
+        class="times-col-outer-right"
+        matTooltip="Der Mitarbeiter hat {{percentageOfHoursSpentInThisProject}}% seiner Gesamtstunden (dieses Monats), in dieses Projekt investiert.">
+      {{percentageOfHoursSpentInThisProject + "%"}}
+    </td>
+    <td *ngIf="percentageOfHoursSpentInThisProject == 0.0" >
+      <mat-icon>horizontal_rule</mat-icon>
+    </td>
   </tr>
 </table>

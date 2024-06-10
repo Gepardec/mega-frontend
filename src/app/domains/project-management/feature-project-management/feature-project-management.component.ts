@@ -170,6 +170,7 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
 
       // reason for reverse: see comparePmEntriesFn doc
       this.pmEntries.sort(ProjectManagementComparator.comparePmEntriesFn).reverse();
+
     };
   }
 
@@ -385,6 +386,8 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   private getPmEntries() {
     return this.pmService.getEntries(this.selectedYear, this.selectedMonth, false);
   }
+
+
 
   private findEntriesForProject(projectName: string) {
     return this.pmEntries.filter(entry => {

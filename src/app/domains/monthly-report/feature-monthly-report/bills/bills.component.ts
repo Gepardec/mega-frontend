@@ -52,13 +52,13 @@ export class BillsComponent implements OnChanges {
     this.billInfo = null;
     const currentEmployee = changes.employee.currentValue as Employee;
     if (currentEmployee?.userId) {
-      this.getBillsForEmployee(currentEmployee.userId, this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
+      this.getBillsForEmployee(this.monthlyReportService.selectedYear.getValue(), this.monthlyReportService.selectedMonth.getValue());
     }
   }
 
-  getBillsForEmployee(employeeId: string, year: number, month: number): void {
+  getBillsForEmployee(year: number, month: number): void {
     this.billService
-      .getBillsForEmployee(employeeId, year, month)
+      .getBillsForEmployee(year, month)
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )
