@@ -21,9 +21,9 @@
     <td *ngIf="percentageOfHoursSpentInThisProject !== 0.0"
         class="times-col-outer-right"
         matTooltip="Der Mitarbeiter hat {{percentageOfHoursSpentInThisProject}}% seiner Gesamtstunden (dieses Monats), in dieses Projekt investiert.">
-      {{percentageOfHoursSpentInThisProject + "%"}}
+      {{percentageOfHoursSpentInThisProject}}%
     </td>
-    <td *ngIf="percentageOfHoursSpentInThisProject == 0.0" >
+    <td *ngIf="percentageOfHoursSpentInThisProject === 0.0" >
       <mat-icon>horizontal_rule</mat-icon>
     </td>
   </tr>
