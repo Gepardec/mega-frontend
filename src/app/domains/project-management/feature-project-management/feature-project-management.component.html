@@ -211,7 +211,8 @@
                 <mat-cell *matCellDef="let row">
                   <span class="mobile-label">{{'project-management.table.projectHours' | translate}}</span>
                   <app-billable-times [billableTimes]="row.billableTime"
-                                      [nonBillableTimes]="row.nonBillableTime"></app-billable-times>
+                                      [nonBillableTimes]="row.nonBillableTime"
+                                      [percentageOfHoursSpentInThisProject]="row.percentageOfHoursSpentInThisProject"></app-billable-times>
                 </mat-cell>
 
                 <mat-footer-cell *matFooterCellDef>

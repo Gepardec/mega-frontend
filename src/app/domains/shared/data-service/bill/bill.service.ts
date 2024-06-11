@@ -15,13 +15,13 @@ export class BillService {
   ) {
   }
 
-  getBillsForEmployee(employeeId: string, year: number, month: number): Observable<MonthlyBillInfoData> {
+  getBillsForEmployee(year: number, month: number): Observable<MonthlyBillInfoData> {
     // leading zero is needed for correct request --> queryParam
     let dateString = `${year}-${month.toString().padStart(2, '0')}`;
     let params = new HttpParams().set('from', dateString);
 
     return this.httpClient.get<MonthlyBillInfoData>(
-      this.config.getBackendUrlWithContext('/worker/' + employeeId + '/bills'),
+      this.config.getBackendUrlWithContext('/worker/bills'),
       {params}
     );
   }

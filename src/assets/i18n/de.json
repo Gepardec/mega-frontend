@@ -179,7 +179,7 @@
       "internalCheckState": "MA Zeiten",
       "comments": "Anmerkungen",
       "releaseDate": "Freigabedatum",
-      "projectHours": "Projektstunden fakt. / nicht fakt."
+      "projectHours": "Projektstunden fakt. / nicht fakt. / prozentuell"
     },
     "noPmEntriesFound": "Keine Projekteinträge gefunden",
     "projectTimeState": "Projektcontrolling",

@@ -5,23 +5,30 @@ table {
 }
 
 th, td {
-  font-size: 17px;
+  font-size: 14px;
 }
 
 td.times-col-left {
-  text-align: right;
-  min-width: 50px;
+  text-align: center;
+  min-width: 40px;
   white-space: nowrap;
 }
 
 td.times-col-center {
-  text-align: right;
+  text-align: center;
   min-width: 10px;
 }
 
 td.times-col-right {
-  text-align: right;
+  text-align: center;
   min-width: 40px;
+  width: 1%;
+  white-space: nowrap;
+}
+
+td.times-col-outer-right {
+  text-align: center;
+  min-width: 30px;
   width: 1%;
   white-space: nowrap;
 }
