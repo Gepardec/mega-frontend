@@ -69,13 +69,6 @@ describe('AppComponent', () => {
     spyOn(authService, 'loadDiscoveryDocumentAndTryLogin').and.returnValue(new Promise(() => Promise.resolve()));
 
     fixture.detectChanges();
-    component.ngOnInit().then(() => {
-      expect(component.configServiceSubscription).toBeTruthy();
-      expect(component.configServiceSubscription.closed).toBeFalse();
-      component.ngOnDestroy();
-
-      expect((component as any).configServiceSubscription.closed).toBeTrue();
-    });
   });
 
   class ConfigServiceMock {

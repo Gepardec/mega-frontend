@@ -1,12 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, DestroyRef, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {authConfig, cypressAuthConfig} from '@mega/shared/util-auth';
-import {Router} from '@angular/router';
-import {ConfigService, UserService} from '@mega/shared/data-service';
-import {firstValueFrom, Subscription} from 'rxjs';
+import {ConfigService, ErrorService, UserService} from '@mega/shared/data-service';
+import {catchError, firstValueFrom, interval, of} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import { InfoComponent } from './domains/shared/ui-common/info/info.component';
-import { HeaderComponent } from './domains/shared/ui-common/header/header.component';
+import { InfoComponent } from '@mega/shared/ui-common';
+import { HeaderComponent } from '@mega/shared/ui-common';
+import {HttpErrorResponse} from "@angular/common/http";
+import {tap} from "rxjs/operators";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
     selector: 'app-root',
@@ -16,17 +18,16 @@ import { HeaderComponent } from './domains/shared/ui-common/header/header.compon
     imports: [HeaderComponent, InfoComponent]
 })
 
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
 
-  configServiceSubscription: Subscription;
-
-  constructor(private router: Router,
-              private oAuthService: OAuthService,
+  constructor(private oAuthService: OAuthService,
               private configService: ConfigService,
               private userService: UserService,
-              private translate: TranslateService) {
-    translate.addLangs(['de']);
-    translate.setDefaultLang('de');
+              private translate: TranslateService,
+              private livenessService: ErrorService,
+              private destroyRef: DestroyRef) {
+    this.translate.addLangs(['de']);
+    this.translate.setDefaultLang('de');
   }
 
   async ngOnInit(): Promise<void> {
@@ -46,9 +47,18 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.userService.loggedInWithGoogle()) {
       this.userService.loginUser();
     }
-  }
 
-  ngOnDestroy(): void {
-    this.configServiceSubscription?.unsubscribe();
+    interval(3000)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() =>
+        this.configService.getLiveness()
+          .pipe(
+            takeUntilDestroyed(this.destroyRef),
+            tap(livenessObject => this.livenessService.setLivenessInfo(livenessObject)),
+            catchError((response: HttpErrorResponse) => {
+              this.livenessService.setLivenessInfo(response.error);
+              return of(response);
+            })
+        ).subscribe());
   }
 }

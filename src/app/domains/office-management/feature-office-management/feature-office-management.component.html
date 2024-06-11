@@ -4,7 +4,14 @@
     <app-datepicker-month-year (dateChanged)="dateChanged($event)" [date]="date" [maxMonth]="maxMonthDate"></app-datepicker-month-year>
   </div>
 </mat-toolbar>
-<app-enterprise-card></app-enterprise-card>
-<app-projects-without-leads-card></app-projects-without-leads-card>
-<app-project-overview-card></app-project-overview-card>
-<app-employee-card></app-employee-card>
+
+<div *ngIf="!livenessInfo || livenessInfo?.status.toLowerCase() === LivenessType.UP">
+  <app-projects-without-leads-card></app-projects-without-leads-card>
+  <app-project-overview-card></app-project-overview-card>
+  <app-employee-card></app-employee-card>
+</div>
+
+<div *ngIf="livenessInfo?.status.toLowerCase() === LivenessType.DOWN">
+  <app-enterprise-card></app-enterprise-card>
+  <app-third-party-service-error [extraClasses]="'mat-elevation-z6 mt-10 full-width bigger-font'"></app-third-party-service-error>
+</div>

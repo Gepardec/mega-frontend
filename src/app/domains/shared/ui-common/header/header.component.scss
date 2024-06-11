@@ -1,3 +1,5 @@
+@import 'styles/colors';
+
 .header__sidenav_container {
   height: 100%;
   min-height: 100%;
@@ -17,7 +19,34 @@
   flex-direction: row;
   box-sizing: border-box;
   display: flex;
-  gap: 15px;
+  gap: 20px;
+
+  button {
+    position: relative;
+    background:none;
+    border: none;
+    color: $gepardec-yellow;
+
+    mat-icon {
+      font-size: 28px;
+    }
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .warning-dot {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+  }
+
+
 }
 
 .header_spacing {
