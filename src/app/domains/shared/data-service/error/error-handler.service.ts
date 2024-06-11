@@ -35,7 +35,7 @@ export class ErrorHandlerService implements ErrorHandler {
     if (logout) {
       redirectUrl = configuration.PAGE_URLS.LOGIN;
 
-      this.userService.logoutWithoutRedirect();
+      //this.userService.logoutWithoutRedirect();
     } else {
       redirectUrl = this.router.url;
     }
@@ -44,6 +44,6 @@ export class ErrorHandlerService implements ErrorHandler {
 
     // TODO: use of zone is dangerous and should be avoided
     //  as mentioned above we should move the router to error-service to solve cyclic dependency
-    this.ngZone.run(() => this.router.navigate([configuration.PAGE_URLS.ERROR]));
+    //this.ngZone.run(() => this.router.navigate([configuration.PAGE_URLS.ERROR]));
   }
 }
