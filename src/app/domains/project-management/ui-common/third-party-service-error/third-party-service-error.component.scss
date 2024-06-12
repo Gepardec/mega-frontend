@@ -35,7 +35,7 @@ mat-card {
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  padding: 20px; /* Add padding to ensure icon is not cut off */
+  padding: 20px;
 }
 
 .error-message_container {
@@ -45,15 +45,12 @@ mat-card {
   max-width: 80%;
   flex-direction: column;
   text-align: center;
-
-  .icon {
-    height: 58px;
-    width: 58px;
-  }
-
 }
 
 .error-message_container mat-icon {
   margin-bottom: 10px;
-  font-size: 58px; /* Increase the size of the icon */
+  font-size: 70px;
+  width: auto;
+  height: auto;
+
 }
