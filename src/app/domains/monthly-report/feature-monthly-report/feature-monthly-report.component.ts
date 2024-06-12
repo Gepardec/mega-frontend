@@ -10,6 +10,11 @@ import {InformationTopBarComponent} from './information-top-bar/information-top-
 import {NgClass, NgIf} from '@angular/common';
 import {LeadsComponent} from './leads/leads.component';
 import {BillsComponent} from "./bills/bills.component";
+import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
+import {ErrorService} from "@mega/shared/data-service";
+import {
+  ThirdPartyServiceErrorComponent
+} from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
 
 @Component({
   selector: 'app-monthly-report',
@@ -25,6 +30,7 @@ import {BillsComponent} from "./bills/bills.component";
     JourneyCheckComponent,
     LeadsComponent,
     BillsComponent,
+    ThirdPartyServiceErrorComponent,
     NgIf
   ]
 })
@@ -32,8 +38,11 @@ export class FeatureMonthlyReportComponent implements OnInit {
 
   public monthlyReport: MonthlyReport;
   private monthlyReportSubscription: Subscription;
+  private livenessInfoSubscription: Subscription;
+  livenessInfo: LivenessInfoList;
 
-  constructor(private monthlyReportService: MonthlyReportService) {
+  constructor(private monthlyReportService: MonthlyReportService,
+              private livenessService: ErrorService) {
   }
 
   emitRefreshMonthlyReport() {
@@ -42,6 +51,11 @@ export class FeatureMonthlyReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTimeEntries();
+
+    this.livenessInfoSubscription = this.livenessService.livenessInfo.subscribe(
+      (livenessInfo) => {
+        this.livenessInfo = livenessInfo;
+      });
   }
 
   getAllTimeEntriesByDate(year: number, month: number): void {

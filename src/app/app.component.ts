@@ -7,10 +7,8 @@ import {catchError, firstValueFrom, interval, Observable, of, Subscription} from
 import {TranslateService} from '@ngx-translate/core';
 import { InfoComponent } from './domains/shared/ui-common/info/info.component';
 import { HeaderComponent } from './domains/shared/ui-common/header/header.component';
-import {LivenessInfoList} from "./domains/shared/data-model/LivenessInfoList";
-import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 import {tap} from "rxjs/operators";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
     selector: 'app-root',
@@ -63,8 +61,6 @@ export class AppComponent implements OnInit, OnDestroy {
             return of(response);
           })
         ).subscribe());
-
-
   }
 
   ngOnDestroy(): void {
