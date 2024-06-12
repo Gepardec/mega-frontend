@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.fill-parent {
+  width: calc(100% - 16px);
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card {
+  min-height: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-height {
+  flex: 1 1 auto;
+}
+
+.mat-card-content {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.third-party-service-error__content_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px; /* Add padding to ensure icon is not cut off */
+}
+
+.error-message_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  flex-direction: column;
+  text-align: center;
+
+  .icon {
+    height: 58px;
+    width: 58px;
+  }
+
+}
+
+.error-message_container mat-icon {
+  margin-bottom: 10px;
+  font-size: 58px; /* Increase the size of the icon */
+}
