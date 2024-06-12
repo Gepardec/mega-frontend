@@ -4,7 +4,7 @@
     (refreshMonthlyReport)="emitRefreshMonthlyReport()"/>
 
   <div *ngIf="livenessInfo?.status.toLowerCase() === 'down'">
-    <app-third-party-service-error></app-third-party-service-error>
+    <app-third-party-service-error [extraClasses]="'fill-parent full-height'"></app-third-party-service-error>
   </div>
 
   <div [ngClass]="'mega-dash-grid'" *ngIf="!livenessInfo || livenessInfo?.status.toLowerCase() === 'up'">

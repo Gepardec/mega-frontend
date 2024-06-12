@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
+import {NgClass} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-third-party-service-error',
@@ -9,9 +11,12 @@ import {MatCardModule} from "@angular/material/card";
   standalone: true,
   imports: [
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    NgClass,
+    TranslateModule
   ]
 })
 export class ThirdPartyServiceErrorComponent {
+  @Input() extraClasses: string
 
 }

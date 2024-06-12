@@ -44,7 +44,8 @@
   "error": {
     "title": "Ups, Seite konnte nicht geladen werden.",
     "message": "Ein Fehler ist aufgetreten",
-    "reload": "Neu laden"
+    "reload": "Neu laden",
+    "thirdPartyDown": "Leider ist einer unserer Fremdservices momentan nicht erreichbar.\nBitte versuche es später noch einmal."
   },
   "global": {
     "selectPayrollMonth": "Abrechnungsmonat auswählen:",

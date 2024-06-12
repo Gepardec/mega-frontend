@@ -12,6 +12,12 @@ import {EnterpriseCardComponent} from './enterprise-card/enterprise-card.compone
 import {DatepickerMonthYearComponent} from '@mega/shared/ui-common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
+import {ErrorService} from "@mega/shared/data-service";
+import {NgIf} from "@angular/common";
+import {
+  ThirdPartyServiceErrorComponent
+} from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
 
 const moment = _moment;
 
@@ -29,6 +35,8 @@ const moment = _moment;
     EmployeeCardComponent,
     TranslateModule,
     MatBottomSheetModule,
+    ThirdPartyServiceErrorComponent,
+    NgIf,
   ]
 })
 export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
@@ -36,9 +44,12 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
   selectedYear: number;
   selectedMonth: number;
   dateSelectionSub: Subscription;
+  livenessInfoSubscription: Subscription;
+  livenessInfo: LivenessInfoList;
   maxMonthDate: number = 1;
 
-  constructor(private omService: OfficeManagementService) {
+  constructor(private omService: OfficeManagementService,
+              private livenessService: ErrorService) {
   }
 
   get date() {
@@ -57,6 +68,11 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
           this.selectedMonth = value[1];
         })
       ).subscribe();
+
+    this.livenessInfoSubscription = this.livenessService.livenessInfo.subscribe(
+      (livenessInfo) => {
+        this.livenessInfo = livenessInfo;
+      });
   }
 
   ngOnDestroy(): void {
