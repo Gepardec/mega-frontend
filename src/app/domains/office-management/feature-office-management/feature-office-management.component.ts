@@ -81,6 +81,7 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
     this.omService.selectedMonth.next(moment().subtract(1, 'month').month() + 1);
 
     this.dateSelectionSub?.unsubscribe();
+    this.livenessInfoSubscription?.unsubscribe();
   }
 
   dateChanged(date: Moment) {

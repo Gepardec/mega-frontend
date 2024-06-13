@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {Subscription} from 'rxjs';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
@@ -35,7 +35,7 @@ import {LivenessType} from "../../shared/data-model/LivenessType";
     NgIf
   ]
 })
-export class FeatureMonthlyReportComponent implements OnInit {
+export class FeatureMonthlyReportComponent implements OnInit, OnDestroy {
 
   public monthlyReport: MonthlyReport;
   private monthlyReportSubscription: Subscription;
@@ -45,6 +45,10 @@ export class FeatureMonthlyReportComponent implements OnInit {
   constructor(private monthlyReportService: MonthlyReportService,
               private livenessService: ErrorService) {
   }
+
+  ngOnDestroy(): void {
+        this.livenessInfoSubscription?.unsubscribe();
+    }
 
   emitRefreshMonthlyReport() {
     this.refreshMonthlyReport();

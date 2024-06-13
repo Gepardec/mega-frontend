@@ -156,6 +156,7 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
     this.pmService.selectedMonth.next(moment().subtract(1, 'month').month() + 1);
 
     this.dateSelectionSub?.unsubscribe();
+    this.livenessInfoSubscription?.unsubscribe();
   }
 
   private processPmEntries() {
