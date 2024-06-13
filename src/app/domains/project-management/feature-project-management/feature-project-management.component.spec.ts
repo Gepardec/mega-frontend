@@ -524,7 +524,8 @@ describe('FeatureProjectManagementComponent', () => {
         entryDate: '2021-10-2',
         finishedComments: 11,
         nonBillableTime: '15',
-        totalComments: 22
+        totalComments: 22,
+        percentageOfHoursSpentInThisProject: 11
       },
       {
         employee: ProjectManagementMock.employeeHuber,
@@ -536,7 +537,8 @@ describe('FeatureProjectManagementComponent', () => {
         entryDate: '2021-10-01',
         finishedComments: 10,
         nonBillableTime: '14',
-        totalComments: 20
+        totalComments: 20,
+        percentageOfHoursSpentInThisProject: 11
       },
       {
         employee: ProjectManagementMock.employeeHuber,
@@ -548,7 +550,8 @@ describe('FeatureProjectManagementComponent', () => {
         entryDate: '2021-10-01',
         finishedComments: 10,
         nonBillableTime: '14',
-        totalComments: 20
+        totalComments: 20,
+        percentageOfHoursSpentInThisProject: 11
       }
     ];
 

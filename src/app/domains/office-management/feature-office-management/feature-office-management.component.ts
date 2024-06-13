@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, DestroyRef, OnDestroy, OnInit} from '@angular/core';
 import * as _moment from 'moment';
 import {Moment} from 'moment';
 import {OfficeManagementService} from '@mega/office-management/data-service';
@@ -19,6 +19,7 @@ import {
   ThirdPartyServiceErrorComponent
 } from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
 import {LivenessType} from "../../shared/data-model/LivenessType";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 const moment = _moment;
 
@@ -45,12 +46,12 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
   selectedYear: number;
   selectedMonth: number;
   dateSelectionSub: Subscription;
-  livenessInfoSubscription: Subscription;
   livenessInfo: LivenessInfoList;
   maxMonthDate: number = 1;
 
   constructor(private omService: OfficeManagementService,
-              private livenessService: ErrorService) {
+              private livenessService: ErrorService,
+              private destroyRef: DestroyRef) {
   }
 
   get date() {
@@ -70,7 +71,9 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
         })
       ).subscribe();
 
-    this.livenessInfoSubscription = this.livenessService.livenessInfo.subscribe(
+    this.livenessService.livenessInfo
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(
       (livenessInfo) => {
         this.livenessInfo = livenessInfo;
       });
@@ -81,7 +84,6 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
     this.omService.selectedMonth.next(moment().subtract(1, 'month').month() + 1);
 
     this.dateSelectionSub?.unsubscribe();
-    this.livenessInfoSubscription?.unsubscribe();
   }
 
   dateChanged(date: Moment) {

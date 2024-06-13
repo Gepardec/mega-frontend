@@ -196,7 +196,8 @@ describe('ProjectOverviewCardComponent', () => {
         entryDate: '2021-10-2',
         finishedComments: 11,
         nonBillableTime: '15',
-        totalComments: 22
+        totalComments: 22,
+        percentageOfHoursSpentInThisProject: 11
       },
       {
         employee: EmployeeMock.employee,
@@ -208,7 +209,8 @@ describe('ProjectOverviewCardComponent', () => {
         entryDate: '2021-10-2',
         finishedComments: 11,
         nonBillableTime: '15',
-        totalComments: 22
+        totalComments: 22,
+        percentageOfHoursSpentInThisProject: 11
       },
       {
         employee: EmployeeMock.employee,
@@ -220,7 +222,8 @@ describe('ProjectOverviewCardComponent', () => {
         entryDate: '2021-10-2',
         finishedComments: 11,
         nonBillableTime: '15',
-        totalComments: 22
+        totalComments: 22,
+        percentageOfHoursSpentInThisProject: 11
       },
     ];
   }

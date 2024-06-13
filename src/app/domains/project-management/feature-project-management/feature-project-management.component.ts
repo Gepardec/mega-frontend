@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, DestroyRef, OnDestroy, OnInit} from '@angular/core';
 import {ProjectManagementEntry, ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {
@@ -46,6 +46,7 @@ import {
   ThirdPartyServiceErrorComponent
 } from "../ui-common/third-party-service-error/third-party-service-error.component";
 import {LivenessType} from "../../shared/data-model/LivenessType";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 const moment = _moment;
 
@@ -106,7 +107,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   maxMonthDate = 1;
   dateSelectionSub: Subscription;
   livenessInfo: LivenessInfoList;
-  livenessInfoSubscription: Subscription;
 
   constructor(private dialog: MatDialog,
               private pmService: ProjectManagementService,
@@ -117,7 +117,8 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
               private snackbarService: SnackbarService,
               private translate: TranslateService,
               private projectCommentService: ProjectCommentService,
-              private livenessService: ErrorService) {
+              private livenessService: ErrorService,
+              private destroyRef: DestroyRef) {
   }
 
   get date() {
@@ -145,7 +146,9 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
         switchMap(() => this.getPmEntries())
       ).subscribe(this.processPmEntries());
 
-    this.livenessInfoSubscription = this.livenessService.livenessInfo.subscribe(
+    this.livenessService.livenessInfo
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(
       (livenessInfo) => {
         this.livenessInfo = livenessInfo;
       });
@@ -156,7 +159,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
     this.pmService.selectedMonth.next(moment().subtract(1, 'month').month() + 1);
 
     this.dateSelectionSub?.unsubscribe();
-    this.livenessInfoSubscription?.unsubscribe();
   }
 
   private processPmEntries() {

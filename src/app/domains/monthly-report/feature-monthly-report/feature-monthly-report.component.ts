@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, DestroyRef, OnDestroy, OnInit} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {Subscription} from 'rxjs';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
@@ -16,6 +16,7 @@ import {
   ThirdPartyServiceErrorComponent
 } from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
 import {LivenessType} from "../../shared/data-model/LivenessType";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-monthly-report',
@@ -35,20 +36,16 @@ import {LivenessType} from "../../shared/data-model/LivenessType";
     NgIf
   ]
 })
-export class FeatureMonthlyReportComponent implements OnInit, OnDestroy {
+export class FeatureMonthlyReportComponent implements OnInit {
 
   public monthlyReport: MonthlyReport;
   private monthlyReportSubscription: Subscription;
-  private livenessInfoSubscription: Subscription;
   livenessInfo: LivenessInfoList;
 
   constructor(private monthlyReportService: MonthlyReportService,
-              private livenessService: ErrorService) {
+              private livenessService: ErrorService,
+              private destroyRef: DestroyRef) {
   }
-
-  ngOnDestroy(): void {
-        this.livenessInfoSubscription?.unsubscribe();
-    }
 
   emitRefreshMonthlyReport() {
     this.refreshMonthlyReport();
@@ -57,7 +54,11 @@ export class FeatureMonthlyReportComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getAllTimeEntries();
 
-    this.livenessInfoSubscription = this.livenessService.livenessInfo.subscribe(
+    this.livenessService.livenessInfo
+      .pipe(
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(
       (livenessInfo) => {
         this.livenessInfo = livenessInfo;
       });
