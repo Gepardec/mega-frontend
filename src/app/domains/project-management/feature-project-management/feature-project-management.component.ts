@@ -45,6 +45,7 @@ import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
 import {
   ThirdPartyServiceErrorComponent
 } from "../ui-common/third-party-service-error/third-party-service-error.component";
+import {LivenessType} from "../../shared/data-model/LivenessType";
 
 const moment = _moment;
 
@@ -408,4 +409,7 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   private getFormattedDate() {
     return moment().year(this.selectedYear).month(this.selectedMonth - 1).date(1).format(configuration.dateFormat);
   }
+
+  protected readonly LivenessInfoList = LivenessInfoList;
+  protected readonly LivenessType = LivenessType;
 }

@@ -18,6 +18,7 @@ import {NgIf} from "@angular/common";
 import {
   ThirdPartyServiceErrorComponent
 } from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
+import {LivenessType} from "../../shared/data-model/LivenessType";
 
 const moment = _moment;
 
@@ -86,4 +87,6 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
     this.omService.selectedYear.next(moment(date).year());
     this.omService.selectedMonth.next(moment(date).month() + 1);
   }
+
+  protected readonly LivenessType = LivenessType;
 }

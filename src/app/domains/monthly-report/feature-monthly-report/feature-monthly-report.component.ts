@@ -15,6 +15,7 @@ import {ErrorService} from "@mega/shared/data-service";
 import {
   ThirdPartyServiceErrorComponent
 } from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
+import {LivenessType} from "../../shared/data-model/LivenessType";
 
 @Component({
   selector: 'app-monthly-report',
@@ -89,4 +90,6 @@ export class FeatureMonthlyReportComponent implements OnInit {
       this.monthlyReport.initialDate = null;
     }
   }
+
+  protected readonly LivenessType = LivenessType;
 }
