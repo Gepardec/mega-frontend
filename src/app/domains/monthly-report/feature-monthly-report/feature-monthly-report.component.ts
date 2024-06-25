@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DestroyRef, OnInit} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
 import {Subscription} from 'rxjs';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
@@ -10,6 +10,13 @@ import {InformationTopBarComponent} from './information-top-bar/information-top-
 import {NgClass, NgIf} from '@angular/common';
 import {LeadsComponent} from './leads/leads.component';
 import {BillsComponent} from "./bills/bills.component";
+import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
+import {ErrorService} from "@mega/shared/data-service";
+import {
+  ThirdPartyServiceErrorComponent
+} from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
+import {LivenessType} from "../../shared/data-model/LivenessType";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-monthly-report',
@@ -25,6 +32,7 @@ import {BillsComponent} from "./bills/bills.component";
     JourneyCheckComponent,
     LeadsComponent,
     BillsComponent,
+    ThirdPartyServiceErrorComponent,
     NgIf
   ]
 })
@@ -32,8 +40,11 @@ export class FeatureMonthlyReportComponent implements OnInit {
 
   public monthlyReport: MonthlyReport;
   private monthlyReportSubscription: Subscription;
+  livenessInfo: LivenessInfoList;
 
-  constructor(private monthlyReportService: MonthlyReportService) {
+  constructor(private monthlyReportService: MonthlyReportService,
+              private livenessService: ErrorService,
+              private destroyRef: DestroyRef) {
   }
 
   emitRefreshMonthlyReport() {
@@ -42,6 +53,12 @@ export class FeatureMonthlyReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTimeEntries();
+
+    this.livenessService.livenessInfo
+      .pipe(
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(livenessInfo => this.livenessInfo = livenessInfo);
   }
 
   getAllTimeEntriesByDate(year: number, month: number): void {
@@ -75,4 +92,6 @@ export class FeatureMonthlyReportComponent implements OnInit {
       this.monthlyReport.initialDate = null;
     }
   }
+
+  protected readonly LivenessType = LivenessType;
 }

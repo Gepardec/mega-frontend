@@ -94,7 +94,8 @@ describe('ProjectManagementService', () => {
         entryDate: '2021-10-01',
         finishedComments: 10,
         nonBillableTime: '14',
-        totalComments: 20
+        totalComments: 20,
+        percentageOfHoursSpentInThisProject: 11
       }
     ];
 

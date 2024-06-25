@@ -10,7 +10,6 @@
       </ng-template>
     </mat-card-title>
   </mat-card-header>
-
   <mat-card-content [class.no-warnings]="!billInfo?.hasAttachmentWarnings && billInfo?.sumBills === 0 && !billInfo.employeeHasCreditCard" >
     <ng-container *ngIf="!billInfo">
       <ngx-skeleton-loader [theme]="{ height: '56px' }"
@@ -27,7 +26,6 @@
     <ng-container *ngIf="billInfo?.sumBills > 0 || billInfo?.employeeHasCreditCard">
       <div *ngIf="billInfo">
         <mat-table *ngIf="billInfo" [dataSource]="toBillsData(billInfo)" class="mat-elevation-z1">
-
           <ng-container matColumnDef="icon">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">
@@ -36,22 +34,18 @@
               </ng-container>
             </mat-cell>
           </ng-container>
-
           <ng-container matColumnDef="description">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">{{ row.description }}</mat-cell>
           </ng-container>
-
           <ng-container matColumnDef="value">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let row">{{ row.value }}</mat-cell>
           </ng-container>
-
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
       </div>
     </ng-container>
-
     <div *ngIf="billInfo?.employeeHasCreditCard" class="credit-card-warning">
       <app-credit-card-warning></app-credit-card-warning>
     </div>
