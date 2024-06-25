@@ -148,10 +148,7 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
 
     this.livenessService.livenessInfo
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(
-      (livenessInfo) => {
-        this.livenessInfo = livenessInfo;
-      });
+      .subscribe(livenessInfo => this.livenessInfo = livenessInfo);
   }
 
   ngOnDestroy(): void {

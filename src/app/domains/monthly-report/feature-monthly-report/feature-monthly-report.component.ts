@@ -58,10 +58,7 @@ export class FeatureMonthlyReportComponent implements OnInit {
       .pipe(
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe(
-      (livenessInfo) => {
-        this.livenessInfo = livenessInfo;
-      });
+      .subscribe(livenessInfo => this.livenessInfo = livenessInfo);
   }
 
   getAllTimeEntriesByDate(year: number, month: number): void {
