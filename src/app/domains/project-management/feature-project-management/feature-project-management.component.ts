@@ -1,4 +1,4 @@
-import {Component, DestroyRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProjectManagementEntry, ProjectManagementEntryViewModel} from '@mega/project-management/data-model';
 import {MatDialog} from '@angular/material/dialog';
 import {
@@ -15,7 +15,8 @@ import {Comment, Config, Employee, ManagementEntry, ProjectState, State, Step} f
 import {ProjectManagementService} from '@mega/project-management/data-service';
 import {
   CommentService,
-  ConfigService, ErrorService,
+  ConfigService,
+  ErrorService,
   ProjectCommentService,
   ProjectEntriesService,
   SnackbarService,
@@ -41,12 +42,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {NgClass, NgFor, NgIf} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
 import {
   ThirdPartyServiceErrorComponent
-} from "../ui-common/third-party-service-error/third-party-service-error.component";
-import {LivenessType} from "../../shared/data-model/LivenessType";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+} from '../ui-common/third-party-service-error/third-party-service-error.component';
 
 const moment = _moment;
 
@@ -106,7 +104,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   tooltipPosition = 'above' as TooltipPosition;
   maxMonthDate = 1;
   dateSelectionSub: Subscription;
-  livenessInfo: LivenessInfoList;
 
   constructor(private dialog: MatDialog,
               private pmService: ProjectManagementService,
@@ -117,8 +114,7 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
               private snackbarService: SnackbarService,
               private translate: TranslateService,
               private projectCommentService: ProjectCommentService,
-              private livenessService: ErrorService,
-              private destroyRef: DestroyRef) {
+              public errorService: ErrorService) {
   }
 
   get date() {
@@ -145,10 +141,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
         }),
         switchMap(() => this.getPmEntries())
       ).subscribe(this.processPmEntries());
-
-    this.livenessService.livenessInfo
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe(livenessInfo => this.livenessInfo = livenessInfo);
   }
 
   ngOnDestroy(): void {
@@ -409,7 +401,4 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   private getFormattedDate() {
     return moment().year(this.selectedYear).month(this.selectedMonth - 1).date(1).format(configuration.dateFormat);
   }
-
-  protected readonly LivenessInfoList = LivenessInfoList;
-  protected readonly LivenessType = LivenessType;
 }

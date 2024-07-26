@@ -1,6 +1,5 @@
 import {Component, DestroyRef, OnInit} from '@angular/core';
 import {MonthlyReport} from '@mega/monthly-report/data-model';
-import {Subscription} from 'rxjs';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
 import {JourneyCheckComponent} from './journey-check/journey-check.component';
 import {GeneralInfoComponent} from './general-info/general-info.component';
@@ -9,14 +8,11 @@ import {TimeCheckComponent} from './time-check/time-check.component';
 import {InformationTopBarComponent} from './information-top-bar/information-top-bar.component';
 import {NgClass, NgIf} from '@angular/common';
 import {LeadsComponent} from './leads/leads.component';
-import {BillsComponent} from "./bills/bills.component";
-import {LivenessInfoList} from "../../shared/data-model/LivenessInfoList";
-import {ErrorService} from "@mega/shared/data-service";
+import {BillsComponent} from './bills/bills.component';
+import {ErrorService} from '@mega/shared/data-service';
 import {
   ThirdPartyServiceErrorComponent
-} from "../../project-management/ui-common/third-party-service-error/third-party-service-error.component";
-import {LivenessType} from "../../shared/data-model/LivenessType";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+} from '../../project-management/ui-common/third-party-service-error/third-party-service-error.component';
 
 @Component({
   selector: 'app-monthly-report',
@@ -39,11 +35,9 @@ import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 export class FeatureMonthlyReportComponent implements OnInit {
 
   public monthlyReport: MonthlyReport;
-  private monthlyReportSubscription: Subscription;
-  livenessInfo: LivenessInfoList;
 
   constructor(private monthlyReportService: MonthlyReportService,
-              private livenessService: ErrorService,
+              public errorService: ErrorService,
               private destroyRef: DestroyRef) {
   }
 
@@ -53,23 +47,17 @@ export class FeatureMonthlyReportComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllTimeEntries();
-
-    this.livenessService.livenessInfo
-      .pipe(
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe(livenessInfo => this.livenessInfo = livenessInfo);
   }
 
   getAllTimeEntriesByDate(year: number, month: number): void {
-    this.monthlyReportSubscription = this.monthlyReportService.getAllByDate(year, month)
+    this.monthlyReportService.getAllByDate(year, month)
       .subscribe((monthlyReport: MonthlyReport) => {
         this.monthlyReport = monthlyReport;
       });
   }
 
   getAllTimeEntries(): void {
-    this.monthlyReportSubscription = this.monthlyReportService.getAll()
+    this.monthlyReportService.getAll()
       .subscribe((monthlyReport: MonthlyReport) => {
         if (monthlyReport) {
           this.monthlyReport = monthlyReport;
@@ -92,6 +80,4 @@ export class FeatureMonthlyReportComponent implements OnInit {
       this.monthlyReport.initialDate = null;
     }
   }
-
-  protected readonly LivenessType = LivenessType;
 }

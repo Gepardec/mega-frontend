@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment';
 import {Config} from '@mega/shared/data-model';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
-import {LivenessInfoList} from "../../data-model/LivenessInfoList";
+import {HealthResponse} from '../../data-model/HealthResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +33,7 @@ export class ConfigService {
     return this.getBackendUrl() + context;
   }
 
-  getLiveness(): Observable<LivenessInfoList> {
-    return this.httpClient.get<LivenessInfoList>(this.getBackendUrlWithContext('/health'));
+  getWellness(): Observable<HealthResponse> {
+    return this.httpClient.get<HealthResponse>(this.getBackendUrlWithContext('/health/well'));
   }
 }

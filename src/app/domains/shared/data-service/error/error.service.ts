@@ -1,16 +1,22 @@
-import {Injectable} from '@angular/core';
+import {computed, Injectable} from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
-import {BehaviorSubject} from "rxjs";
-import {LivenessInfoList} from "../../data-model/LivenessInfoList";
+import {BehaviorSubject} from 'rxjs';
+import {HealthResponse} from '../../data-model/HealthResponse';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ErrorService {
-
   message: string;
   redirectUrl: string;
-  livenessInfo: BehaviorSubject<LivenessInfoList> = new BehaviorSubject(null);
+  private wellnessResponseSubject = new BehaviorSubject<HealthResponse | undefined>(undefined);
+
+  readonly wellness = computed(toSignal(this.wellnessResponseSubject));
+  readonly isUp = computed(() => this.wellness().status === 'UP');
+  readonly isDown = computed(() => this.wellness().status === 'DOWN');
+  readonly getZepCheck = computed(() => this.wellness().checks.find(check => check.name === 'ZEP'));
+  readonly getPersonioCheck = computed(() => this.wellness().checks.find(check => check.name === 'Personio'));
 
   storeLastErrorData(message: string, redirectPage: string) {
     this.message = message;
@@ -50,7 +56,7 @@ export class ErrorService {
     return error.error;
   }
 
-  setLivenessInfo(livenessInfo: LivenessInfoList): void {
-    this.livenessInfo.next(livenessInfo);
+  setWellnessResponse(wellnessResponse: HealthResponse): void {
+    this.wellnessResponseSubject.next(wellnessResponse);
   }
 }

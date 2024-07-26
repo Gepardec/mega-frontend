@@ -45,9 +45,9 @@
         <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
 
         <div class="zep_and_user_container">
-          <button (click)="showLivenessInfo()">
+          <button (click)="onAlertClick()">
             <mat-icon>notifications</mat-icon>
-            <span *ngIf="hasDownStatus" class="warning-dot"></span>
+            <span *ngIf="errorService.isDown()" class="warning-dot"></span>
           </button>
 
           <a

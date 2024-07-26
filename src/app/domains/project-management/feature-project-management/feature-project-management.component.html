@@ -16,10 +16,10 @@
     </mat-toolbar>
   </div>
 
-  <div *ngIf="livenessInfo?.status.toLowerCase() === LivenessType.DOWN">
+  <div *ngIf="this.errorService.isDown()">
     <app-third-party-service-error [extraClasses]="'mat-elevation-z6 mt-10 full-width bigger-font'"></app-third-party-service-error>
   </div>
-  <div class="mat-elevation-z6" *ngIf="!livenessInfo || livenessInfo?.status.toLowerCase() === LivenessType.UP">
+  <div class="mat-elevation-z6" *ngIf="this.errorService.isUp()">
     <mat-card *ngIf="!pmEntries; else datatable">
       <mat-card-content>
         <ngx-skeleton-loader [theme]="{ height: '125px' }"
