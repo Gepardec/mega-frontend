@@ -3,7 +3,11 @@
     [monthlyReport]="monthlyReport"
     (refreshMonthlyReport)="emitRefreshMonthlyReport()"/>
 
-  <div [ngClass]="'mega-dash-grid'">
+  <div *ngIf="errorService.isDown()">
+    <app-third-party-service-error [extraClasses]="'fill-parent full-height'"></app-third-party-service-error>
+  </div>
+
+  <div *ngIf="errorService.isUp()" [ngClass]="'mega-dash-grid'">
     <app-time-check
       [monthlyReport]="monthlyReport"
       [ngClass]="'time-check-grid'"/>

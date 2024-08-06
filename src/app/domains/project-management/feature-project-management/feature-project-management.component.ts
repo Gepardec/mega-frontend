@@ -16,6 +16,7 @@ import {ProjectManagementService} from '@mega/project-management/data-service';
 import {
   CommentService,
   ConfigService,
+  ErrorService,
   ProjectCommentService,
   ProjectEntriesService,
   SnackbarService,
@@ -41,6 +42,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {NgClass, NgFor, NgIf} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {
+  ThirdPartyServiceErrorComponent
+} from '../ui-common/third-party-service-error/third-party-service-error.component';
 
 const moment = _moment;
 
@@ -71,7 +75,8 @@ const moment = _moment;
     DoneCommentsIndicatorComponent,
     BillableTimesComponent,
     BillableTimesFractionComponent,
-    TranslateModule
+    TranslateModule,
+    ThirdPartyServiceErrorComponent
   ]
 })
 export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
@@ -108,7 +113,8 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
               private projectEntryService: ProjectEntriesService,
               private snackbarService: SnackbarService,
               private translate: TranslateService,
-              private projectCommentService: ProjectCommentService) {
+              private projectCommentService: ProjectCommentService,
+              public errorService: ErrorService) {
   }
 
   get date() {

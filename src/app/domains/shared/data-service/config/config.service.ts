@@ -4,6 +4,7 @@ import {Config} from '@mega/shared/data-model';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {tap} from 'rxjs/operators';
+import {HealthResponse} from '../../data-model/HealthResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class ConfigService {
 
   getBackendUrlWithContext(context: string): string {
     return this.getBackendUrl() + context;
+  }
+
+  getWellness(): Observable<HealthResponse> {
+    return this.httpClient.get<HealthResponse>(this.getBackendUrlWithContext('/health/well'));
   }
 }

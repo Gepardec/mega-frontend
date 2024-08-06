@@ -12,6 +12,11 @@ import {EnterpriseCardComponent} from './enterprise-card/enterprise-card.compone
 import {DatepickerMonthYearComponent} from '@mega/shared/ui-common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {ErrorService} from '@mega/shared/data-service';
+import {NgIf} from '@angular/common';
+import {
+  ThirdPartyServiceErrorComponent
+} from '../../project-management/ui-common/third-party-service-error/third-party-service-error.component';
 
 const moment = _moment;
 
@@ -29,6 +34,8 @@ const moment = _moment;
     EmployeeCardComponent,
     TranslateModule,
     MatBottomSheetModule,
+    ThirdPartyServiceErrorComponent,
+    NgIf,
   ]
 })
 export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
@@ -38,7 +45,9 @@ export class FeatureOfficeManagementComponent implements OnInit, OnDestroy {
   dateSelectionSub: Subscription;
   maxMonthDate: number = 1;
 
-  constructor(private omService: OfficeManagementService) {
+  constructor(private omService: OfficeManagementService,
+              public errorService: ErrorService
+  ) {
   }
 
   get date() {

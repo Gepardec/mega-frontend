@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ConfigService, RolesService, UserService} from '@mega/shared/data-service';
+import {ConfigService, ErrorService, RolesService, UserService} from '@mega/shared/data-service';
 import {Observable, Subscription} from 'rxjs';
 import {Config, Link, User} from '@mega/shared/data-model';
 import {TranslateService} from '@ngx-translate/core';
@@ -53,7 +53,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private userService: UserService,
               private translate: TranslateService,
               private breakpointObserver: BreakpointObserver,
-              private configService: ConfigService) {
+              private configService: ConfigService,
+              public errorService: ErrorService) {
     translate.get('PAGE_NAMES').subscribe(PAGE_NAMES => {
       this.links.push({name: PAGE_NAMES.MONTHLY_REPORT, path: configuration.PAGE_URLS.MONTHLY_REPORT});
       this.links.push({name: PAGE_NAMES.OFFICE_MANAGEMENT, path: configuration.PAGE_URLS.OFFICE_MANAGEMENT});
@@ -65,6 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userSubscription = this.userService.user.subscribe((user) => {
       this.user = user;
     });
+
     this.configService.getConfig().subscribe((config: Config) => {
       this.zepUrl = config.zepOrigin;
     });
@@ -76,6 +78,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   showLink(link: Link): boolean {
     return this.rolesService.isAllowed(link.path);
+  }
+
+  onAlertClick(): void {
+    if (!!this.errorService.wellness()) {
+      let message = '';
+
+      let zepCheck = this.errorService.getZepCheck();
+      let personioCheck = this.errorService.getPersonioCheck();
+
+      if (zepCheck) {
+        message += `ZEP ist ${zepCheck.status.toLowerCase()}.\n`;
+      } else {
+        message += 'ZEP entry not found\n';
+      }
+
+      if (personioCheck) {
+        message += `Personio ist ${personioCheck.status.toLowerCase()}.`;
+      } else {
+        message += 'Personio entry not found';
+      }
+
+      alert(message);
+    } else {
+      alert('Wellness ist nicht verfügbar.');
+    }
   }
 
   onLogout(): void {

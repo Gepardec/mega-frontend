@@ -45,6 +45,11 @@
         <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
 
         <div class="zep_and_user_container">
+          <button (click)="onAlertClick()">
+            <mat-icon>notifications</mat-icon>
+            <span *ngIf="errorService.isDown()" class="warning-dot"></span>
+          </button>
+
           <a
             [href]="zepUrl"
             mat-mini-fab

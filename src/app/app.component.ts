@@ -1,12 +1,13 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
 import {authConfig, cypressAuthConfig} from '@mega/shared/util-auth';
-import {Router} from '@angular/router';
-import {ConfigService, UserService} from '@mega/shared/data-service';
-import {firstValueFrom, Subscription} from 'rxjs';
+import {ConfigService, ErrorService, UserService} from '@mega/shared/data-service';
+import {catchError, firstValueFrom, of, switchMap, timer} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import { InfoComponent } from './domains/shared/ui-common/info/info.component';
-import { HeaderComponent } from './domains/shared/ui-common/header/header.component';
+import {HeaderComponent, InfoComponent} from '@mega/shared/ui-common';
+import {HttpErrorResponse} from '@angular/common/http';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import {HealthResponse} from './domains/shared/data-model/HealthResponse';
 
 @Component({
     selector: 'app-root',
@@ -15,18 +16,34 @@ import { HeaderComponent } from './domains/shared/ui-common/header/header.compon
     standalone: true,
     imports: [HeaderComponent, InfoComponent]
 })
+export class AppComponent implements OnInit {
+  constructor(
+    private oAuthService: OAuthService,
+    private configService: ConfigService,
+    private userService: UserService,
+    private translate: TranslateService,
+    private errorService: ErrorService,
+  ) {
+    this.translate.addLangs(['de']);
+    this.translate.setDefaultLang('de');
 
-export class AppComponent implements OnInit, OnDestroy {
-
-  configServiceSubscription: Subscription;
-
-  constructor(private router: Router,
-              private oAuthService: OAuthService,
-              private configService: ConfigService,
-              private userService: UserService,
-              private translate: TranslateService) {
-    translate.addLangs(['de']);
-    translate.setDefaultLang('de');
+    // Query wellness endpoint every minute
+    timer(0, 60 * 1000)
+      .pipe(
+        takeUntilDestroyed(),
+        switchMap(() =>
+          this.configService
+            .getWellness()
+            .pipe(
+              catchError((error: HttpErrorResponse) =>
+                of(error.error as HealthResponse)
+              )
+            )
+        )
+      )
+      .subscribe((wellnessResponse) =>
+        this.errorService.setWellnessResponse(wellnessResponse)
+      );
   }
 
   async ngOnInit(): Promise<void> {
@@ -46,9 +63,5 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.userService.loggedInWithGoogle()) {
       this.userService.loginUser();
     }
-  }
-
-  ngOnDestroy(): void {
-    this.configServiceSubscription?.unsubscribe();
   }
 }
