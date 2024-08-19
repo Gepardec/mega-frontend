@@ -11,7 +11,7 @@ RUN npm ci \
    && node ./node_modules/@angular/cli/bin/ng build --configuration=production
 
 ### STAGE 2: Run ###
-FROM bitnami/nginx:latest
+FROM bitnami/nginx:1.27.1-debian-12-r0
 
 ENV WORKDIR=/work
 ENV APPNAME=frontend
