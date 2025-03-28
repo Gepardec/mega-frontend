@@ -1,7 +1,7 @@
 <mat-card appearance="raised" class="fill-parent bills-card">
   <mat-card-header>
     <mat-card-title>
-      <ngx-skeleton-loader *ngIf="!billInfo else title"
+      <ngx-skeleton-loader *ngIf="billInfo === undefined else title"
                            [theme]="{ height: '30px', width: '250px' }"
                            appearance="line"></ngx-skeleton-loader>
 
@@ -11,7 +11,7 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content [class.no-warnings]="!billInfo?.hasAttachmentWarnings && billInfo?.sumBills === 0 && !billInfo.employeeHasCreditCard" >
-    <ng-container *ngIf="!billInfo">
+    <ng-container *ngIf="billInfo === undefined">
       <ngx-skeleton-loader [theme]="{ height: '56px' }"
                            appearance="line"></ngx-skeleton-loader>
       <ngx-skeleton-loader [theme]="{ height: '56px' }"

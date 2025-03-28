@@ -40,7 +40,7 @@ export class BillsComponent implements OnChanges {
   // to avoid calling REST before employeeId is present
   @Input({required: true})
   employee: Employee;
-  billInfo: MonthlyBillInfoData;
+  billInfo?: MonthlyBillInfoData | null;
   displayedColumns = ['description', 'icon', 'value'];
   billInfoData: BillInfoData[] = [];
 
