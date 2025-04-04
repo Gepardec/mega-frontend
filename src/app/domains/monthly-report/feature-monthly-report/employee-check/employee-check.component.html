@@ -102,7 +102,7 @@
               <button
                 (click)='setOpenAndUnassignedStepEntriesDone()'
                 class='employee-check__primary_button mt-10' color='primary'
-                data-cy='buchungen_bestaetigen_btn'
+                data-testid='buchungen_bestaetigen_btn'
                 mat-raised-button>{{ 'monthly-report.confirmBtnText' | translate }}
               </button>
             </ng-container>
@@ -113,7 +113,7 @@
                 [matTooltipShowDelay]='tooltipShowDelay'
                 class='employee-check__primary_button mt-10'
                 color='primary'
-                data-cy='buchungen_vorzeitig_bestaetigen_btn'
+                data-testid='buchungen_vorzeitig_bestaetigen_btn'
                 mat-raised-button
                 matTooltip="{{'monthly-report.prematureEmployeeCheck.prematureEmployeeCheckTooltip' | translate}}">{{ 'monthly-report.prematureEmployeeCheck.confirmBtnText' | translate }}
               </button>

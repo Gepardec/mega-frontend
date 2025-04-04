@@ -3,6 +3,6 @@
             [class.select-green]="select.value === State.DONE"
             [class.select-red]="select.value === State.OPEN"
             [value]="value">
-  <mat-option [value]="State.OPEN" data-cy="option-open">{{'STATE.OPEN' | translate}}</mat-option>
-  <mat-option [value]="State.DONE" data-cy="option-done">{{'STATE.DONE' | translate}}</mat-option>
+  <mat-option [value]="State.OPEN" data-testid="option-open">{{'STATE.OPEN' | translate}}</mat-option>
+  <mat-option [value]="State.DONE" data-testid="option-done">{{'STATE.DONE' | translate}}</mat-option>
 </mat-select>

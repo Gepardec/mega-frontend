@@ -59,7 +59,7 @@
             </span>
                   </td>
                   <td>
-                    <app-project-state-select data-cy="project-controlling" #controlProjectStateSelect
+                    <app-project-state-select data-testid="project-controlling" #controlProjectStateSelect
                                               (selectionChange)="onChangeControlProjectState($event, pmEntry, controlProjectStateSelect)"
                                               [value]="pmEntry.controlProjectState"></app-project-state-select>
                     <mat-checkbox (change)="onChangePresetControlProjectState($event, pmEntry)"
@@ -80,7 +80,7 @@
             </span>
                   </td>
                   <td class="states">
-                    <app-project-state-select data-cy="billing" #controlBillingStateSelect
+                    <app-project-state-select data-testid="billing" #controlBillingStateSelect
                                               (selectionChange)="onChangeControlBillingState($event, pmEntry, controlBillingStateSelect)"
                                               [value]="pmEntry.controlBillingState"></app-project-state-select>
                     <mat-checkbox (change)="onChangePresetControlBillingState($event, pmEntry)"
@@ -157,7 +157,7 @@
                 >{{'project-management.table.projectCheckState' | translate}}</mat-header-cell>
                 <mat-cell *matCellDef="let row" class="text-center">
                   <span class="mobile-label">{{'project-management.table.projectCheckState' | translate}}</span>
-                  <app-state-select data-cy="project-state"
+                  <app-state-select data-testid="project-state"
                                     (selectionChange)="updateProjectCheck($event, row, pmEntry)"
                                     [value]="row.projectCheckState"></app-state-select>
                 </mat-cell>
@@ -175,7 +175,7 @@
                     [matTooltipShowDelay]="100"
                     [matTooltip]="row.employeeCheckStateReason"
                     matTooltipClass="mega-custom-tooltip">
-                    <app-state-indicator [state]="row.employeeCheckState" data-cy="employee-check"></app-state-indicator>
+                    <app-state-indicator [state]="row.employeeCheckState" data-testid="employee-check"></app-state-indicator>
                   </div>
 
                 </mat-cell>
@@ -187,7 +187,7 @@
                 >{{'project-management.table.internalCheckState' | translate}}</mat-header-cell>
                 <mat-cell *matCellDef="let row" class="text-center">
                   <span class="mobile-label">{{'project-management.table.internalCheckState' | translate}}</span>
-                  <app-state-indicator data-cy="internal-check" [state]="row.internalCheckState"></app-state-indicator>
+                  <app-state-indicator data-testid="internal-check" [state]="row.internalCheckState"></app-state-indicator>
                 </mat-cell>
                 <mat-footer-cell *matFooterCellDef></mat-footer-cell>
               </ng-container>
@@ -198,7 +198,7 @@
                 <mat-cell *matCellDef="let row" class="text-center">
                   <span class="mobile-label">{{'project-management.table.comments' | translate}}</span>
                   <button (click)="openDialog(row.employee, pmEntry.projectName)"
-                          data-cy="open-comments"
+                          data-testid="open-comments"
                           aria-label="comment"
                           mat-button>
                     <mat-icon class="done-comments-indicator-icon">comment</mat-icon>

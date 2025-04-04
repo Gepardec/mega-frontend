@@ -18,7 +18,7 @@
             <app-project-state-select #zepTimesReleasedSelect
                                       (selectionChange)="onChangeEnterpriseState($event, EnterpriseStep.ZEP_TIMES_RELEASED, zepTimesReleasedSelect)"
                                       [value]="enterpriseEntry?.zepTimesReleased"
-                                      data-cy="zep-times-released"></app-project-state-select>
+                                      data-testid="zep-times-released"></app-project-state-select>
           </div>
           <div>
             <strong
@@ -29,7 +29,7 @@
             <app-project-state-select #chargeabilityExternalEmployeesRecordedSelect
                                       (selectionChange)="onChangeEnterpriseState($event, EnterpriseStep.CHARGEABILITY_EXTERNAL_EMPLOYEES_RECORDED, chargeabilityExternalEmployeesRecordedSelect)"
                                       [value]="enterpriseEntry?.chargeabilityExternalEmployeesRecorded"
-                                      data-cy="chargeability-external-employees"></app-project-state-select>
+                                      data-testid="chargeability-external-employees"></app-project-state-select>
           </div>
           <div>
             <strong [matTooltipPosition]="tooltipPosition"
@@ -39,7 +39,7 @@
             <app-project-state-select #payrollAccountingSentSelect
                                       (selectionChange)="onChangeEnterpriseState($event, EnterpriseStep.PAYROLL_ACCOUNTING_SENT, payrollAccountingSentSelect)"
                                       [value]="enterpriseEntry?.payrollAccountingSent"
-                                      data-cy="payroll-accounting-sent"></app-project-state-select>
+                                      data-testid="payroll-accounting-sent"></app-project-state-select>
           </div>
         </div>
       </div>

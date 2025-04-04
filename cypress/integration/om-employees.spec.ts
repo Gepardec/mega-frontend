@@ -53,8 +53,8 @@ describe('Office Management (Mitarbeiter)', () => {
 
   it('should contain one element in employee table in card with title "Mitarbeiter"', () => {
     visitAndWaitForRequests('/officeManagement');
-    cy.get('[data-cy="employee-card"] mat-card-title').should('have.text', 'Mitarbeiter');
-    cy.get('[data-cy="employee-table"]').should('have.length', 1);
+    cy.get('[data-testid="employee-card"] mat-card-title').should('have.text', 'Mitarbeiter');
+    cy.get('[data-testid="employee-table"]').should('have.length', 1);
   });
 
   it('should display all employee checks "open"', () => {
@@ -72,7 +72,7 @@ describe('Office Management (Mitarbeiter)', () => {
       body: true
     }).as('updateEmployeeStateForOffice');
 
-    cy.get('app-state-select').click().get('[data-cy="option-done"]').click();
+    cy.get('app-state-select').click().get('[data-testid="option-done"]').click();
 
     cy.wait('@updateEmployeeStateForOffice').then((interception) => {
       cy.wrap(interception.request.body).as('requestData');
@@ -138,7 +138,7 @@ describe('Office Management (Mitarbeiter)', () => {
 
     visitAndWaitForRequests('/officeManagement');
 
-    cy.get('[data-cy="comment-indicator"]')
+    cy.get('[data-testid="comment-indicator"]')
       .should('contain.text', '0 / 1')
       .children('span')
       .should('have.class', 'red');
@@ -153,7 +153,7 @@ describe('Office Management (Mitarbeiter)', () => {
 
     visitAndWaitForRequests('/officeManagement');
 
-    cy.get('[data-cy="comment-indicator"]')
+    cy.get('[data-testid="comment-indicator"]')
       .should('contain.text', '1 / 1')
       .children('span')
       .should('have.class', 'green');
@@ -175,7 +175,7 @@ describe('Office Management (Mitarbeiter)', () => {
 
     cy.get('app-done-comments-indicator').should('contain.text', '− / −');
 
-    cy.get('[data-cy="open-comments"]').click();
+    cy.get('[data-testid="open-comments"]').click();
     cy.wait('@employee-comments-empty');
 
     // getallcommentsforemployee will return comments for further requests
@@ -190,25 +190,25 @@ describe('Office Management (Mitarbeiter)', () => {
     }).as('getOfficemanagemententriesWithComments');
 
     cy.get('app-comments-for-employee textarea').type('Hallo Chuck Norris!');
-    cy.get('app-comments-for-employee [data-cy="add-comment"]').click();
+    cy.get('app-comments-for-employee [data-testid="add-comment"]').click();
     cy.wait('@employee-comments');
     cy.wait('@getOfficemanagemententriesWithComments');
 
-    cy.get('[data-cy="employee-comments"] td:nth-child(4)').should('contain.text', 'Hallo Chuck Norris!');
+    cy.get('[data-testid="employee-comments"] td:nth-child(4)').should('contain.text', 'Hallo Chuck Norris!');
 
-    cy.get('[data-cy="close"]').click();
+    cy.get('[data-testid="close"]').click();
 
     cy.get('app-done-comments-indicator').should('contain.text', '0 / 1');
   });
 
   function assertCheck(attribute: 'employee-check' | 'internal-check' | 'customer-check' | 'project-check', icon: 'cancel' | 'check_circle') {
-    cy.get('[data-cy="' + attribute + '"] mat-icon')
+    cy.get('[data-testid="' + attribute + '"] mat-icon')
       .should('be.visible')
       .should('have.text', icon);
   }
 
   function assertSelect(attribute: string, text: string) {
-    cy.get('[data-cy="' + attribute + '"]')
+    cy.get('[data-testid="' + attribute + '"]')
       .should('be.visible')
       .should('have.text', text);
   }

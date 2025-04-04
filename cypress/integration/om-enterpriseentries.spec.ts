@@ -61,7 +61,7 @@ describe('Office Management (Unternehmen)', () => {
     visitAndWaitForRequests('/officeManagement');
     assertSelect('zep-times-released', 'Offen');
 
-    cy.get('[data-cy="zep-times-released"]').click().get('[data-cy="option-done"]').click();
+    cy.get('[data-testid="zep-times-released"]').click().get('[data-testid="option-done"]').click();
 
     cy.intercept('PUT', 'http://localhost:*/enterprise/entry/*/*', {
       body: true
@@ -96,7 +96,7 @@ describe('Office Management (Unternehmen)', () => {
       body: true
     }).as('updateEnterpriseEntry');
 
-    cy.get('[data-cy="chargeability-external-employees"]').click().get('[data-cy="option-in-progress"]').click();
+    cy.get('[data-testid="chargeability-external-employees"]').click().get('[data-testid="option-in-progress"]').click();
 
     cy.get('@updateEnterpriseEntry').its('request.body').should('deep.equal', {
       ...enterprise,
@@ -121,7 +121,7 @@ describe('Office Management (Unternehmen)', () => {
       body: true
     }).as('updateEnterpriseEntry');
 
-    cy.get('[data-cy="payroll-accounting-sent"]').click().get('[data-cy="option-not-relevant"]').click();
+    cy.get('[data-testid="payroll-accounting-sent"]').click().get('[data-testid="option-not-relevant"]').click();
 
     cy.get('@updateEnterpriseEntry').its('request.body').should('deep.equal', {
       ...enterprise,
@@ -153,7 +153,7 @@ describe('Office Management (Unternehmen)', () => {
   });
 
   function assertSelect(attribute: 'zep-times-released' | 'chargeability-external-employees' | 'payroll-accounting-sent', text: string) {
-    return cy.get('[data-cy="' + attribute + '"]')
+    return cy.get('[data-testid="' + attribute + '"]')
       .should('be.visible')
       .should('have.text', text);
   }

@@ -90,7 +90,7 @@ describe('Projekt Management', () => {
 
     cy.get('app-done-comments-indicator').should('contain.text', '− / −');
 
-    cy.get('[data-cy="open-comments"]').click();
+    cy.get('[data-testid="open-comments"]').click();
     cy.wait('@employee-comments-empty');
 
     // getallcommentsforemployee will return comments for further requests
@@ -105,13 +105,13 @@ describe('Projekt Management', () => {
     }).as('getProjectmanagemententriesWithComments');
 
     cy.get('app-comments-for-employee textarea').type('Hallo Chuck Norris!');
-    cy.get('app-comments-for-employee [data-cy="add-comment"]').click();
+    cy.get('app-comments-for-employee [data-testid="add-comment"]').click();
     cy.wait('@employee-comments');
     cy.wait('@getProjectmanagemententriesWithComments');
 
-    cy.get('[data-cy="employee-comments"] td:nth-child(4)').should('contain.text', 'Hallo Chuck Norris!');
+    cy.get('[data-testid="employee-comments"] td:nth-child(4)').should('contain.text', 'Hallo Chuck Norris!');
 
-    cy.get('[data-cy="close"]').click();
+    cy.get('[data-testid="close"]').click();
 
     cy.get('app-done-comments-indicator').should('contain.text', '0 / 1');
   });
@@ -123,13 +123,13 @@ describe('Projekt Management', () => {
   }
 
   function assertCheck(attribute: 'employee-check' | 'internal-check' | 'customer-check', icon: 'cancel' | 'check_circle') {
-    cy.get('[data-cy="' + attribute + '"] mat-icon')
+    cy.get('[data-testid="' + attribute + '"] mat-icon')
       .should('be.visible')
       .should('have.text', icon);
   }
 
   function assertDropdownContent(attribute: string, content: string) {
-    cy.get('[data-cy="' + attribute + '"]')
+    cy.get('[data-testid="' + attribute + '"]')
       .should('be.visible')
       .should('have.text', content);
   }

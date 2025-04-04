@@ -40,7 +40,7 @@ describe('Mein Mega', () => {
       .should('have.text', 'Status zum Monatsabschluss');
 
 
-    cy.get('[data-cy="buchungen_bestaetigen_btn"]')
+    cy.get('[data-testid="buchungen_bestaetigen_btn"]')
       .should('have.text', 'Buchungen bestätigen')
       .click();
 

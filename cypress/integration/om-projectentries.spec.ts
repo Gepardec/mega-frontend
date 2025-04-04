@@ -52,8 +52,8 @@ describe('Office Management (Projekte)', () => {
 
   it('should contain one element in project table in card with title "Projekte"', () => {
     visitAndWaitForRequests('/officeManagement');
-    cy.get('[data-cy="project-card"] mat-card-title').should('have.text', 'Projekte');
-    cy.get('[data-cy="project-table"]').should('have.length', 1);
+    cy.get('[data-testid="project-card"] mat-card-title').should('have.text', 'Projekte');
+    cy.get('[data-testid="project-table"]').should('have.length', 1);
   });
 
   it('should display all project checks "open"', () => {
@@ -105,7 +105,7 @@ describe('Office Management (Projekte)', () => {
   });
 
   function assertCheck(attribute: 'employees-checked' | 'control-project' | 'project-billing', icon: 'cancel' | 'check_circle') {
-    cy.get('[data-cy="' + attribute + '"] mat-icon')
+    cy.get('[data-testid="' + attribute + '"] mat-icon')
       .should('be.visible')
       .should('have.text', icon);
   }
