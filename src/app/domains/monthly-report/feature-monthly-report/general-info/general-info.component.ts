@@ -29,8 +29,10 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
   @Input() monthlyReport: MonthlyReport;
 
   displayedColumns = ['description', 'value', 'unit'];
+  personioBaseUrl = 'https://gepardec.app.personio.com';
   public selectedDateStr;
   private dateSelectionSub: Subscription;
+  personioUrl: string;
 
   constructor(public monthlyReportService: MonthlyReportService, @Inject(LOCALE_ID) private locale: string) {
   }
@@ -47,6 +49,7 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.monthlyReport) {
       this.calculateDynamicValue();
+      this.generatePersonioUrl();
     }
   }
 
@@ -80,6 +83,20 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
         , this.monthlyReport.billableTime);
     }
   }
+
+  generatePersonioUrl() {
+    if (this.monthlyReport) {
+      const currentYear = new Date().getFullYear();
+      this.personioUrl = `${this.personioBaseUrl}/attendance/employee/${this.monthlyReport.personioId}/overtime?year=${currentYear}`
+    }
+  }
+
+  openPersonioOvertime(description: string) {
+    if (description === 'monthly-report.generalInfo.overtime') {
+      window.open(this.personioUrl);
+    }
+  }
+
 
   toGeneralInfoData(): GeneralInfoData[] {
     return [

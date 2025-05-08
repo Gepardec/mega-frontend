@@ -21,7 +21,7 @@
 
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.description | translate}} </mat-cell>
+          <mat-cell *matCellDef="let element" (click)=openPersonioOvertime(element.description)> {{element.description | translate}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="value">
