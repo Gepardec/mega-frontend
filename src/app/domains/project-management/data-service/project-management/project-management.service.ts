@@ -23,7 +23,7 @@ export class ProjectManagementService {
     const params: HttpParams = new HttpParams().append('all', `${all}`);
 
     return this.httpClient.get<Array<ProjectManagementEntry>>(
-      this.configService.getBackendUrlWithContext('/management/projectmanagemententries/' + year + '/' + month),
+      this.configService.getBackendUrlWithContext('/management/projectmanagemententries/' + year + '-' + month.toString().padStart(2, '0')),
       {
         params: params
       });
