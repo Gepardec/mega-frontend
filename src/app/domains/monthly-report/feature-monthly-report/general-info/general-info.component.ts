@@ -87,7 +87,7 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
   generatePersonioUrl() {
     if (this.monthlyReport) {
       const currentYear = new Date().getFullYear();
-      this.personioUrl = `${this.personioBaseUrl}/attendance/employee/${this.monthlyReport.personioId}/overtime?year=${currentYear}`
+      this.personioUrl = `${this.personioBaseUrl}/attendance/employee/${this.monthlyReport.employee.personioId}/overtime?year=${currentYear}`
     }
   }
 

@@ -24,5 +24,4 @@ export class MonthlyReport {
   guildLead: string;
   internalProjectLead: string;
   prematureEmployeeCheck?: PrematureEmployeeCheck;
-  personioId: string;
 }
