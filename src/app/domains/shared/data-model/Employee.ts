@@ -8,4 +8,5 @@ export class Employee {
   workDescription: string;
   salutation: string;
   active: boolean;
+  personioId: string;
 }

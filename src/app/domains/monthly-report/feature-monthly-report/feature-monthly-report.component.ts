@@ -61,7 +61,6 @@ export class FeatureMonthlyReportComponent implements OnInit {
       .subscribe((monthlyReport: MonthlyReport) => {
         if (monthlyReport) {
           this.monthlyReport = monthlyReport;
-
           const date = new Date(monthlyReport.initialDate);
           this.monthlyReportService.selectedMonth.next(date.getMonth() + 1);
           this.monthlyReportService.selectedYear.next(date.getFullYear());
