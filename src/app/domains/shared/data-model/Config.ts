@@ -5,4 +5,5 @@ export interface Config {
   version: string;
   budgetCalculationExcelUrl: string;
   zepOrigin: string;
+  personioOrigin: string;
 }

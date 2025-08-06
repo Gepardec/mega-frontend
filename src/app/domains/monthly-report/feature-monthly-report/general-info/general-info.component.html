@@ -21,7 +21,14 @@
 
         <ng-container matColumnDef="description">
           <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let element" (click)=openPersonioOvertime(element.description)> {{element.description | translate}} </mat-cell>
+          <mat-cell *matCellDef="let element">
+            <ng-container *ngIf="element.description === 'monthly-report.generalInfo.overtime'">
+              <a [href]="personioAttendanceUrl$ | async" target="_blank">{{element.description | translate}}</a>
+            </ng-container>
+            <ng-container *ngIf="element.description !== 'monthly-report.generalInfo.overtime'">
+              {{element.description | translate}}
+            </ng-container>
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="value">
