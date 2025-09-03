@@ -114,7 +114,7 @@ describe('CommentService', () => {
 
   class CommentsMock {
 
-    static dateFormat: string = configuration.dateFormat;
+    static dateFormat: string = configuration.yearMonthFormat;
 
     static get(): Array<Comment> {
       return [

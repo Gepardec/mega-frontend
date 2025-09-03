@@ -13,6 +13,7 @@ export const configuration = {
 
   dateFormat: 'YYYY-MM-DD',
   dateFormatNg: 'yyyy-MM-dd',
+  yearMonthFormat: 'YYYY-MM',
 
   LogLevel: {
     All: 0,

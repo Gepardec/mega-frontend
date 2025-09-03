@@ -399,6 +399,6 @@ export class FeatureProjectManagementComponent implements OnInit, OnDestroy {
   }
 
   private getFormattedDate() {
-    return moment().year(this.selectedYear).month(this.selectedMonth - 1).date(1).format(configuration.dateFormat);
+    return moment().year(this.selectedYear).month(this.selectedMonth - 1).date(1).format(configuration.yearMonthFormat);
   }
 }
