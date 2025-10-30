@@ -1,7 +1,7 @@
 import {Component, Inject, Input, LOCALE_ID, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {GeneralInfoData, MonthlyReport} from '@mega/monthly-report/data-model';
 import {MonthlyReportService} from '@mega/monthly-report/data-service';
-import {Subscription, zip} from 'rxjs';
+import {Subscription, withLatestFrom, zip} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
 import {toMonthYearString} from '@mega/shared/util-common';
 import {TranslateModule} from '@ngx-translate/core';
@@ -9,7 +9,7 @@ import {MatTableModule} from '@angular/material/table';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {AsyncPipe, DecimalPipe, NgIf} from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
-import {ConfigService} from '@mega/shared/data-service';
+import {ConfigService, UserService} from '@mega/shared/data-service';
 
 @Component({
   selector: 'app-general-info',
@@ -33,8 +33,9 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
   displayedColumns = ['description', 'value', 'unit'];
   personioAttendanceUrl$ = this.configService.getConfig()
     .pipe(
-      map(config => {
-        return `${config.personioOrigin}/attendance/employee/${this.monthlyReport.employee.personioId}/overtime?year=${new Date().getFullYear()}`
+      withLatestFrom(this.userService.user.pipe(map(user => user.personioId))),
+      map(([config, personioId]) => {
+        return `${config.personioOrigin}/attendance/employee/${personioId}/overtime?year=${new Date().getFullYear()}`
       })
     );
   public selectedDateStr;
@@ -43,6 +44,7 @@ export class GeneralInfoComponent implements OnInit, OnChanges, OnDestroy {
   constructor(
     public monthlyReportService: MonthlyReportService,
     private configService: ConfigService,
+    private userService: UserService,
     @Inject(LOCALE_ID) private locale: string,
   ) {
   }
