@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, isDevMode} from '@angular/core';
 import {environment} from 'src/environments/environment';
 import {Config} from '@mega/shared/data-model';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -26,8 +26,25 @@ export class ConfigService {
   }
 
   getBackendUrl(): string {
-    return window.location.origin.replace(environment.frontendOriginSegment, environment.backendOriginSegment);
+    const origin = window.location.origin.replace(environment.frontendOriginSegment, environment.backendOriginSegment);
+
+    if (isDevMode()) {
+      return origin;
+    }
+
+    return origin.replace('-temp', '');
   }
+
+  getNewFrontendUrl() {
+    const origin = window.location.origin;
+
+    if (isDevMode()) {
+      return origin;
+    }
+
+    return origin.replace('-temp', '');
+  }
+
 
   getBackendUrlWithContext(context: string): string {
     return this.getBackendUrl() + context;

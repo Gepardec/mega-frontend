@@ -1,37 +1,4 @@
-<div [ngClass]="'fill-parent'">
-  <app-information-top-bar
-    [monthlyReport]="monthlyReport"
-    (refreshMonthlyReport)="emitRefreshMonthlyReport()"/>
-
-  <div *ngIf="errorService.isDown()">
-    <app-third-party-service-error [extraClasses]="'fill-parent full-height'"></app-third-party-service-error>
-  </div>
-
-  <div *ngIf="errorService.isUp()" [ngClass]="'mega-dash-grid'">
-    <app-time-check
-      [monthlyReport]="monthlyReport"
-      [ngClass]="'time-check-grid'"/>
-
-    <app-employee-check
-      (refreshMonthlyReport)="emitRefreshMonthlyReport()"
-      [monthlyReport]="monthlyReport"
-      [ngClass]="'employee-check-grid'"/>
-
-    <app-general-info
-      [monthlyReport]="monthlyReport"
-      [ngClass]="'general-info-grid'"/>
-
-    <app-journey-check
-      [monthlyReport]="monthlyReport"
-      [ngClass]="'journey-check-grid'"/>
-
-    <app-bills
-      [employee]="monthlyReport?.employee"
-      [ngClass]="'bills-grid'"/>
-
-    <app-leads
-      [monthlyReport]="monthlyReport"
-      [ngClass]="'leads-grid'"/>
-  </div>
-</div>
-
+Du hast dich verirrt? Kein Problem! Klicke einfach auf den Button unten, um zum neuen Dashboard zu kommen.
+<button mat-flat-button color="primary" (click)="onClickNewDashboard()">
+  Zum neuen Dashboard
+</button>
