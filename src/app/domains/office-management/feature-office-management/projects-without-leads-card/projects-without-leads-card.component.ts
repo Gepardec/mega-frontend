@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ProjectManagementService} from '@mega/project-management/data-service';
 import {finalize} from 'rxjs';
 import {CustomerProjectWithoutLeads} from '@mega/shared/data-model';
 import {TranslateModule} from '@ngx-translate/core';
@@ -10,6 +9,7 @@ import {StateIndicatorComponent} from '@mega/shared/ui-common';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {NgIf} from '@angular/common';
+import {OfficeManagementService} from "@mega/office-management/data-service";
 
 @Component({
   selector: 'app-projects-without-leads-card',
@@ -29,7 +29,7 @@ import {NgIf} from '@angular/common';
 })
 export class ProjectsWithoutLeadsCardComponent implements OnInit {
 
-  constructor(private pmService: ProjectManagementService) {
+  constructor(private omService: OfficeManagementService) {
   }
 
   public projectsWithoutLeads: CustomerProjectWithoutLeads[];
@@ -37,7 +37,7 @@ export class ProjectsWithoutLeadsCardComponent implements OnInit {
   public displayedColumns = ['name', 'comment'];
 
   ngOnInit(): void {
-    this.pmService.getProjectsWithoutLeads()
+    this.omService.getProjectsWithoutLeads()
       .pipe(
         finalize(() => this.loaded = true)
       )

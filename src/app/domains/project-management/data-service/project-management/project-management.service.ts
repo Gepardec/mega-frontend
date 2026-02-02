@@ -4,7 +4,6 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import * as _moment from 'moment';
-import {CustomerProjectWithoutLeads} from '@mega/shared/data-model';
 
 const moment = _moment;
 
@@ -23,15 +22,9 @@ export class ProjectManagementService {
     const params: HttpParams = new HttpParams().append('all', `${all}`);
 
     return this.httpClient.get<Array<ProjectManagementEntry>>(
-      this.configService.getBackendUrlWithContext('/management/projectmanagemententries/' + year + '-' + month.toString().padStart(2, '0')),
+      this.configService.getBackendUrlWithContext('/projectmanagement/projectmanagemententries/' + year + '-' + month.toString().padStart(2, '0')),
       {
         params: params
       });
-  }
-
-  getProjectsWithoutLeads() {
-    return this.httpClient.get<CustomerProjectWithoutLeads[]>(
-      this.configService.getBackendUrlWithContext('/management/projectsWithoutLeads')
-    );
   }
 }

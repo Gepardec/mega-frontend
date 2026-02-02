@@ -4,14 +4,14 @@ import {ProjectOverviewCardComponent} from './project-overview-card.component';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ProjectManagementService} from '@mega/project-management/data-service';
 import {ConfigService, ProjectCommentService, SnackbarService} from '@mega/shared/data-service';
 import {Config, Employee, ManagementEntry, ProjectComment, ProjectState, State} from '@mega/shared/data-model';
 import {of} from 'rxjs';
-import {ProjectManagementEntry} from '@mega/project-management/data-model';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {ProjectOverview} from "../../data-model/project-overview";
+import {OfficeManagementService} from "@mega/office-management/data-service";
 
 describe('ProjectOverviewCardComponent', () => {
 
@@ -19,7 +19,7 @@ describe('ProjectOverviewCardComponent', () => {
   let fixture: ComponentFixture<ProjectOverviewCardComponent>;
 
   let configService: ConfigService;
-  let projectManagementService: ProjectManagementService;
+  let projectManagementService: OfficeManagementService;
   let projectCommentService: ProjectCommentService;
   let translateService: TranslateService;
   let snackbarService: SnackbarService;
@@ -40,7 +40,7 @@ describe('ProjectOverviewCardComponent', () => {
       component = fixture.componentInstance;
 
       configService = TestBed.inject(ConfigService);
-      projectManagementService = TestBed.inject(ProjectManagementService);
+      projectManagementService = TestBed.inject(OfficeManagementService);
       projectCommentService = TestBed.inject(ProjectCommentService);
       translateService = TestBed.inject(TranslateService);
       snackbarService = TestBed.inject(SnackbarService);
@@ -54,7 +54,7 @@ describe('ProjectOverviewCardComponent', () => {
   it('#afterInit - should call projectManagementService.getEntries and projectCommentService.get', fakeAsync(() => {
     fixture.detectChanges();
 
-    spyOn(projectManagementService, 'getEntries').and.returnValue(of(ProjectManagementEntryMock.projectManagementEntries));
+    spyOn(projectManagementService, 'projectOverview').and.returnValue(of(ProjectOverviewMock.projectOverviews));
     spyOn(projectCommentService, 'get').and.returnValue(of(ProjectCommentMock.projectComment));
 
     component.ngOnInit();
@@ -75,14 +75,6 @@ describe('ProjectOverviewCardComponent', () => {
     expect(component.dateSelectionSub.unsubscribe).toHaveBeenCalled();
   }));
 
-  it('#areAllEmployeeChecksDone - should check if all employees are checked', () => {
-    fixture.detectChanges();
-
-    const checkDone: ProjectState = component.areAllEmployeeChecksDone(ProjectManagementEntryMock.projectManagementEntries[0]);
-
-    expect(checkDone).toEqual(ProjectState.DONE);
-  });
-
   it('#onStartEditing - should set forProjectName and showCommentEditor', () => {
     fixture.detectChanges();
 
@@ -101,8 +93,8 @@ describe('ProjectOverviewCardComponent', () => {
     spyOn(projectCommentService, 'update').and.returnValue(of(false));
     spyOn(snackbarService, 'showSnackbarWithMessage').and.stub();
 
-    const projectManagementEntry: ProjectManagementEntry = ProjectManagementEntryMock.projectManagementEntries[0];
-    projectManagementEntry.projectComment = ProjectCommentMock.projectComment;
+    const projectManagementEntry: ProjectOverview = ProjectOverviewMock.projectOverviews[0];
+    projectManagementEntry.comment = ProjectCommentMock.projectComment;
 
     component.onCommentChange(projectManagementEntry, ProjectCommentMock.projectComment2.comment);
     flush();
@@ -117,8 +109,8 @@ describe('ProjectOverviewCardComponent', () => {
     spyOn(projectCommentService, 'update').and.returnValue(of(false));
     spyOn(snackbarService, 'showSnackbarWithMessage').and.stub();
 
-    const pmEntry = ProjectManagementEntryMock.projectManagementEntries[0];
-    pmEntry.projectComment = ProjectCommentMock.projectComment;
+    const pmEntry = ProjectOverviewMock.projectOverviews[0];
+    pmEntry.comment = ProjectCommentMock.projectComment;
 
     component.onCommentChange(pmEntry, ProjectCommentMock.comment);
 
@@ -166,7 +158,8 @@ describe('ProjectOverviewCardComponent', () => {
       issuer: 'issuer',
       scope: 'scope',
       version: 'version',
-      zepOrigin: 'zepOrigin'
+      zepOrigin: 'zepOrigin',
+      personioOrigin: 'personioOrigin'
     }
   }
 
@@ -228,18 +221,15 @@ describe('ProjectOverviewCardComponent', () => {
     ];
   }
 
-  class ProjectManagementEntryMock {
-    static projectManagementEntries: Array<ProjectManagementEntry> = [
+  class ProjectOverviewMock {
+    static projectOverviews: Array<ProjectOverview> = [
       {
-        entries: ManagementEntryMock.managementEntries,
-        controlProjectState: ProjectState.DONE,
-        controlBillingState: ProjectState.DONE,
-        projectName: 'LIW-Allgemein',
-        aggregatedBillableWorkTimeInSeconds: 10000,
-        aggregatedNonBillableWorkTimeInSeconds: 3000,
-        projectComment: null,
-        presetControlProjectState: false,
-        presetControlBillingState: true
+        zepId: 0,
+        name: 'LIW-Allgemein',
+        employeesChecked: State.DONE,
+        controllingState: ProjectState.DONE,
+        billingState: ProjectState.DONE,
+        comment: null,
       }
     ];
   }
