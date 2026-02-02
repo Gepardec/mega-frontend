@@ -1,6 +1,6 @@
 <mat-card data-cy="project-card" class="mat-elevation-z6 mt-10">
   <mat-card-header>
-    <mat-card-title>{{'office-management.projects' | translate}}</mat-card-title>
+    <mat-card-title>{{ 'office-management.projects' | translate }}</mat-card-title>
   </mat-card-header>
   <mat-card-content class="project-overview__content_container">
     <ng-container *ngIf="!pmEntries; else datatable">
@@ -17,19 +17,21 @@
                    data-cy="project-table">
 
           <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>{{'project-management.projectName' | translate}}</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef>{{ 'project-management.projectName' | translate }}</mat-header-cell>
             <mat-cell *matCellDef="let pmEntry" class="font-weight-bold">
-              <span class="mobile-label">{{'project-management.projectName' | translate}}</span>
-              <app-projekt-name-with-zep-link [projectName]="pmEntry.projectName" [zepId]="pmEntry.zepId"></app-projekt-name-with-zep-link>
+              <span class="mobile-label">{{ 'project-management.projectName' | translate }}</span>
+              <app-projekt-name-with-zep-link [projectName]="pmEntry.name"
+                                              [zepId]="pmEntry.zepId"></app-projekt-name-with-zep-link>
             </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="controlEmployeesState">
             <mat-header-cell *matHeaderCellDef class="text-center">
-              {{'project-management.employeeDone' | translate}}</mat-header-cell>
+              {{ 'project-management.employeeDone' | translate }}
+            </mat-header-cell>
             <mat-cell *matCellDef="let pmEntry" class="text-center">
-              <span class="mobile-label">{{'project-management.employeeDone' | translate}}</span>
-              <app-state-indicator [state]="areAllEmployeeChecksDone(pmEntry)"
+              <span class="mobile-label">{{ 'project-management.employeeDone' | translate }}</span>
+              <app-state-indicator [state]="pmEntry.employeesChecked"
                                    data-cy="employees-checked"></app-state-indicator>
             </mat-cell>
           </ng-container>
@@ -40,14 +42,14 @@
                   [matTooltipShowDelay]="tooltipShowDelay"
                   matTooltip="{{'project-management.tooltips.projectTimeState' | translate}}"
                   matTooltipClass="mega-custom-tooltip">
-              {{'project-management.projectTimeState' | translate}}
+              {{ 'project-management.projectTimeState' | translate }}
             </span>
             </mat-header-cell>
             <mat-cell *matCellDef="let pmEntry" class="text-center">
-              <span class="mobile-label">{{'project-management.projectTimeState' | translate}}</span>
+              <span class="mobile-label">{{ 'project-management.projectTimeState' | translate }}</span>
               <app-state-indicator [matTooltipShowDelay]="tooltipShowDelay"
-                                   [matTooltip]="getTooltipText(pmEntry.controlProjectState)"
-                                   [state]="pmEntry.controlProjectState"
+                                   [matTooltip]="getTooltipText(pmEntry.controllingState)"
+                                   [state]="pmEntry.controllingState"
                                    data-cy="control-project"></app-state-indicator>
             </mat-cell>
           </ng-container>
@@ -58,29 +60,30 @@
                   [matTooltipShowDelay]="tooltipShowDelay"
                   matTooltip="{{'project-management.tooltips.billingState' | translate}}"
                   matTooltipClass="mega-custom-tooltip">
-              {{'project-management.billingState' | translate}}
+              {{ 'project-management.billingState' | translate }}
             </span>
             </mat-header-cell>
             <mat-cell *matCellDef="let pmEntry" class="text-center">
-              <span class="mobile-label">{{'project-management.billingState' | translate}}</span>
+              <span class="mobile-label">{{ 'project-management.billingState' | translate }}</span>
               <app-state-indicator [matTooltipShowDelay]="tooltipShowDelay"
-                                   [matTooltip]="getTooltipText(pmEntry.controlBillingState)"
-                                   [state]="pmEntry.controlBillingState"
+                                   [matTooltip]="getTooltipText(pmEntry.billingState)"
+                                   [state]="pmEntry.billingState"
                                    data-cy="project-billing"></app-state-indicator>
             </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="comment">
             <mat-header-cell *matHeaderCellDef class="text-center">
-              {{'comments-for-employee.table.comment' | translate}}</mat-header-cell>
+              {{ 'comments-for-employee.table.comment' | translate }}
+            </mat-header-cell>
             <mat-cell *matCellDef="let pmEntry">
-              <span class="mobile-label">{{'comments-for-employee.table.comment' | translate}}</span>
-              <p (click)="onStartEditing(pmEntry.projectName)"
-                 *ngIf="pmEntry.projectComment?.comment && forProjectName !== pmEntry.projectName"
+              <span class="mobile-label">{{ 'comments-for-employee.table.comment' | translate }}</span>
+              <p (click)="onStartEditing(pmEntry.name)"
+                 *ngIf="pmEntry.comment?.comment && forProjectName !== pmEntry.name"
                  class="action-label"
-                 style="max-width: 850px">{{ pmEntry.projectComment?.comment }}</p>
-              <button (click)="onStartEditing(pmEntry.projectName)"
-                      *ngIf="!pmEntry.projectComment?.comment && forProjectName !== pmEntry.projectName"
+                 style="max-width: 850px">{{ pmEntry.comment?.comment }}</p>
+              <button (click)="onStartEditing(pmEntry.name)"
+                      *ngIf="!pmEntry.comment?.comment && forProjectName !== pmEntry.name"
                       [attr.aria-label]="'global.addComment' | translate"
                       class="btn-addComment gepardec-icon-button"
                       mat-icon-button
@@ -89,8 +92,8 @@
                 <mat-icon>add</mat-icon>
               </button>
               <app-inline-text-editor (commentChange)="onCommentChange(pmEntry, $event)"
-                                      *ngIf="showCommentEditor && forProjectName === pmEntry.projectName"
-                                      [comment]="pmEntry.projectComment?.comment"></app-inline-text-editor>
+                                      *ngIf="showCommentEditor && forProjectName === pmEntry.name"
+                                      [comment]="pmEntry.comment?.comment"></app-inline-text-editor>
             </mat-cell>
           </ng-container>
 
@@ -101,7 +104,7 @@
     </ng-template>
 
     <ng-template #noProjectsFound>
-      <mat-card>{{'office-management.noOmEntriesFound' | translate}}</mat-card>
+      <mat-card>{{ 'office-management.noOmEntriesFound' | translate }}</mat-card>
     </ng-template>
   </mat-card-content>
 </mat-card>
